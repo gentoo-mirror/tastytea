@@ -3,13 +3,13 @@ inherit cmake-utils
 
 DESCRIPTION="mastodon-cpp is a C++ wrapper for the Mastodon API."
 HOMEPAGE="https://github.com/tastytea/mastodon-cpp"
-SRC_URI="https://github.com/tastytea/mastodon-cpp/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/tastytea/mastodon-cpp/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 IUSE="doc debug examples"
-RDEPEND=">=dev-cpp/curlpp-0.8.1
-         examples? ( >=dev-libs/boost-1.63.0 )"
+RDEPEND=">=dev-cpp/curlpp-0.7.3
+         >=dev-libs/jsoncpp-1.8.1"
 DEPEND=">=dev-util/cmake-3.9.6
         doc? ( >=app-doc/doxygen-1.8.13-r1 )
         ${RDEPEND}"
@@ -44,7 +44,7 @@ src_install() {
 
     if use examples; then
         docinto examples
-        for file in src/examples/*.cpp; do
+        for file in examples/*.cpp; do
             dodoc ${file}
         done
     fi
