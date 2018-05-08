@@ -30,7 +30,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	dev-python/pycairo[${PYTHON_USEDEP}]
 	dev-python/pyasn1[${PYTHON_USEDEP}]
-	>=dev-python/python-nbxmpp-0.6.4[${PYTHON_USEDEP}]
+	>=dev-python/python-nbxmpp-0.6.5[${PYTHON_USEDEP}]
 	>=dev-python/pyopenssl-0.14[${PYTHON_USEDEP}]
 	dev-python/idna[${PYTHON_USEDEP}]
 	dev-python/precis_i18n[${PYTHON_USEDEP}]
