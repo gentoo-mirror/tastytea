@@ -34,5 +34,5 @@ src_compile()
 src_install() {
 	dobin bin/${PN}
 	dodoc README.md
-	einfo "This ebuild only installs the binary."
+	elog "This ebuild only installs the binary."
 }
