@@ -22,6 +22,15 @@ src_prepare() {
 	mkdir -p src/github.com/wlbr
 	cd src/github.com/wlbr
 	ln -s feiertage ../../../
-	sed -Ei 's|GOOS=linux GOARCH=amd64 +([^_]+feiertage)_linux[^ ]+ +(cmd/.+)|\1 \2|' Makefile
-	sed -Ei 's|GOOS=.*\.go||' Makefile
+	cd ../../../
+	ls
+	sed -Ei 's|GOOS=linux GOARCH=amd64 +([^_]+feiertage)_linux[^ ]+ +(cmd/.+)|\1 \2|' Makefile || die
+	sed -Ei 's|GOOS=.*\.go||' Makefile || die
+	default_src_prepare
+}
+
+src_install() {
+	dobin bin/${PN}
+	dodoc README.md
+	einfo "This ebuild only installs the binary."
 }
