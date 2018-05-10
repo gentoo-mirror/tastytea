@@ -21,12 +21,14 @@ DEPEND="${RDEPEND}
 src_prepare() {
 	mkdir -p src/github.com/wlbr
 	cd src/github.com/wlbr
-	ln -s feiertage ../../../
+	ln -s ../../../ feiertage
 	cd ../../../
-	ls
-	sed -Ei 's|GOOS=linux GOARCH=amd64 +([^_]+feiertage)_linux[^ ]+ +(cmd/.+)|\1 \2|' Makefile || die
-	sed -Ei 's|GOOS=.*\.go||' Makefile || die
 	default_src_prepare
+}
+
+src_compile()
+{
+	GOPATH="${WORKDIR}/${P}:$(get_golibdir_gopath)" go build -o bin/feiertage cmd/feiertage/feiertage.go
 }
 
 src_install() {
