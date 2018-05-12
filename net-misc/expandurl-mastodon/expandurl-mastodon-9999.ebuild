@@ -25,5 +25,5 @@ src_install() {
 	emake DESTDIR="${D}" install
 	dodoc README.md
 	doinitd init/expandurl-mastodon.openrc expandurl-mastodon
-	echo "USER=\"expandurl\"" | doconfd - expandurl-mastodon
+	echo "EXPANDURL_USER=\"expandurl\"" | doconfd - expandurl-mastodon
 }
