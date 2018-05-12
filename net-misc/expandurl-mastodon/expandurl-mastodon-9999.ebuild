@@ -20,3 +20,10 @@ DEPEND=">=dev-util/cmake-3.9.6
 src_unpack() {
 	git-r3_src_unpack
 }
+
+src_install() {
+	emake DESTDIR="${D}" install
+	dodoc README.md
+	doinitd init/expandurl-mastodon.openrc expandurl-mastodon
+	echo "USER=\"expandurl\"" | doconfd - expandurl-mastodon
+}
