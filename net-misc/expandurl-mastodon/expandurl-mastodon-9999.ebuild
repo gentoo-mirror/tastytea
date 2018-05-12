@@ -24,6 +24,6 @@ src_unpack() {
 src_install() {
 	cmake-utils_src_install
 	dodoc README.md
-	doinitd init/expandurl-mastodon.openrc expandurl-mastodon
-	echo "EXPANDURL_USER=\"expandurl\"" | doconfd - expandurl-mastodon
+	newinitd init/expandurl-mastodon.openrc expandurl-mastodon
+	echo "EXPANDURL_USER=\"expandurl\"" | newconfd - expandurl-mastodon
 }
