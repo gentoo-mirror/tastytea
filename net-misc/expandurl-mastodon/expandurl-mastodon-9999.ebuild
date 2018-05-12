@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -22,7 +22,7 @@ src_unpack() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install
+	cmake-utils_src_install
 	dodoc README.md
 	doinitd init/expandurl-mastodon.openrc expandurl-mastodon
 	echo "EXPANDURL_USER=\"expandurl\"" | doconfd - expandurl-mastodon
