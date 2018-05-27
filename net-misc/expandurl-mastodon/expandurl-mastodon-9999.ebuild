@@ -5,7 +5,7 @@
 EAPI=6
 inherit git-r3 cmake-utils
 
-DESCRIPTION="Mastodon bot that expands a shortened URL."
+DESCRIPTION="Mastodon bot that expands shortened URLs."
 HOMEPAGE="https://github.com/tastytea/expandurl-mastodon"
 EGIT_REPO_URI="https://github.com/tastytea/expandurl-mastodon.git"
 LICENSE="GPL-3"
@@ -13,7 +13,8 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 RDEPEND=">=dev-cpp/mastodon-cpp-9999
-		 >=dev-cpp/curlpp-0.8.1"
+		 >=dev-cpp/curlpp-0.8.1
+         >=dev-libs/libxdg-basedir-1.2.0-r1"
 DEPEND=">=dev-util/cmake-3.9.6
 		${RDEPEND}"
 
