@@ -6,8 +6,8 @@ EAPI=6
 inherit git-r3 cmake-utils
 
 DESCRIPTION="Another RSS to Mastodon bot"
-HOMEPAGE="https://github.com/tastytea/mastorss"
-EGIT_REPO_URI="https://github.com/tastytea/mastorss.git"
+HOMEPAGE="https://git.schlomp.space/tastytea/mastorss"
+EGIT_REPO_URI="https://git.schlomp.space/tastytea/mastorss.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
