@@ -29,7 +29,7 @@ src_configure() {
 }
 
 src_unpack() {
-    cmake-utils_src_unpack
+    default_src_unpack
     mv ${PN} ${P}
 }
 
