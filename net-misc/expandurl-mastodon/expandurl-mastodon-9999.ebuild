@@ -12,7 +12,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
-RDEPEND=">=dev-cpp/mastodon-cpp-9999
+RDEPEND=">=dev-cpp/mastodon-cpp-0.15.1
 		 >=dev-cpp/curlpp-0.8.1
          >=dev-libs/libxdg-basedir-1.2.0-r1"
 DEPEND=">=dev-util/cmake-3.9.6
