@@ -4,13 +4,13 @@
     <repo quality="experimental" status="unofficial">
         <name>tastytea</name>
         <description>Some ebuilds, no guarantees</description>
-        <homepage>https://git.tastytea.de/?p=overlay-tastytea.git;a=tree</homepage>
+        <homepage>https://git.schlomp.space/tastytea/overlay</homepage>
         <owner>
             <email>overlay@tastytea.de</email>
             <name>tastytea</name>
         </owner>
+        <source type="git">https://git.schlomp.space/tastytea/overlay.git</source>
         <source type="git">https://git.tastytea.de/repos/overlay-tastytea.git</source>
-        <source type="git">git://git.tastytea.de/repositories/overlay-tastytea.git</source>
         <feed>https://git.tastytea.de/?p=overlay-tastytea.git;a=atom</feed>
     </repo>
 </repositories>
