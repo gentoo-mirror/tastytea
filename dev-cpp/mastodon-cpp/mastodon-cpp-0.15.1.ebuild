@@ -28,6 +28,11 @@ src_configure() {
     cmake-utils_src_configure
 }
 
+src_unpack() {
+    cmake-utils_src_unpack
+    mv ${PN} ${P}
+}
+
 # We won't let cmake handle the documentation, because it would install the
 # examples, no matter if we want them.
 src_compile() {
