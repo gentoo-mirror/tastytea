@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-inherit meson vala
+inherit meson vala gnome2-utils
 
 DESCRIPTION="GTK3 client for Mastodon"
 HOMEPAGE="https://github.com/bleakgrey/tootle"
