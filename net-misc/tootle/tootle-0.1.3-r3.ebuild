@@ -21,7 +21,12 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 	export VALAC="$(type -p valac-$(vala_best_api_version))"
-	default_src_prepare
+	meson_src_prepare
+}
+
+src_install() {
+	meson_src_install
+	dosym ${EPREFIX}/usr/bin/{com.github.bleakgrey.,}tootle
 }
 
 pkg_postinst() {
