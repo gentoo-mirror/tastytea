@@ -21,7 +21,7 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 	export VALAC="$(type -p valac-$(vala_best_api_version))"
-	meson_src_prepare
+	default_src_prepare
 }
 
 src_install() {
