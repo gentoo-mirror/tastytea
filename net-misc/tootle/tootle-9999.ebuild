@@ -6,7 +6,7 @@ inherit meson vala gnome2-utils git-r3
 
 DESCRIPTION="GTK3 client for Mastodon"
 HOMEPAGE="https://github.com/bleakgrey/tootle"
-SRC_URI="https://github.com/bleakgrey/tootle/archive/${PV}.tar.gz -> ${P}.tar.gz"
+EGIT_REPO_URI="https://github.com/bleakgrey/tootle.git"
 KEYWORDS=""
 LICENSE="GPL-3"
 SLOT="0"
