@@ -68,5 +68,5 @@ src_install() {
 
 	# As everything is installed in /usr/share/games/${PN},
 	# a symlink is needed in /usr/games/bin
-	dosym ${PREFIX}/${PN} /usr/games/bin/${PN}
+	dosym ${PREFIX}/${PN} /usr/bin/${PN}
 }
