@@ -49,9 +49,11 @@ src_prepare() {
 
 src_configure() {
     local mycmakeargs=(
-        '-DWL_VERSION_STANDARD=true'
-        "-DWL_INSTALL_BASEDIR=${EPREFIX}"
-        "-DWL_INSTALL_DATADIR=${EPREFIX}"
+        "-DWL_VERSION_STANDARD=true"
+        "-DCMAKE_INSTALL_PREFIX="${EPREFIX}"/usr/share/games/${PN}"
+        "-DWL_INSTALL_PREFIX="${EPREFIX}"/usr/games"
+        "-DWL_INSTALL_DATADIR="${EPREFIX}"/usr/share/games/${PN}"
+        "-DWL_INSTALL_LOCALEDIR="${EPREFIX}"/usr/share/games/${PN}/locale"
         "-DWL_INSTALL_BINDIR="${EPREFIX}"/usr/bin"
     )
     cmake-utils_src_configure
