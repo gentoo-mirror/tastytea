@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit cmake-utils
+inherit cmake-utils gnome2-utils
 
 DESCRIPTION="An open-source Zelda-like 2D game engine"
 HOMEPAGE="http://www.solarus-games.org/"
