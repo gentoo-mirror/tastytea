@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -33,6 +33,7 @@ src_unpack() {
 	default
 	mv solarus-v${PV} solarus-${PV}
 }
+
 src_prepare() {
 	cmake-utils_src_prepare
 }
@@ -59,12 +60,10 @@ src_install() {
 	use doc && dodoc -r doc/${PV%.*}/html/*
 }
 
-pkg_postinst()
-{
+pkg_postinst() {
 	gnome2_icon_cache_update
 }
 
-pkg_postrm()
-{
+pkg_postrm() {
 	gnome2_icon_cache_update
 }
