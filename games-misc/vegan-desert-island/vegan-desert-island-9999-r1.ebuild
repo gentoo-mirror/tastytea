@@ -22,7 +22,7 @@ src_unpack() {
 }
 
 src_compile() {
-	echo -e "#\!/bin/sh\n\nsolarus-run /usr/share/${PN}" > ${PN}
+	echo -e '#!/bin/sh\n\nsolarus-run /usr/share/'"${PN}" > ${PN}
 }
 
 src_install() {
