@@ -7,4 +7,4 @@ LICENSE=GPL-3
 RDEPEND=>=games-engines/solarus-1.5.3-r2
 SLOT=0
 _eclasses_=git-r3	8f6de46b0aa318aea0e8cac62ece098b
-_md5_=c634594c766a3c639e464a872578b7c9
+_md5_=94e6f6fa6fc16b2dd4015e80a9face90
