@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile install unpack
+DEPEND=>=net-misc/curl-7.50.3 >=dev-libs/libconfig-1.5[cxx] >=dev-vcs/git-1.8.2.1[curl]
+DESCRIPTION=Extracts stream-URLs for entire seasons of tv series from bs.to
+EAPI=6
+HOMEPAGE=https://github.com/tastytea/seriespl
+IUSE=debug
+KEYWORDS=~amd64 ~x86 ~arm
+LICENSE=GPL-2
+RDEPEND=>=net-misc/curl-7.50.3 >=dev-libs/libconfig-1.5[cxx]
+SLOT=0
+_eclasses_=git-r3	8f6de46b0aa318aea0e8cac62ece098b
+_md5_=38e9a2ea094e72e8cf8f17507ad0c3ea

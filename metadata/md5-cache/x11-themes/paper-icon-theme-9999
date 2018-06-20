@@ -1,0 +1,10 @@
+DEFINED_PHASES=configure unpack
+DEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DESCRIPTION=Paper icon theme
+EAPI=6
+HOMEPAGE=https://snwh.org/paper
+KEYWORDS=~amd64 ~x86
+LICENSE=CC-BY-SA-4.0
+SLOT=0
+_eclasses_=git-r3	8f6de46b0aa318aea0e8cac62ece098b
+_md5_=8247af278f1a612a134c85bfe97ea4e6

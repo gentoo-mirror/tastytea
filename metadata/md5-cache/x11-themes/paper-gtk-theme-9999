@@ -1,0 +1,10 @@
+DEFINED_PHASES=configure unpack
+DEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DESCRIPTION=Paper Theme Suite for GTK 3 and GTK 2
+EAPI=6
+HOMEPAGE=https://snwh.org/paper
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+SLOT=0
+_eclasses_=git-r3	8f6de46b0aa318aea0e8cac62ece098b
+_md5_=24358c556e7353582bf404ca4078b88e
