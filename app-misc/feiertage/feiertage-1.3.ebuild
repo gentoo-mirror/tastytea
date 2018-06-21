@@ -4,7 +4,7 @@
 EAPI=6
 inherit golang-build
 
-DESCRIPTION="Gesetzliche Feiertage und mehr in Deutschland und Österreich (Bank holidays/public holidays in Austria and Germany)"
+DESCRIPTION="Bank holidays/public holidays in Austria and Germany"
 HOMEPAGE="https://github.com/wlbr/feiertage"
 SRC_URI="https://github.com/wlbr/feiertage/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 EGO_PN="."

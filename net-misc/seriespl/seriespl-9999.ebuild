@@ -1,6 +1,5 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 inherit git-r3
@@ -12,7 +11,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~arm"
 IUSE="debug"
 DEPEND=">=net-misc/curl-7.50.3
-		>=dev-libs/libconfig-1.5[cxx]"
+	>=dev-libs/libconfig-1.5[cxx]"
 RDEPEND="${DEPEND}"
 
 src_unpack() {

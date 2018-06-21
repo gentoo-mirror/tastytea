@@ -15,10 +15,10 @@ KEYWORDS="~amd64"
 IUSE=""
 
 RDEPEND=">=virtual/pam-0-r1
-		 >=sys-apps/keyutils-1.5.9-r4
-		 >=dev-libs/openssl-1.0.2o"
+	>=sys-apps/keyutils-1.5.9-r4
+	>=dev-libs/openssl-1.0.2o"
 DEPEND=">=dev-util/cmake-3.9.6
-		${RDEPEND}"
+	${RDEPEND}"
 
 src_configure() {
 	local mycmakeargs=(

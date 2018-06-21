@@ -1,8 +1,11 @@
+# Copyright 1999-2018 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
 EAPI="4"
 
 EGIT_REPO_URI="https://github.com/tastytea/hashboot.git"
 
-inherit eutils git-2
+inherit eutils git-r3
 
 DESCRIPTION="Check integrity of files in /boot"
 HOMEPAGE="https://git.tastytea.de/?p=hashboot.git"
@@ -28,7 +31,7 @@ PDEPEND="
 "
 
 src_unpack() {
-	git-2_src_unpack
+	git-r3_src_unpack
 }
 
 src_prepare() {
@@ -36,18 +39,17 @@ src_prepare() {
 	then
 		ewarn "hashboot does not work properly with parallel boot enabled."
 	fi
-	
+
 	mkdir init
 	mv initscript.openrc init/hashboot
 	mv LICENSE HUG-WARE
 }
 
-
 src_install() {
 	dodoc README
 	insinto /usr/portage/licenses
 	doins HUG-WARE
-	
+
 	dobin hashboot
 	doinitd init/hashboot
 }

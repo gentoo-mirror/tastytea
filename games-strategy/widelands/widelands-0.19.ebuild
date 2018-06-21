@@ -1,6 +1,5 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
@@ -12,21 +11,20 @@ DESCRIPTION="A game similar to Settlers 2"
 HOMEPAGE="http://www.widelands.org/"
 SRC_URI="https://launchpad.net/widelands/${MY_PV}/${MY_PV}/+download/${MY_P}.tar.bz2"
 
-
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="dev-lang/lua:0
-	>=dev-libs/boost-1.48
-	media-libs/glew
-	media-libs/libpng:0
+	>=dev-libs/boost-1.65.0
+	>=media-libs/glew-2.1.0
+	>=media-libs/libpng-1.6.34:0
 	media-libs/libsdl2[video]
 	media-libs/sdl2-image[jpeg,png]
 	media-libs/sdl2-mixer[vorbis]
-	media-libs/sdl2-net
-	media-libs/sdl2-ttf
+	>=media-libs/sdl2-net-2.0.1
+	>=media-libs/sdl2-ttf-2.0.14
 	sys-libs/zlib[minizip]"
 RDEPEND="${DEPEND}"
 
@@ -67,6 +65,6 @@ src_install() {
 	dodoc ChangeLog CREDITS
 
 	# As everything is installed in /usr/share/games/${PN},
-	# a symlink is needed in /usr/games/bin
+	# a symlink is needed in /usr/bin
 	dosym ${PREFIX}/${PN} /usr/bin/${PN}
 }

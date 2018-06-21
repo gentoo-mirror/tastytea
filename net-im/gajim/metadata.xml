@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>gentoo@tastytea.de</email>
+    <name>tastytea</name>
+  </maintainer>
+  <longdescription>
+    A fully featured and easy to use GTK+ Jabber client written in PyGTK.
+  </longdescription>
+  <use>
+    <flag name="geoclue">Use app-misc/geoclue</flag>
+    <flag name="gpg">Install dependencies for the GPG plugin</flag>
+    <flag name="idle">Enable idle module</flag>
+    <flag name="keyring">Use dev-python/keyring</flag>
+    <flag name="omemo">Install dependencies for the OMEMO plugin</flag>
+    <flag name="remote">Enable remote control utility</flag>
+    <flag name="rst">Enable dev-python/docutils for formatting</flag>
+  </use>
+</pkgmetadata>

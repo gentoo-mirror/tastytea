@@ -1,6 +1,5 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 inherit git-r3 cmake-utils
@@ -13,10 +12,10 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 RDEPEND=">=dev-cpp/mastodon-cpp-9999
-		 >=dev-cpp/curlpp-0.8.1
-		 >=dev-libs/jsoncpp-1.8.1"
+	>=dev-cpp/curlpp-0.8.1
+	>=dev-libs/jsoncpp-1.8.1"
 DEPEND=">=dev-util/cmake-3.9.6
-		${RDEPEND}"
+	${RDEPEND}"
 
 src_unpack() {
 	git-r3_src_unpack

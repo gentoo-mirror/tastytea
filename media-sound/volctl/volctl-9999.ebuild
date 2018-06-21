@@ -1,6 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 inherit git-r3
@@ -16,9 +15,9 @@ KEYWORDS="~amd64 ~x86"
 IUSE="+pavucontrol"
 DEPEND=""
 RDEPEND=">=dev-util/desktop-file-utils-0.23
-         >=media-sound/pulseaudio-9.0
-         >=dev-python/pygobject-2.28.6:2
-         pavucontrol? ( >=media-sound/pavucontrol-3.0 )"
+	>=media-sound/pulseaudio-9.0
+	>=dev-python/pygobject-2.28.6:2
+	pavucontrol? ( >=media-sound/pavucontrol-3.0 )"
 
 src_unpack() {
 	git-r3_src_unpack
