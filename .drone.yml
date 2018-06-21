@@ -1,0 +1,14 @@
+pipeline:
+  check:
+    image: chaoslab/repoman
+    pull: true
+    commands:
+      repoman full
+  notify:
+    when:
+      status: [ changed, failure ]
+    image: drillster/drone-email
+    pull: true
+    host: cryptoparty-celle.de
+    secrets: [ email_username, email_password ]
+    from: drone@tzend.de
