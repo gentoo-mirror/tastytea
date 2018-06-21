@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -16,11 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-RDEPEND="
-	|| (
-		<dev-libs/protobuf-3.1.0[python,${PYTHON_USEDEP}]
-		dev-python/protobuf-python[${PYTHON_USEDEP}]
-	)
+RDEPEND="dev-python/protobuf-python[${PYTHON_USEDEP}]
 	dev-python/pycrypto[${PYTHON_USEDEP}]
 	dev-python/python-axolotl-curve25519[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}
