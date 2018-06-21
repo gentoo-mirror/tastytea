@@ -1,6 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
 EAPI=5
 PYTHON_COMPAT=( python3_4 python3_5 )
@@ -29,6 +28,6 @@ pkg_preinst()
 {
 	if use zsh-completion; then
 		insinto /usr/share/zsh/site-functions
-		doins ${S}/misc/zsh/_khard
+		doins "${S}/misc/zsh/_khard"
 	fi
 }

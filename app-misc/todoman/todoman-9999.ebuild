@@ -1,6 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
 EAPI=6
 PYTHON_COMPAT=( python3_4 python3_5 )
@@ -29,4 +28,3 @@ RDEPEND=">=dev-python/atomicwrites-1.1.5-r2
 	>=dev-python/urwid-1.3.1"
 
 DOCS=( AUTHORS.rst CHANGELOG.rst README.rst misc/khard/khard.conf.example )
-
