@@ -5,4 +5,12 @@
     <email>gentoo@tastytea.de</email>
     <name>tastytea</name>
   </maintainer>
+  <upstream>
+    <maintainer status="active">
+        <name>tastytea</name>
+        <email>tastytea@tastytea.de</email>
+    </maintainer>
+    <doc>https://doc.schlomp.space/mastodon-cpp/</doc>
+    <bugs-to>https://schlomp.space/tastytea/mastodon-cpp/issues</bugs-to>
+  </upstream>
 </pkgmetadata>
