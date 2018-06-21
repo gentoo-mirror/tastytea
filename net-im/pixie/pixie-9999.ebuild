@@ -1,6 +1,5 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 inherit git-r3 cmake-utils
@@ -13,10 +12,10 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 RDEPEND=">=net-libs/gloox-1.0.18
-         >=dev-libs/libconfig-1.5[cxx]"
+	>=dev-libs/libconfig-1.5[cxx]"
 DEPEND=">=dev-util/cmake-3.7.2
-        ${RDEPEND}"
+	${RDEPEND}"
 
 src_unpack() {
-    git-r3_src_unpack
+	git-r3_src_unpack
 }
