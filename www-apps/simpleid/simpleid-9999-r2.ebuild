@@ -26,16 +26,8 @@ src_unpack() {
 
 src_install() {
 	keepdir /etc/simpleid
-
 	keepdir /var/cache/simpleid
-	if use nginx; then
-		fowners nginx:nginx /var/cache/simpleid
-	fi
-
 	keepdir /var/db/simpleid
-	if use nginx; then
-		fowners nginx:nginx /var/db/simpleid
-	fi
 
 	mv www/config.php{.dist,}
 	insinto /usr/share/webapps/simpleid
@@ -45,11 +37,15 @@ src_install() {
 }
 
 pkg_postinst() {
+	if use nginx; then
+		fowners nginx:nginx /var/cache/simpleid
+		fowners nginx:nginx /var/db/simpleid
+	fi
 	elog "Read https://simpleid.koinic.net/docs/2/installing/#directories carefully"
 	elog "to learn how to proceed with the installation."
-	if use nginx; then
-		einfo "The cache directory is: /var/cache/simpleid"
-		einfo "The identities directory is: /etc/simpleid"
-		einfo "The store directory is: /var/db/simpleid"
-	fi
+	elog ""
+	einfo "The cache directory is: /var/cache/simpleid"
+	einfo "The identities directory is: /etc/simpleid"
+	einfo "The store directory is: /var/db/simpleid"
+	einfo "The webserver needs write-access to the cache and store."
 }
