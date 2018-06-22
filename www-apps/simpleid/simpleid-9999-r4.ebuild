@@ -36,8 +36,9 @@ src_install() {
 	keepdir /var/cache/simpleid
 	keepdir /var/db/simpleid
 
-	insinto /etc/simpleid/identities
+	insinto /etc/simpleid
 	doins config.php
+	keepdir /etc/simpleid/identities
 
 	insinto /usr/share/webapps/simpleid
 	doins -r www
