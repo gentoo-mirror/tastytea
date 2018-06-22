@@ -19,6 +19,11 @@ RDEPEND=">=dev-lang/php-7.1.18:*
 DEPEND="${RDEPEND}
 	>=dev-php/composer-1.6.5"
 
+pkg_pretend () {
+	ewarn "This ebuild uses dev-php/composer for dependencies instead of Gentoo"
+	ewarn "packages. This is potentially insecure."
+}
+
 src_unpack() {
 	git-r3_src_unpack
 }
@@ -60,9 +65,4 @@ pkg_postinst() {
 	fi
 	elog "Read https://simpleid.koinic.net/docs/2/installing/#directories carefully"
 	elog "to learn how to proceed with the installation."
-}
-
-pkg_preinst() {
-	ewarn "This ebuild uses dev-php/composer for dependencies instead of Gentoo"
-	ewarn "packages. This is potentially insecure."
 }
