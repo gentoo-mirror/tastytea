@@ -1,0 +1,11 @@
+DEFINED_PHASES=install postinst unpack
+DEPEND=>=dev-lang/php-7.1.18:* >=dev-php/spyc-0.6.1 >=dev-php/symfony-console-2.7.9-r1 nginx? ( >=www-servers/nginx-1.12.2-r1:* ) >=dev-vcs/git-1.8.2.1[curl]
+DESCRIPTION=A simple, personal OpenID provider written in PHP
+EAPI=6
+HOMEPAGE=http://simpleid.koinic.net/
+IUSE=nginx
+LICENSE=GPL-2
+RDEPEND=>=dev-lang/php-7.1.18:* >=dev-php/spyc-0.6.1 >=dev-php/symfony-console-2.7.9-r1 nginx? ( >=www-servers/nginx-1.12.2-r1:* )
+SLOT=2
+_eclasses_=git-r3	8f6de46b0aa318aea0e8cac62ece098b
+_md5_=db5d53972482f9fa5aa16244e879e71f
