@@ -30,18 +30,18 @@ src_install() {
 		fowners nginx:nginx cache/simpleid
 	fi
 	insinto /var/cache
-	doins cache/simpleid
+	doins -r cache/simpleid
 
 	mkdir -p identities/simpleid
 	insinto /etc
-	doins identities/simpleid
+	doins -r identities/simpleid
 
 	mkdir -p store/simpleid
 	if use nginx; then
 		fowners nginx:nginx store/simpleid
 	fi
 	insinto /var/db
-	doins store/simpleid
+	doins -r store/simpleid
 
 	mv www/config.php{.dist,}
 	insinto /usr/share/webapps/simpleid
