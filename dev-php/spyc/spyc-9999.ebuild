@@ -14,8 +14,7 @@ LICENSE="MIT"
 SLOT="0"
 IUSE=""
 
-RDEPEND=">=dev-lang/php-7.1.18
-	>=dev-php/fedora-autoloader-0.2.1"
+RDEPEND=">=dev-lang/php-7.1.18"
 DEPEND="${RDEPEND}"
 
 src_unpack() {
@@ -24,6 +23,6 @@ src_unpack() {
 
 src_install() {
 	insinto "/usr/share/php/spyc"
-	doins Spyc.php "${FILESDIR}"/autoload.php
+	doins Spyc.php
 	dodoc README.md
 }
