@@ -33,7 +33,7 @@ src_install() {
 
 	insinto /usr/share/webapps/simpleid
 	doins -r www
-	dosym /etc/simpleid/config.php /usr/share/webapps/simpleid/config.php
+	dosym /etc/simpleid/config.php /usr/share/webapps/simpleid/www/config.php
 
 	dodoc README.md identities/example*
 }
