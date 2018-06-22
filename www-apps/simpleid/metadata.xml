@@ -13,4 +13,7 @@
     <doc>https://simpleid.koinic.net/docs/2/</doc>
     <bugs-to>https://github.com/simpleid/simpleid/issues</bugs-to>
   </upstream>
+  <use>
+    <flag name="nginx">Adds support for nginx</flag>
+  </use>
 </pkgmetadata>
