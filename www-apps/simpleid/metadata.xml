@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>gentoo@tastytea.de</email>
+    <name>tastytea</name>
+  </maintainer>
+  <upstream>
+    <maintainer>
+        <name>Kelvin Mo</name>
+        <email>kmo@users.sourceforge.net</email>
+    </maintainer>
+    <doc>https://simpleid.koinic.net/docs/2/</doc>
+    <bugs-to>https://github.com/simpleid/simpleid/issues</bugs-to>
+  </upstream>
+</pkgmetadata>
