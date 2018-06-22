@@ -25,23 +25,14 @@ src_unpack() {
 }
 
 src_install() {
-	mkdir -p cache/simpleid
-	if use nginx; then
-		fowners nginx:nginx cache/simpleid
-	fi
-	insinto /var/cache
-	doins -r cache/simpleid
+	keepdir /etc/simpleid
 
-	mkdir -p identities/simpleid
-	insinto /etc
-	doins -r identities/simpleid
-
-	mkdir -p store/simpleid
 	if use nginx; then
-		fowners nginx:nginx store/simpleid
+		diropts -o nginx -g nginx
 	fi
-	insinto /var/db
-	doins -r store/simpleid
+	keepdir /var/cache/simpleid
+
+	keepdir /var/db/simpleid
 
 	mv www/config.php{.dist,}
 	insinto /usr/share/webapps/simpleid
