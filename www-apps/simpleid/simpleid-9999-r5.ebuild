@@ -24,18 +24,29 @@ src_unpack() {
 	git-r3_src_unpack
 }
 
+src_compile() {
+	cp www/config.php.dist config.php
+	sed -i 's|@@IDENTITIES_DIR@@|/etc/simpleid/identities|' config.php
+	sed -i 's|@@CACHE_DIR@@|/var/cache/simpleid|' config.php
+	sed -i 's|@@STORE_DIR@@|/var/db/simpleid|' config.php
+	sed -i 's|@@ETC_DIR@@|/etc/simpleid|' config.php
+}
+
 src_install() {
 	keepdir /var/cache/simpleid
 	keepdir /var/db/simpleid
 
 	insinto /etc/simpleid
-	newins www/config.php.dist config.php
+	doins config.php
+	keepdir /etc/simpleid/identities
 
 	insinto /usr/share/webapps/simpleid
 	doins -r www
 	dosym /etc/simpleid/config.php /usr/share/webapps/simpleid/www/config.php
 
 	dodoc README.md identities/example*
+
+	newbin bin/simpleid-tool.phar simpleid-tool
 }
 
 pkg_postinst() {
@@ -45,9 +56,4 @@ pkg_postinst() {
 	fi
 	elog "Read https://simpleid.koinic.net/docs/2/installing/#directories carefully"
 	elog "to learn how to proceed with the installation."
-	elog ""
-	einfo "The cache directory is: /var/cache/simpleid"
-	einfo "The identities directory is: /etc/simpleid"
-	einfo "The store directory is: /var/db/simpleid"
-	einfo "The webserver needs write-access to the cache and store."
 }
