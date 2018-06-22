@@ -17,8 +17,7 @@ IUSE=""
 RDEPEND=">=dev-lang/php-7.1.18:*
 	>=dev-php/spyc-0.6.1
 	>=dev-php/symfony-console-2.7.9-r1"
-DEPEND="${RDEPEND}
-	>=dev-php/phing-2.16.1"
+DEPEND="${RDEPEND}"
 
 src_unpack() {
 	git-r3_src_unpack
