@@ -14,7 +14,7 @@ LICENSE="GPL-2"
 SLOT="2"
 IUSE="nginx"
 
-RDEPEND=">=dev-lang/php[gmp,bcmath]
+RDEPEND="dev-lang/php[gmp,bcmath]
 	nginx? ( >=www-servers/nginx-1.12.2-r1:* )"
 DEPEND="${RDEPEND}
 	>=dev-php/composer-1.6.5"
