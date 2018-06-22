@@ -25,13 +25,15 @@ src_unpack() {
 }
 
 src_install() {
-	keepdir /etc/simpleid
 	keepdir /var/cache/simpleid
 	keepdir /var/db/simpleid
 
-	mv www/config.php{.dist,}
+	insinto /etc/simpleid
+	newins www/config.php.dist config.php
+
 	insinto /usr/share/webapps/simpleid
 	doins -r www
+	dosym /etc/simpleid/config.php /usr/share/webapps/simpleid/config.php
 
 	dodoc README.md identities/example*
 }
