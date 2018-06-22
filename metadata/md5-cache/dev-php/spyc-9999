@@ -1,0 +1,10 @@
+DEFINED_PHASES=install unpack
+DEPEND=>=dev-lang/php-7.1.18 >=dev-php/fedora-autoloader-0.2.1 >=dev-vcs/git-1.8.2.1[curl]
+DESCRIPTION=A simple YAML loader/dumper class for PHP
+EAPI=6
+HOMEPAGE=https://github.com/mustangostang/spyc
+LICENSE=MIT
+RDEPEND=>=dev-lang/php-7.1.18 >=dev-php/fedora-autoloader-0.2.1
+SLOT=0
+_eclasses_=git-r3	8f6de46b0aa318aea0e8cac62ece098b
+_md5_=99bdbc88b36390d63524d1e16fd3bbc6
