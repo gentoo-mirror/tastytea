@@ -30,7 +30,7 @@ src_prepare() {
 
 src_install() {
 	meson_src_install
-	dosym /usr/bin/{com.github.bleakgrey.,}tootle
+	dosym "{EPREFIX}"/usr/bin/{com.github.bleakgrey.,}tootle
 }
 
 pkg_postinst() {
