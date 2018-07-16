@@ -67,8 +67,8 @@ RDEPEND="${COMMON_DEPEND}
 RESTRICT="test"
 
 src_prepare() {
-	elog "I will likely not update the Gajim ebuilds in the future since they are"
-	elog "available in the pzskc383 repo now. Please use that instead."
+	ewarn "I will likely not update the Gajim ebuilds in the future since they are"
+	ewarn "available in the pzskc383 repo now. Please use that instead."
 
 	default
 
