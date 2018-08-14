@@ -1,19 +1,20 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
 EAPI=6
 inherit git-r3 cmake-utils
 
 DESCRIPTION="Mastodon bot that expands shortened URLs."
-HOMEPAGE="https://schlomp.space/tastytea/expandurl-mastodon"
-EGIT_REPO_URI="https://schlomp.space/tastytea/expandurl-mastodon.git"
+HOMEPAGE="https://git.schlomp.space/tastytea/expandurl-mastodon"
+EGIT_REPO_URI="https://git.schlomp.space/tastytea/expandurl-mastodon.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
-RDEPEND=">=dev-cpp/mastodon-cpp-0.15.1
-	>=dev-cpp/curlpp-0.8.1
-	>=dev-libs/libxdg-basedir-1.2.0-r1"
+RDEPEND=">=dev-cpp/mastodon-cpp-9999
+		 >=dev-cpp/curlpp-0.8.1
+		 >=dev-libs/libxdg-basedir-1.2.0-r1"
 DEPEND=">=dev-util/cmake-3.9.6
 		${RDEPEND}"
 
