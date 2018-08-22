@@ -28,14 +28,15 @@ DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig
 	>=sys-devel/gettext-0.17-r1"
 RDEPEND="${COMMON_DEPEND}
-	dev-python/pycairo[${PYTHON_USEDEP}]
 	dev-python/pyasn1[${PYTHON_USEDEP}]
+	dev-python/pycairo[${PYTHON_USEDEP}]
+	dev-python/pygobject:3[${PYTHON_USEDEP}]
 	>=dev-python/python-nbxmpp-0.6.6[${PYTHON_USEDEP}]
 	dev-python/pyopenssl[${PYTHON_USEDEP}]
 	dev-python/idna[${PYTHON_USEDEP}]
 	dev-python/precis_i18n[${PYTHON_USEDEP}]
 	dev-python/pycurl[${PYTHON_USEDEP}]
-	crypt? ( dev-python/pycrypto[${PYTHON_USEDEP}] )
+	crypt? ( dev-python/pycryptodome[${PYTHON_USEDEP}] )
 	gpg? ( >=dev-python/python-gnupg-0.4.0[${PYTHON_USEDEP}] )
 	idle? ( x11-libs/libXScrnSaver )
 	remote? (
@@ -67,8 +68,8 @@ RDEPEND="${COMMON_DEPEND}
 RESTRICT="test"
 
 src_prepare() {
-	ewarn "I will likely not update the Gajim ebuilds in the future since they are"
-	ewarn "available in the pzskc383 repo now. Please use that instead."
+	ewarn "I will not update the Gajim ebuilds in the future since they are"
+	ewarn "available in the pzskc383 repo. Please use that instead."
 
 	default
 
