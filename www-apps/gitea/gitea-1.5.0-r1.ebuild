@@ -61,7 +61,6 @@ pkg_postinst() {
 	fi
 
 	if use allow_privileged_ports; then
-		ewarn test
 		setcap CAP_NET_BIND_SERVICE=+ep "${EROOT}/usr/bin/gitea"
 	fi
 }
