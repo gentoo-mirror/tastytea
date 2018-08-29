@@ -5,4 +5,7 @@
     <email>gentoo@tastytea.de</email>
     <name>tastytea</name>
   </maintainer>
+  <use>
+    <flag name="allow_privileged_ports">Allow binding to privileged ports (less than 1024)</flag>
+  </use>
 </pkgmetadata>
