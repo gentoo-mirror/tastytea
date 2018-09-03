@@ -1,0 +1,21 @@
+#!/sbin/openrc-run
+# Copyright 1999-2018 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+name="Factorio"
+pidfile="/run/factorio.pid"
+start_stop_daemon_args="--chdir ${FACTORIO_PATH}"
+command="screen"
+command_args="-DmUS factorio ./bin/x64/factorio ${FACTORIO_OPTS}"
+command_background="true"
+
+if [ -n "${FACTORIO_USER}" ]; then
+    command_user="${FACTORIO_USER}"
+fi
+if [ -n "${FACTORIO_GROUP}" ]; then
+    command_group="${FACTORIO_GROUP}"
+fi
+
+depend() {
+	use net
+}
