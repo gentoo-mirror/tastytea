@@ -1,0 +1,4 @@
+FACTORIO_PATH="/opt/factorio"
+FACTORIO_OPTS="--start-server-load-latest --server-settings ./data/server-settings.json"
+FACTORIO_USER=""
+FACTORIO_GROUP=""
