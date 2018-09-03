@@ -1,0 +1,10 @@
+DEFINED_PHASES=install unpack
+DESCRIPTION=Factorio is a game in which you build and maintain factories.
+EAPI=6
+HOMEPAGE=https://www.factorio.com/
+KEYWORDS=~amd64
+LICENSE=Factorio
+RDEPEND=>=app-misc/screen-4.6.1
+SLOT=0
+SRC_URI=https://www.factorio.com/get-download/0.16.51/headless/linux64 -> factorio-server-0.16.51.tar.xz
+_md5_=3e25bb6afa80c78a2d30210358251e04
