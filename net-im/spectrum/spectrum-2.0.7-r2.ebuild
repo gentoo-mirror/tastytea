@@ -22,7 +22,7 @@ RDEPEND="${RDEPEND}
 	>=dev-libs/openssl-1.0.2o-r6
 	>=dev-libs/popt-1.16-r2
 	>=dev-libs/protobuf-3.5.2
-	>=net-im/swift-4.0.2[idn,ssl]
+	>=net-im/swiften-4.0.2
 	mysql? ( >=virtual/mysql-5.6-r12 )
 	postgres? ( >=dev-libs/libpqxx-6.0.0 )
 	sqlite? ( dev-db/sqlite:3 )
