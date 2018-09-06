@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>gentoo@tastytea.de</email>
+    <name>tastytea</name>
+  </maintainer>
+  <use>
+    <flag name="gconf">Enable support for gnome-base/gconf</flag>
+    <flag name="hunspell">Enable spellchecking using app-text/hunspell</flag>
+  </use>
+</pkgmetadata>
