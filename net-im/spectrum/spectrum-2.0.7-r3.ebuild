@@ -29,7 +29,8 @@ RDEPEND="${RDEPEND}
 	irc? ( >=net-im/libcommuni-3.5.0 )
 	purple? ( >=net-im/pidgin-2.11.0
 		libev? ( >=dev-libs/libev-4.23 )
-	)"
+	)
+	>=dev-libs/jsoncpp-1.8.4"
 
 DEPEND="${RDEPEND}
 	>=dev-util/cmake-3.9.6
@@ -65,7 +66,7 @@ src_configure() {
 src_install() {
 	cmake-utils_src_install
 
-	newinitd "${FILESDIR}"/spectrum2.initd spectrum2
+	newinitd "${FILESDIR}"/spectrum.initd spectrum2
 	keepdir "${EPREFIX}"/var/lib/spectrum2
 	keepdir "${EPREFIX}"/var/log/spectrum2
 	keepdir "${EPREFIX}"/var/run/spectrum2
