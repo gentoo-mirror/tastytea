@@ -48,17 +48,17 @@ pkg_setup() {
 
 src_configure() {
 	mycmakeargs=(
-		$(cmake-utils_use_enable mysql MYSQL)
-		$(cmake-utils_use_enable postgres PQXX)
-		$(cmake-utils_use_enable sqlite SQLITE3)
-		$(cmake-utils_use_enable doc DOCS)
-		$(cmake-utils_use_enable frotz FROTZ)
-		$(cmake-utils_use_enable irc IRC)
-		$(cmake-utils_use_enable xmpp SWIFTEN)
-		$(cmake-utils_use_enable purple PURPLE)
-		$(cmake-utils_use_enable sms SMSTOOLS3)
-		$(cmake-utils_use_enable twitter TWITTER)
-		$(cmake-utils_use_enable whatsapp WHATSAPP)
+		-DENABLE_MYSQL="$(usex mysql)"
+		-DENABLE_PQXX="$(usex postgres)"
+		-DENABLE_SQLITE3="$(usex sqlite)"
+		-DENABLE_DOCS="$(usex doc)"
+		-DENABLE_FROTZ="$(usex frotz)"
+		-DENABLE_IRC="$(usex irc)"
+		-DENABLE_SWIFTEN="$(usex xmpp)"
+		-DENABLE_PURPLE="$(usex purple)"
+		-DENABLE_SMSTOOLS3="$(usex sms)"
+		-DENABLE_TWITTER="$(usex twitter)"
+		-DENABLE_WHATSAPP="$(usex whatsapp)"
 	)
 
 	cmake-utils_src_configure
