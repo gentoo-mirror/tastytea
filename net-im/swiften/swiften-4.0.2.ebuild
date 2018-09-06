@@ -8,6 +8,7 @@ inherit scons-utils toolchain-funcs multilib
 DESCRIPTION="Library for implementing XMPP applications."
 HOMEPAGE="http://swift.im/"
 MY_P="swift-${PV}"
+S="${WORKDIR}/${MY_P}"
 SRC_URI="http://swift.im/downloads/releases/${MY_P}/${MY_P}.tar.gz"
 
 LICENSE="GPL-3"
