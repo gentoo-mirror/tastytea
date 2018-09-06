@@ -69,7 +69,6 @@ src_install() {
 	newinitd "${FILESDIR}"/spectrum.initd spectrum2
 	keepdir "${EPREFIX}"/var/lib/spectrum2
 	keepdir "${EPREFIX}"/var/log/spectrum2
-	keepdir "${EPREFIX}"/var/run/spectrum2
 }
 
 pkg_postinst() {

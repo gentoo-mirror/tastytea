@@ -1,4 +1,4 @@
-#!/sbin/runscript
+#!/sbin/openrc
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
@@ -6,6 +6,10 @@
 depend() {
     need net
     use jabber-server
+}
+
+start_pre() {
+    mkdir -p /var/run/spectrum2
 }
 
 start() {
