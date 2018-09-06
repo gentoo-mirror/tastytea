@@ -13,7 +13,7 @@ S="${WORKDIR}/${PN}2-${PV}"
 LICENSE="GPL-2"
 SLOT="2"
 KEYWORDS="~amd64"
-IUSE_PLUGINS="frotz irc xmpp purple sms twitter whatsapp"
+IUSE_PLUGINS="frotz irc purple sms twitter"
 IUSE="debug doc libev mysql postgres sqlite test ${IUSE_PLUGINS}"
 
 RDEPEND="${RDEPEND}
@@ -54,11 +54,9 @@ src_configure() {
 		-DENABLE_DOCS="$(usex doc)"
 		-DENABLE_FROTZ="$(usex frotz)"
 		-DENABLE_IRC="$(usex irc)"
-		-DENABLE_SWIFTEN="$(usex xmpp)"
 		-DENABLE_PURPLE="$(usex purple)"
 		-DENABLE_SMSTOOLS3="$(usex sms)"
 		-DENABLE_TWITTER="$(usex twitter)"
-		-DENABLE_WHATSAPP="$(usex whatsapp)"
 	)
 
 	cmake-utils_src_configure

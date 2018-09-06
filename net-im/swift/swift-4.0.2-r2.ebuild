@@ -86,6 +86,7 @@ set_scons_vars() {
 		try_expat=$(usex expat)
 		try_gconf=$(usex gconf)
 		try_libxml=$(usex !expat)
+		Swiften
 	)
 }
 
@@ -94,6 +95,7 @@ set_scons_install_vars() {
 	scons_install_vars=(
 		force-configure=0
 		SWIFTEN_INSTALLDIR="${ED}/usr"
+		SWIFTEN_LIBDIR="${ED}/usr/$(get_libdir)"
 	)
 	use qt5 && scons_install_vars+=( SWIFT_INSTALLDIR="${ED}/usr" )
 	use lua && scons_install_vars+=( SLUIFT_INSTALLDIR="${ED}/usr" )
