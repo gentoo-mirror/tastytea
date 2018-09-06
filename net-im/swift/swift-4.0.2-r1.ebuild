@@ -4,7 +4,7 @@
 EAPI=6
 PYTHON_COMPAT=( python2_7 )
 
-inherit multilib toolchain-funcs linux-info python-any-r1 scons-utils
+inherit multilib toolchain-funcs linux-info python-any-r1 scons-utils eutils
 
 DESCRIPTION="Your friendly chat client"
 HOMEPAGE="http://swift.im/"
