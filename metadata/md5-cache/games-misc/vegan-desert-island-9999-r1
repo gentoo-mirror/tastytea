@@ -6,5 +6,5 @@ HOMEPAGE=https://gitlab.com/vegan-desert-island/vegan-desert-island
 LICENSE=GPL-3
 RDEPEND=>=games-engines/solarus-1.5.3-r2
 SLOT=0
-_eclasses_=git-r3	918d6a744039c29af2cadc7317459765
+_eclasses_=git-r3	0d4635eeb5a96cd5315597a47eba25c9
 _md5_=94e6f6fa6fc16b2dd4015e80a9face90
