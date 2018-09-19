@@ -3,7 +3,7 @@
 
 EAPI="6"
 
-inherit cmake-utils versionator
+inherit cmake-utils versionator user
 
 DESCRIPTION="Spectrum is a XMPP transport/gateway"
 HOMEPAGE="http://spectrum.im"
@@ -69,6 +69,7 @@ src_install() {
 	newinitd "${FILESDIR}"/spectrum.initd spectrum2
 	keepdir "${EPREFIX}"/var/lib/spectrum2
 	keepdir "${EPREFIX}"/var/log/spectrum2
+	keepdir "${EPREFIX}"/var/run/spectrum2
 }
 
 pkg_postinst() {
