@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -41,7 +41,7 @@ src_install() {
 	insinto /var/lib/gitea/conf
 	newins custom/conf/app.ini.sample app.ini.example
 	popd || die
-	newinitd "${FILESDIR}"/gitea.initd-r1 gitea
+	newinitd "${FILESDIR}"/gitea.initd-r2 gitea
 	newconfd "${FILESDIR}"/gitea.confd gitea
 	keepdir /var/log/gitea /var/lib/gitea/data
 	fowners -R git:git /var/log/gitea /var/lib/gitea/
