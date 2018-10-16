@@ -10,7 +10,5 @@
             <name>tastytea</name>
         </owner>
         <source type="git">https://schlomp.space/tastytea/overlay.git</source>
-        <source type="git">https://git.tastytea.de/repos/overlay-tastytea.git</source>
-        <feed>https://git.tastytea.de/?p=overlay-tastytea.git;a=atom</feed>
     </repo>
 </repositories>
