@@ -10,10 +10,11 @@ SRC_URI="https://schlomp.space/tastytea/whyblocked/archive/${PV}.tar.gz -> ${P}.
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="qt5"
+IUSE="qt5 nls"
 RDEPEND=">=dev-db/vsqlite++-0.3.13-r1
 	>=dev-libs/libxdg-basedir-1.2.0-r1
-	qt5? ( >=dev-qt/qtwidgets-5.9.6-r1 )"
+	qt5? ( >=dev-qt/qtwidgets-5.9.6-r1 )
+	nls? ( >=dev-qt/linguist-tools-5.9.6 )"
 DEPEND=">=dev-util/cmake-3.9.6
 	${RDEPEND}"
 
@@ -25,7 +26,7 @@ src_unpack() {
 src_configure() {
 	local mycmakeargs=()
 	if ! use qt5; then
-		mycmakeargs+=(-DWITHOUT_QT=YES)
+		mycmakeargs+=(-DWITHOUT_GUI=YES)
 	fi
 	cmake-utils_src_configure
 }
