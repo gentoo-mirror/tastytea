@@ -56,6 +56,7 @@ src_install() {
 }
 
 pkg_postinst() {
+	fcaps_pkg_postinst
 	if [[ ! -e "${EROOT}/var/lib/gitea/conf/app.ini" ]]; then
 		elog "No app.ini found, copying initial config over"
 		cp "${FILESDIR}"/app.ini "${EROOT}"/var/lib/gitea/conf/ || die
