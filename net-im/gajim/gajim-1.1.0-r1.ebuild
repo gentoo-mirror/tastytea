@@ -71,7 +71,7 @@ RESTRICT="test"
 src_prepare() {
 	default
 
-	use spell || eapply "${FILESDIR}/disable-gspell-1.10.patch"
+	use spell || eapply "${FILESDIR}/disable-gspell-1.1.0.patch"
 	use keyring || sed -i 's/keyring//' setup.cfg
 }
 
