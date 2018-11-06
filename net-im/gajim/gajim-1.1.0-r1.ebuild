@@ -72,6 +72,7 @@ src_prepare() {
 	default
 
 	use spell || eapply "${FILESDIR}/disable-gspell-1.10.patch"
+	use keyring || sed -i 's/keyring//' setup.cfg
 }
 
 python_install_all() {
@@ -79,9 +80,9 @@ python_install_all() {
 
 	# Gajims build script compresses the man pages. Gentoo would like to
 	# compress them itself.
-	gunzip ${D}/usr/share/man/man1/gajim.1.gz
-	gunzip ${D}/usr/share/man/man1/gajim-history-manager.1.gz
-	use remote && gunzip ${D}/usr/share/man/man1/gajim-remote.1.gz
+	gunzip "${D}/usr/share/man/man1/gajim.1.gz"
+	gunzip "${D}/usr/share/man/man1/gajim-history-manager.1.gz"
+	use remote && gunzip "${D}/usr/share/man/man1/gajim-remote.1.gz"
 }
 
 pkg_postinst() {
