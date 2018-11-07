@@ -11,8 +11,8 @@ inherit gnome2-utils distutils-r1 eapi7-ver xdg-utils
 
 DESCRIPTION="Jabber client written in PyGTK"
 HOMEPAGE="https://www.gajim.org/"
-SRC_URI="https://www.gajim.org/downloads/$(ver_rs 1-2)/${P}.tar.bz2"
-#https://ftp.gajim.org/plugins_1/plugin_installer.zip -> ${P}-plugin_installer.zip"
+SRC_URI="https://www.gajim.org/downloads/$(ver_cut 1-2)/${P}.tar.bz2"
+#https://ftp.gajim.org/plugins_1.1_zip/plugin_installer.zip"
 
 LICENSE="GPL-3"
 SLOT="0"
