@@ -10,6 +10,6 @@ EGO_PN="github.com/mattn/go-xmpp"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS=""
 
 DEPEND="dev-lang/go"
