@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <longdescription>
+    Package xmpp implements a simple Google Talk client using the XMPP protocol described in RFC 3920 and RFC 3921.
+  </longdescription>
+  <maintainer type="person">
+    <email>gentoo@tastytea.de</email>
+    <name>tastytea</name>
+  </maintainer>
+</pkgmetadata>
