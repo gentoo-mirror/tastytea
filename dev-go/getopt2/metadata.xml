@@ -5,4 +5,8 @@
     <email>gentoo@tastytea.de</email>
     <name>tastytea</name>
   </maintainer>
+  <upstream>
+    <doc>https://godoc.org/github.com/pborman/getopt</doc>
+    <bugs-to>https://github.com/pborman/getopt/issues</bugs-to>
+  </upstream>
 </pkgmetadata>

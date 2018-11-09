@@ -13,6 +13,6 @@ SLOT="0"
 KEYWORDS=""
 
 DEPEND="
-    dev-lang/go
-    dev-go/go-crypto
+	dev-lang/go
+	dev-go/go-crypto
 "

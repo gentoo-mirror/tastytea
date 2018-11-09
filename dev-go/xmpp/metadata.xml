@@ -5,4 +5,8 @@
     <email>gentoo@tastytea.de</email>
     <name>tastytea</name>
   </maintainer>
+  <upstream>
+    <doc>https://godoc.org/github.com/mellium/xmpp</doc>
+    <bugs-to>https://github.com/mellium/xmpp/issues</bugs-to>
+  </upstream>
 </pkgmetadata>
