@@ -4,9 +4,9 @@
 EAPI=6
 inherit golang-build golang-vcs
 
-DESCRIPTION="go xmpp library"
-HOMEPAGE="https://github.com/mattn/go-xmpp"
-EGO_PN="github.com/mattn/go-xmpp"
+DESCRIPTION="getopt style option parsing for Go"
+HOMEPAGE="https://github.com/pborman/getopt"
+EGO_PN="github.com/pborman/getopt/v2"
 
 LICENSE="BSD"
 SLOT="0"
