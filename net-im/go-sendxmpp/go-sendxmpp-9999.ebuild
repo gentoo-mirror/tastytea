@@ -18,3 +18,8 @@ DEPEND="
 	dev-go/getopt2
 	dev-go/xmpp
 "
+
+src_install() {
+	dobin go-sendxmpp
+	dodoc src/salsa.debian.org/mdosch-guest/go-sendxmpp/README.md
+}
