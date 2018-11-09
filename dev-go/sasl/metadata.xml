@@ -8,4 +8,8 @@
     <email>gentoo@tastytea.de</email>
     <name>tastytea</name>
   </maintainer>
+  <upstream>
+    <doc>https://godoc.org/github.com/mellium/sasl</doc>
+    <bugs-to>https://github.com/mellium/sasl/issues</bugs-to>
+  </upstream>
 </pkgmetadata>
