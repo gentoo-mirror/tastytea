@@ -1,0 +1,10 @@
+DEFINED_PHASES=unpack
+DEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DESCRIPTION=Papirus theme for Claws Mail
+EAPI=6
+HOMEPAGE=https://github.com/PapirusDevelopmentTeam/papirus-claws-mail-theme
+LICENSE=GPL-3
+RDEPEND=mail-client/claws-mail
+SLOT=0
+_eclasses_=git-r3	0d4635eeb5a96cd5315597a47eba25c9
+_md5_=bd2c82b3b0daf863827defd5090027cd
