@@ -3,7 +3,7 @@
 
 EAPI="6"
 
-inherit cmake-utils versionator
+inherit cmake-utils
 
 DESCRIPTION="Spectrum is a XMPP transport/gateway"
 HOMEPAGE="http://spectrum.im"

@@ -3,9 +3,9 @@
 
 EAPI=6
 
-inherit eutils versionator cmake-utils
+inherit eutils eapi7-ver cmake-utils
 
-MY_PV=build$(get_version_component_range 2)
+MY_PV=build$(ver_cut 2)
 MY_P=${PN}-${MY_PV}-src
 DESCRIPTION="A game similar to Settlers 2"
 HOMEPAGE="http://www.widelands.org/"
