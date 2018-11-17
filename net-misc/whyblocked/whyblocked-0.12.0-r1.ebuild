@@ -19,10 +19,10 @@ RDEPEND="
 	>=dev-libs/libxdg-basedir-1.2.0-r1
 	>=dev-qt/qtcore-5.9.6
 	qt5? ( >=dev-qt/qtwidgets-5.9.6-r1 )
-	nls? ( >=dev-qt/linguist-tools-5.9.6 )
 "
 DEPEND="
 	>=dev-util/cmake-3.9.6
+	nls? ( >=dev-qt/linguist-tools-5.9.6 )
 	${RDEPEND}
 "
 
