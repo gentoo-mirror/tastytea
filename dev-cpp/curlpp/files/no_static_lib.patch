@@ -29,9 +29,3 @@ diff -u a/CMakeLists.txt b/CMakeLists.txt
          RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
          LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
          ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
-Gemeinsame Unterverzeichnisse: a/doc und b/doc.
-Gemeinsame Unterverzeichnisse: a/examples und b/examples.
-Gemeinsame Unterverzeichnisse: a/extras und b/extras.
-Gemeinsame Unterverzeichnisse: a/.git und b/.git.
-Gemeinsame Unterverzeichnisse: a/include und b/include.
-Gemeinsame Unterverzeichnisse: a/src und b/src.
