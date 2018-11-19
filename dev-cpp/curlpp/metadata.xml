@@ -5,4 +5,11 @@
     <email>gentoo@tastytea.de</email>
     <name>tastytea</name>
   </maintainer>
+  <upstream>
+    <maintainer>
+        <name>Jean-Philippe Barrette-LaPierre</name>
+    </maintainer>
+    <doc>https://github.com/jpbarrette/curlpp/blob/master/doc/guide.pdf</doc>
+    <bugs-to>https://github.com/jpbarrette/curlpp/issues</bugs-to>
+  </upstream>
 </pkgmetadata>
