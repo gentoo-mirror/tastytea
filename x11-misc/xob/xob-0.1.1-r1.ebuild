@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -18,7 +18,5 @@ RDEPEND=">=x11-libs/libX11-1.6.5-r1
 DEPEND="${RDEPEND}"
 
 src_install() {
-	emake prefix="${EPREFIX}"/usr DESTDIR="${D}" install
-	dodoc README.md
-	# doman doc/xob.1
+	emake prefix="${EPREFIX}"/usr sysconfdir="${EPREFIX}"/etc DESTDIR="${D}" install
 }
