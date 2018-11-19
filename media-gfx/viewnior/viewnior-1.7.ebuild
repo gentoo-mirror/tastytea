@@ -24,7 +24,7 @@ RDEPEND="${DEPEND}
 "
 
 PATCHES=(
-	"${FILESDIR}/fix-implicit-declaration.patch"
+	"${FILESDIR}/0.17-Replace-calls-to-getenv-with-g_getenv.patch"
 )
 
 src_prepare() {
