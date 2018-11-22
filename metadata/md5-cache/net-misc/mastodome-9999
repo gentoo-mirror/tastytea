@@ -1,0 +1,10 @@
+DEFINED_PHASES=install postinst unpack
+DEPEND=dev-python/html2text dev-python/PyQt5 dev-python/keyring dev-python/mastodon >=dev-vcs/git-1.8.2.1[curl]
+DESCRIPTION=Desktop client for Mastodon built on Python & Qt
+EAPI=6
+HOMEPAGE=https://gitlab.com/bobstechsite/mastodome
+LICENSE=GPL-3+
+RDEPEND=dev-python/html2text dev-python/PyQt5 dev-python/keyring dev-python/mastodon
+SLOT=0
+_eclasses_=git-r3	0d4635eeb5a96cd5315597a47eba25c9
+_md5_=ea44d6a134de0bc3b49c77756ab1b732
