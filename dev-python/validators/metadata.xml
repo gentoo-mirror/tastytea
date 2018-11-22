@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>gentoo@tastytea.de</email>
+    <name>tastytea</name>
+  </maintainer>
+  <upstream>
+    <bugs-to>https://github.com/kvesteri/validators/issues</bugs-to>
+    <doc>https://validators.readthedocs.io/en/latest/</doc>
+  </upstream>
+</pkgmetadata>
