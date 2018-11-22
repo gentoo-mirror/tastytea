@@ -24,6 +24,7 @@ RDEPEND="
 	dev-python/requests
 	dev-python/python-dateutil
 	dev-python/cryptography
+	dev-python/http_ece
 "
 DEPEND="
 	${RDEPEND}
