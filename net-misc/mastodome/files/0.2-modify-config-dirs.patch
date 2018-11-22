@@ -1,0 +1,80 @@
+diff -ur a/config/config.py b/config/config.py
+--- a/config/config.py	2018-11-22 21:49:01.886536931 +0100
++++ b/config/config.py	2018-11-22 22:29:21.497097833 +0100
+@@ -27,8 +27,8 @@
+         self.GUI_LANG_FILE_LOC_PREFIX = "/config/lang/"
+         self.GUI_ICON_FILE_LOC_PREFIX = "/config/icons/"
+         self.GUI_IMG_FILE_LOC_PREFIX = "/config/img/"
+-        self.GUI_IMG_AVATAR_CACHE_PREFIX = "/config/.cache/"
+-        self.GUI_DEFAULTS_FILE_LOC_PREFIX = "/config/.defaults/"
++        self.GUI_IMG_AVATAR_CACHE_PREFIX = "/.local/share/mastodome/cache/"
++        self.GUI_DEFAULTS_FILE_LOC_PREFIX = "/.local/share/mastodome/defaults/"
+         self.GUI_TOOT_MAX_SIZE_CHARS = 280
+         self.APP_NAME = "Mastodome"
+         self.APP_VERSION = "0.2"
+diff -ur a/config/icons_pics.py b/config/icons_pics.py
+--- a/config/icons_pics.py	2018-11-22 21:49:01.887536915 +0100
++++ b/config/icons_pics.py	2018-11-22 21:52:57.149765632 +0100
+@@ -28,7 +28,7 @@
+ class Icons:
+     def __init__(self):
+         config = Config()
+-        path = os.curdir + config.GUI_ICON_FILE_LOC_PREFIX
++        path = "/usr/share/mastodome" + config.GUI_ICON_FILE_LOC_PREFIX
+         self.btnHomeIcon = path + "home.svg"
+         self.btnLocalIcon = path + "local.svg"
+         self.btnPublicIcon = path + "public.svg"
+@@ -49,7 +49,7 @@
+ class Pics:
+     def __init__(self):
+         config = Config()
+-        path = os.curdir + config.GUI_IMG_FILE_LOC_PREFIX
++        path = "/usr/share/mastodome" + config.GUI_IMG_FILE_LOC_PREFIX
+         self.loginLogoImg = path + "mastodon_logo.svg"
+         self.loginMascotImg = path + "mastodon_mascot.png"
+         self.aboutMascoutImg = path + "mastodome_art.png"
+diff -ur a/config/translations.py b/config/translations.py
+--- a/config/translations.py	2018-11-22 21:49:01.900536706 +0100
++++ b/config/translations.py	2018-11-22 21:52:32.099166922 +0100
+@@ -31,7 +31,7 @@
+     def __init__(self):
+         config = Config()
+         self.translations = json.load(
+-                open(os.curdir + config.GUI_LANG_FILE_LOC_PREFIX
++                open("/usr/share/mastodome" + config.GUI_LANG_FILE_LOC_PREFIX
+                      + config.GUI_LANG + '.json'))
+ 
+     def load(self, control_name):
+diff -ur a/rest/credential_store.py b/rest/credential_store.py
+--- a/rest/credential_store.py	2018-11-22 21:49:01.901536690 +0100
++++ b/rest/credential_store.py	2018-11-22 21:58:18.485623649 +0100
+@@ -33,7 +33,7 @@
+         self.secret_client_prefix = "csec"
+         self.secret_user_prefix = "usec"
+         self.config = Config()
+-        self.key_cache_location = os.curdir \
++        self.key_cache_location = os.getenv("HOME") \
+             + self.config.GUI_DEFAULTS_FILE_LOC_PREFIX + "known-keys.txt"
+ 
+     def set_client_keys(self, domain, uname, client_id, client_secret):
+diff -ur a/rest/fetch.py b/rest/fetch.py
+--- a/rest/fetch.py	2018-11-22 21:49:01.901536690 +0100
++++ b/rest/fetch.py	2018-11-22 21:55:08.624660555 +0100
+@@ -29,7 +29,7 @@
+ 
+ def clear_image_cache():
+     my_config = config.Config()
+-    path = os.curdir + my_config.GUI_IMG_AVATAR_CACHE_PREFIX
++    path = os.getenv("HOME") + my_config.GUI_IMG_AVATAR_CACHE_PREFIX
+     for the_file in os.listdir(path):
+         full_path = os.path.join(path, the_file)
+         if os.path.isfile(full_path):
+@@ -38,7 +38,7 @@
+ 
+ def get_image(url):
+     my_config = config.Config()
+-    path = os.curdir + my_config.GUI_IMG_AVATAR_CACHE_PREFIX
++    path = os.getenv("HOME") + my_config.GUI_IMG_AVATAR_CACHE_PREFIX
+     filename = url.split('/')[-1]
+ 
+     if not os.path.isfile(os.path.join(path, filename)):
