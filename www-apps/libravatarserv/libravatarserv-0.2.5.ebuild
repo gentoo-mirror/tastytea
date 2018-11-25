@@ -26,13 +26,14 @@ else
 fi
 IUSE=""
 
-DEPEND="
-	dev-util/cmake
+RDEPEND="
 	dev-libs/crypto++
 	media-gfx/imagemagick
 	dev-libs/libxdg-basedir
 "
-RDEPEND="${DEPEND}"
+DEPEND="
+	dev-util/cmake
+	${RDEPEND}"
 
 if [[ "${PV}" != "9999" ]]; then
 	S="${WORKDIR}/${PN}"
