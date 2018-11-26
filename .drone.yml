@@ -3,7 +3,7 @@ pipeline:
     image: chaoslab/repoman
     pull: true
     commands:
-      repoman full
+      repoman full --include-dev --xmlparse
   notify:
     when:
       status: [ changed, failure ]
