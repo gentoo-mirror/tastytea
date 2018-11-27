@@ -17,7 +17,7 @@ else
 	SRC_URI="https://schlomp.space/tastytea/libravatarserv/archive/${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
-LICENSE="GPL-3+"
+LICENSE="GPL-3"
 SLOT="0"
 if [[ "${PV}" == "9999" ]]; then
 	KEYWORDS=""
