@@ -14,7 +14,8 @@ HOMEPAGE="https://schlomp.space/tastytea/libravatarserv"
 if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://schlomp.space/tastytea/libravatarserv.git"
 else
-	SRC_URI="https://schlomp.space/tastytea/libravatarserv/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://schlomp.space/tastytea/libravatarserv/archive/${PV}.tar.gz
+		-> ${P}.tar.gz"
 fi
 
 LICENSE="GPL-3"
@@ -38,3 +39,9 @@ DEPEND="
 if [[ "${PV}" != "9999" ]]; then
 	S="${WORKDIR}/${PN}"
 fi
+
+src_prepare() {
+	cmake-utils_src_prepare
+	sed -i "s|\${CMAKE_INSTALL_DOCDIR}|\${CMAKE_INSTALL_DATAROOTDIR}/doc/${P}|" \
+		CMakeLists.txt || die "Build script modification failed"
+}
