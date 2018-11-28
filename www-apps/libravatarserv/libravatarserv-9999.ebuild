@@ -41,7 +41,7 @@ if [[ "${PV}" != "9999" ]]; then
 fi
 
 src_prepare() {
-	default
+	cmake-utils_src_prepare
 	sed -i "s|\${CMAKE_INSTALL_DOCDIR}|\${CMAKE_INSTALL_DATAROOTDIR}/doc/${P}|" \
 		CMakeLists.txt || die "Build script modification failed"
 }
