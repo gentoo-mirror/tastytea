@@ -18,6 +18,7 @@ COMMON_DEPEND="virtual/wine[${MULTILIB_USEDEP}]"
 DEPEND="
 	${COMMON_DEPEND}
 	dev-util/vulkan-headers
+	dev-util/glslang
 "
 RDEPEND="
 	${COMMON_DEPEND}
