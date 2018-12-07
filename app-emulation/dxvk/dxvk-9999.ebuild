@@ -14,10 +14,16 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="virtual/wine[${MULTILIB_USEDEP}]"
+COMMON_DEPEND="virtual/wine[${MULTILIB_USEDEP}]"
+DEPEND="
+	${COMMON_DEPEND}
+	dev-util/vulkan-headers
+"
 RDEPEND="
-	${DEPEND}
-	app-emulation/winetricks"
+	${COMMON_DEPEND}
+	app-emulation/winetricks
+	media-libs/vulkan-loader
+"
 
 multilib_src_configure() {
 	local bit="${MULTILIB_ABI_FLAG:8:2}"
@@ -36,4 +42,12 @@ multilib_src_compile() {
 
 multilib_src_install() {
 	meson_src_install
+}
+
+pkg_postinst() {
+	elog "dxvk is installed, but not activated. " \
+		"You have to create DLL overrides in order to make use of it. " \
+		"To do so, set WINEPREFIX and execute " \
+		"${EPREFIX}/usr/lib{32,64}/${P}/bin/setup_dxvk.sh install." \
+		"For more info, have a look at https://wiki.gentoo.org/wiki/DXVK."
 }
