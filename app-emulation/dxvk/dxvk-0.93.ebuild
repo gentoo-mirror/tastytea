@@ -39,8 +39,8 @@ RDEPEND="
 multilib_src_configure() {
 	local bit="${MULTILIB_ABI_FLAG:8:2}"
 	local emesonargs=(
-		--libdir=lib${bit}/dxvk-${PV}
-		--bindir=lib${bit}/dxvk-${PV}/bin
+		--libdir=lib${bit}/dxvk
+		--bindir=lib${bit}/dxvk/bin
 		--cross-file=../${P}/build-wine${bit}.txt
 	)
 	meson_src_configure
@@ -59,6 +59,6 @@ pkg_postinst() {
 	elog "dxvk is installed, but not activated. " \
 		"You have to create DLL overrides in order to make use of it. " \
 		"To do so, set WINEPREFIX and execute " \
-		"${EPREFIX}/usr/lib{32,64}/${P}/bin/setup_dxvk.sh install. " \
+		"${EPREFIX}/usr/lib{32,64}/dxvk/bin/setup_dxvk.sh install. " \
 		"For more info, have a look at https://wiki.gentoo.org/wiki/DXVK."
 }
