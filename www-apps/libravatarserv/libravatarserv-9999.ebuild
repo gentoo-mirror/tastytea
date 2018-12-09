@@ -36,6 +36,8 @@ DEPEND="
 	dev-util/cmake
 	${RDEPEND}"
 
+DOCS="README.md doc/nginx-example.conf"
+
 if [[ "${PV}" != "9999" ]]; then
 	S="${WORKDIR}/${PN}"
 fi
