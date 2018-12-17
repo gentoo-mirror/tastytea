@@ -22,12 +22,13 @@ DEPEND="
 
 src_unpack() {
 	golang-vcs_src_unpack
+
 	# Make sure the bundled libraries are not used.
-	rm -rf src/salsa.debian.org/mdosch-guest/go-sendxmpp/vendor/* || die
+	rm -r ${P}/src/salsa.debian.org/mdosch-guest/go-sendxmpp/vendor/* || die
 
 	# Download modified version of github.com/mellium/xmpp/jid
-	mkdir -p go-sendxmpp-9999/src/salsa.debian.org/mdosch-guest/go-sendxmpp/vendor/salsa.debian.org/mdosch-guest || die
-	git clone https://salsa.debian.org/mdosch-guest/gopkg.git go-sendxmpp-9999/src/salsa.debian.org/mdosch-guest/go-sendxmpp/vendor/salsa.debian.org/mdosch-guest/gopkg || die
+	mkdir -p ${P}/src/salsa.debian.org/mdosch-guest/go-sendxmpp/vendor/salsa.debian.org/mdosch-guest || die
+	git clone https://salsa.debian.org/mdosch-guest/gopkg.git ${P}/src/salsa.debian.org/mdosch-guest/go-sendxmpp/vendor/salsa.debian.org/mdosch-guest/gopkg || die
 }
 
 src_install() {
