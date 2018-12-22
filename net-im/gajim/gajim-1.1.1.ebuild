@@ -97,3 +97,8 @@ pkg_postrm() {
 	gnome2_icon_cache_update
 	xdg_desktop_database_update
 }
+
+pkg_postinst() {
+	ewarn "If you run into segfaults upon starting, you most likely ran into an issue"
+	ewarn "with app-text/enchant (bug 662484). Use USE=\"-spell\" to remedy."
+}
