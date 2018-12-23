@@ -34,7 +34,8 @@ RDEPEND="
 "
 DEPEND="
 	dev-util/cmake
-	${RDEPEND}"
+	${RDEPEND}
+"
 
 DOCS="README.md doc/nginx-example.conf"
 
