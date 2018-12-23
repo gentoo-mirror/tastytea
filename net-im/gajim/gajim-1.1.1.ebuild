@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_{5,6} )
 PYTHON_REQ_USE="sqlite,xml"
 DISTUTILS_SINGLE_IMPL=1
 
-inherit gnome2-utils distutils-r1 eapi7-ver xdg-utils
+inherit distutils-r1 eapi7-ver gnome2-utils xdg-utils
 
 DESCRIPTION="Jabber client written in PyGTK"
 HOMEPAGE="https://www.gajim.org/"
@@ -22,13 +22,17 @@ IUSE="gpg +crypt remote idle jingle keyring networkmanager upnp geoclue spell +w
 
 COMMON_DEPEND="
 	dev-libs/gobject-introspection[cairo,${PYTHON_USEDEP}]
-	x11-libs/gtk+:3[introspection]"
-DEPEND="${COMMON_DEPEND}
+	x11-libs/gtk+:3[introspection]
+"
+DEPEND="
+	${COMMON_DEPEND}
 	app-arch/unzip
 	>=dev-util/intltool-0.40.1
 	virtual/pkgconfig
-	>=sys-devel/gettext-0.17-r1"
-RDEPEND="${COMMON_DEPEND}
+	>=sys-devel/gettext-0.17-r1
+"
+RDEPEND="
+	${COMMON_DEPEND}
 	dev-python/pyasn1[${PYTHON_USEDEP}]
 	dev-python/pycairo[${PYTHON_USEDEP}]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
@@ -75,7 +79,7 @@ src_prepare() {
 	default
 
 	use spell || eapply "${FILESDIR}/disable-gspell-1.1.0.patch"
-	use keyring || sed -i 's/keyring//' setup.cfg
+	use keyring || sed -i 's/keyring//' setup.cfg || die
 }
 
 python_install_all() {
@@ -91,14 +95,12 @@ python_install_all() {
 pkg_postinst() {
 	gnome2_icon_cache_update
 	xdg_desktop_database_update
+
+	ewarn "If you run into segfaults upon starting, you most likely ran into an issue"
+	ewarn "with app-text/enchant (bug 662484). Use USE=\"-spell\" to remedy."
 }
 
 pkg_postrm() {
 	gnome2_icon_cache_update
 	xdg_desktop_database_update
-}
-
-pkg_postinst() {
-	ewarn "If you run into segfaults upon starting, you most likely ran into an issue"
-	ewarn "with app-text/enchant (bug 662484). Use USE=\"-spell\" to remedy."
 }
