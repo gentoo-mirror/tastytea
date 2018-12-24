@@ -56,9 +56,7 @@ multilib_src_install() {
 }
 
 pkg_postinst() {
-	elog "dxvk is installed, but not activated. " \
-		"You have to create DLL overrides in order to make use of it. " \
-		"To do so, set WINEPREFIX and execute " \
-		"${EPREFIX}/usr/lib{32,64}/dxvk/bin/setup_dxvk.sh install. " \
-		"For more info, have a look at https://wiki.gentoo.org/wiki/DXVK."
+	elog "dxvk is installed, but not activated. You have to create DLL overrides"
+	elog "in order to make use of it. To do so, set WINEPREFIX and execute"
+	elog "${EPREFIX}/usr/lib{32,64}/dxvk/bin/setup_dxvk.sh install."
 }
