@@ -31,6 +31,7 @@ RDEPEND="
 	dev-libs/crypto++
 	media-gfx/imagemagick
 	dev-libs/libxdg-basedir
+	dev-cpp/identiconpp
 "
 DEPEND="
 	dev-util/cmake
