@@ -29,11 +29,6 @@ src_configure() {
 		-DWITH_EXAMPLES=NO
 		-DWITH_TESTS=NO
 	)
-	if use debug; then
-		mycmakeargs+=(-DCMAKE_BUILD_TYPE=Debug)
-	else
-		mycmakeargs+=(-DCMAKE_BUILD_TYPE=Release)
-	fi
 	if use static-libs; then
 		mycmakeargs+=(-DWITH_STATIC=YES)
 	fi
@@ -44,7 +39,11 @@ src_configure() {
 # We won't let cmake handle the documentation, because it would install the
 # examples, no matter if we want them.
 src_compile() {
-	cmake-utils_src_compile
+	if use debug; then
+		cmake-utils_src_compile DEBUG=1
+	else
+		cmake-utils_src_compile
+	fi
 
 	if use doc; then
 		./build_doc.sh
