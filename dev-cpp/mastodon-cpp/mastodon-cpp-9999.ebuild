@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -27,12 +27,6 @@ src_configure() {
 		-DWITH_EXAMPLES=NO
 		-DWITH_TESTS=NO
 	)
-	if use debug; then
-		mycmakeargs+=(-DCMAKE_BUILD_TYPE=Debug)
-	else
-		mycmakeargs+=(-DCMAKE_BUILD_TYPE=Release)
-	fi
-
 	if use static-libs; then
 		mycmakeargs+=(-DWITH_STATIC=YES)
 	fi
@@ -43,7 +37,11 @@ src_configure() {
 # We can not let cmake handle the documentation, because it would end up in
 # doc/mastodon-cpp-${PROJECT_VERSION} instead of -9999
 src_compile() {
-	cmake-utils_src_compile
+	if use debug; then
+		cmake-utils_src_compile DEBUG=1
+	else
+		utils_src_compile
+	fi
 
 	if use doc; then
 		./build_doc.sh
