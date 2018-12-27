@@ -9,7 +9,7 @@ if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 fi
 
-DESCRIPTION="Library to generate identicons. Written in C++."
+DESCRIPTION="Library to generate identicons in C++."
 HOMEPAGE="https://schlomp.space/tastytea/identiconpp"
 if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://schlomp.space/tastytea/identiconpp.git"
