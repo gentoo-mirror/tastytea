@@ -54,16 +54,12 @@ src_prepare() {
 	fi
 }
 
-src_configure() {
-	if use debug; then
-		mycmakeargs+=(-DCMAKE_BUILD_TYPE=Debug)
-	fi
-
-	cmake-utils_src_configure
-}
-
 src_compile() {
-	cmake-utils_src_compile
+	if use debug; then
+		cmake-utils_src_compile DEBUG=1
+	else
+		utils_src_compile
+	fi
 
 	if use doc; then
 		./build_doc.sh
