@@ -40,7 +40,7 @@ src_compile() {
 	if use debug; then
 		cmake-utils_src_compile DEBUG=1
 	else
-		utils_src_compile
+		cmake-utils_src_compile
 	fi
 
 	if use doc; then
