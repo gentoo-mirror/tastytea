@@ -25,7 +25,7 @@ if [[ "${PV}" == "9999" ]]; then
 else
 	KEYWORDS="~amd64"
 fi
-IUSE="doc examples"
+IUSE="debug doc examples"
 
 RDEPEND="
 	media-gfx/imagemagick[png]
@@ -52,6 +52,14 @@ src_prepare() {
 	if use examples; then
 		DOCS+=(example.cpp)
 	fi
+}
+
+src_configure() {
+	if use debug; then
+		mycmakeargs+=(-DCMAKE_BUILD_TYPE=Debug)
+	fi
+
+	cmake-utils_src_configure
 }
 
 src_compile() {
