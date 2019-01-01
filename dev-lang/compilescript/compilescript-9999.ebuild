@@ -9,6 +9,7 @@ if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 fi
 
+XDGCFG_PV="0.2.3"
 DESCRIPTION="Allows you to execute files from compiled languages as scripts."
 HOMEPAGE="https://schlomp.space/tastytea/compilescript"
 if [[ "${PV}" == "9999" ]]; then
@@ -16,7 +17,7 @@ if [[ "${PV}" == "9999" ]]; then
 else
 	SRC_URI="
 		https://schlomp.space/tastytea/compilescript/archive/${PV}.tar.gz -> ${P}.tar.gz
-		https://schlomp.space/tastytea/xdgcfg/archive/0.2.2.tar.gz -> xdgcfg-0.2.2.tar.gz
+		https://schlomp.space/tastytea/xdgcfg/archive/${XDGCFG_PV}.tar.gz -> xdgcfg-${XDGCFG_PV}.tar.gz
 	"
 fi
 
