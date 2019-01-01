@@ -42,6 +42,15 @@ if [[ "${PV}" != "9999" ]]; then
 	S="${WORKDIR}/${PN}"
 fi
 
+src_unpack() {
+	if [[ "${PV}" == "9999" ]]; then
+		git-r3_src_unpack
+	else
+		default_src_unpack
+		mv xdgcfg ${PN}
+	fi
+}
+
 src_prepare() {
 	cmake-utils_src_prepare
 
