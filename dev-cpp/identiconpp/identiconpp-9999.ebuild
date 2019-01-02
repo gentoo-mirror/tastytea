@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Authors
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -25,7 +25,7 @@ if [[ "${PV}" == "9999" ]]; then
 else
 	KEYWORDS="~amd64"
 fi
-IUSE="debug doc examples"
+IUSE="debug doc examples test"
 
 RDEPEND="
 	media-gfx/imagemagick[png]
@@ -33,6 +33,7 @@ RDEPEND="
 DEPEND="
 	dev-util/cmake
 	doc? ( app-doc/doxygen )
+	test? ( dev-cpp/catch )
 	${RDEPEND}
 "
 
@@ -52,6 +53,10 @@ src_prepare() {
 	if use examples; then
 		DOCS+=(example.cpp)
 	fi
+
+	if use test; then
+		mycmakeargs+=(-DWITH_TESTS=YES)
+	fi
 }
 
 src_compile() {
@@ -64,4 +69,8 @@ src_compile() {
 	if use doc; then
 		./build_doc.sh
 	fi
+}
+
+src_test() {
+	cmake-utils_src_test
 }
