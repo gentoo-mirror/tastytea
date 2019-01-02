@@ -1,0 +1,3 @@
+# Will be removed on 2019-02-02 because I don't use it anymore.
+# The overlay "salfter" has it in their tree.
+dev-python/validators
