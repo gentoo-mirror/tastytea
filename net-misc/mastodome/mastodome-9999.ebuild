@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Authors
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -29,12 +29,16 @@ fi
 IUSE=""
 
 DEPEND="
+	dev-lang/python:*
+"
+RDEPEND="
+	${DEPEND}
 	dev-python/html2text
 	dev-python/PyQt5
 	dev-python/keyring
 	dev-python/mastodon
+	dev-python/validators
 "
-RDEPEND="${DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/0.2-modify-config-dirs.patch"
