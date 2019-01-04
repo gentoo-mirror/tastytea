@@ -51,7 +51,7 @@ src_prepare() {
 		HTML_DOCS="doc/html/*"
 	fi
 	if use examples; then
-		DOCS+=(example.cpp)
+		DOCS+=(example.cpp example.c)
 	fi
 
 	if use test; then
@@ -69,8 +69,4 @@ src_compile() {
 	if use doc; then
 		./build_doc.sh
 	fi
-}
-
-src_test() {
-	cmake-utils_src_test
 }
