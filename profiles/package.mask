@@ -1,0 +1,3 @@
+# Masked for removal on 2018-02-05.
+# Use net-im/spectrum2 from the official Gentoo instead.
+net-im/spectrum
