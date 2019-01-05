@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="6"
@@ -19,10 +19,10 @@ IUSE="debug doc libev mysql postgres sqlite test ${IUSE_PLUGINS}"
 RDEPEND="${RDEPEND}
 	>=dev-libs/libev-4.23
 	>=dev-libs/log4cxx-0.10.0-r1
-	>=dev-libs/openssl-1.0.2o-r6
+	dev-libs/openssl:0
 	>=dev-libs/popt-1.16-r2
 	>=dev-libs/protobuf-3.5.2
-	>=net-im/swiften-4.0.2
+	>=net-im/swift-4.0.2
 	mysql? ( >=virtual/mysql-5.6-r12 )
 	postgres? ( >=dev-libs/libpqxx-6.0.0 )
 	sqlite? ( dev-db/sqlite:3 )
