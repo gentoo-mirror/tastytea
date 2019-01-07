@@ -1,3 +1,7 @@
 # Masked for removal on 2018-02-05.
 # Use net-im/spectrum2 from the official Gentoo instead.
 net-im/spectrum
+
+# Masked for removal on 2018-02-07.
+# I don't use it anymore. It is still available from the overlay "seden".
+games-strategy/widelands
