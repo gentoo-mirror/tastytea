@@ -5,4 +5,7 @@
     <email>gentoo@tastytea.de</email>
     <name>tastytea</name>
   </maintainer>
+  <upstream>
+    <bugs-to>https://schlomp.space/tastytea/whyblocked/issues</bugs-to>
+  </upstream>
 </pkgmetadata>
