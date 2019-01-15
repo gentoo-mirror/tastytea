@@ -36,7 +36,7 @@ RDEPEND="
 	dev-python/pyasn1[${PYTHON_USEDEP}]
 	dev-python/pycairo[${PYTHON_USEDEP}]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
-	>=dev-python/python-nbxmpp-0.6.8[${PYTHON_USEDEP}]
+	>=dev-python/python-nbxmpp-0.6.9[${PYTHON_USEDEP}]
 	dev-python/pyopenssl[${PYTHON_USEDEP}]
 	>=dev-python/cssutils-1.0.2[${PYTHON_USEDEP}]
 	dev-python/idna[${PYTHON_USEDEP}]
