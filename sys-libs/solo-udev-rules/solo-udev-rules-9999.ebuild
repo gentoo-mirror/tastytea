@@ -11,6 +11,7 @@ HOMEPAGE="
 	https://github.com/solokeys/solo
 "
 EGIT_REPO_URI="https://github.com/solokeys/solo.git"
+EGIT_SUBMODULES=()
 
 LICENSE="GPL-3"
 SLOT="0"
