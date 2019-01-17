@@ -1,0 +1,11 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl] virtual/pkgconfig
+DEFINED_PHASES=compile install unpack
+DEPEND=virtual/udev
+DESCRIPTION=udev rules for the Solo FIDO2 USB+NFC token.
+EAPI=7
+HOMEPAGE=https://solokeys.com/ https://github.com/solokeys/solo
+LICENSE=GPL-3
+RDEPEND=virtual/udev
+SLOT=0
+_eclasses_=git-r3	0d4635eeb5a96cd5315597a47eba25c9	multilib	b2f01ad412baf81650c23fcf0975fa33	toolchain-funcs	f164325a2cdb5b3ea39311d483988861	udev	7752f306eec7b286d00bdb47b763e7ac
+_md5_=dd84dcbd1696ff9f9f48e2079c46befb
