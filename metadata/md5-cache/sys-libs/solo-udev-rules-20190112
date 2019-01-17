@@ -4,7 +4,6 @@ DEPEND=virtual/udev
 DESCRIPTION=udev rules for the Solo FIDO2 USB+NFC token.
 EAPI=7
 HOMEPAGE=https://solokeys.com/ https://github.com/solokeys/solo
-KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=virtual/udev
 SLOT=0
