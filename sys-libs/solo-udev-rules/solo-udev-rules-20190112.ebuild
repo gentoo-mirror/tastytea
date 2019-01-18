@@ -12,13 +12,13 @@ HOMEPAGE="
 "
 EGIT_REPO_URI="https://github.com/solokeys/solo.git"
 EGIT_SUBMODULES=()
-if [[ "${PV}" != "9999" ]]; then
+if [[ "${PV}" != "99999999" ]]; then
 	EGIT_COMMIT_DATE="${PV}"
 fi
 
 LICENSE="GPL-3"
 SLOT="0"
-if [[ "${PV}" != "9999" ]]; then
+if [[ "${PV}" == "99999999" ]]; then
 	KEYWORDS=""
 else
 	KEYWORDS="~amd64 ~x86"
