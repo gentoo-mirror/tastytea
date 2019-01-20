@@ -17,7 +17,8 @@ if [[ "${PV}" == "9999" ]]; then
 else
 	SRC_URI="
 		https://schlomp.space/tastytea/whyblocked/archive/${PV}.tar.gz -> ${P}.tar.gz
-		https://schlomp.space/tastytea/xdgcfg/archive/${XDGCFG_PV}.tar.gz -> xdgcfg-${XDGCFG_PV}.tar.gz"
+		https://schlomp.space/tastytea/xdgcfg/archive/${XDGCFG_PV}.tar.gz -> xdgcfg-${XDGCFG_PV}.tar.gz
+	"
 fi
 
 LICENSE="GPL-3"
@@ -29,13 +30,16 @@ else
 fi
 IUSE="nls"
 
-RDEPEND=">=dev-db/vsqlite++-0.3.13-r1
+RDEPEND="
+	>=dev-db/vsqlite++-0.3.13-r1
 	>=dev-libs/libxdg-basedir-1.2.0-r1
 	>=dev-qt/qtcore-5.9.6
 	>=dev-qt/qtwidgets-5.9.6-r1
 "
-DEPEND=">=dev-util/cmake-3.9.6
+DEPEND="
+	>=dev-util/cmake-3.9.6
 	nls? ( >=dev-qt/linguist-tools-5.9.6 )
+	app-text/asciidoc
 	${RDEPEND}
 "
 
@@ -55,7 +59,7 @@ src_unpack() {
 src_configure() {
 	local mycmakeargs=()
 	if ! use nls; then
-		mycmakeargs+=(-DWITHOUT_TRANSLATIONS=YES)
+		mycmakeargs+=(-DWITH_TRANSLATIONS=NO)
 	fi
 	cmake-utils_src_configure
 }
