@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -7,7 +7,7 @@ inherit cmake-utils gnome2-utils
 
 DESCRIPTION="An open-source Zelda-like 2D game engine"
 HOMEPAGE="http://www.solarus-games.org/"
-SRC_URI="https://gitlab.com/solarus-games/solarus/-/archive/v${PV}/solarus-v${PV}.tar.gz"
+SRC_URI="https://gitlab.com/solarus-games/solarus/-/archive/v${PV}/solarus-v${PV}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
