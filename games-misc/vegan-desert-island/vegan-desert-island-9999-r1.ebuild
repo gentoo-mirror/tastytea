@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND=">=games-engines/solarus-1.5.3-r2"
+RDEPEND=">=games-engines/solarus-1.6.0"
 DEPEND="${RDEPEND}"
 
 src_unpack() {
