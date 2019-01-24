@@ -1,10 +1,10 @@
 DEFINED_PHASES=compile install unpack
-DEPEND=>=games-engines/solarus-1.5.3-r2 >=dev-vcs/git-1.8.2.1[curl]
+DEPEND=>=games-engines/solarus-1.6.0 >=dev-vcs/git-1.8.2.1[curl]
 DESCRIPTION=2D adventure game about being a vegan on a desert island.
 EAPI=6
 HOMEPAGE=https://gitlab.com/vegan-desert-island/vegan-desert-island
 LICENSE=GPL-3
-RDEPEND=>=games-engines/solarus-1.5.3-r2
+RDEPEND=>=games-engines/solarus-1.6.0
 SLOT=0
 _eclasses_=git-r3	0d4635eeb5a96cd5315597a47eba25c9
-_md5_=94e6f6fa6fc16b2dd4015e80a9face90
+_md5_=1cfc648a1557c5e965cbf15803ffa25d
