@@ -1,7 +1,19 @@
-# Masked for removal on 2018-02-05.
+# Masked for removal on 2019-02-05.
 # Use net-im/spectrum2 from the official Gentoo instead.
 net-im/spectrum
 
-# Masked for removal on 2018-02-07.
+# Masked for removal on 2019-02-07.
 # I don't use it anymore. It is still available from the overlay "seden".
 games-strategy/widelands
+
+# Masked for removal on 2019-02-26
+# Upstream abandoned it
+net-misc/mastodome
+
+# Masked for removal on 2019-02-26
+# Dependency of net-misc/mastodome, which will be removed
+dev-python/mastodon
+
+# Masked for removal on 2019-02-26
+# Dependency of net-misc/mastodome, which will be removed
+dev-python/validators
