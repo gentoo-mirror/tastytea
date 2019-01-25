@@ -9,3 +9,11 @@ games-strategy/widelands
 # Masked for removal on 2019-02-26
 # Upstream abandoned it
 net-misc/mastodome
+
+# Masked for removal on 2019-02-26
+# Dependency of net-misc/mastodome, which will be removed
+dev-python/mastodon
+
+# Masked for removal on 2019-02-26
+# Dependency of net-misc/mastodome, which will be removed
+dev-python/validators
