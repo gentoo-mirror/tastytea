@@ -1,0 +1,12 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install unpack
+DEPEND=
+DESCRIPTION=A single Bash script to create blogs.
+EAPI=7
+HOMEPAGE=https://github.com/cfenollosa/bashblog
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=|| ( app-text/peg-markdown dev-perl/Text-Markdown )
+SLOT=0
+_eclasses_=git-r3	0d4635eeb5a96cd5315597a47eba25c9
+_md5_=254c267f6758311304e852eb846504d0
