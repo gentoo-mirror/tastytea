@@ -19,10 +19,10 @@ if [[ "${PV}" == "99999999" ]]; then
 else
 	KEYWORDS="~amd64 ~x86"
 fi
-IUSE=""
+IUSE="+markdown"
 
 RDEPEND="
-	|| ( app-text/peg-markdown dev-perl/Text-Markdown )
+	markdown? ( dev-perl/Text-Markdown )
 "
 DEPEND="
 "
