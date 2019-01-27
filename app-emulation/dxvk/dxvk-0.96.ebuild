@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 MULTILIB_COMPAT=( abi_x86_{32,64} )
 inherit meson multilib-minimal ninja-utils
 if [[ "${PV}" == "9999" ]]; then
