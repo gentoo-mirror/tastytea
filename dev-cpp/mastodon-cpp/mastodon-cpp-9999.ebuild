@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Authors
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -10,7 +10,7 @@ EGIT_REPO_URI="https://schlomp.space/tastytea/mastodon-cpp.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="doc debug examples static-libs"
+IUSE="doc examples static-libs"
 RDEPEND=">=dev-cpp/curlpp-0.8.1
 		 >=dev-libs/jsoncpp-1.8.1"
 DEPEND=">=dev-util/cmake-3.9.6
@@ -37,11 +37,7 @@ src_configure() {
 # We can not let cmake handle the documentation, because it would end up in
 # doc/mastodon-cpp-${PROJECT_VERSION} instead of -9999
 src_compile() {
-	if use debug; then
-		cmake-utils_src_compile DEBUG=1
-	else
-		cmake-utils_src_compile
-	fi
+	cmake-utils_src_compile
 
 	if use doc; then
 		./build_doc.sh

@@ -10,7 +10,7 @@ SRC_URI="https://schlomp.space/tastytea/mastodon-cpp/archive/${PV}.tar.gz -> ${P
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc debug examples static-libs"
+IUSE="doc examples static-libs"
 RDEPEND="
 	>=dev-cpp/curlpp-0.8.1
 	>=dev-libs/jsoncpp-1.8.4
@@ -39,11 +39,7 @@ src_configure() {
 # We won't let cmake handle the documentation, because it would install the
 # examples, no matter if we want them.
 src_compile() {
-	if use debug; then
-		cmake-utils_src_compile DEBUG=1
-	else
-		cmake-utils_src_compile
-	fi
+	cmake-utils_src_compile
 
 	if use doc; then
 		./build_doc.sh
