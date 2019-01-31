@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit cmake-utils
 
@@ -28,7 +28,7 @@ if [[ "${PV}" == "9999" ]]; then
 else
 	KEYWORDS="~amd64"
 fi
-IUSE="debug"
+IUSE=""
 
 RDEPEND="
 	dev-libs/libconfig
@@ -36,6 +36,7 @@ RDEPEND="
 "
 DEPEND="
 	dev-util/cmake
+	app-text/asciidoc
 	${RDEPEND}
 "
 
@@ -49,20 +50,5 @@ src_unpack() {
 	else
 		default_src_unpack
 		mv xdgcfg ${PN}
-	fi
-}
-
-src_prepare() {
-	cmake-utils_src_prepare
-
-	sed -i "s|\${CMAKE_INSTALL_DOCDIR}|\${CMAKE_INSTALL_DATAROOTDIR}/doc/${P}|" \
-		CMakeLists.txt || die "Modification of CMAKE_INSTALL_DOCDIR failed."
-}
-
-src_compile() {
-	if use debug; then
-		cmake-utils_src_compile DEBUG=1
-	else
-		cmake-utils_src_compile
 	fi
 }
