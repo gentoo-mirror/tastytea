@@ -1,14 +1,14 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="4"
+EAPI=7
 
 EGIT_REPO_URI="https://github.com/tastytea/hashboot.git"
 
-inherit eutils git-r3
+inherit git-r3
 
 DESCRIPTION="Check integrity of files in /boot"
-HOMEPAGE="https://git.tastytea.de/?p=hashboot.git"
+HOMEPAGE="https://github.com/tastytea/hashboot/"
 LICENSE="hug-ware"
 SLOT="0"
 KEYWORDS=""
@@ -20,21 +20,19 @@ RDEPEND="
 	sys-apps/findutils
 	sys-apps/grep
 	virtual/awk
-	app-shells/bash
+	app-shells/bash:*
 	sys-apps/util-linux
 	sys-apps/diffutils
 	sys-apps/sed
 "
-DEPEND="${RDEPEND}
-"
-PDEPEND="
-"
+DEPEND="sys-apps/grep"
 
 src_unpack() {
 	git-r3_src_unpack
 }
 
 src_prepare() {
+	default
 	if grep -q '^rc_parallel="YES"' /etc/rc.conf
 	then
 		ewarn "hashboot does not work properly with parallel boot enabled."
@@ -42,13 +40,10 @@ src_prepare() {
 
 	mkdir init
 	mv initscript.openrc init/hashboot
-	mv LICENSE HUG-WARE
 }
 
 src_install() {
 	dodoc README
-	insinto /usr/portage/licenses
-	doins HUG-WARE
 
 	dobin hashboot
 	doinitd init/hashboot
