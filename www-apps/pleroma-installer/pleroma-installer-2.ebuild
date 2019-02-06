@@ -28,6 +28,15 @@ pkg_setup() {
 	enewuser pleroma -1 /bin/bash /var/lib/pleroma pleroma
 }
 
+src_prepare() {
+	default
+	if ! use systemd; then
+		# Log to syslog
+		sed -i 's/command_background=1/command_background=1\nerror_logger="logger"\noutput_logger="logger"/' \
+			installation/init.d/pleroma || die
+	fi
+}
+
 src_install() {
 	local pleromadir="${EPREFIX}/var/lib/pleroma/pleroma"
 	diropts -o pleroma -g pleroma
