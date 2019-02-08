@@ -12,7 +12,7 @@ EGIT_REPO_URI="https://git.pleroma.social/pleroma/pleroma.git"
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="apache +nginx systemd"
+IUSE="apache +nginx syslog systemd"
 
 RDEPEND="
 	>=dev-lang/elixir-1.6.6
@@ -30,10 +30,16 @@ pkg_setup() {
 
 src_prepare() {
 	default
-	if ! use systemd; then
+
+	if use syslog; then
 		# Log to syslog
 		sed -i 's/command_background=1/command_background=1\nerror_logger="logger"\noutput_logger="logger"/' \
 			installation/init.d/pleroma || die
+	fi
+
+	if use systemd; then
+		sed -i 's|/etc/init.d/pleroma stop|systemctl stop pleroma|' "${FILESDIR}/upgrade_pleroma.sh" || die
+		sed -i 's|/etc/init.d/pleroma restart|systemctl restart pleroma|' "${FILESDIR}/upgrade_pleroma.sh" || die
 	fi
 }
 
