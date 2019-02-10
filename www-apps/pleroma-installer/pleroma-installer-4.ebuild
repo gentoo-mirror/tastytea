@@ -41,6 +41,9 @@ src_prepare() {
 		sed -i 's|/etc/init.d/pleroma stop|systemctl stop pleroma|' "${FILESDIR}/upgrade_pleroma.sh" || die
 		sed -i 's|/etc/init.d/pleroma restart|systemctl restart pleroma|' "${FILESDIR}/upgrade_pleroma.sh" || die
 	fi
+
+	ewarn "Beginning with 2019-02-10, the Pleroma init scripts expect the installation in ${EPREFIX}/opt/pleroma."
+	ewarn "If it is in ${EPREFIX}/var/lib/pleroma, this ebuild will fail. Move it now and remerge."
 }
 
 src_install() {
@@ -80,7 +83,4 @@ pkg_postinst() {
 	if use apache; then
 		einfo "An example config for apache has been installed in the doc directory."
 	fi
-
-	ewarn "Beginning with 2019-02-10, the Pleroma init scripts expect the installation in ${EPREFIX}/opt/pleroma."
-	ewarn "If they are in ${EPREFIX}/var/lib/pleroma, move them now."
 }
