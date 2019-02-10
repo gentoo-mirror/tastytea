@@ -44,11 +44,12 @@ src_prepare() {
 }
 
 src_install() {
-	local pleromadir="${EPREFIX}/var/lib/pleroma/pleroma"
+	local pleromadir="${EPREFIX}/opt/pleroma"
 	diropts -o pleroma -g pleroma
 	exeopts -o pleroma -g pleroma
 
 	dodir "${pleromadir}"
+	dosym "${EPREFIX}/opt/pleroma" "${EPREFIX}/var/lib/pleroma/pleroma"
 	exeinto "${pleromadir}"
 	doexe "${FILESDIR}/install_pleroma.sh"
 	doexe "${FILESDIR}/upgrade_pleroma.sh"
@@ -79,4 +80,7 @@ pkg_postinst() {
 	if use apache; then
 		einfo "An example config for apache has been installed in the doc directory."
 	fi
+
+	ewarn "Beginning with 2019-02-10, the Pleroma init scripts expect the installation in ${EPREFIX}/opt/pleroma."
+	ewarn "If they are in ${EPREFIX}/var/lib/pleroma, move them now."
 }
