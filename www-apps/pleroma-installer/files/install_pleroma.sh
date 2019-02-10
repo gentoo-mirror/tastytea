@@ -21,7 +21,7 @@ function die()
 
 echo -e "${purple}Cloning pleroma into current dir...${nocolor}"
 git clone https://git.pleroma.social/pleroma/pleroma.git || die
-mv pleroma/{*,.[a-zA-z0-9]*} . || die
+mv pleroma/{*,.[a-zA-Z0-9]*} . || die
 rmdir pleroma || die
 
 echo -e "${purple}Installing the dependencies for pleroma..."
