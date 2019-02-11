@@ -1,7 +1,7 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 inherit golang-build
 
 DESCRIPTION="Bank holidays/public holidays in Austria and Germany"
@@ -15,8 +15,10 @@ KEYWORDS="~amd64"
 IUSE=""
 
 RDEPEND=""
-DEPEND="${RDEPEND}
-		>=dev-lang/go-1.10.1"
+DEPEND="
+	${RDEPEND}
+	>=dev-lang/go-1.10.1
+"
 
 src_prepare() {
 	mkdir -p src/github.com/wlbr
