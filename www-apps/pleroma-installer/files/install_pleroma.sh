@@ -39,5 +39,6 @@ sudo -u postgres psql -f config/setup_db.psql || die
 echo -e "${purple}Running the database migration...${nocolor}"
 MIX_ENV=prod mix ecto.migrate || die
 
-echo -e "\n${purple}Done! You can now start pleroma with:${nocolor}"
+echo -en "\n${purple}Done! You can now start pleroma with${nocolor} "
 echo "/etc/init.d/pleroma start"
+echo "{purple}The configuration file is in${nocolor} config/prod.secret.exs"
