@@ -16,6 +16,7 @@ IUSE="apache +nginx syslog systemd"
 
 RDEPEND="
 	>=dev-lang/elixir-1.6.6
+	dev-vcs/git
 	>=dev-db/postgresql-9.6.11[uuid]
 	app-admin/sudo
 	apache? ( www-servers/apache )
