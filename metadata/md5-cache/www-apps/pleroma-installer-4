@@ -1,5 +1,5 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl] virtual/pkgconfig
-DEFINED_PHASES=install postinst prepare setup unpack
+DEFINED_PHASES=install postinst preinst prepare setup unpack
 DESCRIPTION=Microblogging server software that can federate with other servers.
 EAPI=7
 HOMEPAGE=https://pleroma.social/ https://git.pleroma.social/pleroma/pleroma/
@@ -8,4 +8,4 @@ LICENSE=AGPL-3
 RDEPEND=>=dev-lang/elixir-1.6.6 dev-vcs/git >=dev-db/postgresql-9.6.11[uuid] app-admin/sudo apache? ( www-servers/apache ) nginx? ( www-servers/nginx[nginx_modules_http_slice] )
 SLOT=0
 _eclasses_=git-r3	0d4635eeb5a96cd5315597a47eba25c9	multilib	b2f01ad412baf81650c23fcf0975fa33	systemd	71fd8d2065d102753fb9e4d20eaf3e9f	toolchain-funcs	f164325a2cdb5b3ea39311d483988861	user	8bc2845510e2109af75e3eeac607ec81
-_md5_=d53538235400f4b563cb45715854a65d
+_md5_=72f4fdd9fb360e4bc096fbb7ebfd0315
