@@ -9,4 +9,4 @@ RDEPEND=>=dev-lang/elixir-1.6.6 dev-vcs/git >=dev-db/postgresql-9.6.11[uuid] app
 SLOT=0
 SRC_URI=https://git.pleroma.social/pleroma/pleroma/-/archive/v0.9.9/pleroma-v0.9.9.tar.bz2 -> pleroma-0.9.9.tar.bz2
 _eclasses_=multilib	b2f01ad412baf81650c23fcf0975fa33	systemd	71fd8d2065d102753fb9e4d20eaf3e9f	toolchain-funcs	f164325a2cdb5b3ea39311d483988861	user	8bc2845510e2109af75e3eeac607ec81
-_md5_=01f007532ea1b13cf60a83e0511797bd
+_md5_=415a0cdeba31f6875f63fe61fe1f2407
