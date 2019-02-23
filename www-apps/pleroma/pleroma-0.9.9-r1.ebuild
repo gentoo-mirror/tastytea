@@ -62,7 +62,7 @@ src_prepare() {
 src_install() {
 	local pleromadir="${EPREFIX}/opt/pleroma"
 
-	insopts -o pleroma -g pleroma -m 644
+	insopts -o pleroma -g pleroma -m 664
 	insinto "${pleromadir}"
 	doins -r * .*
 
