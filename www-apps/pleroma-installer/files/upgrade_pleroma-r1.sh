@@ -25,7 +25,7 @@ sudo /etc/init.d/pleroma stop || die
 echo -e "${purple}Pulling the latest changes from upstream...${nocolor}"
 sudo -u pleroma git pull || die
 echo -e "${purple}Upgrading dependencies...${nocolor}"
-sudo -u pleroma mix deps.get || die
+sudo -u pleroma MIX_ENV=prod mix deps.get || die
 
 echo -e "${purple}Performing database migrations...${nocolor}"
 sudo -u pleroma MIX_ENV=prod mix ecto.migrate || die
