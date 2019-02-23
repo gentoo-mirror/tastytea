@@ -13,7 +13,6 @@ SRC_URI="https://git.pleroma.social/pleroma/pleroma/-/archive/v0.9.9/${MY_P}.tar
 
 LICENSE="AGPL-3"
 SLOT="0"
-#KEYWORDS="~amd64 ~x86 ~arm"
 KEYWORDS=""
 IUSE="apache +nginx syslog systemd"
 
@@ -31,16 +30,28 @@ S="${WORKDIR}/${MY_P}"
 
 pkg_preinst() {
 	elog "This ebuild comes with a lot of bundles libraries."
+	ewarn "This ebuild may overwrite files you have edited. Waiting 10 seconds ..."
+	sleep 10 || die
+
+	# Backup user-modified files
+	if [ -f "${EROOT}/opt/pleroma/priv/static/instance/panel.html" ]; then
+		einfo "Backing up panel.html, terms-of-service.html and thumbnail.jpeg ..."
+		mv "${EROOT}/opt/pleroma/priv/static/instance/panel.html"{,~} || die
+		mv "${EROOT}/opt/pleroma/priv/static/static/terms-of-service.html"{,~} || die
+		mv "${EROOT}/opt/pleroma/priv/static/instance/thumbnail.jpeg"{,~} || die
+	fi
 }
 
 pkg_setup() {
 	enewgroup pleroma
-	enewuser pleroma -1 - /opt/pleroma pleroma
+	enewuser pleroma -1 -1 /opt/pleroma pleroma
 }
 
 src_prepare() {
 	default
 
+	sed -i 's|directory=~pleroma/pleroma|directory=~pleroma|' \
+		"${S}/installation/init.d/pleroma" || die
 	if use syslog; then
 		# Log to syslog
 		sed -i 's/command_background=1/command_background=1\nerror_logger="logger"\noutput_logger="logger"/' \
@@ -78,6 +89,14 @@ pkg_postinst() {
 	fi
 	if use apache; then
 		einfo "An example config for apache has been installed in the doc directory."
+	fi
+
+	# Restore user-modified files
+	if [ -f "${EROOT}/opt/pleroma/priv/static/instance/panel.html~" ]; then
+		einfo "Restoring panel.html, terms-of-service.html and thumbnail.jpeg ..."
+		mv "${EROOT}/opt/pleroma/priv/static/instance/panel.html"{~,} || die
+		mv "${EROOT}/opt/pleroma/priv/static/static/terms-of-service.html"{~,} || die
+		mv "${EROOT}/opt/pleroma/priv/static/instance/thumbnail.jpeg"{~,} || die
 	fi
 }
 
