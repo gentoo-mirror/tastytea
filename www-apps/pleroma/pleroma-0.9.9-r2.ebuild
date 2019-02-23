@@ -8,19 +8,17 @@ inherit user systemd
 MY_P="${PN}-v${PV}"
 DESCRIPTION="Microblogging server software that can federate with other servers."
 HOMEPAGE="https://pleroma.social/ https://git.pleroma.social/pleroma/pleroma/"
-SRC_URI="https://git.pleroma.social/pleroma/pleroma/-/archive/v0.9.9/${MY_P}.tar.bz2
+SRC_URI="https://git.pleroma.social/pleroma/pleroma/-/archive/v${PV}/${MY_P}.tar.bz2
 	-> ${P}.tar.bz2"
 
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="apache +nginx syslog systemd"
+IUSE="apache +nginx syslog"
 
 RDEPEND="
 	>=dev-lang/elixir-1.6.6
-	dev-vcs/git
 	>=dev-db/postgresql-9.6.11[uuid]
-	app-admin/sudo
 	apache? ( www-servers/apache )
 	nginx? ( www-servers/nginx )
 "
@@ -30,8 +28,6 @@ S="${WORKDIR}/${MY_P}"
 
 pkg_preinst() {
 	elog "This ebuild comes with a lot of bundles libraries."
-	ewarn "This ebuild may overwrite files you have edited. Waiting 10 seconds ..."
-	sleep 10 || die
 
 	# Backup user-modified files
 	if [ -f "${EROOT}/opt/pleroma/priv/static/instance/panel.html" ]; then
@@ -40,6 +36,9 @@ pkg_preinst() {
 		mv "${EROOT}/opt/pleroma/priv/static/static/terms-of-service.html"{,~} || die
 		mv "${EROOT}/opt/pleroma/priv/static/instance/thumbnail.jpeg"{,~} || die
 	fi
+
+	ewarn "This ebuild may overwrite files you have edited. Waiting 10 seconds ..."
+	sleep 10 || die
 }
 
 pkg_setup() {
@@ -52,11 +51,6 @@ src_prepare() {
 
 	sed -i 's|directory=~pleroma/pleroma|directory=~pleroma|' \
 		"${S}/installation/init.d/pleroma" || die
-	if use syslog; then
-		# Log to syslog
-		sed -i 's/command_background=1/command_background=1\nerror_logger="logger"\noutput_logger="logger"/' \
-			"${S}/installation/init.d/pleroma" || die
-	fi
 }
 
 src_install() {
@@ -75,11 +69,8 @@ src_install() {
 
 	dodoc docs/*
 
-	if use systemd; then
-		systemd_dounit installation/pleroma.service
-	else
-		doinitd installation/init.d/pleroma
-	fi
+	doinitd installation/init.d/pleroma
+	systemd_dounit installation/pleroma.service
 }
 
 pkg_postinst() {
@@ -89,6 +80,10 @@ pkg_postinst() {
 	fi
 	if use apache; then
 		einfo "An example config for apache has been installed in the doc directory."
+	fi
+
+	if ! grep -q MIX_ENV ~pleroma/.profile; then
+		echo "export MIX_ENV=prod" >> ~pleroma/.profile
 	fi
 
 	# Restore user-modified files
@@ -107,18 +102,23 @@ pkg_config() {
 	if [ ! -f ${configfile} ]; then
 		einfo "Installing the dependencies..."
 		einfo "Answer with yes if it asks you to install Hex."
-		sudo -u pleroma mix deps.get || die
+		su -s /bin/sh -c "mix deps.get" pleroma || die
 
 		einfo "Generating the configuration..."
 		einfo "Answer with yes if it asks you to install rebar3."
-		sudo -u pleroma mix pleroma.instance gen || die
-		mv -v config/{generated_config.exs,prod.secret.exs} || die
+		su -s /bin/sh -c "mix pleroma.instance gen" pleroma || die
+		mv config/{generated_config.exs,prod.secret.exs} || die
+
+		if use syslog; then
+			echo -e "config :logger,\n  backends: [{ExSyslogger, :ex_syslogger}]\n\n" \
+				"config :logger, :ex_syslogger,\n  level: :warn'" >> ${configfile}
+		fi
 
 		einfo "Creating the database..."
-		sudo -u postgres psql -f config/setup_db.psql || die
+		su -s /bin/sh -c "psql -f config/setup_db.psql" postgres || die
 
 		einfo "Running the database migration..."
-		sudo -u pleroma MIX_ENV=prod mix ecto.migrate || die
+		su -s /bin/sh -c "MIX_ENV=prod mix ecto.migrate" pleroma || die
 
 		einfo "Your configuration file is in ${configfile}."
 	else
@@ -137,10 +137,10 @@ pkg_config() {
 		fi
 
 		einfo "Updating the dependencies..."
-		sudo -u pleroma mix deps.get || die
+		su -s /bin/sh -c "mix deps.get" pleroma || die
 
 		einfo "Running the database migration..."
-		sudo -u pleroma MIX_ENV=prod mix ecto.migrate || die
+		su -s /bin/sh -c "MIX_ENV=prod mix ecto.migrate" pleroma || die
 
 		if [ ${started} -eq 1 ]; then
 			einfo "Starting pleroma..."
