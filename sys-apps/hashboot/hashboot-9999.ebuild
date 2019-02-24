@@ -27,24 +27,16 @@ RDEPEND="
 "
 DEPEND="sys-apps/grep"
 
-src_unpack() {
-	git-r3_src_unpack
-}
-
-src_prepare() {
+src_preinst() {
 	default
 	if grep -q '^rc_parallel="YES"' /etc/rc.conf
 	then
 		ewarn "hashboot does not work properly with parallel boot enabled."
 	fi
-
-	mkdir init
-	mv initscript.openrc init/hashboot
 }
 
 src_install() {
-	dodoc README
-
+	dodoc README.md
 	dobin hashboot
-	doinitd init/hashboot
+	newinitd initscript.openrc hashboot
 }
