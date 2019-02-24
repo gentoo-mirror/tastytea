@@ -24,6 +24,7 @@ RDEPEND="
 	sys-apps/util-linux
 	sys-apps/diffutils
 	sys-apps/sed
+	app-text/asciidoc
 "
 DEPEND="sys-apps/grep"
 
@@ -35,8 +36,13 @@ src_preinst() {
 	fi
 }
 
+src_compile() {
+	./build_manpage.sh
+}
+
 src_install() {
 	dodoc README.md
 	dobin hashboot
 	newinitd initscript.openrc hashboot
+	doman ${PN}.1
 }
