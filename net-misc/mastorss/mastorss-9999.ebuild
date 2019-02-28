@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -11,7 +11,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
-RDEPEND=">=dev-cpp/mastodon-cpp-9999
+RDEPEND=">=dev-cpp/mastodon-cpp-0.30.1
 	>=dev-cpp/curlpp-0.8.1
 	>=dev-libs/jsoncpp-1.8.1
 	>=dev-libs/boost-1.65.0"
