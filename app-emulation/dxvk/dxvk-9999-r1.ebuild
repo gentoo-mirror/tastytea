@@ -36,6 +36,21 @@ RDEPEND="
 	media-libs/vulkan-loader
 "
 
+src_prepare() {
+	default
+	sed -i "s|^basedir=.*$|basedir=\"${EPREFIX}\"|" setup_dxvk.sh || die
+	sed -i 's|"x64"|"usr/lib64/dxvk"|' setup_dxvk.sh || die
+	sed -i 's|"x32"|"usr/lib32/dxvk"|' setup_dxvk.sh || die
+
+	if ! use abi_x86_64; then
+		sed -i '|installFile "$win64_sys_path"|d' setup_dxvk.sh
+	fi
+
+	if ! use abi_x86_32; then
+		sed -i '|installFile "$win32_sys_path"|d' setup_dxvk.sh
+	fi
+}
+
 multilib_src_configure() {
 	local bit="${MULTILIB_ABI_FLAG:8:2}"
 	local emesonargs=(
@@ -55,8 +70,12 @@ multilib_src_install() {
 	meson_src_install
 }
 
+multilib_src_install_all() {
+	dobin setup_dxvk.sh
+}
+
 pkg_postinst() {
 	elog "dxvk is installed, but not activated. You have to create DLL overrides"
 	elog "in order to make use of it. To do so, set WINEPREFIX and execute"
-	elog "${EPREFIX}/usr/lib{32,64}/dxvk/bin/setup_dxvk.sh install."
+	elog "setup_dxvk.sh install --symlink."
 }
