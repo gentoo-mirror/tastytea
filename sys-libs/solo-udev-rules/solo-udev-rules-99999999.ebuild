@@ -39,4 +39,5 @@ src_compile() {
 
 src_install() {
 	udev_dorules udev/70-solokeys-access.rules
+	udev_dorules udev/70-solokeys-legacy-access.rules
 }
