@@ -34,7 +34,7 @@ RDEPEND="
 	dev-libs/libxdg-basedir
 	dev-cpp/curlpp
 	dev-libs/jsoncpp
-	dev-cpp/mastodon-cpp
+	dev-cpp/mastodon-cpp:0.30
 "
 DEPEND="
 	dev-util/cmake

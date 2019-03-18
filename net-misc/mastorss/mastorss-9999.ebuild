@@ -11,10 +11,12 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
-RDEPEND=">=dev-cpp/mastodon-cpp-0.30.1
+RDEPEND="
+	dev-cpp/mastodon-cpp:0.30
 	>=dev-cpp/curlpp-0.8.1
 	>=dev-libs/jsoncpp-1.8.1
-	>=dev-libs/boost-1.65.0"
+	>=dev-libs/boost-1.65.0
+"
 DEPEND=">=dev-util/cmake-3.9.6
 	${RDEPEND}"
 
