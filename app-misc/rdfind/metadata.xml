@@ -6,7 +6,6 @@
     <name>tastytea</name>
   </maintainer>
   <upstream>
-    <doc>https://github.com/Andersbakken/rtags/wiki</doc>
-    <bugs-to>https://github.com/Andersbakken/rtags/issues</bugs-to>
+    <bugs-to>https://github.com/pauldreik/rdfind/issues</bugs-to>
   </upstream>
 </pkgmetadata>
