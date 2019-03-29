@@ -1,12 +1,12 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install unpack
+DEFINED_PHASES=compile install
 DEPEND=app-text/asciidoc
 DESCRIPTION=Check integrity of files in /boot
 EAPI=7
 HOMEPAGE=https://github.com/tastytea/hashboot/
 IUSE=firmware
+KEYWORDS=~amd64 ~x86
 LICENSE=hug-ware
 RDEPEND=firmware? ( sys-apps/flashrom )
 SLOT=0
-_eclasses_=git-r3	0d4635eeb5a96cd5315597a47eba25c9
-_md5_=6d7381eba69110f1ba88ffe742ae8564
+SRC_URI=https://github.com/tastytea/hashboot/archive/0.9.13.tar.gz
+_md5_=edf747777dcd9a3df0a450b3c37a01e6
