@@ -12,26 +12,14 @@ HOMEPAGE="https://github.com/tastytea/hashboot/"
 LICENSE="hug-ware"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
+IUSE="firmware"
 
-RDEPEND="
-	sys-apps/coreutils
-	app-arch/tar
-	sys-apps/findutils
-	sys-apps/grep
-	virtual/awk
-	app-shells/bash:*
-	sys-apps/util-linux
-	sys-apps/diffutils
-	sys-apps/sed
-	app-text/asciidoc
-"
-DEPEND="sys-apps/grep"
+RDEPEND="firmware? ( sys-apps/flashrom )"
+DEPEND="app-text/asciidoc"
 
 src_preinst() {
 	default
-	if grep -q '^rc_parallel="YES"' /etc/rc.conf
-	then
+	if grep -q '^rc_parallel="YES"' /etc/rc.conf; then
 		ewarn "hashboot does not work properly with parallel boot enabled."
 	fi
 }
@@ -41,8 +29,8 @@ src_compile() {
 }
 
 src_install() {
-	dodoc README.md
+	default
 	dobin hashboot
-	newinitd initscript.openrc hashboot
+	newinitd init/openrc hashboot
 	doman ${PN}.1
 }
