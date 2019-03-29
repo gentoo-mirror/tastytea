@@ -12,7 +12,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 RDEPEND="
-	dev-cpp/mastodon-cpp:0.30
+	<dev-cpp/mastodon-cpp-0.100.0
 	>=dev-libs/jsoncpp-1.8.1
 "
 DEPEND=">=dev-util/cmake-3.9.6
