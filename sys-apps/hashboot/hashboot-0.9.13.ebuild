@@ -3,15 +3,13 @@
 
 EAPI=7
 
-EGIT_REPO_URI="https://github.com/tastytea/hashboot.git"
-
-inherit git-r3
-
 DESCRIPTION="Check integrity of files in /boot"
 HOMEPAGE="https://github.com/tastytea/hashboot/"
+SRC_URI="https://github.com/tastytea/hashboot/archive/${PV}.tar.gz"
+
 LICENSE="hug-ware"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="firmware"
 
 RDEPEND="firmware? ( sys-apps/flashrom )"
