@@ -61,7 +61,7 @@ src_install() {
 		dodoc installation/pleroma-apache.conf
 	fi
 
-	dodoc docs/*
+	dodoc -r docs/*
 
 	if use systemd; then
 		systemd_dounit installation/pleroma.service
