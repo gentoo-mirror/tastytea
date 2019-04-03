@@ -23,7 +23,7 @@ src_prepare() {
 	# NOTE: Commands are from bootstrap.sh.
 	eaclocal
 	eautoheader
-	eautomake
+	eautomake --add-missing
 	eautoconf
 	default
 }
