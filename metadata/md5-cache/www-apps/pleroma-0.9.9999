@@ -5,8 +5,8 @@ EAPI=7
 HOMEPAGE=https://pleroma.social/ https://git.pleroma.social/pleroma/pleroma/
 IUSE=apache +nginx syslog
 LICENSE=AGPL-3
-RDEPEND=>=dev-lang/elixir-1.6.6 >=dev-db/postgresql-9.6.11[uuid] apache? ( www-servers/apache ) nginx? ( www-servers/nginx )
+RDEPEND=>=dev-lang/elixir-1.7.4 >=dev-db/postgresql-9.6.11[uuid] apache? ( www-servers/apache ) nginx? ( www-servers/nginx )
 SLOT=0
-SRC_URI=https://git.pleroma.social/pleroma/pleroma/-/archive/v0.9.9/pleroma-v0.9.9.tar.bz2 -> pleroma-0.9.9.tar.bz2
+SRC_URI=https://git.pleroma.social/pleroma/pleroma/-/archive/v0.9.9999/pleroma-v0.9.9999.tar.bz2 -> pleroma-0.9.9999.tar.bz2
 _eclasses_=multilib	b2f01ad412baf81650c23fcf0975fa33	systemd	71fd8d2065d102753fb9e4d20eaf3e9f	toolchain-funcs	b45201c4e6c096b98e250336954e64b9	user	8bd74731cafdcdad8f7a63637302e073
-_md5_=decb9b19bb3f31a23e869efb2f857644
+_md5_=a4a82a6ba256c51a50d1a6eafb291a77
