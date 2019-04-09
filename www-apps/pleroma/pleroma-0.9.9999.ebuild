@@ -17,7 +17,7 @@ KEYWORDS=""
 IUSE="apache +nginx syslog"
 
 RDEPEND="
-	>=dev-lang/elixir-1.6.6
+	>=dev-lang/elixir-1.7.4
 	>=dev-db/postgresql-9.6.11[uuid]
 	apache? ( www-servers/apache )
 	nginx? ( www-servers/nginx )
@@ -27,8 +27,6 @@ DEPEND=""
 S="${WORKDIR}/${MY_P}"
 
 pkg_preinst() {
-	elog "This ebuild comes with a lot of bundles libraries."
-
 	# Backup user-modified files
 	if [ -f "${EROOT}/opt/pleroma/priv/static/instance/panel.html" ]; then
 		einfo "Backing up panel.html, terms-of-service.html and thumbnail.jpeg ..."
@@ -38,6 +36,8 @@ pkg_preinst() {
 	fi
 
 	ewarn "This ebuild may overwrite files you have edited. Waiting 10 seconds ..."
+	elog "You can add files to CONFIG_PROTECT_MASK to prevent overwriting,"
+	elog "See make.conf(5) for more information."
 	sleep 10 || die
 }
 
@@ -67,7 +67,7 @@ src_install() {
 		dodoc installation/pleroma-apache.conf
 	fi
 
-	dodoc docs/*
+	dodoc -r docs/*
 
 	doinitd installation/init.d/pleroma
 	systemd_dounit installation/pleroma.service
@@ -82,7 +82,8 @@ pkg_postinst() {
 		einfo "An example config for apache has been installed in the doc directory."
 	fi
 
-	if ! grep -q MIX_ENV ~pleroma/.profile; then
+	if ! grep -q MIX_ENV ~pleroma/.profile 2>/dev/null; then
+		elog "Setting MIX_ENV=prod in ~pleroma/.profile ..."
 		echo "export MIX_ENV=prod" >> ~pleroma/.profile
 	fi
 
@@ -110,8 +111,9 @@ pkg_config() {
 		mv config/{generated_config.exs,prod.secret.exs} || die
 
 		if use syslog; then
+			einfo "Activating syslog in ${configfile} ..."
 			echo -e "config :logger,\n  backends: [{ExSyslogger, :ex_syslogger}]\n\n" \
-				"config :logger, :ex_syslogger,\n  level: :warn'" >> ${configfile}
+				 "config :logger, :ex_syslogger,\n  level: :warn'" >> ${configfile}
 		fi
 
 		einfo "Creating the database..."
