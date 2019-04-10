@@ -25,7 +25,7 @@ layman -fa tastytea
 
 I use PGP to sign commits and manifests.
 
-Fingerprint: `3555 2668 64CA 6D7F F45A  A6E7 CFC3 9497 F1B2 6E07`
+Fingerprint: `D5B4 C43B 48A8 79F6 3529  36E6 5934 6E0E A35C 67E5`
 
 Public key: https://tastytea.de/tastytea.asc
 
