@@ -12,7 +12,7 @@ command_args="${command_args:--config /var/lib/gitea/conf/app.ini}"
 command_background="true"
 start_stop_daemon_args="--user ${user} --group ${group} \
 	-e GITEA_WORK_DIR=${GITEA_WORK_DIR:-/var/lib/gitea} \
-	-e GITEA_CUSTOM=${GITEA_CUSTOM:-/var/lib/gitea} \
+	-e GITEA_CUSTOM=${GITEA_CUSTOM:-/var/lib/gitea/custom} \
 	--stdout /var/log/${SVCNAME}/${SVCNAME}.log \
 	--stderr /var/log/${SVCNAME}/${SVCNAME}.log"
 
