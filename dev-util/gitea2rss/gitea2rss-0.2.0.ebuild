@@ -39,3 +39,5 @@ DEPEND="
 if [[ "${PV}" != "9999" ]]; then
 	S="${WORKDIR}/${PN}"
 fi
+
+DOCS=("README.adoc" "config/nginx-example.conf")
