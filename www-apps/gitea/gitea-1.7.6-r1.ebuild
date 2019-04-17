@@ -49,7 +49,7 @@ src_install() {
 	insinto /var/lib/gitea/conf
 	newins custom/conf/app.ini.sample app.ini.example
 	popd || die
-	newinitd "${FILESDIR}"/gitea.initd-r2 gitea
+	newinitd "${FILESDIR}"/gitea.initd gitea
 	newconfd "${FILESDIR}"/gitea.confd gitea
 	keepdir /var/log/gitea /var/lib/gitea/data
 	systemd_dounit "${FILESDIR}/gitea.service"
