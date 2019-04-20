@@ -10,7 +10,7 @@ EGIT_REPO_URI="https://schlomp.space/tastytea/mastodon-cpp.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="doc examples minimal"
+IUSE="doc examples minimal test"
 RDEPEND="
 	dev-cpp/curlpp
 	!minimal? ( dev-libs/jsoncpp )
@@ -18,6 +18,7 @@ RDEPEND="
 DEPEND="
 	dev-util/cmake
 	doc? ( app-doc/doxygen )
+	test? ( dev-cpp/catch )
 	${RDEPEND}
 "
 
@@ -29,12 +30,12 @@ src_configure() {
 	local mycmakeargs=(
 		-DWITH_DOC=NO
 		-DWITH_EXAMPLES=NO
-		-DWITH_TESTS=NO
 	)
 
 	if use minimal; then
 		mycmakeargs+=(-DWITH_EASY=NO)
 	fi
+	cmake-utils_use_with test TESTS
 
 	cmake-utils_src_configure
 }
