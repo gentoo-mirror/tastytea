@@ -5,8 +5,8 @@ EAPI=7
 inherit git-r3 cmake-utils
 
 DESCRIPTION="soupbot is a soup-recommending bot for Mastodon"
-HOMEPAGE="https://github.com/tastytea/soupbot"
-EGIT_REPO_URI="https://github.com/tastytea/soupbot.git"
+HOMEPAGE="https://schlomp.space/tastytea/soupbot"
+EGIT_REPO_URI="https://schlomp.space/tastytea/soupbot.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
@@ -19,7 +19,3 @@ DEPEND="
 	>=dev-util/cmake-3.9.6
 	${RDEPEND}
 "
-
-src_unpack() {
-	git-r3_src_unpack
-}
