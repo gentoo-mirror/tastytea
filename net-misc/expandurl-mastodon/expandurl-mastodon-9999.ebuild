@@ -12,7 +12,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 RDEPEND="
-	>dev-cpp/mastodon-cpp-0.105.0
+	>=dev-cpp/mastodon-cpp-0.105.0
 	>=dev-cpp/curlpp-0.8.1
 	dev-libs/libxdg-basedir
 "
