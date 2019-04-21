@@ -2,15 +2,28 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-inherit git-r3 cmake-utils
+inherit cmake-utils
+if [[ "${PV}" == "9999" ]]; then
+	inherit git-r3
+fi
 
 DESCRIPTION="mastodon-cpp is a C++ wrapper for the Mastodon API."
 HOMEPAGE="https://schlomp.space/tastytea/mastodon-cpp"
-EGIT_REPO_URI="https://schlomp.space/tastytea/mastodon-cpp.git"
+if [[ "${PV}" == "9999" ]]; then
+	EGIT_REPO_URI="https://schlomp.space/tastytea/mastodon-cpp.git"
+else
+	SRC_URI="https://schlomp.space/tastytea/mastodon-cpp/archive/${PV}.tar.gz -> ${P}.tar.gz"
+fi
+
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
+if [[ "${PV}" == "9999" ]]; then
+	KEYWORDS=""
+else
+	KEYWORDS="~amd64 ~x86"
+fi
 IUSE="doc examples minimal test"
+
 RDEPEND="
 	dev-cpp/curlpp
 	!minimal? ( dev-libs/jsoncpp )
@@ -22,10 +35,6 @@ DEPEND="
 	${RDEPEND}
 "
 
-src_unpack() {
-	git-r3_src_unpack
-}
-
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_DOC=NO
@@ -33,6 +42,10 @@ src_configure() {
 		-DWITH_EASY="$(usex minimal NO YES)"
 		-DWITH_TESTS="$(usex test)"
 	)
+	if use test; then
+		# Don't run tests that need a network connection.
+		mycmakeargs+=(-DEXTRA_TEST_ARGS="~[api]")
+	fi
 
 	cmake-utils_src_configure
 }
