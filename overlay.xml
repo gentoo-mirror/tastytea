@@ -3,10 +3,10 @@
 <repositories xmlns="" version="1.0">
     <repo quality="experimental" status="unofficial">
         <name>tastytea</name>
-        <description>Some ebuilds, no guarantees</description>
+        <description>Some ebuilds, no guarantees.</description>
         <homepage>https://schlomp.space/tastytea/overlay</homepage>
         <owner>
-            <email>overlay@tastytea.de</email>
+            <email>gentoo@tastytea.de</email>
             <name>tastytea</name>
         </owner>
         <source type="git">https://schlomp.space/tastytea/overlay.git</source>
