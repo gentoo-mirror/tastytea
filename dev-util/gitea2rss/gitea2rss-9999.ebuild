@@ -45,8 +45,11 @@ DOCS=("README.adoc" "config/nginx-example.conf")
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_TESTS="$(usex test)"
-		-DEXTRA_TEST_ARGS="~[http]"
 	)
+	if use test; then
+		# Don't run tests that need a network connection.
+		mycmakeargs+=(-DEXTRA_TEST_ARGS="~[http]")
+	fi
 
 	cmake-utils_src_configure
 }
