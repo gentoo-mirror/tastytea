@@ -26,7 +26,7 @@ SLOT="0"
 if [[ "${PV}" == "9999" ]]; then
 	KEYWORDS=""
 else
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~x86"
 fi
 IUSE=""
 
@@ -34,7 +34,7 @@ RDEPEND="
 	dev-libs/libxdg-basedir
 	dev-cpp/curlpp
 	dev-libs/jsoncpp
-	<dev-cpp/mastodon-cpp-0.100.0
+	>=dev-cpp/mastodon-cpp-0.105.0
 "
 DEPEND="
 	dev-util/cmake

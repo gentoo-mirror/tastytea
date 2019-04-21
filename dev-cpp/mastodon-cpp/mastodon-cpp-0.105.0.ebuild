@@ -28,12 +28,9 @@ src_configure() {
 	local mycmakeargs=(
 		-DWITH_DOC=NO
 		-DWITH_EXAMPLES=NO
+		-DWITH_EASY="$(usex minimal NO YES)"
+		-DWITH_TESTS="$(usex test)"
 	)
-
-	if use minimal; then
-		mycmakeargs+=(-DWITH_EASY=NO)
-	fi
-	cmake-utils_use_with test TESTS
 
 	cmake-utils_src_configure
 }
