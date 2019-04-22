@@ -24,7 +24,7 @@ if [[ "${PV}" == "9999" ]]; then
 else
 	KEYWORDS="~amd64 ~arm ~x86"
 fi
-IUSE=""
+IUSE="test"
 
 RDEPEND="
 	>=dev-cpp/curlpp-0.8.1
@@ -41,3 +41,15 @@ if [[ "${PV}" != "9999" ]]; then
 fi
 
 DOCS=("README.adoc" "config/nginx-example.conf")
+
+src_configure() {
+	local mycmakeargs=(
+		-DWITH_TESTS="$(usex test)"
+	)
+	if use test; then
+		# Don't run tests that need a network connection.
+		mycmakeargs+=(-DEXTRA_TEST_ARGS="~[http]")
+	fi
+
+	cmake-utils_src_configure
+}
