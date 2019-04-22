@@ -3,14 +3,27 @@
 
 EAPI=7
 inherit cmake-utils
+if [[ "${PV}" == "9999" ]]; then
+	inherit git-r3
+fi
 
 DESCRIPTION="mastodon-cpp is a C++ wrapper for the Mastodon API."
 HOMEPAGE="https://schlomp.space/tastytea/mastodon-cpp"
-SRC_URI="https://schlomp.space/tastytea/mastodon-cpp/archive/${PV}.tar.gz -> ${P}.tar.gz"
+if [[ "${PV}" == "9999" ]]; then
+	EGIT_REPO_URI="https://schlomp.space/tastytea/mastodon-cpp.git"
+else
+	SRC_URI="https://schlomp.space/tastytea/mastodon-cpp/archive/${PV}.tar.gz -> ${P}.tar.gz"
+fi
+
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+if [[ "${PV}" == "9999" ]]; then
+	KEYWORDS=""
+else
+	KEYWORDS="~amd64 ~x86"
+fi
 IUSE="doc examples minimal test"
+
 RDEPEND="
 	dev-cpp/curlpp
 	!minimal? ( dev-libs/jsoncpp )
@@ -21,8 +34,9 @@ DEPEND="
 	test? ( dev-cpp/catch )
 	${RDEPEND}
 "
-
-S="${WORKDIR}/${PN}"
+if [[ "${PV}" != "9999" ]]; then
+	S="${WORKDIR}/${PN}"
+fi
 
 src_configure() {
 	local mycmakeargs=(
@@ -31,12 +45,16 @@ src_configure() {
 		-DWITH_EASY="$(usex minimal NO YES)"
 		-DWITH_TESTS="$(usex test)"
 	)
+	if use test; then
+		# Don't run tests that need a network connection.
+		mycmakeargs+=(-DEXTRA_TEST_ARGS="~[api]")
+	fi
 
 	cmake-utils_src_configure
 }
 
-# We won't let cmake handle the documentation, because it would install the
-# examples, no matter if we want them.
+# We can not let cmake handle the documentation, because it would end up in
+# doc/mastodon-cpp-${PROJECT_VERSION} instead of -9999
 src_compile() {
 	cmake-utils_src_compile
 
@@ -53,7 +71,7 @@ src_install() {
 	if use examples; then
 		docinto examples
 		for file in examples/*.cpp; do
-			dodoc "${file}"
+			dodoc ${file}
 		done
 	fi
 
