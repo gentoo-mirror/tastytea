@@ -20,7 +20,7 @@ RDEPEND="
 	>=dev-lang/elixir-1.7.4
 	>=dev-db/postgresql-9.6.11[uuid]
 	apache? ( www-servers/apache )
-	nginx? ( www-servers/nginx )
+	nginx? ( www-servers/nginx[nginx_modules_http_slice] )
 "
 DEPEND=""
 

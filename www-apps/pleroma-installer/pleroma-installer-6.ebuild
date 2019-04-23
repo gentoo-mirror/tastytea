@@ -20,7 +20,7 @@ RDEPEND="
 	>=dev-db/postgresql-9.6.11[uuid]
 	app-admin/sudo
 	apache? ( www-servers/apache )
-	nginx? ( www-servers/nginx )
+	nginx? ( www-servers/nginx[nginx_modules_http_slice] )
 "
 DEPEND=""
 
