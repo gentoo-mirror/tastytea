@@ -15,7 +15,7 @@ SRC_URI="https://dev.gajim.org/gajim/gajim/-/archive/gajim-${PV}/gajim-gajim-${P
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="gpg +crypt remote idle jingle keyring networkmanager upnp geoclue spell +webp rst omemo"
 
 COMMON_DEPEND="
