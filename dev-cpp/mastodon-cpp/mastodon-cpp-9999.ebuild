@@ -35,6 +35,10 @@ DEPEND="
 	${RDEPEND}
 "
 
+if [[ "${PV}" != "9999" ]]; then
+	S="${WORKDIR}/${PN}"
+fi
+
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_DOC=NO
