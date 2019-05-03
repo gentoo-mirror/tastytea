@@ -15,5 +15,6 @@
   </use>
   <upstream>
     <remote-id type="github">elementary/granite</remote-id>
+    <doc>https://valadoc.org/granite/Granite.html</doc>
   </upstream>
 </pkgmetadata>
