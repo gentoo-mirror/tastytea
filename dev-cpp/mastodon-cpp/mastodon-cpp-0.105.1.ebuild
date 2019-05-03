@@ -34,6 +34,7 @@ DEPEND="
 	test? ( dev-cpp/catch )
 	${RDEPEND}
 "
+
 if [[ "${PV}" != "9999" ]]; then
 	S="${WORKDIR}/${PN}"
 fi
