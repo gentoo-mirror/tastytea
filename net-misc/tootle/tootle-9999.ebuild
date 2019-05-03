@@ -1,8 +1,8 @@
-# Copyright 1999-2018 Gentoo Authors
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-inherit meson vala gnome2-utils git-r3
+EAPI=7
+inherit git-r3 gnome2-utils meson vala xdg-utils
 
 DESCRIPTION="GTK3 client for Mastodon"
 HOMEPAGE="https://github.com/bleakgrey/tootle"
@@ -12,13 +12,15 @@ LICENSE="GPL-3"
 KEYWORDS=""
 SLOT="0"
 
-RDEPEND=">=x11-libs/gtk+-3.22.29
-	>=net-libs/libsoup-2.58.2
-	>=dev-libs/granite-0.5.0
-	>=dev-libs/json-glib-1.2.8"
-DEPEND="${RDEPEND}
-	>=dev-util/meson-0.46.1
-	>=dev-lang/vala-0.36.13"
+RDEPEND="
+	net-libs/libsoup
+	>=dev-libs/granite-0.5.2
+	dev-libs/json-glib"
+DEPEND="
+	${RDEPEND}
+	virtual/pkgconfig
+	dev-util/meson
+	$(vala_depend)"
 
 src_prepare() {
 	vala_src_prepare
@@ -36,11 +38,11 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 	gnome2_gconf_install
 	gnome2_schemas_update
 }
 
 pkg_postrm() {
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 }
