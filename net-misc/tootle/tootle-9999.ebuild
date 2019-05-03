@@ -15,12 +15,14 @@ SLOT="0"
 RDEPEND="
 	net-libs/libsoup
 	>=dev-libs/granite-0.5.2
-	dev-libs/json-glib"
+	dev-libs/json-glib
+"
 DEPEND="
 	${RDEPEND}
 	virtual/pkgconfig
 	dev-util/meson
-	$(vala_depend)"
+	dev-lang/vala
+"
 
 src_prepare() {
 	vala_src_prepare
