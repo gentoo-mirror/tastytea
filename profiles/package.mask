@@ -1,4 +1,1 @@
-# Masked for removal on 2019-04-07
-# Upstream is barely maintaining.
-# https://github.com/neithernut/pam_e4crypt/pull/27#issuecomment-470436673
-sys-auth/pam_e4crypt
+
