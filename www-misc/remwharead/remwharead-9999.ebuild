@@ -30,11 +30,11 @@ RDEPEND="
 	>=dev-cpp/curlpp-0.8.1
 	dev-libs/libxdg-basedir
 	dev-db/vsqlite++
-	dev-cpp/popl
 "
 DEPEND="
 	dev-util/cmake
 	app-text/asciidoc
+	dev-cpp/popl
 	${RDEPEND}
 "
 
