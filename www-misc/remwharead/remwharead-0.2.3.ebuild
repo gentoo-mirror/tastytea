@@ -24,7 +24,7 @@ if [[ "${PV}" == "9999" ]]; then
 else
 	KEYWORDS="~amd64 ~x86"
 fi
-IUSE="test"
+IUSE="+firefox test"
 
 RDEPEND="
 	>=dev-cpp/curlpp-0.8.1
@@ -45,7 +45,15 @@ fi
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_TESTS="$(usex test)"
+		-DWITH_MOZILLA="$(usex firefox)"
 	)
 
 	cmake-utils_src_configure
+}
+
+pkg_postinst() {
+	if use firefox; then
+		elog "The firefox-useflag only installs the wrapper needed for the " \
+			 "extension, not the extension itself."
+	fi
 }

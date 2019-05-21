@@ -14,4 +14,7 @@
   <upstream>
     <bugs-to>https://schlomp.space/tastytea/remwharead/issues</bugs-to>
   </upstream>
+  <use>
+    <flag name="firefox">Install plugin for firefox</flag>
+  </use>
 </pkgmetadata>
