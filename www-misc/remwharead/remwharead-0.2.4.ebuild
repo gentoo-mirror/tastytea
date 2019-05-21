@@ -53,7 +53,7 @@ src_configure() {
 
 pkg_postinst() {
 	if use firefox; then
-		elog "The firefox-useflag only installs the wrapper needed for the " \
+		elog "The firefox useflag only installs the wrapper needed for the" \
 			 "extension, not the extension itself."
 	fi
 }
