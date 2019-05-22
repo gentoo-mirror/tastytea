@@ -36,6 +36,7 @@ DEPEND="
 	app-text/asciidoc
 	dev-cpp/popl
 	${RDEPEND}
+	test? ( dev-cpp/catch )
 "
 
 if [[ "${PV}" != "9999" ]]; then
