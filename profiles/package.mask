@@ -1,1 +1,2 @@
-
+# Will be deleted on 2019-07-12.
+app-misc/feiertage
