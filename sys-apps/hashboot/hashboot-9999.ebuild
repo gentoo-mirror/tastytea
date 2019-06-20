@@ -17,8 +17,7 @@ IUSE="firmware"
 RDEPEND="firmware? ( sys-apps/flashrom )"
 DEPEND="app-text/asciidoc"
 
-src_preinst() {
-	default
+pkg_preinst() {
 	if grep -q '^rc_parallel="YES"' /etc/rc.conf; then
 		ewarn "hashboot does not work properly with parallel boot enabled."
 	fi
@@ -33,4 +32,10 @@ src_install() {
 	dobin hashboot
 	newinitd init/openrc hashboot
 	doman ${PN}.1
+	exeinto etc/kernel/postinst.d
+	newexe hooks/kernel-postinst zzz-hashboot
+}
+
+pkg_postinst() {
+	elog "You have to run hashboot index before enabling the init script."
 }
