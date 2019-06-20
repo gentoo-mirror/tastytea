@@ -7,5 +7,5 @@ IUSE=apache +nginx syslog systemd
 LICENSE=AGPL-3
 RDEPEND=>=dev-lang/elixir-1.6.6 dev-vcs/git >=dev-db/postgresql-9.6.11[uuid] app-admin/sudo apache? ( www-servers/apache ) nginx? ( www-servers/nginx[nginx_modules_http_slice] )
 SLOT=0
-_eclasses_=git-r3	0d4635eeb5a96cd5315597a47eba25c9	multilib	1d91b03d42ab6308b5f4f6b598ed110e	systemd	71fd8d2065d102753fb9e4d20eaf3e9f	toolchain-funcs	8c7f9d80beedd16f2e5a7f612c609529	user	8bd74731cafdcdad8f7a63637302e073
+_eclasses_=git-r3	0d4635eeb5a96cd5315597a47eba25c9	multilib	1d91b03d42ab6308b5f4f6b598ed110e	systemd	71fd8d2065d102753fb9e4d20eaf3e9f	toolchain-funcs	8c7f9d80beedd16f2e5a7f612c609529	user	e68863263b1e8611dacf381bec5c8b2b
 _md5_=72f4fdd9fb360e4bc096fbb7ebfd0315
