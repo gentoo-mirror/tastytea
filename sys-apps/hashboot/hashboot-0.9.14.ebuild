@@ -4,8 +4,8 @@
 EAPI=7
 
 DESCRIPTION="Check integrity of files in /boot"
-HOMEPAGE="https://github.com/tastytea/hashboot/"
-SRC_URI="https://github.com/tastytea/hashboot/archive/${PV}.tar.gz"
+HOMEPAGE="https://schlomp.space/tastytea/hashboot"
+SRC_URI="https://schlomp.space/tastytea/hashboot/archive/${PV}.tar.gz"
 
 LICENSE="hug-ware"
 SLOT="0"
@@ -15,8 +15,7 @@ IUSE="firmware"
 RDEPEND="firmware? ( sys-apps/flashrom )"
 DEPEND="app-text/asciidoc"
 
-src_preinst() {
-	default
+pkg_preinst() {
 	if grep -q '^rc_parallel="YES"' /etc/rc.conf; then
 		ewarn "hashboot does not work properly with parallel boot enabled."
 	fi
@@ -31,4 +30,10 @@ src_install() {
 	dobin hashboot
 	newinitd init/openrc hashboot
 	doman ${PN}.1
+	exeinto etc/kernel/postinst.d
+	newexe hooks/kernel-postinst zzz-hashboot
+}
+
+pkg_postinst() {
+	elog "You have to run hashboot index before enabling the init script."
 }

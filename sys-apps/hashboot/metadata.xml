@@ -6,7 +6,7 @@
     <name>tastytea</name>
   </maintainer>
   <upstream>
-    <bugs-to>https://github.com/tastytea/hashboot/issues</bugs-to>
+    <bugs-to>https://schlomp.space/tastytea/hashboot/issues</bugs-to>
   </upstream>
   <use>
     <flag name="firmware">Enable firmware support through sys-apps/flashrom.</flag>

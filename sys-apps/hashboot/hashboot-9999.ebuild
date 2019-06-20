@@ -3,12 +3,12 @@
 
 EAPI=7
 
-EGIT_REPO_URI="https://github.com/tastytea/hashboot.git"
-
 inherit git-r3
 
 DESCRIPTION="Check integrity of files in /boot"
-HOMEPAGE="https://github.com/tastytea/hashboot/"
+HOMEPAGE="https://schlomp.space/tastytea/hashboot"
+EGIT_REPO_URI="https://schlomp.space/tastytea/hashboot.git"
+
 LICENSE="hug-ware"
 SLOT="0"
 KEYWORDS=""
