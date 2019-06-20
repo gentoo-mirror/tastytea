@@ -1,12 +1,12 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install postinst preinst unpack
+DEFINED_PHASES=compile install postinst preinst
 DEPEND=app-text/asciidoc
 DESCRIPTION=Check integrity of files in /boot
 EAPI=7
 HOMEPAGE=https://schlomp.space/tastytea/hashboot
 IUSE=firmware
+KEYWORDS=~amd64 ~x86
 LICENSE=hug-ware
 RDEPEND=firmware? ( sys-apps/flashrom )
 SLOT=0
-_eclasses_=git-r3	0d4635eeb5a96cd5315597a47eba25c9
-_md5_=fb22b9b0146b5010280addc9f8d4cbb1
+SRC_URI=https://schlomp.space/tastytea/hashboot/archive/0.9.14.tar.gz
+_md5_=2aa7769a8030c10e7962ea91746db3be
