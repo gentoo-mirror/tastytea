@@ -1,5 +1,5 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install unpack
+DEFINED_PHASES=compile install postinst preinst unpack
 DEPEND=app-text/asciidoc
 DESCRIPTION=Check integrity of files in /boot
 EAPI=7
@@ -9,4 +9,4 @@ LICENSE=hug-ware
 RDEPEND=firmware? ( sys-apps/flashrom )
 SLOT=0
 _eclasses_=git-r3	0d4635eeb5a96cd5315597a47eba25c9
-_md5_=6d7381eba69110f1ba88ffe742ae8564
+_md5_=b5396a9e152af34b95bd4f0de54f3508
