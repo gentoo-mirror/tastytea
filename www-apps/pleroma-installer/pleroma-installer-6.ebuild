@@ -5,7 +5,7 @@ EAPI=7
 
 inherit git-r3 user systemd
 
-DESCRIPTION="Microblogging server software that can federate with other servers."
+DESCRIPTION="Federating microblogging server software. Development version."
 HOMEPAGE="https://pleroma.social/ https://git.pleroma.social/pleroma/pleroma/"
 EGIT_REPO_URI="https://git.pleroma.social/pleroma/pleroma.git"
 
@@ -27,8 +27,6 @@ DEPEND=""
 pkg_preinst() {
 	ewarn "This ebuild installs an installation script for the development-branch of Pleroma."
 	ewarn "If you want a stabler version, install www-apps/pleroma."
-	ewarn "Beginning with 2019-02-10, the Pleroma init scripts expect the installation in ${EPREFIX}/opt/pleroma."
-	ewarn "If it is in ${EPREFIX}/var/lib/pleroma, this ebuild will fail. Move it now and remerge."
 }
 
 pkg_setup() {
