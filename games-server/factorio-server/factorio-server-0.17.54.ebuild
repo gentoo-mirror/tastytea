@@ -1,11 +1,11 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 DESCRIPTION="Factorio is a game in which you build and maintain factories."
 HOMEPAGE="https://www.factorio.com/"
-SRC_URI="https://www.factorio.com/get-download/0.16.51/headless/linux64 -> ${P}.tar.xz"
+SRC_URI="https://www.factorio.com/get-download/${PV}/headless/linux64 -> ${P}.tar.xz"
 LICENSE="Factorio"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -20,9 +20,10 @@ src_unpack() {
 
 src_install() {
 	insinto /opt/factorio
-	doins -r bin
 	doins -r data
 	doins -r config-path.cfg
+	exeinto /opt/factorio/bin/x64
+	doexe bin/x64/factorio
 	newinitd "${FILESDIR}"/factorio.initd factorio
 	newconfd "${FILESDIR}"/factorio.confd factorio
 }
