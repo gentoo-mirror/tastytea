@@ -13,15 +13,12 @@ IUSE=""
 RDEPEND=">=app-misc/screen-4.6.1"
 DEPEND=""
 
-src_unpack() {
-	default_src_unpack
-	mv factorio ${P}
-}
+S="${WORKDIR}/factorio"
 
 src_install() {
 	insinto /opt/factorio
 	doins -r data
-	doins -r config-path.cfg
+	doins config-path.cfg
 	exeinto /opt/factorio/bin/x64
 	doexe bin/x64/factorio
 	newinitd "${FILESDIR}"/factorio.initd factorio
