@@ -31,5 +31,7 @@ src_configure() {
 
 src_install() {
 	default
-	dodoc src/example.cpp
+	if use examples; then
+		dodoc src/example.cpp
+	fi
 }
