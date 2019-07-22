@@ -30,7 +30,7 @@ src_configure() {
 }
 
 src_install() {
-	default
+	cmake-utils_src_install
 	if use examples; then
 		dodoc src/example.cpp
 	fi
