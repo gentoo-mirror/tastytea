@@ -30,6 +30,7 @@ RDEPEND="
 	>=dev-cpp/curlpp-0.8.1
 	dev-libs/libxdg-basedir
 	dev-db/vsqlite++
+	dev-libs/icu
 "
 DEPEND="
 	dev-util/cmake
