@@ -79,8 +79,7 @@ pkg_config() {
 
 		if use syslog; then
 			einfo "Activating syslog in ${configfile} ..."
-			echo -e "config :logger,\n  backends: [{ExSyslogger, :ex_syslogger}]\n\n" \
-				 "config :logger, :ex_syslogger,\n  level: :warn'" >> ${configfile}
+			cat "${FILESDIR}/syslog.exs" >> ${configfile}
 		fi
 
 		einfo "Creating the database..."
