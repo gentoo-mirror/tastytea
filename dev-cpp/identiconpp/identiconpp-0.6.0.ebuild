@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit cmake-utils
 
@@ -9,7 +9,7 @@ if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 fi
 
-DESCRIPTION="Library to generate identicons in C++."
+DESCRIPTION="Library to generate identicons."
 HOMEPAGE="https://schlomp.space/tastytea/identiconpp"
 if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://schlomp.space/tastytea/identiconpp.git"
@@ -25,7 +25,7 @@ if [[ "${PV}" == "9999" ]]; then
 else
 	KEYWORDS="~amd64"
 fi
-IUSE="debug doc examples test"
+IUSE="doc examples test"
 
 RDEPEND="
 	media-gfx/imagemagick[png]
@@ -60,11 +60,7 @@ src_prepare() {
 }
 
 src_compile() {
-	if use debug; then
-		cmake-utils_src_compile DEBUG=1
-	else
-		cmake-utils_src_compile
-	fi
+	cmake-utils_src_compile
 
 	if use doc; then
 		./build_doc.sh
