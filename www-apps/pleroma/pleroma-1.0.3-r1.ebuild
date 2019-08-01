@@ -32,6 +32,11 @@ pkg_setup() {
 	enewuser pleroma -1 -1 /opt/pleroma pleroma
 }
 
+src_prepare() {
+	eapply "${FILESDIR}"/${PV}-Fix-branch_name.patch
+	default
+}
+
 src_install() {
 	insinto "/opt/pleroma"
 	insopts -o pleroma -g pleroma -m 0664
