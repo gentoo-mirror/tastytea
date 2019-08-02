@@ -43,8 +43,7 @@ src_compile() {
 }
 
 src_test() {
-	cd "${BUILD_DIR}/tests" || die "Could not change to test directory."
-	ctest . || die "Test failed."
+	BUILD_DIR="${BUILD_DIR}/tests" cmake-utils_src_test
 }
 
 src_install() {
