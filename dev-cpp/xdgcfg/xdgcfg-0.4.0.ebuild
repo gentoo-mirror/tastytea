@@ -12,12 +12,17 @@ SRC_URI="https://schlomp.space/tastytea/${PN}/archive/${PV}.tar.gz"
 LICENSE="CC0-1.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="examples test"
+IUSE="doc examples test"
 
-RDEPEND="dev-libs/libconfig[cxx]"
+RDEPEND="
+	dev-libs/libconfig[cxx]
+	dev-libs/libxdg-basedir
+"
 DEPEND="
 	${RDEPEND}
-	test? ( dev-cpp/catch )"
+	test? ( dev-cpp/catch )
+	doc? ( app-doc/doxygen )
+"
 
 S="${WORKDIR}/${PN}"
 
@@ -29,9 +34,22 @@ src_configure() {
 	cmake-utils_src_configure
 }
 
+src_compile() {
+	cmake-utils_src_compile
+
+	if use doc; then
+		./build_doc.sh
+	fi
+}
+
 src_install() {
+	if use doc; then
+		HTML_DOCS="doc/html/*"
+	fi
+
 	cmake-utils_src_install
+
 	if use examples; then
-		dodoc src/example.cpp
+		dodoc examples/example.cpp
 	fi
 }
