@@ -28,7 +28,7 @@ S="${WORKDIR}/${PN}"
 
 src_configure() {
 	local mycmakeargs=(
-		-DWITH_TESTS="$(usex test)"
+		-DWITH_TESTS=$(usex test)
 	)
 
 	cmake-utils_src_configure
@@ -38,8 +38,12 @@ src_compile() {
 	cmake-utils_src_compile
 
 	if use doc; then
-		./build_doc.sh
+		./build_doc.sh || die "Generation of HTML documentation failed."
 	fi
+}
+
+src_test() {
+	BUILD_DIR="${BUILD_DIR}/tests" cmake-utils_src_test
 }
 
 src_install() {
