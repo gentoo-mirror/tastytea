@@ -1,7 +1,7 @@
 # Copyright 2018-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit cmake-utils
 
@@ -11,7 +11,7 @@ SRC_URI="https://github.com/jpbarrette/curlpp/archive/v${PV}.tar.gz -> ${P}.tar.
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE="doc examples static-libs"
 
 RDEPEND=">=net-misc/curl-7.58.0"
@@ -20,7 +20,9 @@ DEPEND=">=dev-util/cmake-3.9.6
 
 src_prepare() {
 	cmake-utils_src_prepare
-	sed -i 's/@LDFLAGS@ //' extras/curlpp.pc.in
+	sed -i 's/@LDFLAGS@ //' extras/curlpp.pc.in || die
+	sed -i 's,@includedir@,${prefix}/@includedir@,' extras/curlpp.pc.in || die
+	sed -i 's,@libdir@,${prefix}/@libdir@,' extras/curlpp.pc.in || die
 	if ! use static-libs; then
 		eapply "${FILESDIR}/no_static_lib.patch"
 	fi
