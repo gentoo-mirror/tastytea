@@ -24,7 +24,7 @@ if [[ "${PV}" == "9999" ]]; then
 else
 	KEYWORDS="~amd64 ~x86"
 fi
-IUSE="+firefox test"
+IUSE="doc +firefox test"
 
 RDEPEND="
 	>=dev-cpp/curlpp-0.8.1
@@ -33,11 +33,12 @@ RDEPEND="
 	dev-libs/icu
 "
 DEPEND="
+	${RDEPEND}
 	dev-util/cmake
 	app-text/asciidoc
 	dev-cpp/popl
-	${RDEPEND}
 	test? ( dev-cpp/catch )
+	doc? ( app-doc/doxygen )
 "
 
 if [[ "${PV}" != "9999" ]]; then
@@ -51,6 +52,22 @@ src_configure() {
 	)
 
 	cmake-utils_src_configure
+}
+
+src_compile() {
+	cmake-utils_src_compile
+
+	if use doc; then
+		./build_doc.sh
+	fi
+}
+
+src_install() {
+	if use doc; then
+		HTML_DOCS="doc/html/*"
+	fi
+
+	cmake-utils_src_install
 }
 
 pkg_postinst() {
