@@ -9,7 +9,7 @@ if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 fi
 
-DESCRIPTION="Turns Gitea releases into RSS feeds."
+DESCRIPTION="Generates RSS feeds from Gitea releases or tags."
 HOMEPAGE="https://schlomp.space/tastytea/gitea2rss"
 if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://schlomp.space/tastytea/gitea2rss.git"
@@ -27,7 +27,7 @@ fi
 IUSE="test"
 
 RDEPEND="
-	>=dev-cpp/curlpp-0.8.1
+	dev-libs/poco
 	dev-libs/jsoncpp
 "
 DEPEND="
