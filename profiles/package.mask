@@ -1,2 +1,2 @@
-# Will be deleted on 2019-07-12.
-app-misc/feiertage
+# Will be deleted on 2019-10-10.
+games-engines/solarus
