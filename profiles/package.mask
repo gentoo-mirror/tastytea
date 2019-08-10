@@ -1,0 +1,2 @@
+# Will be deleted on 2019-10-10.
+games-engines/solarus
