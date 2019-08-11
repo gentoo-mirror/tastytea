@@ -1,0 +1,43 @@
+app-emulation/dxvk 1.0.3 1.2.3 1.3.2 9999-r1: Vulkan-based D3D11 and D3D10 implementation for Linux / Wine
+app-misc/rdfind 1.4.1: Rdfind is a program that finds duplicate files.
+app-misc/todoman 9999: A simple CalDAV-based todo manager
+dev-cpp/curlpp 0.8.1-r2: C++ wrapper for libcURL
+dev-cpp/identiconpp 0.6.1 9999: Library to generate identicons.
+dev-cpp/mastodon-cpp 0.30.2-r1 0.105.1 9999: mastodon-cpp is a C++ wrapper for the Mastodon API.
+dev-cpp/xdgcfg 0.5.0: Wrapper around libconfig that writes and reads files in XDG_CONFIG_HOME
+dev-go/getopt2 9999: getopt style option parsing for Go
+dev-go/go-xmpp 9999: go xmpp library
+dev-go/reader 9999: Common operations performed with Go's io.Reader interface.
+dev-go/sasl 9999: An implementation of the Simple Authentication and Security Layer (SASL).
+dev-go/xmlstream 9999: A library for manipulating XML token streams.
+dev-go/xmpp 9999: An implementation of the Extensible Messaging and Presence Protocol (XMPP).
+dev-lang/compilescript 0.4.0 9999: Allows you to execute files from compiled languages as scripts.
+dev-libs/granite 5.2.4: Elementary OS library that extends Gtk+
+dev-python/http_ece 1.0.5: A simple implementation of the encrypted content-encoding
+dev-python/python-nbxmpp 0.6.9 0.6.10: Python library to use Jabber/XMPP networks in a non-blocking way
+games-engines/solarus 1.6.1: An open-source Zelda-like 2D game engine
+games-server/factorio-server 0.16.51-r1 0.17.64: Factorio is a game in which you build and maintain factories.
+net-im/gajim 1.1.2 1.1.3: Jabber client written in PyGTK
+net-im/go-sendxmpp 9999-r1: A little tool to send messages to an XMPP contact or MUC
+net-misc/expandurl-mastodon 9999: Mastodon bot that expands shortened URLs.
+net-misc/feiertagebot 9999: Allows you to execute files from compiled languages as scripts.
+net-misc/ferret 9999: ferret is a modern client for the gopher protocol.
+net-misc/mastobotmon 9999: mastobotmon monitors your bots on Mastodon.
+net-misc/mastorss 0.9.0 9999: Another RSS to Mastodon bot
+net-misc/soupbot 9999: soupbot is a soup-recommending bot for Mastodon
+net-misc/tootle 0.2.0 9999: GTK3 client for Mastodon
+net-misc/whyblocked 0.15.0 9999-r8: whyblocked reminds you why you blocked someone.
+sys-apps/hashboot 0.9.14 9999: Check integrity of files in /boot
+sys-libs/solo-udev-rules 20190308 99999999: udev rules for the Solo FIDO2 USB+NFC token.
+www-apps/gitea 1.8.3 1.9.0: A painless self-hosted Git service, written in Go
+www-apps/libravatarserv 0.7.2 9999: Simple libravatar server.
+www-apps/pleroma 1.0.4: Microblogging server software that can federate with other servers.
+www-apps/pleroma-installer 6: Federating microblogging server software. Development version.
+www-misc/gitea2rss 0.5.1 9999: Generates RSS feeds from Gitea releases or tags.
+www-misc/remwharead 0.7.2 9999: Saves URIs of things you want to remember in a database.
+x11-misc/xob 0.1.1-r1: A lightweight overlay volume (or anything) bar for the X Window System.
+x11-themes/paper-gtk-theme 9999: Paper Theme Suite for GTK 3 and GTK 2
+x11-themes/paper-icon-theme 9999: Paper icon theme
+x11-themes/papirus-claws-mail-theme 9999: Papirus theme for Claws Mail
+x11-themes/papirus-folders 9999: Allows to change the color of folders
+x11-themes/papirus-icon-theme 9999-r1: Papirus icon theme for GTK and KDE
