@@ -5,7 +5,7 @@ EAPI=7
 inherit fcaps golang-build golang-vcs-snapshot systemd user
 
 EGO_PN="code.gitea.io/gitea"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm"
 
 DESCRIPTION="A painless self-hosted Git service, written in Go"
 HOMEPAGE="https://gitea.io/"
