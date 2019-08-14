@@ -68,7 +68,7 @@ gitea_make() {
 		DRONE_TAG=${PV}
 		TAGS="${my_tags[@]}"
 	)
-	GOPATH="${WORKDIR}/${P}:$(get_golibdir_gopath)" emake "${my_makeopt[@]}" "$@"
+	GOPATH="${WORKDIR}/${P}:$(get_golibdir_gopath)" LDFLAGS="-X main.Version=${PV}" emake "${my_makeopt[@]}" "$@"
 }
 
 src_compile() {
