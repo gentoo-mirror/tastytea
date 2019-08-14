@@ -12,7 +12,7 @@ SRC_URI="https://github.com/go-gitea/gitea/archive/v${PV/_/-}.tar.gz -> ${P}.tar
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~arm64"
 IUSE="pam sqlite"
 
 COMMON_DEPEND="pam? ( sys-libs/pam )"
@@ -36,6 +36,19 @@ pkg_setup() {
 	enewuser git -1 /bin/bash /var/lib/gitea git
 }
 
+gitea_make() {
+	local my_tags=(
+		bindata
+		$(usev pam)
+		$(usex sqlite 'sqlite sqlite_unlock_notify' '')
+	)
+	local my_makeopt=(
+		DRONE_TAG=${PV}
+		TAGS="${my_tags[@]}"
+	)
+	GOPATH="${WORKDIR}/${P}:$(get_golibdir_gopath)" LDFLAGS="-X main.Version=${PV}" emake "${my_makeopt[@]}" "$@"
+}
+
 src_prepare() {
 	default
 	sed -i \
@@ -56,19 +69,6 @@ src_prepare() {
 	fi
 
 	gitea_make generate
-}
-
-gitea_make() {
-	local my_tags=(
-		bindata
-		$(usev pam)
-		$(usex sqlite 'sqlite sqlite_unlock_notify' '')
-	)
-	local my_makeopt=(
-		DRONE_TAG=${PV}
-		TAGS="${my_tags[@]}"
-	)
-	GOPATH="${WORKDIR}/${P}:$(get_golibdir_gopath)" LDFLAGS="-X main.Version=${PV}" emake "${my_makeopt[@]}" "$@"
 }
 
 src_compile() {
