@@ -21,9 +21,9 @@ SLOT="0"
 if [[ "${PV}" == "9999" ]]; then
 	KEYWORDS=""
 else
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64"
 fi
-IUSE="video_cards_nvidia"
+IUSE=""
 
 COMMON_DEPEND="virtual/wine[${MULTILIB_USEDEP}]"
 DEPEND="
@@ -33,24 +33,14 @@ DEPEND="
 "
 RDEPEND="
 	${COMMON_DEPEND}
-	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
-	|| (
-		>=app-emulation/wine-any-4.5
-		>=app-emulation/wine-d3d9-4.5
-		>=app-emulation/wine-staging-4.5
-		>=app-emulation/wine-vanilla-4.5
-	)
-	|| (
-		video_cards_nvidia? ( >=x11-drivers/nvidia-drivers-418.74 )
-		>=media-libs/mesa-19.2
-	)
+	media-libs/vulkan-loader
 "
 
 src_prepare() {
 	default
 	sed -i "s|^basedir=.*$|basedir=\"${EPREFIX}\"|" setup_dxvk.sh || die
 	sed -i 's|"x64"|"usr/lib64/dxvk"|' setup_dxvk.sh || die
-	sed -i 's|"x32"|"usr/lib32/dxvk"|' setup_dxvk.sh || die
+	sed -i 's|"x32"|"usr/lib/dxvk"|' setup_dxvk.sh || die
 
 	if ! use abi_x86_64; then
 		sed -i '|installFile "$win64_sys_path"|d' setup_dxvk.sh
@@ -63,9 +53,15 @@ src_prepare() {
 
 multilib_src_configure() {
 	local bit="${MULTILIB_ABI_FLAG:8:2}"
+	local libdir="lib"
+
+	if [[ "${bit}" == "64" ]]; then
+		libdir="lib64"
+	fi
+
 	local emesonargs=(
-		--libdir=lib${bit}/dxvk
-		--bindir=lib${bit}/dxvk/bin
+		--libdir=${libdir}/dxvk
+		--bindir=${libdir}/dxvk/bin
 		--cross-file=../${P}/build-wine${bit}.txt
 	)
 	meson_src_configure
