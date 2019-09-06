@@ -12,7 +12,7 @@ dev-go/sasl 9999: An implementation of the Simple Authentication and Security La
 dev-go/xmlstream 9999: A library for manipulating XML token streams.
 dev-go/xmpp 9999: An implementation of the Extensible Messaging and Presence Protocol (XMPP).
 dev-lang/compilescript 0.4.0 9999: Allows you to execute files from compiled languages as scripts.
-dev-libs/granite 5.2.4: Elementary OS library that extends Gtk+
+dev-libs/granite 5.2.5: Elementary OS library that extends Gtk+
 dev-python/http_ece 1.0.5: A simple implementation of the encrypted content-encoding
 dev-python/python-nbxmpp 0.6.9 0.6.10: Python library to use Jabber/XMPP networks in a non-blocking way
 games-engines/solarus 1.6.2: An open-source Zelda-like 2D game engine
@@ -34,7 +34,7 @@ www-apps/libravatarserv 0.7.2 9999: Simple libravatar server.
 www-apps/pleroma 1.0.6: Microblogging server software that can federate with other servers.
 www-apps/pleroma-installer 6: Federating microblogging server software. Development version.
 www-misc/gitea2rss 0.5.1 9999: Generates RSS feeds from Gitea releases or tags.
-www-misc/remwharead 0.7.3 9999: Saves URIs of things you want to remember in a database.
+www-misc/remwharead 0.8.0 9999: Saves URIs of things you want to remember in a database.
 x11-misc/xob 0.1.1-r1: A lightweight overlay volume (or anything) bar for the X Window System.
 x11-themes/paper-gtk-theme 9999: Paper Theme Suite for GTK 3 and GTK 2
 x11-themes/paper-icon-theme 9999: Paper icon theme
