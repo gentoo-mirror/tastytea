@@ -25,7 +25,7 @@ fi
 IUSE="doc examples minimal test"
 
 RDEPEND="
-	dev-cpp/curlpp
+	>=dev-libs/poco-1.9.0-r2[net,ssl]
 	!minimal? ( dev-libs/jsoncpp )
 "
 DEPEND="
