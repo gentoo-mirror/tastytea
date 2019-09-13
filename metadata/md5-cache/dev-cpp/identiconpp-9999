@@ -1,7 +1,7 @@
 BDEPEND=dev-util/ninja >=dev-util/cmake-3.9.6 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=dev-util/cmake doc? ( app-doc/doxygen ) test? ( dev-cpp/catch ) media-gfx/imagemagick[png]
-DESCRIPTION=Library to generate identicons.
+DESCRIPTION=Library to generate identicons for C++.
 EAPI=7
 HOMEPAGE=https://schlomp.space/tastytea/identiconpp
 IUSE=doc examples test
@@ -10,4 +10,4 @@ PROPERTIES=live
 RDEPEND=media-gfx/imagemagick[png]
 SLOT=0
 _eclasses_=cmake-utils	91d6ef31dc426240577497cacbf2508c	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	7ba73aee7fe4462b3a745e3645ab92ca	git-r3	562b380fc59ae6a8622171d0acb777d1	multilib	1d91b03d42ab6308b5f4f6b598ed110e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	a3a237ef6c0c58546bf23b2c382f9e56	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
-_md5_=e148badb12369a56e857b2768ad8f1b1
+_md5_=00fa7a6d79ea8bb2f47e5639f1253d07
