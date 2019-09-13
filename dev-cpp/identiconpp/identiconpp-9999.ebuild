@@ -9,7 +9,7 @@ if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 fi
 
-DESCRIPTION="Library to generate identicons."
+DESCRIPTION="Library to generate identicons for C++."
 HOMEPAGE="https://schlomp.space/tastytea/identiconpp"
 if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://schlomp.space/tastytea/identiconpp.git"
@@ -51,7 +51,7 @@ src_prepare() {
 		HTML_DOCS="doc/html/*"
 	fi
 	if use examples; then
-		DOCS+=(example.cpp example.c)
+		DOCS+=(example.cpp)
 	fi
 
 	if use test; then
@@ -65,4 +65,8 @@ src_compile() {
 	if use doc; then
 		./build_doc.sh
 	fi
+}
+
+src_test() {
+	BUILD_DIR="${BUILD_DIR}/tests" cmake-utils_src_test
 }
