@@ -6,6 +6,7 @@ dev-libs/granite:demo - Build the Granite demo application (to present all avail
 net-im/gajim:geoclue - Use app-misc/geoclue
 net-im/gajim:gpg - Install dependencies for the GPG plugin
 net-im/gajim:idle - Enable idle module
+net-im/gajim:jingle - Enable voice calls for jabber
 net-im/gajim:keyring - Use dev-python/keyring
 net-im/gajim:omemo - Install dependencies for the OMEMO plugin
 net-im/gajim:remote - Enable remote control utility
