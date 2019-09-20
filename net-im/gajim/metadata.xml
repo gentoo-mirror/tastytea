@@ -12,6 +12,7 @@
     <flag name="geoclue">Use app-misc/geoclue</flag>
     <flag name="gpg">Install dependencies for the GPG plugin</flag>
     <flag name="idle">Enable idle module</flag>
+    <flag name="jingle">Enable voice calls for jabber</flag>
     <flag name="keyring">Use dev-python/keyring</flag>
     <flag name="omemo">Install dependencies for the OMEMO plugin</flag>
     <flag name="remote">Enable remote control utility</flag>
