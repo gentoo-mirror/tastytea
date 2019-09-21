@@ -34,7 +34,7 @@ www-apps/libravatarserv 0.7.2 9999: Simple libravatar server.
 www-apps/pleroma 1.0.6: Microblogging server software that can federate with other servers.
 www-apps/pleroma-installer 6: Federating microblogging server software. Development version.
 www-misc/gitea2rss 0.5.1 9999: Generates RSS feeds from Gitea releases or tags.
-www-misc/remwharead 0.8.0 9999: Saves URIs of things you want to remember in a database.
+www-misc/remwharead 0.8.2 9999: Saves URIs of things you want to remember in a database.
 x11-misc/xob 0.1.1-r1: A lightweight overlay volume (or anything) bar for the X Window System.
 x11-themes/paper-gtk-theme 9999: Paper Theme Suite for GTK 3 and GTK 2
 x11-themes/paper-icon-theme 9999: Paper icon theme
