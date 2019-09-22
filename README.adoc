@@ -1,0 +1,41 @@
+= Portage repository "tastytea"
+
+This is an unofficial repository for
+https://wiki.gentoo.org/wiki/Project:Portage[Portage],
+https://gentoo.org/[Gentoo]'s package manager.
+
+All ebuilds are marked as testing. All live-ebuilds have no keywords. I will
+delete ebuilds I no longer use.
+
+== Add this repository
+
+=== Using https://wiki.gentoo.org/wiki/Eselect/Repository[eselect-repository]
+
+[source,shell]
+----
+eselect repository enable tastytea
+----
+
+=== Using https://wiki.gentoo.org/wiki/Layman[layman]
+
+[source,shell]
+----
+layman -fa tastytea
+----
+
+== PGP key
+
+I use PGP to sign commits and manifests.
+
+Fingerprint: `D5B4 C43B 48A8 79F6 3529  36E6 5934 6E0E A35C 67E5`
+
+Public key: https://tastytea.de/tastytea.asc
+
+[source,shell]
+----
+gpg --locate-keys tastytea@tastytea.de
+----
+
+== Contact
+
+See https://tastytea.de/[].
