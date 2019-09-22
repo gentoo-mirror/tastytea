@@ -9,14 +9,14 @@ delete ebuilds I no longer use.
 
 == Add this repository
 
-=== Using [eselect-repository](https://wiki.gentoo.org/wiki/Eselect/Repository)
+=== Using https://wiki.gentoo.org/wiki/Eselect/Repository[eselect-repository]
 
 [source,shell]
 ----
 eselect repository enable tastytea
 ----
 
-=== Using [layman](https://wiki.gentoo.org/wiki/Layman)
+=== Using https://wiki.gentoo.org/wiki/Layman[layman]
 
 [source,shell]
 ----
