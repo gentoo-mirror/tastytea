@@ -31,7 +31,7 @@ sys-apps/hashboot 0.9.14 9999: Check integrity of files in /boot
 sys-libs/solo-udev-rules 20190308 99999999: udev rules for the Solo FIDO2 USB+NFC token.
 www-apps/gitea 1.8.3 1.9.3: A painless self-hosted Git service
 www-apps/libravatarserv 0.7.2 9999: Simple libravatar server.
-www-apps/pleroma 1.0.6: Microblogging server software that can federate with other servers.
+www-apps/pleroma 1.0.7: Microblogging server software that can federate with other servers.
 www-apps/pleroma-installer 6: Federating microblogging server software. Development version.
 www-misc/gitea2rss 0.5.1 9999: Generates RSS feeds from Gitea releases or tags.
 www-misc/remwharead 0.8.4 9999: Saves URIs of things you want to remember in a database.
