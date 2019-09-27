@@ -153,10 +153,6 @@ src_configure() {
 		--without-xvfb-run
 	)
 
-	if ! use doc; then
-		myconf+=(--disable-gtk-doc)
-	fi
-
 	gnome2_src_configure "${myconf[@]}"
 }
 
