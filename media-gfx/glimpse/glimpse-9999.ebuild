@@ -10,13 +10,12 @@ inherit autotools git-r3 gnome2 multilib python-single-r1 virtualx
 DESCRIPTION="Fork of the GNU Image Manipulation Program"
 HOMEPAGE="https://glimpse-editor.org/"
 EGIT_REPO_URI="https://github.com/glimpse-editor/Glimpse.git"
-EGIT_COMMIT="d4c91047e048053b01ad42d51f3b3e70cf80271f"
 EGIT_SUBMODULES=()
 SRC_URI=""
 
 LICENSE="GPL-3+ LGPL-3+"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="alsa aalib altivec aqua debug doc openexr gnome heif postscript jpeg2k cpu_flags_x86_mmx mng python cpu_flags_x86_sse udev unwind vector-icons webp wmf xpm"
 
 RDEPEND="
