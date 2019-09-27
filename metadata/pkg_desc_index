@@ -17,6 +17,7 @@ dev-python/http_ece 1.0.5: A simple implementation of the encrypted content-enco
 dev-python/python-nbxmpp 0.6.9 0.6.10: Python library to use Jabber/XMPP networks in a non-blocking way
 games-engines/solarus 1.6.2: An open-source Zelda-like 2D game engine
 games-server/factorio-server 0.16.51-r1 0.17.69: Factorio is a game in which you build and maintain factories.
+media-gfx/glimpse 0.0.20190922: Fork of the GNU Image Manipulation Program
 net-im/gajim 1.1.2 1.1.3: Jabber client written in PyGTK
 net-im/go-sendxmpp 9999-r1: A little tool to send messages to an XMPP contact or MUC
 net-misc/expandurl-mastodon 9999: Mastodon bot that expands shortened URLs.
