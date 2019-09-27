@@ -14,7 +14,7 @@ HOMEPAGE="https://glimpse-editor.org/"
 # TODO: Get gnome2 to work with git-r3.
 SRC_URI="https://github.com/glimpse-editor/Glimpse/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-3+"
+LICENSE="GPL-3+ LGPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="alsa aalib altivec aqua debug doc openexr gnome heif postscript jpeg2k cpu_flags_x86_mmx mng python cpu_flags_x86_sse udev unwind vector-icons webp wmf xpm"
