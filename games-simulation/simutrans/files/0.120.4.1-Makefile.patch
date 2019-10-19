@@ -1,0 +1,11 @@
+--- a/Makefile	2018-09-17 16:24:15.000000000 +0200
++++ b/Makefile	2019-10-19 00:05:32.652384943 +0200
+@@ -90,8 +90,6 @@
+       endif
+     endif
+   endif
+-else
+-  CFLAGS += -O
+ endif
+ 
+ ifdef DEBUG
