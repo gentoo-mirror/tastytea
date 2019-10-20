@@ -8,4 +8,10 @@
 	<upstream>
 		<remote-id type="sourceforge">simutrans</remote-id>
 	</upstream>
+	<use>
+		<flag name="pak128">Install more detailed theme</flag>
+		<flag name="pak128-britain">Install british theme</flag>
+		<flag name="pak128-german">Install german theme</flag>
+		<flag name="pak192-comic">Install comic-like theme</flag>
+	</use>
 </pkgmetadata>
