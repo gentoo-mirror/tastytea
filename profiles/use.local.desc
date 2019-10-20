@@ -2,6 +2,10 @@
 # Please add your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using pmaint *
 
+games-simulation/simutrans:pak128 - Install more detailed theme
+games-simulation/simutrans:pak128-britain - Install british theme
+games-simulation/simutrans:pak128-german - Install german theme
+games-simulation/simutrans:pak192-comic - Install comic-like theme
 media-gfx/glimpse:heif - Enable support for ISO/IEC 23008-12:2017 HEIF files
 media-gfx/glimpse:vector-icons - Enable support for vector icons (experimental)
 net-im/gajim:geoclue - Use app-misc/geoclue
