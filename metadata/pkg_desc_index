@@ -1,4 +1,4 @@
-app-emulation/dxvk 1.0.3-r1 1.2.3-r1 1.4.2 9999-r2: Vulkan-based D3D11 and D3D10 implementation for Linux / Wine
+app-emulation/dxvk 1.0.3-r1 1.2.3-r1 1.4.3 9999-r2: Vulkan-based D3D11 and D3D10 implementation for Linux / Wine
 app-misc/rdfind 1.4.1: Rdfind is a program that finds duplicate files.
 app-misc/todoman 9999: A simple CalDAV-based todo manager
 dev-cpp/curlpp 0.8.1-r2: C++ wrapper for libcURL
@@ -32,7 +32,7 @@ sys-apps/hashboot 0.9.14 9999: Check integrity of files in /boot
 sys-libs/solo-udev-rules 20190308 99999999: udev rules for the Solo FIDO2 USB+NFC token.
 www-apps/gitea 1.9.4: A painless self-hosted Git service
 www-apps/libravatarserv 0.7.2 9999: Simple libravatar server.
-www-apps/pleroma 1.0.7 1.1.1: Microblogging server software that can federate with other servers.
+www-apps/pleroma 1.0.7 1.1.2: Microblogging server software that can federate with other servers.
 www-apps/pleroma-installer 6: Federating microblogging server software. Development version.
 www-misc/gitea2rss 0.5.1 9999: Generates RSS feeds from Gitea releases or tags.
 www-misc/remwharead 0.8.5 9999: Saves URIs of things you want to remember in a database.
