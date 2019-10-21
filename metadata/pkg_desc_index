@@ -12,9 +12,8 @@ dev-go/sasl 9999: An implementation of the Simple Authentication and Security La
 dev-go/xmlstream 9999: A library for manipulating XML token streams.
 dev-go/xmpp 9999: An implementation of the Extensible Messaging and Presence Protocol (XMPP).
 dev-lang/compilescript 0.4.1 9999: Allows you to execute files from compiled languages as scripts.
-dev-python/http_ece 1.0.5: A simple implementation of the encrypted content-encoding
+dev-python/http_ece 1.1.0: A simple implementation of the encrypted content-encoding
 dev-python/python-nbxmpp 0.6.9 0.6.10: Python library to use Jabber/XMPP networks in a non-blocking way
-games-engines/solarus 1.6.2: An open-source Zelda-like 2D game engine
 games-server/factorio-server 0.16.51-r1 0.17.72: Factorio is a game in which you build and maintain factories.
 games-simulation/simutrans 0.120.4.1-r1: A free Transport Tycoon clone
 media-gfx/glimpse 0.0.20191006 9999: Fork of the GNU Image Manipulation Program
