@@ -21,7 +21,10 @@ SRC_URI="mirror://sourceforge/simutrans/simutrans-src-${MY_PV}.zip
 	pak128? ( https://download.sourceforge.net/simutrans/pak128/pak128%20for%20ST%20${PV/0./}%20%28${SIMUPAK_128_V}%2C%20priority%20signals%20%2B%20bugfix%29/pak128.zip -> simutrans_pak128-${SIMUPAK_128_V}.zip )
 	pak128-britain? ( mirror://sourceforge/simutrans/${SIMUPAK_128_BRITAIN} -> simutrans_${SIMUPAK_128_BRITAIN} )
 	pak128-german? ( mirror://sourceforge/simutrans/${SIMUPAK_128_GERMAN} -> simutrans_${SIMUPAK_128_GERMAN} )
-	pak192-comic? ( mirror://sourceforge/simutrans/${SIMUPAK_192_COMIC} -> simutrans_${SIMUPAK_192_COMIC} )"
+	pak192-comic? (
+					mirror://sourceforge/simutrans/${SIMUPAK_192_COMIC} -> simutrans_${SIMUPAK_192_COMIC}
+					https://www.dropbox.com/s/3wwyrajrr2oqzo6/coalwagons.rar?dl=1 -> simutrans_coalwagonfix.rar
+	)"
 
 LICENSE="Artistic"
 SLOT="0"
@@ -52,7 +55,11 @@ src_unpack() {
 	use pak128 && unpack "simutrans_pak128-${SIMUPAK_128_V}.zip"
 	use pak128-britain && unpack "simutrans_${SIMUPAK_128_BRITAIN}"
 	use pak128-german && unpack "simutrans_${SIMUPAK_128_GERMAN}"
-	use pak192-comic && unpack "simutrans_${SIMUPAK_192_COMIC}"
+	if use pak192-comic; then
+		unpack "simutrans_${SIMUPAK_192_COMIC}"
+		cd simutrans/pak192.comic || die
+		unpack "simutrans_coalwagonfix.rar" # Fixes invisible wagons.
+	fi
 
 	# Bundled text files are incomplete, bug #580948
 	cd "${S}/simutrans/text" || die
