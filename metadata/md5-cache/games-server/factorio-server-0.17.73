@@ -6,5 +6,5 @@ KEYWORDS=~amd64
 LICENSE=Factorio
 RDEPEND=>=app-misc/screen-4.6.1
 SLOT=0
-SRC_URI=https://www.factorio.com/get-download/0.17.72/headless/linux64 -> factorio-server-0.17.72.tar.xz
+SRC_URI=https://www.factorio.com/get-download/0.17.73/headless/linux64 -> factorio-server-0.17.73.tar.xz
 _md5_=c0dcb88908e144c2fc92f71cbd60168e
