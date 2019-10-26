@@ -14,7 +14,7 @@ dev-go/xmpp 9999: An implementation of the Extensible Messaging and Presence Pro
 dev-lang/compilescript 0.4.1 9999: Allows you to execute files from compiled languages as scripts.
 dev-python/http_ece 1.1.0: A simple implementation of the encrypted content-encoding
 dev-python/python-nbxmpp 0.6.9 0.6.10: Python library to use Jabber/XMPP networks in a non-blocking way
-games-server/factorio-server 0.16.51-r1 0.17.73: Factorio is a game in which you build and maintain factories.
+games-server/factorio-server 0.16.51-r1 0.17.74: Factorio is a game in which you build and maintain factories.
 games-simulation/simutrans 0.120.4.1-r2: A free Transport Tycoon clone
 media-gfx/glimpse 0.0.20191006 9999: Fork of the GNU Image Manipulation Program
 net-im/gajim 1.1.2 1.1.3: Jabber client written in PyGTK
