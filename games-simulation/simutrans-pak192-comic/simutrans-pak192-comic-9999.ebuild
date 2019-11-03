@@ -11,7 +11,7 @@ EGIT_REPO_URI="https://github.com/Flemmbrav/Pak192.Comic.git"
 
 LICENSE="CC-BY-SA-3.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 
 RDEPEND=">=games-simulation/simutrans-0.120"
 DEPEND="${RDEPEND}"
