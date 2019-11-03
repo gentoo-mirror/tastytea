@@ -1,0 +1,12 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install unpack
+DEPEND=>=games-simulation/simutrans-0.120
+DESCRIPTION=Pakset and theme for Simutrans with a comic-like look
+EAPI=7
+HOMEPAGE=https://forum.simutrans.com/index.php?board=120.0
+LICENSE=CC-BY-SA-3.0
+PROPERTIES=live
+RDEPEND=>=games-simulation/simutrans-0.120
+SLOT=0
+_eclasses_=git-r3	562b380fc59ae6a8622171d0acb777d1
+_md5_=0b4df9904194cc296ca35dbba493459b
