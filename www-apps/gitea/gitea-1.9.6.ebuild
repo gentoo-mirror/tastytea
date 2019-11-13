@@ -8,12 +8,20 @@ EGO_PN="code.gitea.io/gitea"
 
 DESCRIPTION="A painless self-hosted Git service"
 HOMEPAGE="https://gitea.io/"
-SRC_URI="https://github.com/go-gitea/gitea/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/go-gitea/gitea/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz
+	emoji-hotfix? (
+		https://raw.githubusercontent.com/twitter/twemoji/54df6a1/assets/72x72/1f44d.png -> gitea_thumbsup.png
+		https://raw.githubusercontent.com/twitter/twemoji/54df6a1/assets/72x72/1f44e.png -> gitea_thumbsdown.png
+		https://raw.githubusercontent.com/twitter/twemoji/54df6a1/assets/72x72/1f606.png -> gitea_laughing.png
+		https://raw.githubusercontent.com/twitter/twemoji/54df6a1/assets/72x72/1f615.png -> gitea_confused.png
+		https://raw.githubusercontent.com/twitter/twemoji/54df6a1/assets/72x72/2764.png -> gitea_heart.png
+		https://raw.githubusercontent.com/twitter/twemoji/54df6a1/assets/72x72/1f389.png -> gitea_tada.png
+	)"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64"
-IUSE="pam sqlite"
+IUSE="emoji-hotfix pam sqlite"
 
 COMMON_DEPEND="pam? ( sys-libs/pam )"
 DEPEND="
@@ -68,6 +76,17 @@ src_prepare() {
 		sed -i -e "s#^DB_TYPE = .*#DB_TYPE = sqlite3#" custom/conf/app.ini.sample || die
 	fi
 
+	if use emoji-hotfix; then
+		cp "${DISTDIR}/gitea_thumbsup.png" "public/vendor/plugins/emojify/images/thumbsup.png" || die
+		cp "${DISTDIR}/gitea_thumbsup.png" "public/vendor/plugins/emojify/images/+1.png" || die
+		cp "${DISTDIR}/gitea_thumbsdown.png" "public/vendor/plugins/emojify/images/thumbsdown.png" || die
+		cp "${DISTDIR}/gitea_thumbsdown.png" "public/vendor/plugins/emojify/images/-1.png" || die
+		cp "${DISTDIR}/gitea_laughing.png" "public/vendor/plugins/emojify/images/laughing.png" || die
+		cp "${DISTDIR}/gitea_confused.png" "public/vendor/plugins/emojify/images/confused.png" || die
+		cp "${DISTDIR}/gitea_heart.png" "public/vendor/plugins/emojify/images/heart.png" || die
+		cp "${DISTDIR}/gitea_tada.png" "public/vendor/plugins/emojify/images/tada.png" || die
+	fi
+
 	gitea_make generate
 }
 
@@ -108,5 +127,10 @@ pkg_postinst() {
 		ewarn "sed -i -e 's#${EROOT}/var/lib/gitea/conf/app.ini#${EROOT}/etc/gitea/app.ini#' \\"
 		ewarn "  /var/lib/gitea/gitea-repositories/*/*/hooks/*/* \\"
 		ewarn "  /var/lib/gitea/.ssh/authorized_keys"
+	fi
+
+	if use emoji-hotfix; then
+		elog "You have to credit Twitter for the emojis if your instance is publicly accessible."
+		elog "See https://github.com/twitter/twemoji#attribution-requirements"
 	fi
 }
