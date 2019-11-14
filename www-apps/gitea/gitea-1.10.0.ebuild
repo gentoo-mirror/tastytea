@@ -37,8 +37,6 @@ FILECAPS=( cap_net_bind_service+ep usr/bin/gitea )
 DOCS=( custom/conf/app.ini.sample CONTRIBUTING.md README.md )
 S="${WORKDIR}/${P}/src/${EGO_PN}"
 
-# PATCHES=( "${FILESDIR}/gitea-mod-vendor.patch" )
-
 pkg_setup() {
 	enewgroup git
 	enewuser git -1 /bin/bash /var/lib/gitea git
