@@ -41,7 +41,7 @@ RDEPEND="
 		>=app-emulation/wine-vanilla-4.5
 	)
 	|| (
-		video_cards_nvidia? ( >=x11-drivers/nvidia-drivers-418.74 )
+		video_cards_nvidia? ( >=x11-drivers/nvidia-drivers-440.31 )
 		>=media-libs/mesa-19.2
 	)
 "
