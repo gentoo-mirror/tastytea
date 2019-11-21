@@ -101,6 +101,7 @@ src_prepare() {
 	if ! use doc; then
 		echo "EXTRA_DIST = missing-gtk-doc" > gtk-doc.make
 	fi
+
 	gnome2_src_prepare	# calls eautoreconf
 
 	sed 's:-DGIMP_protect_DISABLE_DEPRECATED:-DGIMP_DISABLE_DEPRECATED:g' -i configure || die #615144
