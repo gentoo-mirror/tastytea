@@ -7,18 +7,20 @@ GNOME2_EAUTORECONF=yes
 
 inherit autotools git-r3 gnome2 multilib python-single-r1 virtualx
 
-DESCRIPTION="Fork of the GNU Image Manipulation Program"
+DESCRIPTION="Image editor based on the GNU Image Manipulation Program"
 HOMEPAGE="https://glimpse-editor.org/"
 EGIT_REPO_URI="https://github.com/glimpse-editor/Glimpse.git"
 EGIT_SUBMODULES=()
 SRC_URI=""
-
 LICENSE="GPL-3+ LGPL-3+"
 SLOT="0"
 KEYWORDS=""
+
+LANGS="am ar ast az be bg br ca ca@valencia cs csb da de dz el en_CA en_GB eo es et eu fa fi fr ga gl gu he hi hr hu id is it ja ka kk km kn ko lt lv mk ml ms my nb nds ne nl nn oc pa pl pt pt_BR ro ru rw si sk sl sr sr@latin sv ta te th tr tt uk vi xh yi zh_CN zh_HK zh_TW"
 IUSE="alsa aalib altivec aqua debug doc openexr gnome heif postscript jpeg2k cpu_flags_x86_mmx mng python cpu_flags_x86_sse udev unwind vector-icons webp wmf xpm"
 
 RDEPEND="
+	!media-gfx/gimp
 	>=dev-libs/glib-2.56.0:2
 	>=dev-libs/atk-2.2.0
 	>=x11-libs/gtk+-2.24.32:2
@@ -29,7 +31,7 @@ RDEPEND="
 	>=media-libs/freetype-2.1.7
 	>=media-libs/harfbuzz-0.9.19
 	>=media-libs/gexiv2-0.10.6
-	>=media-libs/libmypaint-1.3.0
+	>=media-libs/libmypaint-1.3.0:=
 	>=media-gfx/mypaint-brushes-1.3.0
 	>=media-libs/fontconfig-2.12.4
 	sys-libs/zlib
@@ -50,7 +52,7 @@ RDEPEND="
 	>=app-text/poppler-0.50[cairo]
 	>=app-text/poppler-data-0.4.7
 	>=media-libs/libpng-1.6.25:0=
-	python? (
+	python?	(
 		${PYTHON_DEPS}
 		>=dev-python/pygtk-2.10.4:2[${PYTHON_USEDEP}]
 		>=dev-python/pycairo-1.0.2[${PYTHON_USEDEP}]
@@ -84,6 +86,8 @@ DEPEND="
 
 DOCS="AUTHORS HACKING NEWS README*"
 
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+
 pkg_setup() {
 	if use python; then
 		python-single-r1_pkg_setup
@@ -94,7 +98,10 @@ src_prepare() {
 	sed -i -e 's/== "xquartz"/= "xquartz"/' configure.ac || die #494864
 	sed 's:-DGIMP_DISABLE_DEPRECATED:-DGIMP_protect_DISABLE_DEPRECATED:g' -i configure.ac || die #615144
 
-	echo "EXTRA_DIST = missing-gtk-doc" > gtk-doc.make # TODO: Investigate why gtk-doc.make is not created.
+	if ! use doc; then
+		echo "EXTRA_DIST = missing-gtk-doc" > gtk-doc.make
+	fi
+
 	gnome2_src_prepare	# calls eautoreconf
 
 	sed 's:-DGIMP_protect_DISABLE_DEPRECATED:-DGIMP_DISABLE_DEPRECATED:g' -i configure || die #615144
