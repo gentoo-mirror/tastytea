@@ -9,7 +9,7 @@ inherit autotools gnome2 multilib python-single-r1 virtualx
 
 DESCRIPTION="Image editor based on the GNU Image Manipulation Program"
 HOMEPAGE="https://glimpse-editor.org/"
-SRC_URI="https://github.com/glimpse-editor/Glimpse/archive/v${PV}.tar.gz"
+SRC_URI="https://github.com/glimpse-editor/Glimpse/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-3+ LGPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
