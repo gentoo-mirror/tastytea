@@ -24,13 +24,14 @@ if [[ "${PV}" == "9999" ]]; then
 else
 	KEYWORDS="~amd64 ~x86"
 fi
-IUSE="doc +firefox test"
+IUSE="doc +firefox rofi test"
 
 RDEPEND="
 	>=dev-cpp/curlpp-0.8.1
 	dev-libs/libxdg-basedir
 	dev-db/vsqlite++
 	dev-libs/icu
+	rofi? ( x11-misc/rofi )
 "
 DEPEND="
 	${RDEPEND}
@@ -58,7 +59,7 @@ src_compile() {
 	cmake-utils_src_compile
 
 	if use doc; then
-		./build_doc.sh
+		./build_doc.sh || die
 	fi
 }
 
@@ -66,6 +67,8 @@ src_install() {
 	if use doc; then
 		HTML_DOCS="doc/html/*"
 	fi
+
+	use rofi && dobin scripts/remwharead-rofi || die
 
 	cmake-utils_src_install
 }

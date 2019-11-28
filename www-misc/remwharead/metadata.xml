@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <longdescription>
-    remwharead saves URIs of things you want to remember in a database
-    along with an URI to the archived version, the current date and
-    time, title, description, the full text of the page and optional
-    tags.
-  </longdescription>
-  <maintainer type="person">
-    <email>gentoo@tastytea.de</email>
-    <name>tastytea</name>
-  </maintainer>
-  <upstream>
-    <bugs-to>https://schlomp.space/tastytea/remwharead/issues</bugs-to>
-  </upstream>
-  <use>
-    <flag name="firefox">Install wrapper for Firefox-plugin</flag>
-  </use>
+	<longdescription>
+		remwharead saves URIs of things you want to remember in a database
+		along with an URI to the archived version, the current date and
+		time, title, description, the full text of the page and optional
+		tags.
+	</longdescription>
+	<maintainer type="person">
+		<email>gentoo@tastytea.de</email>
+		<name>tastytea</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://schlomp.space/tastytea/remwharead/issues</bugs-to>
+	</upstream>
+	<use>
+		<flag name="firefox">Install wrapper for Firefox-plugin</flag>
+		<flag name="rofi">Add support for x11-misc/rofi with the 'remwharead-rofi' program.</flag>
+	</use>
 </pkgmetadata>
