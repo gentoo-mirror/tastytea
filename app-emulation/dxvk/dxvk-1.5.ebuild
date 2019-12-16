@@ -45,6 +45,13 @@ RDEPEND="
 	)
 "
 
+pkg_pretend () {
+	if ! use abi_x86_64 && ! use abi_x86_32; then
+		eerror "You need to enable at least one of abi_x86_32 and abi_x86_64."
+		die
+	fi
+}
+
 src_prepare() {
 	default
 	sed -i "s|^basedir=.*$|basedir=\"${EPREFIX}\"|" setup_dxvk.sh || die

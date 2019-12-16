@@ -35,7 +35,6 @@ RDEPEND="
 	${COMMON_DEPEND}
 	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
 	|| (
-		>=app-emulation/wine-any-4.5
 		>=app-emulation/wine-d3d9-4.5
 		>=app-emulation/wine-staging-4.5
 		>=app-emulation/wine-vanilla-4.5
@@ -45,6 +44,13 @@ RDEPEND="
 		>=media-libs/mesa-19.2
 	)
 "
+
+pkg_pretend () {
+	if ! use abi_x86_64 && ! use abi_x86_32; then
+		eerror "You need to enable at least one of abi_x86_32 and abi_x86_64."
+		die
+	fi
+}
 
 src_prepare() {
 	default
