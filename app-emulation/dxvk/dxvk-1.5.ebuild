@@ -45,6 +45,13 @@ RDEPEND="
 	)
 "
 
+pkg_pretend () {
+	if ! use abi_x86_64 && ! use abi_x86_32; then
+		eerror "You need to enable at least one of abi_x86_32 and abi_x86_64."
+		die
+	fi
+}
+
 src_prepare() {
 	default
 	sed -i "s|^basedir=.*$|basedir=\"${EPREFIX}\"|" setup_dxvk.sh || die
@@ -52,11 +59,11 @@ src_prepare() {
 	sed -i "s|\"x32\"|\"usr/${LIBDIR_x86}/dxvk\"|" setup_dxvk.sh || die
 
 	if ! use abi_x86_64; then
-		sed -i '|installFile "$win64_sys_path"|d' setup_dxvk.sh || die
+		sed -i '/installFile "$win64_sys_path"/d' setup_dxvk.sh || die
 	fi
 
 	if ! use abi_x86_32; then
-		sed -i '|installFile "$win32_sys_path"|d' setup_dxvk.sh || die
+		sed -i '/installFile "$win32_sys_path"/d' setup_dxvk.sh || die
 	fi
 }
 
