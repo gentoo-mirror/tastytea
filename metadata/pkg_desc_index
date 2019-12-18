@@ -4,6 +4,7 @@ app-misc/todoman 9999: A simple CalDAV-based todo manager
 dev-cpp/curlpp 0.8.1-r2: C++ wrapper for libcURL
 dev-cpp/identiconpp 0.6.1 0.7.1 9999: Library to generate identicons for C++.
 dev-cpp/mastodon-cpp 0.111.2 9999: mastodon-cpp is a C++ wrapper for the Mastodon API.
+dev-cpp/restclient-cpp 0.5.1: C++ client for making HTTP/REST requests
 dev-cpp/xdgcfg 0.5.0: Wrapper around libconfig that writes and reads files in XDG_CONFIG_HOME
 dev-go/getopt2 9999: getopt style option parsing for Go
 dev-go/go-xmpp 9999: go xmpp library
