@@ -19,3 +19,9 @@ DEPEND="${RDEPEND}"
 PATCHES=(
 	"${FILESDIR}/${PV}-GNUInstallDirs.patch"
 )
+
+src_prepare() {
+	cmake-utils_src_prepare
+	# Disable tests.
+	sed '/find_package(jsoncpp)/d' CMakeLists.txt || die
+}
