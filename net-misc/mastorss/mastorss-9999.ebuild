@@ -21,7 +21,3 @@ RDEPEND="
 DEPEND="
 	>=dev-util/cmake-3.9.6
 	${RDEPEND}"
-
-src_unpack() {
-	git-r3_src_unpack
-}
