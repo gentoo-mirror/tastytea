@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE=""
 RDEPEND="
 	>=dev-libs/boost-1.62.0
-	>=dev-cpp/mastodon-cpp-0.111.4
+	>=dev-cpp/mastodon-cpp-0.111.3
 	>=dev-libs/poco-1.7.6
 	>=dev-libs/jsoncpp-1.7.4
 	>=dev-cpp/restclient-cpp-0.5.1
@@ -21,7 +21,3 @@ RDEPEND="
 DEPEND="
 	>=dev-util/cmake-3.9.6
 	${RDEPEND}"
-
-src_unpack() {
-	git-r3_src_unpack
-}
