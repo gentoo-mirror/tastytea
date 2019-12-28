@@ -12,10 +12,11 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 RDEPEND="
-	>=dev-cpp/mastodon-cpp-0.105.0
-	>=dev-cpp/curlpp-0.8.1
-	>=dev-libs/jsoncpp-1.8.1
-	>=dev-libs/boost-1.65.0
+	>=dev-libs/boost-1.62.0
+	>=dev-cpp/mastodon-cpp-0.111.4
+	>=dev-libs/poco-1.7.6
+	>=dev-libs/jsoncpp-1.7.4
+	>=dev-cpp/restclient-cpp-0.5.1
 "
 DEPEND="
 	>=dev-util/cmake-3.9.6
