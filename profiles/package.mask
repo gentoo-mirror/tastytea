@@ -1,2 +1,0 @@
-# Will be removed on 2019-11-22.
-dev-python/http_ece
