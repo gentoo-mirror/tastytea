@@ -1,5 +1,6 @@
 app-emulation/dxvk 1.4.6 1.5 9999-r2: Vulkan-based D3D11 and D3D10 implementation for Linux / Wine
 app-misc/rdfind 1.4.1: Rdfind is a program that finds duplicate files.
+app-misc/todoman 9999: A simple CalDAV-based todo manager
 dev-cpp/curlpp 0.8.1-r2: C++ wrapper for libcURL
 dev-cpp/identiconpp 0.6.1 0.7.1 9999: Library to generate identicons for C++.
 dev-cpp/mastodon-cpp 0.111.5 9999: mastodon-cpp is a C++ wrapper for the Mastodon API.
