@@ -12,9 +12,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 RDEPEND="
+	>=dev-libs/boost-1.62.0
 	>=dev-cpp/mastodon-cpp-0.111.3
-	dev-libs/boost
-	dev-libs/jsoncpp
+	>=dev-libs/jsoncpp-1.7.4
 	>=dev-cpp/restclient-cpp-0.5.1
 	app-text/asciidoc
 "
