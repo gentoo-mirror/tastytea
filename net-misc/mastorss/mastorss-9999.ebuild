@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -14,9 +14,9 @@ IUSE=""
 RDEPEND="
 	>=dev-libs/boost-1.62.0
 	>=dev-cpp/mastodon-cpp-0.111.3
-	>=dev-libs/poco-1.7.6
 	>=dev-libs/jsoncpp-1.7.4
 	>=dev-cpp/restclient-cpp-0.5.1
+	app-text/asciidoc
 "
 DEPEND="
 	>=dev-util/cmake-3.9.6
