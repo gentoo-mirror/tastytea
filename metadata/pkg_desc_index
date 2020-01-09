@@ -4,6 +4,7 @@ app-misc/todoman 9999: A simple CalDAV-based todo manager
 dev-cpp/curlpp 0.8.1-r2: C++ wrapper for libcURL
 dev-cpp/identiconpp 0.6.1 0.7.1 9999: Library to generate identicons for C++.
 dev-cpp/mastodon-cpp 0.111.5 9999: mastodon-cpp is a C++ wrapper for the Mastodon API.
+dev-cpp/mastodonpp 9999: C++ wrapper for the Mastodon API.
 dev-cpp/restclient-cpp 0.5.1: C++ client for making HTTP/REST requests
 dev-cpp/xdgcfg 0.5.0: Wrapper around libconfig that writes and reads files in XDG_CONFIG_HOME
 dev-go/getopt2 9999: getopt style option parsing for Go
@@ -13,7 +14,7 @@ dev-go/sasl 9999: An implementation of the Simple Authentication and Security La
 dev-go/xmlstream 9999: A library for manipulating XML token streams.
 dev-go/xmpp 9999: An implementation of the Extensible Messaging and Presence Protocol (XMPP).
 dev-lang/compilescript 0.4.1 9999: Allows you to execute files from compiled languages as scripts.
-dev-python/python-nbxmpp 0.6.9 0.6.10: Python library to use Jabber/XMPP networks in a non-blocking way
+dev-python/python-nbxmpp 0.6.10: Python library to use Jabber/XMPP networks in a non-blocking way
 games-server/factorio-server 0.16.51-r1 0.17.79: Factorio is a game in which you build and maintain factories.
 games-simulation/simutrans 0.120.4.1-r2: A free Transport Tycoon clone
 games-simulation/simutrans-pak192-comic 9999: Pakset and theme for Simutrans with a comic-like look
@@ -23,7 +24,6 @@ net-im/go-sendxmpp 9999-r1: A little tool to send messages to an XMPP contact or
 net-misc/expandurl-mastodon 9999: Mastodon bot that expands shortened URLs.
 net-misc/feiertagebot 9999: Allows you to execute files from compiled languages as scripts.
 net-misc/ferret 9999: ferret is a modern client for the gopher protocol.
-net-misc/mastobotmon 9999: mastobotmon monitors your bots on Mastodon.
 net-misc/mastorss 0.9.0 0.10.1 9999: Another RSS to Mastodon bot
 net-misc/soupbot 9999: soupbot is a soup-recommending bot for Mastodon
 net-misc/tootle 0.2.0 9999: GTK3 client for Mastodon
