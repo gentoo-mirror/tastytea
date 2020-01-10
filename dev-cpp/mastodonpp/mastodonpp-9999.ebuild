@@ -7,7 +7,7 @@ if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 fi
 
-DESCRIPTION="C++ wrapper for the Mastodon API."
+DESCRIPTION="C++ wrapper for the Mastodon and Pleroma APIs."
 HOMEPAGE="https://schlomp.space/tastytea/mastodonpp"
 if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://schlomp.space/tastytea/mastodonpp.git"
