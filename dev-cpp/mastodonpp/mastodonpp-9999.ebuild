@@ -25,7 +25,7 @@ fi
 IUSE="doc examples test"
 
 RDEPEND="
-	>=net-misc/curl-7.32.0[ssl]
+	>=net-misc/curl-7.56.0[ssl]
 "
 DEPEND="
 	>=dev-util/cmake-3.9
