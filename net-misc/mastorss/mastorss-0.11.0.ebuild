@@ -13,7 +13,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 RDEPEND="
 	>=dev-libs/boost-1.62.0
-	>=dev-cpp/mastodon-cpp-0.111.3
+	>=dev-cpp/mastodonpp-0.4.0
 	>=dev-libs/jsoncpp-1.7.4
 	>=dev-cpp/restclient-cpp-0.5.1
 	app-text/asciidoc
@@ -22,7 +22,4 @@ DEPEND="
 	>=dev-util/cmake-3.9.6
 	${RDEPEND}"
 
-src_unpack() {
-	default_src_unpack
-	mv "${PN}" "${P}"
-}
+S="${WORKDIR}/${PN}"
