@@ -13,8 +13,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="media-libs/fontconfig"
-
 S="${WORKDIR}"
 # FONT_S="${S}/ttf"
 FONT_SUFFIX="ttf"
