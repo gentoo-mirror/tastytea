@@ -39,12 +39,11 @@ RDEPEND="
 	media-libs/sdl-mixer[midi]
 	media-libs/libpng:0
 	media-libs/libsdl[sound,video]"
-
-DEPEND="
-	${RDEPEND}
-	app-arch/unzip
-	virtual/imagemagick-tools[png]"
-BDEPEND="|| ( app-arch/rar app-arch/unrar )"
+DEPEND="${RDEPEND}"
+BDEPEND="
+	|| ( app-arch/zip app-arch/unzip )
+	virtual/imagemagick-tools[png]
+	|| ( app-arch/rar app-arch/unrar )"
 
 S=${WORKDIR}
 
