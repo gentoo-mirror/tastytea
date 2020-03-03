@@ -8,14 +8,6 @@ games-simulation/simutrans:pak128-german - Install german theme
 games-simulation/simutrans:pak192-comic - Install comic-like theme
 media-gfx/glimpse:heif - Enable support for ISO/IEC 23008-12:2017 HEIF files
 media-gfx/glimpse:vector-icons - Enable support for vector icons (experimental)
-net-im/gajim:geoclue - Use app-misc/geoclue
-net-im/gajim:gpg - Install dependencies for the GPG plugin
-net-im/gajim:idle - Enable idle module
-net-im/gajim:jingle - Enable voice calls for jabber
-net-im/gajim:keyring - Use dev-python/keyring
-net-im/gajim:omemo - Install dependencies for the OMEMO plugin
-net-im/gajim:remote - Enable remote control utility
-net-im/gajim:rst - Enable dev-python/docutils for formatting
 sys-apps/hashboot:firmware - Enable firmware support through sys-apps/flashrom.
 www-apps/gitea:emoji-hotfix - Use reaction emojis with neutral skin tone
 www-apps/pleroma:apache - Installs a configuration file for apache.
