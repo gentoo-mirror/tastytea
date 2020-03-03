@@ -90,6 +90,8 @@ DOCS="AUTHORS HACKING NEWS README*"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
+RESTRICT="!test? ( test )"
+
 pkg_setup() {
 	if use python; then
 		python-single-r1_pkg_setup
