@@ -1,4 +1,4 @@
-# Copyright 2019 Gentoo Authors
+# Copyright 2019-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -52,10 +52,12 @@ RDEPEND="
 	>=app-text/poppler-0.50[cairo]
 	>=app-text/poppler-data-0.4.7
 	>=media-libs/libpng-1.6.25:0=
-	python?	(
+	python? (
 		${PYTHON_DEPS}
-		>=dev-python/pygtk-2.10.4:2[${PYTHON_USEDEP}]
-		>=dev-python/pycairo-1.0.2[${PYTHON_USEDEP}]
+		$(python_gen_cond_dep '
+			>=dev-python/pycairo-1.0.2[${PYTHON_MULTI_USEDEP}]
+			>=dev-python/pygtk-2.10.4:2[${PYTHON_MULTI_USEDEP}]
+		')
 	)
 	>=media-libs/tiff-3.5.7:0
 	>=gnome-base/librsvg-2.40.6:2
