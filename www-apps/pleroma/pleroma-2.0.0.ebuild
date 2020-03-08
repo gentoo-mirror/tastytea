@@ -12,7 +12,7 @@ EGIT_COMMIT="v${PV}"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE="apache +nginx syslog"
 
 RDEPEND="
