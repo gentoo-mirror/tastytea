@@ -3,11 +3,12 @@
 
 EAPI=7
 
-inherit user systemd
+inherit git-r3 user systemd
 
 DESCRIPTION="Microblogging server software that can federate with other servers."
 HOMEPAGE="https://pleroma.social/ https://git.pleroma.social/pleroma/pleroma/"
-SRC_URI="https://git.pleroma.social/pleroma/pleroma/-/archive/v${PV}/pleroma-v${PV}.tar.bz2"
+EGIT_REPO_URI="https://git.pleroma.social/pleroma/pleroma.git"
+EGIT_COMMIT="v${PV}"
 
 LICENSE="AGPL-3"
 SLOT="0"
@@ -21,8 +22,6 @@ RDEPEND="
 	nginx? ( www-servers/nginx[nginx_modules_http_slice] )
 "
 DEPEND=""
-
-S="${WORKDIR}/pleroma-v2.0.1"
 
 pkg_preinst() {
 	ewarn "This ebuild will overwrite modified files in /opt/pleroma/priv/static/"
