@@ -8,7 +8,7 @@ if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 fi
 
-DESCRIPTION="Vulkan-based D3D11 and D3D10 implementation for Linux / Wine"
+DESCRIPTION="Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine"
 HOMEPAGE="https://github.com/doitsujin/dxvk"
 if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/doitsujin/dxvk.git"
