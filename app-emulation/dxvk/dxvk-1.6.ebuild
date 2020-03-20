@@ -77,12 +77,12 @@ multilib_src_configure() {
 		--bindir=$(get_libdir)/dxvk/bin
 		--cross-file=../${P}/build-wine${bit}.txt
 	)
-	meson_src_configure
+	meson_src_configure || die
 }
 
 multilib_src_compile() {
 	EMESON_SOURCE="${S}"
-	meson_src_compile
+	meson_src_compile || die
 }
 
 multilib_src_install() {
@@ -90,7 +90,7 @@ multilib_src_install() {
 }
 
 multilib_src_install_all() {
-	dobin setup_dxvk.sh
+	dobin setup_dxvk.sh || die
 }
 
 pkg_postinst() {
