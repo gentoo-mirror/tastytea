@@ -1,4 +1,4 @@
-app-emulation/dxvk 1.5.5 1.6 9999-r2: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
+app-emulation/dxvk 1.5.5 1.6 9999-r3: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-misc/rdfind 1.4.1: Rdfind is a program that finds duplicate files.
 dev-cpp/curlpp 0.8.1-r2: C++ wrapper for libcURL
 dev-cpp/identiconpp 0.6.1 0.7.1 9999: Library to generate identicons for C++.
