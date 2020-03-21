@@ -31,8 +31,8 @@ DEPEND="
 "
 BDEPEND="
 	|| (
-		>=app-emulation/wine-staging-4.5[${MULTILIB_USEDEP}]
-		>=app-emulation/wine-vanilla-4.5[${MULTILIB_USEDEP}]
+		>=app-emulation/wine-staging-4.5[${MULTILIB_USEDEP},vulkan]
+		>=app-emulation/wine-vanilla-4.5[${MULTILIB_USEDEP},vulkan]
 	)
 "
 RDEPEND="
@@ -71,7 +71,7 @@ multilib_src_configure() {
 	local emesonargs=(
 		--libdir=$(get_libdir)/dxvk
 		--bindir=$(get_libdir)/dxvk/bin
-		--cross-file=../${P}/build-wine${bit}.txt
+		--cross-file=${S}/build-wine${bit}.txt
 	)
 	meson_src_configure || die
 }
@@ -94,5 +94,5 @@ pkg_postinst() {
 	elog "in order to make use of it. To do so, set WINEPREFIX and execute"
 	elog "setup_dxvk.sh install --symlink."
 
-	elog "D9VK is part of DXVK since 1.5. If use symlinks, don't forget to link the new libraries."
+	elog "D9VK is part of DXVK since 1.5. If you use symlinks, don't forget to link the new libraries."
 }
