@@ -1,0 +1,4 @@
+# tastytea <tastytea+gentoo@tastytea.de> (2020-04-04)
+# I don't use it anymore. Ebuilds are still available from the repositories
+# “ixit” and “lanodanOverlay”. Masked for removal in 30 days.
+net-misc/tootle
