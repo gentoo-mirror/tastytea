@@ -12,7 +12,7 @@ EGIT_COMMIT="v${PV}"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="apache +nginx syslog"
 
 RDEPEND="
@@ -54,6 +54,9 @@ pkg_postinst() {
 	elog "You need to run emerge --config www-apps/pleroma after each upgrade."
 	if use nginx; then
 		einfo "An example config for nginx has been installed in the doc directory."
+		ewarn "If you're upgrading from pre-2.0.1, remove"
+		ewarn "proxy_ignore_headers Cache-Control; and"
+		ewarn "proxy_hide_header Cache-Control; from your nginx config."
 	fi
 	if use apache; then
 		einfo "An example config for apache has been installed in the doc directory."
