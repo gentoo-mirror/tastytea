@@ -16,6 +16,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE="apache +nginx syslog"
 
 RDEPEND="
+	acct-group/pleroma
+	acct-user/pleroma
 	>=dev-lang/elixir-1.8.1
 	>=dev-db/postgresql-9.6.13[uuid]
 	apache? ( www-servers/apache )
