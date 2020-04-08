@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit git-r3 user systemd
+inherit git-r3 systemd
 
 DESCRIPTION="Microblogging server software that can federate with other servers."
 HOMEPAGE="https://pleroma.social/ https://git.pleroma.social/pleroma/pleroma/"
@@ -16,6 +16,8 @@ KEYWORDS=""
 IUSE="apache +nginx syslog"
 
 RDEPEND="
+	acct-group/pleroma
+	acct-user/pleroma
 	>=dev-lang/elixir-1.8.1
 	>=dev-db/postgresql-9.6.13[uuid]
 	apache? ( www-servers/apache )
@@ -25,11 +27,6 @@ DEPEND=""
 
 pkg_preinst() {
 	ewarn "This ebuild will overwrite modified files in /opt/pleroma/priv/static/"
-}
-
-pkg_setup() {
-	enewgroup pleroma
-	enewuser pleroma -1 -1 /opt/pleroma pleroma
 }
 
 src_install() {
