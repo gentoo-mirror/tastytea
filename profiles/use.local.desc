@@ -12,6 +12,7 @@ games-simulation/simutrans:pak128-german - Install german theme
 games-simulation/simutrans:pak192-comic - Install comic-like theme
 media-gfx/glimpse:heif - Enable support for ISO/IEC 23008-12:2017 HEIF files
 media-gfx/glimpse:vector-icons - Enable support for vector icons (experimental)
+net-im/biboumi:logrotate - Use app-admin/logrotate for rotating logs
 net-im/biboumi:udns - Asynchronously resolve domain names using net-libs/udns
 sys-apps/hashboot:firmware - Enable firmware support through sys-apps/flashrom.
 www-apps/gitea:emoji-hotfix - Use reaction emojis with neutral skin tone
