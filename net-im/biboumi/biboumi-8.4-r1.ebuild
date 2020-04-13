@@ -12,7 +12,7 @@ SRC_URI="https://git.louiz.org/biboumi/snapshot/biboumi-${PV}.tar.xz"
 LICENSE="ZLIB"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc +idn postgres +sqlite ssl systemd udns"
+IUSE="+idn postgres +sqlite +ssl systemd udns"
 
 RDEPEND="
 	acct-user/biboumi
