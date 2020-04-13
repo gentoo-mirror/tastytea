@@ -74,6 +74,11 @@ src_install() {
 
 	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
 
+	if use logrotate; then
+		insinto /etc/logrotate.d
+		newins "${FILESDIR}/${PN}.logrotate" "${PN}" || die
+	fi
+
 	diropts --owner=biboumi --group=biboumi --mode=750
 	if use sqlite; then
 		keepdir /var/lib/biboumi
@@ -83,9 +88,4 @@ src_install() {
 	insinto /etc/biboumi
 	insopts --group=biboumi --mode=640
 	doins conf/biboumi.cfg || die
-
-	if use logrotate; then
-		insinto /etc/logrotate.d
-		newins "${FILESDIR}/${PN}.logrotate" "${PN}" || die
-	fi
 }
