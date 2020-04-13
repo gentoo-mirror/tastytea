@@ -11,3 +11,7 @@ games-simulation/simutrans-pak192-comic
 # I don't use it anymore, upstream seems inactive. Masked for removal in 30
 # days.
 net-misc/ferret
+
+# tastytea <tastytea+gentoo@tastytea.de> (2020-04-13)
+# Is in the Gentoo tree now. Masked for removal in 30 days.
+x11-themes/papirus-icon-theme
