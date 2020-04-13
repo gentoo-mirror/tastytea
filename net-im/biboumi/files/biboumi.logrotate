@@ -1,0 +1,8 @@
+/var/log/biboumi/biboumi.log {
+	sharedscripts
+	missingok
+	notifempty
+	postrotate
+		rc-service biboumi reload > /dev/null
+	endscript
+}
