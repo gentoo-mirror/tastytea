@@ -23,7 +23,7 @@ games-server/factorio-server 0.16.51-r1 0.17.79: Factorio is a game in which you
 games-simulation/simutrans 0.120.4.1-r2 0.121.0: A free Transport Tycoon clone
 games-simulation/simutrans-pak192-comic 9999: Pakset and theme for Simutrans with a comic-like look
 media-gfx/glimpse 0.1.0 0.1.2 9999: Image editor based on the GNU Image Manipulation Program
-net-im/biboumi 8.4-r1 8.4-r2 8.4-r3: XMPP gateway to IRC
+net-im/biboumi 8.4-r3: XMPP gateway to IRC
 net-im/go-sendxmpp 9999-r1: A little tool to send messages to an XMPP contact or MUC
 net-misc/expandurl-mastodon 9999: Mastodon bot that expands shortened URLs.
 net-misc/feiertagebot 9999: Allows you to execute files from compiled languages as scripts.
