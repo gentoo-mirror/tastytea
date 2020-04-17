@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit gnome2-utils
+
 MY_COMMIT="aee10fc647fd0cdb8ef9907ae3ee42c1bea5d976"
 
 DESCRIPTION="Flat, dark-mode theme with transparent elements"
@@ -12,8 +14,27 @@ SRC_URI="https://github.com/rtlewis88/rtl88-Themes/archive/${MY_COMMIT}.tar.gz -
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="icons"
+
+S="${WORKDIR}/rtl88-Themes-${MY_COMMIT}"
 
 src_install() {
-	insinto "usr/share/themes"
-	doins -r AD* || die
+	for color in BlueAgave Kiwi Plum Strawberry Tangerine; do
+		insinto "usr/share/themes"
+		doins -r "AD-${color}" || die
+		if use icons; then
+			insinto "usr/share/icons"
+			for variant in Numix Suru; do
+				doins -r "AD-${color}-${variant}"
+			done
+		fi
+	done
+}
+
+pkg_postinst() {
+	use icons && gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	use icons && gnome2_icon_cache_update
 }

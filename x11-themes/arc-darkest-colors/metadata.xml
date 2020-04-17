@@ -11,4 +11,7 @@
 		<email>gentoo@tastytea.de</email>
 		<name>tastytea</name>
 	</maintainer>
+	<use>
+		<flag name="icons">Install icon themes</flag>
+	</use>
 </pkgmetadata>
