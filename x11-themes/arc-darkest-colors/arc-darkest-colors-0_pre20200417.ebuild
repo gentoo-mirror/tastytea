@@ -25,7 +25,7 @@ src_install() {
 		if use icons; then
 			insinto "usr/share/icons"
 			for variant in Numix Suru; do
-				doins -r "AD-${color}-${variant}"
+				doins -r "AD-${color}-${variant}" || die
 			done
 		fi
 	done
