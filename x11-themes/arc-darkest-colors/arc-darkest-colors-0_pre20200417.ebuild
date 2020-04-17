@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit gnome2-utils
+inherit xdg-utils
 
 MY_COMMIT="aee10fc647fd0cdb8ef9907ae3ee42c1bea5d976"
 
@@ -32,9 +32,9 @@ src_install() {
 }
 
 pkg_postinst() {
-	use icons && gnome2_icon_cache_update
+	use icons && xdg_icon_cache_update
 }
 
 pkg_postrm() {
-	use icons && gnome2_icon_cache_update
+	use icons && xdg_icon_cache_update
 }
