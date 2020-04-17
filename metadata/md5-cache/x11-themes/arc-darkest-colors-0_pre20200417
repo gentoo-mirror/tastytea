@@ -8,4 +8,4 @@ LICENSE=GPL-3
 SLOT=0
 SRC_URI=https://github.com/rtlewis88/rtl88-Themes/archive/aee10fc647fd0cdb8ef9907ae3ee42c1bea5d976.tar.gz -> arc-darkest-colors-0_pre20200417.tar.gz
 _eclasses_=xdg-utils	ff2ff954e6b17929574eee4efc5152ba
-_md5_=e53424d1e167d428ed12802beab5f648
+_md5_=1a6ce571270c905a3e2f4ace70dabc2e
