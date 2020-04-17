@@ -22,3 +22,4 @@ www-apps/pleroma-installer:apache - Installs a configuration file for apache.
 www-apps/pleroma-installer:nginx - Installs a configuration file for nginx.
 www-misc/remwharead:firefox - Install wrapper for Firefox-plugin
 www-misc/remwharead:rofi - Add support for x11-misc/rofi with the 'remwharead-rofi' program.
+x11-themes/arc-darkest-colors:icons - Install icon themes

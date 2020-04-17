@@ -41,6 +41,7 @@ www-apps/pleroma-installer 6: Federating microblogging server software. Developm
 www-misc/gitea2rss 0.5.1 9999: Generates RSS feeds from Gitea releases or tags.
 www-misc/remwharead 0.9.2 0.10.0 9999: Saves URIs of things you want to remember in a database.
 x11-misc/xob 0.1.1-r1 0.2: A lightweight overlay volume (or anything) bar for the X Window System.
+x11-themes/arc-darkest-colors 0_pre20200417: Flat, dark-mode theme with transparent elements
 x11-themes/paper-gtk-theme 9999: Paper Theme Suite for GTK 3 and GTK 2
 x11-themes/paper-icon-theme 9999: Paper icon theme
 x11-themes/papirus-claws-mail-theme 9999: Papirus theme for Claws Mail
