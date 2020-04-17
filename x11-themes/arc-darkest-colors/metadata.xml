@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Arc-Darkest-COLORS is a flat, dark-mode theme with transparent elements,
+		for GTK, xfwm4, openbox-3, GNOME-Shell, and Cinnamon desktop
+		environments. Arc-Darkest-COLORS also has two varieties of matching
+		Icons and Folders.
+	</longdescription>
+	<maintainer type="person">
+		<email>gentoo@tastytea.de</email>
+		<name>tastytea</name>
+	</maintainer>
+	<use>
+		<flag name="icons">Install icon themes</flag>
+	</use>
+</pkgmetadata>
