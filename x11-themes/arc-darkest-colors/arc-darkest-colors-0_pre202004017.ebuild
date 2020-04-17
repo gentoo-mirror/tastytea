@@ -3,13 +3,11 @@
 
 EAPI=7
 
-inherit git-r3
+MY_COMMIT="aee10fc647fd0cdb8ef9907ae3ee42c1bea5d976"
 
 DESCRIPTION="Flat, dark-mode theme with transparent elements"
 HOMEPAGE="https://github.com/rtlewis88/rtl88-Themes/tree/Arc-Darkest-COLORS-Complete-Desktop"
-EGIT_REPO_URI="https://github.com/rtlewis88/rtl88-Themes.git"
-EGIT_BRANCH="Arc-Darkest-COLORS-Complete-Desktop"
-EGIT_COMMIT="aee10fc647fd0cdb8ef9907ae3ee42c1bea5d976"
+SRC_URI="https://github.com/rtlewis88/rtl88-Themes/archive/${MY_COMMIT}.tar.gz -> ${PF}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
