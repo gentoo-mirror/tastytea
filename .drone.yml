@@ -14,7 +14,7 @@ steps:
   when:
     status: [ changed, failure ]
   settings:
-    host: cryptoparty-celle.de
+    host: mail.tzend.de
     from: drone@tzend.de
     username:
       from_secret: email_username
