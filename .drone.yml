@@ -3,7 +3,7 @@ name: check
 
 steps:
 - name: repoman
-  image: chaoslab/repoman
+  image: tastytea/repoman
   pull: always
   commands:
   - repoman full --include-dev --xmlparse
