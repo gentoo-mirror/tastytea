@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-inherit fcaps golang-vcs-snapshot systemd user
+inherit fcaps golang-vcs-snapshot systemd
 
 EGO_PN="code.gitea.io/gitea"
 
@@ -23,24 +23,17 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64"
 IUSE="emoji-hotfix pam sqlite"
 
-COMMON_DEPEND="pam? ( sys-libs/pam )"
-DEPEND="
-	${COMMON_DEPEND}
-	dev-go/go-bindata
-"
+BDEPEND="dev-go/go-bindata"
+DEPEND="pam? ( sys-libs/pam )"
 RDEPEND="
-	${COMMON_DEPEND}
+	${DEPEND}
+	acct-user/git[gitea]
 	dev-vcs/git[curl,threads]
 "
 
 FILECAPS=( cap_net_bind_service+ep usr/bin/gitea )
 DOCS=( custom/conf/app.ini.sample CONTRIBUTING.md README.md )
 S="${WORKDIR}/${P}/src/${EGO_PN}"
-
-pkg_setup() {
-	enewgroup git
-	enewuser git -1 /bin/bash /var/lib/gitea git
-}
 
 gitea_make() {
 	local my_tags=(
