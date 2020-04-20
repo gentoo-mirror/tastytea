@@ -15,3 +15,7 @@ net-misc/ferret
 # tastytea <tastytea+gentoo@tastytea.de> (2020-04-13)
 # Is in the Gentoo tree now. Masked for removal in 30 days.
 x11-themes/papirus-icon-theme
+
+# tastytea <tastytea+gentoo@tastytea.de> (2020-04-20)
+# Current version is in the Gentoo tree now. Masked for removal in 30 days.
+dev-python/python-nbxmpp
