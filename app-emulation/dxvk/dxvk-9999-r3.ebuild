@@ -89,9 +89,9 @@ multilib_src_configure() {
 	local bits="${MULTILIB_ABI_FLAG:8:2}"
 
 	local emesonargs=(
-		--libdir=$(get_libdir)/dxvk
-		--bindir=$(get_libdir)/dxvk/bin
-		--cross-file=${S}/build-wine${bits}.txt
+		--libdir="$(get_libdir)/dxvk"
+		--bindir="$(get_libdir)/dxvk/bin"
+		--cross-file="${S}/build-wine${bits}.txt"
 		$(meson_use d3d9 "enable_d3d9")
 		$(meson_use d3d10 "enable_d3d10")
 		$(meson_use d3d11 "enable_d3d11")
