@@ -97,12 +97,12 @@ multilib_src_configure() {
 		$(meson_use d3d11 "enable_d3d11")
 		$(meson_use dxgi "enable_dxgi")
 	)
-	meson_src_configure || die
+	meson_src_configure
 }
 
 multilib_src_compile() {
 	EMESON_SOURCE="${S}"
-	meson_src_compile || die
+	meson_src_compile
 }
 
 multilib_src_install() {
@@ -110,7 +110,7 @@ multilib_src_install() {
 }
 
 multilib_src_install_all() {
-	dobin setup_dxvk.sh || die
+	dobin setup_dxvk.sh
 }
 
 pkg_postinst() {
