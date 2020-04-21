@@ -26,3 +26,7 @@ dev-python/python-nbxmpp
 # for removal in 30 days.
 # [1] <https://wiki.gentoo.org/wiki/Project:GURU>
 app-misc/rdfind
+
+# tastytea <tastytea+gentoo@tastytea.de> (2020-04-21)
+# I don't use it anymore. Masked for removal in 30 days.
+www-apps/pleroma-installer
