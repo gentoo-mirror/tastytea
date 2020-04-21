@@ -24,7 +24,7 @@ if [[ "${PV}" == "9999" ]]; then
 else
 	KEYWORDS=""
 fi
-IUSE="+d3d9 +d3d10 +d3d11 +dxgi +mingw video_cards_nvidia test winegcc"
+IUSE="+d3d9 +d3d10 +d3d11 debug +dxgi +mingw video_cards_nvidia test winegcc"
 REQUIRED_USE="^^ ( mingw winegcc )"
 
 DEPEND="
@@ -145,7 +145,7 @@ multilib_src_configure() {
 		--bindir="$(get_libdir)/dxvk"
 		--cross-file="${S}/${buildfile}"
 		--buildtype="release"
-		--strip
+		$(usex debug "" "--strip")
 		$(meson_use d3d9 "enable_d3d9")
 		$(meson_use d3d10 "enable_d3d10")
 		$(meson_use d3d11 "enable_d3d11")
@@ -165,8 +165,8 @@ multilib_src_install() {
 }
 
 multilib_src_install_all() {
-	# Remove static libraries.
-	find . -name '*.a' -delete || die
+	# The .a files are needed during the install phase.
+	use mingw && find "${D}" -name '*.a' -delete -print
 
 	dobin setup_dxvk.sh
 
