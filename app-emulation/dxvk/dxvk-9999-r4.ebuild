@@ -24,24 +24,21 @@ if [[ "${PV}" == "9999" ]]; then
 else
 	KEYWORDS="~amd64"
 fi
-IUSE="+d3d9 +d3d10 +d3d11 debug +dxgi +mingw video_cards_nvidia test winegcc"
-REQUIRED_USE="^^ ( mingw winegcc )"
+IUSE="+d3d9 +d3d10 +d3d11 debug +dxgi video_cards_nvidia test"
 
 DEPEND="
 	dev-util/vulkan-headers
 	dev-util/glslang
-"
-BDEPEND="
-	winegcc? ( || (
-		>=app-emulation/wine-staging-4.5[${MULTILIB_USEDEP},vulkan]
-		>=app-emulation/wine-vanilla-4.5[${MULTILIB_USEDEP},vulkan]
-	) )
 "
 RDEPEND="
 	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
 	|| (
 		video_cards_nvidia? ( >=x11-drivers/nvidia-drivers-440.31 )
 		>=media-libs/mesa-19.2
+	)
+	|| (
+		>=app-emulation/wine-staging-4.5[${MULTILIB_USEDEP},vulkan]
+		>=app-emulation/wine-vanilla-4.5[${MULTILIB_USEDEP},vulkan]
 	)
 "
 
@@ -55,36 +52,31 @@ pkg_pretend () {
 		die
 	fi
 
-	if use mingw; then
-		local -a categories
-		use abi_x86_64 && categories+=("cross-x86_64-w64-mingw32")
-		use abi_x86_32 && categories+=("cross-i686-w64-mingw32")
+	local -a categories
+	use abi_x86_64 && categories+=("cross-x86_64-w64-mingw32")
+	use abi_x86_32 && categories+=("cross-i686-w64-mingw32")
 
-		for cat in ${categories[@]}; do
-			if ! has_version -b "${cat}/gcc"; then
-				eerror "${cat}/gcc is not installed."
-				elog "See <https://wiki.gentoo.org/wiki/Mingw> on how to install it."
-				einfo "In short:"
-				einfo "echo '~${cat}/mingw64-runtime-7.0.0 ~amd64' >> \\"
-				einfo "    /etc/portage/package.accept_keywords/mingw"
-				einfo "crossdev --stable --target ${cat}"
-				einfo "echo 'EXTRA_ECONF=\"--enable-threads=posix\"' >> \\"
-				einfo "    /etc/portage/env/mingw-gcc.conf"
-				einfo "echo '${cat}/gcc mingw-gcc.conf' >> \\"
-				einfo "    /etc/portage/package.env/mingw"
-				einfo "echo '${cat}/mingw64-runtime libraries' >> \\"
-				einfo "    /etc/portage/package.use/mingw"
-				einfo "emerge --oneshot ${cat}/gcc ${cat}/mingw64-runtime"
-				die
-			fi
-		done
+	for cat in ${categories[@]}; do
+		if ! has_version -b "${cat}/gcc"; then
+			eerror "${cat}/gcc is not installed."
+			elog "See <https://wiki.gentoo.org/wiki/Mingw> on how to install it."
+			einfo "In short:"
+			einfo "echo '~${cat}/mingw64-runtime-7.0.0 ~amd64' >> \\"
+			einfo "    /etc/portage/package.accept_keywords/mingw"
+			einfo "crossdev --stable --target ${cat}"
+			einfo "echo 'EXTRA_ECONF=\"--enable-threads=posix\"' >> \\"
+			einfo "    /etc/portage/env/mingw-gcc.conf"
+			einfo "echo '${cat}/gcc mingw-gcc.conf' >> \\"
+			einfo "    /etc/portage/package.env/mingw"
+			einfo "echo '${cat}/mingw64-runtime libraries' >> \\"
+			einfo "    /etc/portage/package.use/mingw"
+			einfo "emerge --oneshot ${cat}/gcc ${cat}/mingw64-runtime"
+			die
+		fi
+	done
 
-		ewarn "Compiling with mingw is experimental. Good luck! :-)"
-	elif use winegcc; then
-		ewarn "Compiling with winegcc is not supported by upstream."
-		ewarn "Please report compile-errors to the package maintainer via"
-		ewarn "<https://schlomp.space/tastytea/overlay/issues> or email."
-	fi
+	einfo "Please report build errors first to the package maintainer via"
+	einfo "<https://schlomp.space/tastytea/overlay/issues> or email."
 }
 
 src_prepare() {
@@ -105,11 +97,6 @@ src_prepare() {
 
 	patch_build_flags() {
 		local bits="${MULTILIB_ABI_FLAG:8:2}"
-		if use mingw; then
-			local buildfile="build-win${bits}.txt"
-		else
-			local buildfile="build-wine${bits}.txt"
-		fi
 
 		# Fix installation directory.
 		sed -i "s|\"x${bits}\"|\"usr/$(get_libdir)/dxvk\"|" setup_dxvk.sh || die
@@ -119,7 +106,7 @@ src_prepare() {
 			-e "s!@CFLAGS@!$(_meson_env_array "${CFLAGS}")!" \
 			-e "s!@CXXFLAGS@!$(_meson_env_array "${CXXFLAGS}")!" \
 			-e "s!@LDFLAGS@!$(_meson_env_array "${LDFLAGS}")!" \
-			"${buildfile}" || die
+			"build-win${bits}.txt" || die
 	}
 	multilib_foreach_abi patch_build_flags
 
@@ -130,16 +117,11 @@ src_prepare() {
 
 multilib_src_configure() {
 	local bits="${MULTILIB_ABI_FLAG:8:2}"
-	if use mingw; then
-		local buildfile="build-win${bits}.txt"
-	else
-		local buildfile="build-wine${bits}.txt"
-	fi
 
 	local emesonargs=(
 		--libdir="$(get_libdir)/dxvk"
 		--bindir="$(get_libdir)/dxvk"
-		--cross-file="${S}/${buildfile}"
+		--cross-file="${S}/build-win${bits}.txt"
 		--buildtype="release"
 		$(usex debug "" "--strip")
 		$(meson_use d3d9 "enable_d3d9")
@@ -162,7 +144,7 @@ multilib_src_install() {
 
 multilib_src_install_all() {
 	# The .a files are needed during the install phase.
-	use mingw && find "${D}" -name '*.a' -delete -print
+	find "${D}" -name '*.a' -delete -print
 
 	dobin setup_dxvk.sh
 
