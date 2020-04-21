@@ -21,7 +21,7 @@ SLOT="0"
 if [[ "${PV}" == "9999" ]]; then
 	KEYWORDS=""
 else
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64"
 fi
 IUSE="+d3d9 +d3d10 +d3d11 +dxgi video_cards_nvidia"
 
