@@ -22,7 +22,7 @@ SLOT="0"
 if [[ "${PV}" == "9999" ]]; then
 	KEYWORDS=""
 else
-	KEYWORDS=""
+	KEYWORDS="~amd64"
 fi
 IUSE="+d3d9 +d3d10 +d3d11 debug +dxgi +mingw video_cards_nvidia test winegcc"
 REQUIRED_USE="^^ ( mingw winegcc )"
@@ -32,10 +32,6 @@ DEPEND="
 	dev-util/glslang
 "
 BDEPEND="
-	mingw? (
-		abi_x86_64? ( cross-x86_64-w64-mingw32/gcc )
-		abi_x86_32? ( cross-i686-w64-mingw32/gcc )
-	)
 	winegcc? ( || (
 		>=app-emulation/wine-staging-4.5[${MULTILIB_USEDEP},vulkan]
 		>=app-emulation/wine-vanilla-4.5[${MULTILIB_USEDEP},vulkan]
@@ -65,7 +61,7 @@ pkg_pretend () {
 		use abi_x86_32 && categories+=("cross-i686-w64-mingw32")
 
 		for cat in ${categories[@]}; do
-			if ! has_version "${cat}/gcc"; then
+			if ! has_version -b "${cat}/gcc"; then
 				eerror "${cat}/gcc is not installed."
 				elog "See <https://wiki.gentoo.org/wiki/Mingw> on how to install it."
 				einfo "In short:"
