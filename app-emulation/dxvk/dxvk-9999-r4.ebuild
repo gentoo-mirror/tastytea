@@ -71,6 +71,8 @@ pkg_pretend () {
 			einfo "echo '${cat}/mingw64-runtime libraries' >> \\"
 			einfo "    /etc/portage/package.use/mingw"
 			einfo "emerge --oneshot ${cat}/gcc ${cat}/mingw64-runtime"
+
+			einfo "Alternatively you can install app-emulation/dxvk-bin from the “guru” repo."
 			die
 		fi
 	done
