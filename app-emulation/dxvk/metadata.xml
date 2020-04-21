@@ -13,5 +13,7 @@
 		<flag name="d3d10">Build D3D9</flag>
 		<flag name="d3d11">Build D3D10</flag>
 		<flag name="dxgi">Build D3D11</flag>
+		<flag name="mingw">Use mingw to compile (EXPERIMENTAL)</flag>
+		<flag name="winegcc">Use winegcc to compile (discouraged by upstream)</flag>
 	</use>
 </pkgmetadata>
