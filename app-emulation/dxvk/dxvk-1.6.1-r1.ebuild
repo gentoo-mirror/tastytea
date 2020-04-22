@@ -173,6 +173,8 @@ multilib_src_install_all() {
 
 	insinto etc
 	doins "dxvk.conf"
+
+	default
 }
 
 pkg_postinst() {
