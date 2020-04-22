@@ -57,9 +57,12 @@ pkg_pretend () {
 	use abi_x86_32 && categories+=("cross-i686-w64-mingw32")
 
 	for cat in ${categories[@]}; do
-		if ! has_version -b "${cat}/gcc"; then
-			eerror "${cat}/gcc is not installed."
-			elog "See <https://wiki.gentoo.org/wiki/Mingw> on how to install it."
+		if ! has_version -b "${cat}/mingw64-runtime[libraries]" ||
+				! has_version -b "${cat}/gcc"; then
+			eerror "The ${cat} toolchain is not properly installed."
+			eerror "Make sure to install ${cat}/gcc with EXTRA_ECONF=\"--enable-threads=posix\""
+			eerror "and ${cat}/mingw64-runtime with USE=\"libraries\"."
+			elog "See <https://wiki.gentoo.org/wiki/Mingw> for more information."
 			einfo "In short:"
 			einfo "echo '~${cat}/mingw64-runtime-7.0.0 ~amd64' >> \\"
 			einfo "    /etc/portage/package.accept_keywords/mingw"
