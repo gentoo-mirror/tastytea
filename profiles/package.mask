@@ -30,3 +30,27 @@ app-misc/rdfind
 # tastytea <tastytea+gentoo@tastytea.de> (2020-04-21)
 # I don't use it anymore. Masked for removal in 30 days.
 www-apps/pleroma-installer
+
+# tastytea <tastytea+gentoo@tastytea.de> (2020-04-23)
+# The package is in the GURU[1] repository now. Please use that instead. Masked
+# for removal in 30 days.
+# [1] <https://wiki.gentoo.org/wiki/Project:GURU>
+net-im/biboumi
+
+# tastytea <tastytea+gentoo@tastytea.de> (2020-04-23)
+# The package is in the GURU[1] repository now. Please use that instead. Masked
+# for removal in 30 days.
+# [1] <https://wiki.gentoo.org/wiki/Project:GURU>
+acct-user/biboumi
+
+# tastytea <tastytea+gentoo@tastytea.de> (2020-04-23)
+# The package is in the GURU[1] repository now. Please use that instead. Masked
+# for removal in 30 days.
+# [1] <https://wiki.gentoo.org/wiki/Project:GURU>
+acct-group/biboumi
+
+# tastytea <tastytea+gentoo@tastytea.de> (2020-04-23)
+# The package is in the GURU[1] repository now. Please use that instead. Masked
+# for removal in 30 days.
+# [1] <https://wiki.gentoo.org/wiki/Project:GURU>
+sys-libs/solo-udev-rules
