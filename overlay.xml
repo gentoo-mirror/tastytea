@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
 <repositories xmlns="" version="1.0">
-    <repo quality="experimental" status="unofficial">
-        <name>tastytea</name>
-        <description>Some ebuilds, no guarantees.</description>
-        <homepage>https://schlomp.space/tastytea/overlay</homepage>
-        <owner>
-            <email>gentoo@tastytea.de</email>
-            <name>tastytea</name>
-        </owner>
-        <source type="git">https://schlomp.space/tastytea/overlay.git</source>
-    </repo>
+	<repo quality="experimental" status="unofficial">
+		<name>tastytea</name>
+		<description>Some ebuilds, no guarantees.</description>
+		<homepage>https://schlomp.space/tastytea/overlay</homepage>
+		<owner>
+			<email>gentoo@tastytea.de</email>
+			<name>tastytea</name>
+		</owner>
+		<source type="git">https://schlomp.space/tastytea/overlay.git</source>
+	</repo>
 </repositories>
