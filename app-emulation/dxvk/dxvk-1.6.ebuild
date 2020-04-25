@@ -2,7 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-
 MULTILIB_COMPAT=( abi_x86_{32,64} )
 inherit flag-o-matic meson multilib-minimal ninja-utils
 if [[ "${PV}" == "9999" ]]; then
@@ -24,11 +23,17 @@ if [[ "${PV}" == "9999" ]]; then
 else
 	KEYWORDS="~amd64"
 fi
-IUSE="+d3d9 +d3d10 +d3d11 debug +dxgi video_cards_nvidia test"
+IUSE="+d3d9 +d3d10 +d3d11 +dxgi video_cards_nvidia"
 
 DEPEND="
 	dev-util/vulkan-headers
 	dev-util/glslang
+"
+BDEPEND="
+	|| (
+		>=app-emulation/wine-staging-4.5[${MULTILIB_USEDEP},vulkan]
+		>=app-emulation/wine-vanilla-4.5[${MULTILIB_USEDEP},vulkan]
+	)
 "
 RDEPEND="
 	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
@@ -36,14 +41,11 @@ RDEPEND="
 		video_cards_nvidia? ( >=x11-drivers/nvidia-drivers-440.31 )
 		>=media-libs/mesa-19.2
 	)
-	|| (
-		>=app-emulation/wine-staging-4.5[${MULTILIB_USEDEP},vulkan]
-		>=app-emulation/wine-vanilla-4.5[${MULTILIB_USEDEP},vulkan]
-	)
 "
 
 PATCHES=(
-	"${FILESDIR}/9999-add_compiler_flags.patch"
+	"${FILESDIR}/1.6-fix-setEvent-error.patch"
+	"${FILESDIR}/flags.patch"
 )
 
 pkg_pretend () {
@@ -51,40 +53,6 @@ pkg_pretend () {
 		eerror "You need to enable at least one of abi_x86_32 and abi_x86_64."
 		die
 	fi
-
-	local -a categories
-	use abi_x86_64 && categories+=("cross-x86_64-w64-mingw32")
-	use abi_x86_32 && categories+=("cross-i686-w64-mingw32")
-
-	local thread_model="$(LC_ALL=C ${cat}-gcc -v 2>&1 \
-							 | grep 'Thread model' | cut -d' ' -f3)"
-	for cat in ${categories[@]}; do
-		if ! has_version -b "${cat}/mingw64-runtime[libraries]" ||
-				! has_version -b "${cat}/gcc" ||
-				[[ "${thread_model}" != "posix" ]]; then
-			eerror "The ${cat} toolchain is not properly installed."
-			eerror "Make sure to install ${cat}/gcc with EXTRA_ECONF=\"--enable-threads=posix\""
-			eerror "and ${cat}/mingw64-runtime with USE=\"libraries\"."
-			elog "See <https://wiki.gentoo.org/wiki/Mingw> for more information."
-			einfo "In short:"
-			einfo "echo '~${cat}/mingw64-runtime-7.0.0 ~amd64' >> \\"
-			einfo "    /etc/portage/package.accept_keywords/mingw"
-			einfo "crossdev --stable --target ${cat}"
-			einfo "echo 'EXTRA_ECONF=\"--enable-threads=posix\"' >> \\"
-			einfo "    /etc/portage/env/mingw-gcc.conf"
-			einfo "echo '${cat}/gcc mingw-gcc.conf' >> \\"
-			einfo "    /etc/portage/package.env/mingw"
-			einfo "echo '${cat}/mingw64-runtime libraries' >> \\"
-			einfo "    /etc/portage/package.use/mingw"
-			einfo "emerge --oneshot ${cat}/gcc ${cat}/mingw64-runtime"
-
-			einfo "Alternatively you can install app-emulation/dxvk-bin from the “guru” repo."
-			die "${cat} toolchain is not properly installed."
-		fi
-	done
-
-	einfo "Please report build errors first to the package maintainer via"
-	einfo "<https://schlomp.space/tastytea/overlay/issues> or email."
 }
 
 src_prepare() {
@@ -103,24 +71,19 @@ src_prepare() {
 		sed -i '/installFile "$win32_sys_path"/d' setup_dxvk.sh || die
 	fi
 
-	patch_build_flags() {
-		local bits="${MULTILIB_ABI_FLAG:8:2}"
-
+	add_flags() {
 		# Fix installation directory.
-		sed -i "s|\"x${bits}\"|\"usr/$(get_libdir)/dxvk\"|" setup_dxvk.sh || die
+		sed -i "s|\"x64\"|\"usr/$(get_libdir)/dxvk\"|" setup_dxvk.sh || die
 
 		# Add *FLAGS to cross-file.
+		local bits="${MULTILIB_ABI_FLAG:8:2}"
 		sed -i \
 			-e "s!@CFLAGS@!$(_meson_env_array "${CFLAGS}")!" \
 			-e "s!@CXXFLAGS@!$(_meson_env_array "${CXXFLAGS}")!" \
 			-e "s!@LDFLAGS@!$(_meson_env_array "${LDFLAGS}")!" \
-			"build-win${bits}.txt" || die
+			build-wine${bits}.txt || die
 	}
-	multilib_foreach_abi patch_build_flags
-
-	# Load configuration file from /etc/dxvk.conf.
-	sed -Ei 's|filePath = "^(\s+)dxvk.conf";$|\1filePath = "/etc/dxvk.conf";|' \
-		src/util/config/config.cpp || die
+	multilib_foreach_abi add_flags
 }
 
 multilib_src_configure() {
@@ -128,15 +91,12 @@ multilib_src_configure() {
 
 	local emesonargs=(
 		--libdir="$(get_libdir)/dxvk"
-		--bindir="$(get_libdir)/dxvk"
-		--cross-file="${S}/build-win${bits}.txt"
-		--buildtype="release"
-		$(usex debug "" "--strip")
+		--bindir="$(get_libdir)/dxvk/bin"
+		--cross-file="${S}/build-wine${bits}.txt"
 		$(meson_use d3d9 "enable_d3d9")
 		$(meson_use d3d10 "enable_d3d10")
 		$(meson_use d3d11 "enable_d3d11")
 		$(meson_use dxgi "enable_dxgi")
-		$(meson_use test "enable_tests")
 	)
 	meson_src_configure
 }
@@ -151,15 +111,7 @@ multilib_src_install() {
 }
 
 multilib_src_install_all() {
-	# The .a files are needed during the install phase.
-	find "${D}" -name '*.a' -delete -print
-
 	dobin setup_dxvk.sh
-
-	insinto etc
-	doins "dxvk.conf"
-
-	default
 }
 
 pkg_postinst() {
