@@ -90,8 +90,11 @@ pkg_pretend () {
 src_prepare() {
 	default
 
-	# Filter -march flags as this has been causing issues.
-	filter-flags "-march=*"
+	# Flag modifications adapted from TheGreatMcPain's overlay.
+	if [[ $(is-flag "-march=*") == "true" ]]; then
+		append-flags "-mno-avx"
+	fi
+	replace-flags "-O3" "-O2"
 
 	sed -i "s|^basedir=.*$|basedir=\"${EPREFIX}\"|" setup_dxvk.sh || die
 
