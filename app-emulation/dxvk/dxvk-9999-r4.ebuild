@@ -58,7 +58,7 @@ pkg_pretend () {
 
 	for cat in ${categories[@]}; do
 		local thread_model="$(LC_ALL=C ${cat/cross-/}-gcc -v 2>&1 \
-			  | grep 'Thread model' | cut -d' ' -f3)"
+			  | grep 'Thread model' | cut -d' ' -f3)" || die
 		if ! has_version -b "${cat}/mingw64-runtime[libraries]" ||
 				! has_version -b "${cat}/gcc" ||
 				[[ "${thread_model}" != "posix" ]]; then
