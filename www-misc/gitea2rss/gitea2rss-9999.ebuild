@@ -37,6 +37,8 @@ DEPEND="
 	${RDEPEND}
 "
 
+RESTRICT="!test? ( test )"
+
 if [[ "${PV}" != "9999" ]]; then
 	S="${WORKDIR}/${PN}"
 fi
