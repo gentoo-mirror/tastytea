@@ -28,7 +28,7 @@ net-im/go-sendxmpp 9999-r1: A little tool to send messages to an XMPP contact or
 net-misc/expandurl-mastodon 9999: Mastodon bot that expands shortened URLs.
 net-misc/feiertagebot 9999: Allows you to execute files from compiled languages as scripts.
 net-misc/ferret 9999: ferret is a modern client for the gopher protocol.
-net-misc/mastorss 0.11.0 9999: Another RSS to Mastodon bot
+net-misc/mastorss 0.11.0 0.11.1 9999: Another RSS to Mastodon bot
 net-misc/soupbot 9999: soupbot is a soup-recommending bot for Mastodon
 net-misc/tootle 0.2.0 9999: GTK3 client for Mastodon
 net-misc/whyblocked 0.15.0 9999-r8: whyblocked reminds you why you blocked someone.
