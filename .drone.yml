@@ -9,7 +9,7 @@ steps:
   - repoman full --include-dev --xmlparse
 
 - name: pkgcheck
-  image: tastytea/repoman
+  image: tastytea/pkgcheck
   pull: always
   commands:
   - pkgcheck scan --net
