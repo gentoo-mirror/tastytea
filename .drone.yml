@@ -8,6 +8,12 @@ steps:
   commands:
   - repoman full --include-dev --xmlparse
 
+- name: pkgcheck
+  image: tastytea/pkgcheck
+  pull: always
+  commands:
+  - pkgcheck scan --net
+
 - name: notify
   image: drillster/drone-email
   pull: always
