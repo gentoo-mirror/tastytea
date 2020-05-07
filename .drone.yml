@@ -12,7 +12,7 @@ steps:
   image: tastytea/pkgcheck
   pull: always
   commands:
-  - pkgcheck scan --net --commits
+  - for catpkg in $(ls -d *-*/*); do pkgcheck scan --net ${catpkg}; done
 
 - name: notify
   image: drillster/drone-email
