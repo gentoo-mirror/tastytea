@@ -12,7 +12,7 @@ steps:
   image: tastytea/pkgcheck
   pull: always
   commands:
-  - pkgcheck scan --net
+  - pkgcheck scan --net --commits
 
 - name: notify
   image: drillster/drone-email
