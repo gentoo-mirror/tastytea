@@ -8,11 +8,11 @@ steps:
   commands:
   - repoman full --include-dev --xmlparse
 
-- name: pkgcheck
-  image: tastytea/pkgcheck
-  pull: always
-  commands:
-  - pkgcheck scan --net
+# - name: pkgcheck
+#   image: tastytea/pkgcheck
+#   pull: always
+#   commands:
+#   - for catpkg in $(ls -d *-*/*); do pkgcheck scan --net $${catpkg}; done
 
 - name: notify
   image: drillster/drone-email
