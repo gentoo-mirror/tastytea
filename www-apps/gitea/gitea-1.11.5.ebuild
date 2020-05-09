@@ -12,8 +12,7 @@ SRC_URI="https://github.com/go-gitea/gitea/releases/download/v${PV}/gitea-src-${
 
 LICENSE="Apache-2.0 BSD BSD-2 ISC MIT MPL-2.0"
 SLOT="0"
-# KEYWORDS="~amd64 ~arm ~arm64"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~arm64"
 IUSE="pam sqlite"
 
 COMMON_DEPEND="pam? ( sys-libs/pam )"
