@@ -8,7 +8,7 @@ EGO_PN="code.gitea.io/gitea"
 
 DESCRIPTION="A painless self-hosted Git service"
 HOMEPAGE="https://gitea.io/"
-SRC_URI="https://github.com/go-gitea/gitea/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz
+SRC_URI="https://github.com/go-gitea/gitea/releases/download/v${PV}/gitea-src-${PV}.tar.gz -> ${P}.tar.gz
 	emoji-hotfix? (
 		https://raw.githubusercontent.com/twitter/twemoji/54df6a1/assets/72x72/1f44d.png -> gitea_thumbsup.png
 		https://raw.githubusercontent.com/twitter/twemoji/54df6a1/assets/72x72/1f44e.png -> gitea_thumbsdown.png
