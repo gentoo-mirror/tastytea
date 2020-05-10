@@ -94,9 +94,9 @@ src_install() {
 
 	einstalldocs
 
-	newconfd "${FILESDIR}"/gitea.confd-r1 gitea
-	newinitd "${FILESDIR}"/gitea.initd-r1 gitea
-	systemd_newunit "${FILESDIR}"/gitea.service-r1 gitea.service
+	newconfd "${FILESDIR}"/gitea.confd gitea
+	newinitd "${FILESDIR}"/gitea.initd gitea
+	systemd_newunit "${FILESDIR}"/gitea.service gitea.service
 
 	insinto /etc/gitea
 	newins custom/conf/app.ini.sample app.ini
