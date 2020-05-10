@@ -101,9 +101,9 @@ src_install() {
 
 	einstalldocs
 
-	newconfd "${FILESDIR}"/gitea.confd-r1 gitea
-	newinitd "${FILESDIR}"/gitea.initd-r1 gitea
-	systemd_newunit "${FILESDIR}"/gitea.service-r1 gitea.service
+	newconfd "${FILESDIR}"/gitea.confd gitea
+	newinitd "${FILESDIR}"/gitea.initd gitea
+	systemd_newunit "${FILESDIR}"/gitea.service gitea.service
 	newtmpfiles - gitea.conf <<-EOF
 		d /run/gitea 0755 git git
 	EOF
