@@ -5,6 +5,9 @@
 		<email>gentoo@tastytea.de</email>
 		<name>tastytea</name>
 	</maintainer>
+	<upstream>
+		<doc>https://docs.gitea.io/</doc>
+	</upstream>
 	<use>
 		<flag name="emoji-hotfix">Use reaction emojis with neutral skin tone</flag>
 	</use>
