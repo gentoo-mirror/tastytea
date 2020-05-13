@@ -54,12 +54,15 @@ pkg_postinst() {
 	elog "You need to run emerge --config www-apps/pleroma after each upgrade."
 	if use nginx; then
 		einfo "An example config for nginx has been installed in the doc directory."
-		ewarn "If you're upgrading from pre-2.0.1, remove"
-		ewarn "proxy_ignore_headers Cache-Control; and"
-		ewarn "proxy_hide_header Cache-Control; from your nginx config."
+		elog "If you're upgrading from pre-2.0.1, remove"
+		elog "proxy_ignore_headers Cache-Control; and"
+		elog "proxy_hide_header Cache-Control; from your nginx config."
 	fi
 	if use apache; then
 		einfo "An example config for apache has been installed in the doc directory."
+		ewarn "If you're upgrading from pre-2.0.4, remove the following line"
+		ewarn "from your apache config:"
+		ewarn "SSLCertificateFile /etc/letsencrypt/live/${servername}/cert.pem"
 	fi
 }
 
