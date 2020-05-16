@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -34,7 +34,7 @@ RDEPEND="
 	dev-libs/libxdg-basedir
 	dev-cpp/curlpp
 	dev-libs/jsoncpp
-	>=dev-cpp/mastodon-cpp-0.105.0
+	>=dev-cpp/mastodonpp-0.5.4
 "
 DEPEND="
 	dev-util/cmake
