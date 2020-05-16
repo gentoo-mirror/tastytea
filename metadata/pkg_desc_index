@@ -7,7 +7,7 @@ app-misc/rdfind 1.4.1: Rdfind is a program that finds duplicate files.
 dev-cpp/curlpp 0.8.1-r2: C++ wrapper for libcURL
 dev-cpp/identiconpp 0.7.1 9999: Library to generate identicons for C++.
 dev-cpp/mastodon-cpp 0.111.5 9999: mastodon-cpp is a C++ wrapper for the Mastodon API.
-dev-cpp/mastodonpp 0.5.0 9999: C++ wrapper for the Mastodon and Pleroma APIs.
+dev-cpp/mastodonpp 0.5.0 0.5.4 9999: C++ wrapper for the Mastodon and Pleroma APIs.
 dev-cpp/restclient-cpp 0.5.1: C++ client for making HTTP/REST requests
 dev-cpp/xdgcfg 0.5.0: Wrapper around libconfig that writes and reads files in XDG_CONFIG_HOME
 dev-go/getopt2 9999: getopt style option parsing for Go
@@ -21,13 +21,11 @@ dev-perl/Mail-GnuPG 0.23: Process email with GPG
 dev-python/python-nbxmpp 0.6.10: Python library to use Jabber/XMPP networks in a non-blocking way
 games-server/factorio-server 0.16.51-r1 0.17.79: Factorio is a game in which you build and maintain factories.
 games-simulation/simutrans 0.120.4.1-r2 0.121.0: A free Transport Tycoon clone
-games-simulation/simutrans-pak192-comic 9999: Pakset and theme for Simutrans with a comic-like look
 media-gfx/glimpse 0.1.2 9999: Image editor based on the GNU Image Manipulation Program
 net-im/biboumi 8.4-r3: XMPP gateway to IRC
 net-im/go-sendxmpp 9999-r1: A little tool to send messages to an XMPP contact or MUC
 net-misc/expandurl-mastodon 9999: Mastodon bot that expands shortened URLs.
 net-misc/feiertagebot 9999: Allows you to execute files from compiled languages as scripts.
-net-misc/ferret 9999: ferret is a modern client for the gopher protocol.
 net-misc/mastorss 0.11.0 0.11.1 0.12.0 9999: Another RSS to Mastodon bot
 net-misc/soupbot 9999: soupbot is a soup-recommending bot for Mastodon
 net-misc/whyblocked 0.15.0 9999-r8: whyblocked reminds you why you blocked someone.
@@ -45,4 +43,3 @@ x11-themes/paper-gtk-theme 9999: Paper Theme Suite for GTK 3 and GTK 2
 x11-themes/paper-icon-theme 9999: Paper icon theme
 x11-themes/papirus-claws-mail-theme 9999: Papirus theme for Claws Mail
 x11-themes/papirus-folders 9999: Allows to change the color of folders
-x11-themes/papirus-icon-theme 9999-r1: Papirus icon theme for GTK and KDE
