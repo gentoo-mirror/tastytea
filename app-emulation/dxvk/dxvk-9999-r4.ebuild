@@ -47,11 +47,6 @@ PATCHES=(
 )
 
 pkg_pretend () {
-	if ! use abi_x86_64 && ! use abi_x86_32; then
-		eerror "You need to enable at least one of abi_x86_32 and abi_x86_64."
-		die
-	fi
-
 	local -a categories
 	use abi_x86_64 && categories+=("cross-x86_64-w64-mingw32")
 	use abi_x86_32 && categories+=("cross-i686-w64-mingw32")
