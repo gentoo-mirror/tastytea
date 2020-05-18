@@ -46,7 +46,7 @@ RDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/1.6.1-add_compiler_flags.patch"
+	"${FILESDIR}/9999-add_compiler_flags.patch"
 )
 
 pkg_pretend () {
