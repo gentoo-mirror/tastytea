@@ -47,11 +47,6 @@ PATCHES=(
 )
 
 pkg_pretend () {
-	if ! use abi_x86_64 && ! use abi_x86_32; then
-		eerror "You need to enable at least one of abi_x86_32 and abi_x86_64."
-		die
-	fi
-
 	local -a categories
 	use abi_x86_64 && categories+=("cross-x86_64-w64-mingw32")
 	use abi_x86_32 && categories+=("cross-i686-w64-mingw32")
@@ -66,17 +61,9 @@ pkg_pretend () {
 			eerror "Make sure to install ${cat}/mingw64-runtime with USE=\"libraries\""
 			eerror "and ${cat}/gcc with EXTRA_ECONF=\"--enable-threads=posix\"."
 			eerror "See <https://wiki.gentoo.org/wiki/DXVK> for more information."
-			einfo "In short:"
-			einfo "crossdev --stable --libc \"~7.0.0\" --target ${cat}"
-			einfo "echo '${cat}/gcc mingw-gcc.conf' >> \\"
-			einfo "    /etc/portage/package.env/mingw"
-			einfo "echo 'EXTRA_ECONF=\"--enable-threads=posix\"' >> \\"
-			einfo "    /etc/portage/env/mingw-gcc.conf"
-			einfo "echo '${cat}/mingw64-runtime libraries' >> \\"
-			einfo "    /etc/portage/package.use/mingw"
-			einfo "emerge --oneshot ${cat}/mingw64-runtime ${cat}/gcc"
 
 			einfo "Alternatively you can install app-emulation/dxvk-bin from the “guru” repo."
+
 			die "${cat} toolchain is not properly installed."
 		fi
 	done
