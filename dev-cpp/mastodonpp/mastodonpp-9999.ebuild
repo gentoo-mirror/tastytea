@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-inherit cmake-utils
+inherit cmake
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 fi
@@ -42,11 +42,11 @@ src_configure() {
 		-DWITH_TESTS="$(usex test)"
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_compile() {
-	cmake-utils_src_compile
+	cmake_src_compile
 
 	if use doc; then
 		./build_doc.sh
@@ -54,7 +54,7 @@ src_compile() {
 }
 
 src_test() {
-	BUILD_DIR="${BUILD_DIR}/tests" cmake-utils_src_test
+	BUILD_DIR="${BUILD_DIR}/tests" cmake_src_test
 }
 
 src_install() {
@@ -69,5 +69,5 @@ src_install() {
 		done
 	fi
 
-	cmake-utils_src_install
+	cmake_src_install
 }
