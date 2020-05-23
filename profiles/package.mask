@@ -39,3 +39,17 @@ x11-themes/papirus-claws-mail-theme
 # for removal in 30 days.
 # [1] <https://wiki.gentoo.org/wiki/Project:GURU>
 x11-misc/xob
+
+# tastytea <gentoo@tastytea.de> (2020-05-23)
+# The package is in the GURU[1] repository now. Please use that instead. Masked
+# for removal in 30 days.
+# [1] <https://wiki.gentoo.org/wiki/Project:GURU>
+net-im/go-sendxmpp
+
+# tastytea <gentoo@tastytea.de> (2020-05-23)
+# Dependencies of net-im/go-sendxmpp, masked for removal in 30 days.
+dev-go/go-xmpp
+dev-go/getopt2
+dev-go/xmpp
+dev-go/sasl
+dev-go/xmlstream
