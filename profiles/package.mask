@@ -2,12 +2,6 @@
 # The package is in the GURU[1] repository now. Please use that instead. Masked
 # for removal in 30 days.
 # [1] <https://wiki.gentoo.org/wiki/Project:GURU>
-x11-themes/arc-darkest-colors
-
-# tastytea <tastytea+gentoo@tastytea.de> (2020-04-24)
-# The package is in the GURU[1] repository now. Please use that instead. Masked
-# for removal in 30 days.
-# [1] <https://wiki.gentoo.org/wiki/Project:GURU>
 x11-themes/papirus-claws-mail-theme
 
 # tastytea <tastytea+gentoo@tastytea.de> (2020-04-27)
