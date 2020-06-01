@@ -1,6 +1,4 @@
-acct-group/biboumi 0: System group: biboumi
 acct-group/pleroma 0: System group: pleroma
-acct-user/biboumi 0: User for net-im/biboumi
 acct-user/pleroma 0: User for www-apps/pleroma
 app-emulation/dxvk 1.6.1-r1 1.7 9999-r4: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 dev-cpp/curlpp 0.8.1-r2: C++ wrapper for libcURL
@@ -20,7 +18,6 @@ dev-perl/Mail-GnuPG 0.23: Process email with GPG
 games-server/factorio-server 0.16.51-r1 0.17.79: Factorio is a game in which you build and maintain factories.
 games-simulation/simutrans 0.120.4.1-r2 0.121.0: A free Transport Tycoon clone
 media-gfx/glimpse 0.1.2 9999: Image editor based on the GNU Image Manipulation Program
-net-im/biboumi 8.4-r3: XMPP gateway to IRC
 net-im/go-sendxmpp 9999-r1: A little tool to send messages to an XMPP contact or MUC
 net-misc/expandurl-mastodon 9999: Mastodon bot that expands shortened URLs.
 net-misc/feiertagebot 9999: Allows you to execute files from compiled languages as scripts.
@@ -28,15 +25,11 @@ net-misc/mastorss 0.11.0 0.11.1 0.12.0 9999: Another RSS to Mastodon bot
 net-misc/soupbot 9999: soupbot is a soup-recommending bot for Mastodon
 net-misc/whyblocked 0.15.0 9999-r8: whyblocked reminds you why you blocked someone.
 sys-apps/hashboot 0.9.14 9999: Check integrity of files in /boot
-sys-libs/solo-udev-rules 20190308 99999999: udev rules for the Solo FIDO2 USB+NFC token.
 www-apps/gitea 1.10.6 1.11.5: A painless self-hosted Git service
 www-apps/libravatarserv 0.7.2 9999: Simple libravatar server.
 www-apps/pleroma 2.0.4 2.0.5: Microblogging server software that can federate with other servers.
 www-misc/gitea2rss 0.5.2 9999: Generates RSS feeds from Gitea releases or tags.
 www-misc/remwharead 0.9.2 0.10.0 9999: Saves URIs of things you want to remember in a database.
-x11-misc/xob 0.1.1-r1 0.2: A lightweight overlay volume (or anything) bar for the X Window System.
-x11-themes/arc-darkest-colors 0_pre20200417: Flat, dark-mode theme with transparent elements
 x11-themes/paper-gtk-theme 9999: Paper Theme Suite for GTK 3 and GTK 2
 x11-themes/paper-icon-theme 9999: Paper icon theme
-x11-themes/papirus-claws-mail-theme 9999: Papirus theme for Claws Mail
 x11-themes/papirus-folders 9999: Allows to change the color of folders
