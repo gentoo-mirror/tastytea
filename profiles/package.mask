@@ -1,17 +1,7 @@
-# tastytea <gentoo@tastytea.de> (2020-05-23)
-# The package is in the GURU[1] repository now. Please use that instead. Masked
-# for removal in 30 days.
-# [1] <https://wiki.gentoo.org/wiki/Project:GURU>
-net-im/go-sendxmpp
-
-# tastytea <gentoo@tastytea.de> (2020-05-23)
-# Dependencies of net-im/go-sendxmpp, masked for removal in 30 days.
-dev-go/go-xmpp
-dev-go/getopt2
-dev-go/xmpp
-dev-go/sasl
-dev-go/xmlstream
-
 # tastytea <gentoo@tastytea.de> (2020-06-09)
 # Dependency and compile errors in emerge --config.
 =www-apps/pleroma-2.0.6
+
+# tastytea <gentoo@tastytea.de> (2020-07-07)
+# Unused, nothing depends on it, masked for removal in 30 days.
+dev-go/reader
