@@ -7,18 +7,12 @@ dev-cpp/mastodon-cpp 0.111.5 9999: mastodon-cpp is a C++ wrapper for the Mastodo
 dev-cpp/mastodonpp 0.5.0 0.5.4 0.5.5 9999: C++ wrapper for the Mastodon and Pleroma APIs.
 dev-cpp/restclient-cpp 0.5.1: C++ client for making HTTP/REST requests
 dev-cpp/xdgcfg 0.5.0: Wrapper around libconfig that writes and reads files in XDG_CONFIG_HOME
-dev-go/getopt2 9999: getopt style option parsing for Go
-dev-go/go-xmpp 9999: go xmpp library
 dev-go/reader 9999: Common operations performed with Go's io.Reader interface.
-dev-go/sasl 9999: An implementation of the Simple Authentication and Security Layer (SASL).
-dev-go/xmlstream 9999: A library for manipulating XML token streams.
-dev-go/xmpp 9999: An implementation of the Extensible Messaging and Presence Protocol (XMPP).
 dev-lang/compilescript 0.4.1 9999: Allows you to execute files from compiled languages as scripts.
 dev-perl/Mail-GnuPG 0.23: Process email with GPG
 games-server/factorio-server 0.16.51-r1 0.17.79: Factorio is a game in which you build and maintain factories.
 games-simulation/simutrans 0.120.4.1-r2 0.121.0: A free Transport Tycoon clone
 media-gfx/glimpse 0.1.2 9999: Image editor based on the GNU Image Manipulation Program
-net-im/go-sendxmpp 9999-r1: A little tool to send messages to an XMPP contact or MUC
 net-misc/expandurl-mastodon 9999: Mastodon bot that expands shortened URLs.
 net-misc/feiertagebot 9999: Allows you to execute files from compiled languages as scripts.
 net-misc/mastorss 0.11.0 0.11.1 0.12.0 9999: Another RSS to Mastodon bot
