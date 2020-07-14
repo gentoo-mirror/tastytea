@@ -13,6 +13,7 @@ dev-perl/Mail-GnuPG 0.23: Process email with GPG
 games-server/factorio-server 0.16.51-r1 0.17.79: Factorio is a game in which you build and maintain factories.
 games-simulation/simutrans 0.120.4.1-r2 0.121.0: A free Transport Tycoon clone
 media-gfx/glimpse 0.1.2 9999: Image editor based on the GNU Image Manipulation Program
+media-sound/whipper 1.0.0_pre20200530: A Python CD-DA ripper preferring accuracy over speed (forked from morituri)
 net-misc/expandurl-mastodon 9999: Mastodon bot that expands shortened URLs.
 net-misc/feiertagebot 9999: Allows you to execute files from compiled languages as scripts.
 net-misc/mastorss 0.11.0 0.11.1 0.12.0 9999: Another RSS to Mastodon bot
