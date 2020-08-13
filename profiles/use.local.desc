@@ -6,8 +6,6 @@ app-emulation/dxvk:d3d10 - Build D3D10
 app-emulation/dxvk:d3d11 - Build D3D11
 app-emulation/dxvk:d3d9 - Build D3D9
 app-emulation/dxvk:dxgi - Build DXGI
-app-emulation/dxvk:mingw - Use mingw to compile (EXPERIMENTAL)
-app-emulation/dxvk:winegcc - Use winegcc to compile (discouraged by upstream)
 games-simulation/simutrans:pak128 - Install more detailed theme
 games-simulation/simutrans:pak128-britain - Install british theme
 games-simulation/simutrans:pak128-german - Install german theme
