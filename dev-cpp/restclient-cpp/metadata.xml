@@ -6,7 +6,7 @@
 		<name>tastytea</name>
 	</maintainer>
 	<upstream>
-		<doc>http://code.mrtazz.com/restclient-cpp/ref/index.html</doc>
+		<doc>https://code.mrtazz.com/restclient-cpp/ref/index.html</doc>
 		<bugs-to>https://github.com/mrtazz/restclient-cpp/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
