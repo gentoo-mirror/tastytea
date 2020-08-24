@@ -5,7 +5,7 @@ dev-cpp/curlpp 0.8.1-r2: C++ wrapper for libcURL
 dev-cpp/identiconpp 0.7.1 9999: Library to generate identicons for C++.
 dev-cpp/mastodon-cpp 0.111.5 9999: mastodon-cpp is a C++ wrapper for the Mastodon API.
 dev-cpp/mastodonpp 0.5.0 0.5.4 0.5.5 9999: C++ wrapper for the Mastodon and Pleroma APIs.
-dev-cpp/restclient-cpp 0.5.1: C++ client for making HTTP/REST requests
+dev-cpp/restclient-cpp 0.5.1-r1 0.5.2: C++ client for making HTTP/REST requests
 dev-cpp/xdgcfg 0.5.0: Wrapper around libconfig that writes and reads files in XDG_CONFIG_HOME
 dev-lang/compilescript 0.4.1 9999: Allows you to execute files from compiled languages as scripts.
 dev-perl/Mail-GnuPG 0.23: Process email with GPG
