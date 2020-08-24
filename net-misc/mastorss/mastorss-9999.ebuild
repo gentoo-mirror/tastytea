@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-inherit git-r3 cmake-utils
+inherit git-r3 cmake
 
 DESCRIPTION="Another RSS to Mastodon bot"
 HOMEPAGE="https://schlomp.space/tastytea/mastorss"
@@ -16,8 +16,9 @@ RDEPEND="
 	>=dev-cpp/mastodonpp-0.4.0
 	>=dev-libs/jsoncpp-1.7.4
 	>=dev-cpp/restclient-cpp-0.5.1
+"
+DEPEND="${RDEPEND}"
+BDEPEND="
+	virtual/pkgconfig
 	app-text/asciidoc
 "
-DEPEND="
-	>=dev-util/cmake-3.9.6
-	${RDEPEND}"
