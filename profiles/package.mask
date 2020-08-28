@@ -1,4 +1,0 @@
-
-# tastytea <gentoo@tastytea.de> (2020-06-09)
-# Dependency and compile errors in emerge --config.
-=www-apps/pleroma-2.0.6
