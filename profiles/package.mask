@@ -1,0 +1,5 @@
+# tastytea <gentoo@tastytea.de> (2020-09-01)
+# The package is in the guru[1] repository now. Please use that instead. Masked
+# for removal in 30 days.
+# [1] <https://wiki.gentoo.org/wiki/Project:GURU>
+media-gfx/glimpse
