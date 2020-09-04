@@ -9,9 +9,6 @@
 		<doc>https://docs.gitea.io/</doc>
 	</upstream>
 	<use>
-		<flag name="emoji-hotfix">
-			Use reaction emojis with neutral skin tone
-		</flag>
 		<flag name="acct">
 			User and group management via acct-*/git packages
 		</flag>
