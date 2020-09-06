@@ -20,9 +20,8 @@ fi
 
 LICENSE="Apache-2.0 BSD BSD-2 ISC MIT MPL-2.0"
 SLOT="0"
-IUSE="+acct build-client pam sqlite"
+IUSE="+acct pam sqlite"
 
-BDEPEND="build-client? ( >=net-libs/nodejs-10[npm] )"
 COMMON_DEPEND="
 	acct? (
 		acct-group/git
@@ -72,9 +71,6 @@ src_prepare() {
 	einfo "Remove tests which depend on gitea git-repo."
 	rm ./modules/git/blob_test.go || die
 	rm ./modules/git/repo_test.go || die
-
-	# Remove already build assets (like frontend part)
-	use build-client && emake clean-all
 }
 
 src_compile() {
@@ -94,13 +90,7 @@ src_compile() {
 	)
 	[[ ${PV} != 9999* ]] && makeenv+=("DRONE_TAG=${MY_PV}")
 
-	if use build-client; then
-		# -j1 as Makefile doesn't handle dependancy correctly, and is not
-		# useful as golang compiler don't use this info.
-		env "${makeenv[@]}" emake -j1 build
-	else
-		env "${makeenv[@]}" emake backend
-	fi
+	env "${makeenv[@]}" emake backend
 }
 
 src_install() {
