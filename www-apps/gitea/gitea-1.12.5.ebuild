@@ -43,6 +43,8 @@ PATCHES=(
 
 RESTRICT="test"
 
+QA_PRESTRIPPED="usr/bin/gitea"
+
 src_prepare() {
 	default
 
