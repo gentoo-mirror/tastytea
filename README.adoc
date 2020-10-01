@@ -29,7 +29,7 @@ layman -fa tastytea
 
 == PGP key
 
-I use PGP to sign commits and manifests.
+I use PGP to sign commits.
 
 Fingerprint: `D5B4 C43B 48A8 79F6 3529  36E6 5934 6E0E A35C 67E5`
 
