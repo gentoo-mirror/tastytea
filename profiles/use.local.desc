@@ -10,8 +10,6 @@ games-simulation/simutrans:pak128 - Install more detailed theme
 games-simulation/simutrans:pak128-britain - Install british theme
 games-simulation/simutrans:pak128-german - Install german theme
 games-simulation/simutrans:pak192-comic - Install comic-like theme
-media-gfx/glimpse:heif - Enable support for ISO/IEC 23008-12:2017 HEIF files
-media-gfx/glimpse:vector-icons - Enable support for vector icons (experimental)
 media-sound/whipper:cover - Enable cover art embedding
 sys-apps/hashboot:firmware - Enable firmware support through sys-apps/flashrom.
 www-apps/gitea:acct - User and group management via acct-*/git packages
