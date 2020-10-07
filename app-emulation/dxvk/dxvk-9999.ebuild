@@ -46,6 +46,8 @@ PATCHES=(
 	"${FILESDIR}/9999-add_compiler_flags.patch"
 )
 
+RESTRICT="!test? ( test )"
+
 pkg_pretend () {
 	local -a categories
 	use abi_x86_64 && categories+=("cross-x86_64-w64-mingw32")
