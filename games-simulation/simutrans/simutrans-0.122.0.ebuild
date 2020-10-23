@@ -50,9 +50,7 @@ BDEPEND="
 
 S=${WORKDIR}
 
-PATCHES=(
-	"${FILESDIR}"/0.121.0-Remove_CFLAGS.patch
-)
+PATCHES=("${FILESDIR}/simutrans-0.122.0-Fix-Makefile.patch" )
 
 src_unpack() {
 	unpack "simutrans-src-${MY_PV}.zip"
