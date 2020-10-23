@@ -29,7 +29,7 @@ SRC_URI="mirror://sourceforge/simutrans/simutrans-src-${MY_PV}.zip
 LICENSE="Artistic"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~x86"
-IUSE="+pak128 +pak128-britain +pak128-german +pak192-comic"
+IUSE="freetype +pak128 +pak128-britain +pak128-german +pak192-comic upnp"
 
 RDEPEND="
 	sys-libs/zlib
@@ -37,20 +37,20 @@ RDEPEND="
 	media-libs/sdl-mixer[midi]
 	media-libs/libpng:0
 	media-libs/libsdl2[sound,video]
-	media-libs/freetype
-	net-libs/miniupnpc
+	freetype? ( media-libs/freetype )
+	upnp? ( net-libs/miniupnpc )
+	app-arch/zstd
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
 	|| ( app-arch/zip app-arch/unzip )
 	virtual/imagemagick-tools[png]
-	|| ( app-arch/rar app-arch/unrar )"
+	|| ( app-arch/rar app-arch/unrar )
+"
 
 S=${WORKDIR}
 
-PATCHES=(
-	"${FILESDIR}"/0.121.0-Remove_CFLAGS.patch
-)
+PATCHES=("${FILESDIR}/simutrans-0.122.0-Fix-Makefile.patch" )
 
 src_unpack() {
 	unpack "simutrans-src-${MY_PV}.zip"
@@ -73,7 +73,14 @@ src_prepare() {
 	default
 
 	strip-flags # bug #293927
-	printf "BACKEND=mixer_sdl\nCOLOUR_DEPTH=16\nOSTYPE=linux\nVERBOSE=1" \
+	printf "%s\n" "BACKEND=mixer_sdl" \
+		   "OSTYPE=linux" \
+		   "MULTI_THREAD=1" \
+		   "USE_UPNP=$(usex upnp 1 0)" \
+		   "USE_FREETYPE=$(usex freetype 1 0)" \
+		   "USE_ZSTD=$(usex zstd 1 0)" \
+		   "VERBOSE=1" \
+		   "STATIC=0" \
 		> config.default || die
 
 	# make it look in the install location for the data
@@ -93,8 +100,7 @@ src_install() {
 	newbin build/default/sim ${PN}
 	insinto /usr/share/${PN}
 	doins -r simutrans/*
-	insinto /usr/share/icons/hicolor/32x32/apps
-	doins simutrans.png
+	doicon simutrans.png
 	domenu "${FILESDIR}/${PN}.desktop"
 }
 

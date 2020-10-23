@@ -9,6 +9,7 @@
 		<remote-id type="sourceforge">simutrans</remote-id>
 	</upstream>
 	<use>
+		<flag name="freetype">Add support for Truetype fonts via media-libs/freetype</flag>
 		<flag name="pak128">Install more detailed theme</flag>
 		<flag name="pak128-britain">Install british theme</flag>
 		<flag name="pak128-german">Install german theme</flag>
