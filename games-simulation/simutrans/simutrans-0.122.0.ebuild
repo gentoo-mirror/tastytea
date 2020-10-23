@@ -29,7 +29,7 @@ SRC_URI="mirror://sourceforge/simutrans/simutrans-src-${MY_PV}.zip
 LICENSE="Artistic"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~x86"
-IUSE="+pak128 +pak128-britain +pak128-german +pak192-comic"
+IUSE="freetype +pak128 +pak128-britain +pak128-german +pak192-comic upnp"
 
 RDEPEND="
 	sys-libs/zlib
@@ -37,8 +37,8 @@ RDEPEND="
 	media-libs/sdl-mixer[midi]
 	media-libs/libpng:0
 	media-libs/libsdl2[sound,video]
-	media-libs/freetype
-	net-libs/miniupnpc
+	freetype? ( media-libs/freetype )
+	upnp? ( net-libs/miniupnpc )
 	app-arch/zstd
 "
 DEPEND="${RDEPEND}"
@@ -76,8 +76,8 @@ src_prepare() {
 	printf "%s\n" "BACKEND=mixer_sdl" \
 		   "OSTYPE=linux" \
 		   "MULTI_THREAD=1" \
-		   "USE_UPNP=1" \
-		   "USE_FREETYPE=1" \
+		   "USE_UPNP=$(usex upnp 1 0)" \
+		   "USE_FREETYPE=$(usex freetype 1 0)" \
 		   "USE_ZSTD=1" \
 		   "VERBOSE=1" \
 		   "STATIC=0" \
