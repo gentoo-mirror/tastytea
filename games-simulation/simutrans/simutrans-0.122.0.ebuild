@@ -100,8 +100,7 @@ src_install() {
 	newbin build/default/sim ${PN}
 	insinto /usr/share/${PN}
 	doins -r simutrans/*
-	insinto /usr/share/icons/hicolor/32x32/apps
-	doins simutrans.png
+	doicon simutrans.png
 	domenu "${FILESDIR}/${PN}.desktop"
 }
 
