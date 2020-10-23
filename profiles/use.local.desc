@@ -6,6 +6,7 @@ app-emulation/dxvk:d3d10 - Build D3D10
 app-emulation/dxvk:d3d11 - Build D3D11
 app-emulation/dxvk:d3d9 - Build D3D9
 app-emulation/dxvk:dxgi - Build DXGI
+games-simulation/simutrans:freetype - Add support for Truetype fonts via media-libs/freetype
 games-simulation/simutrans:pak128 - Install more detailed theme
 games-simulation/simutrans:pak128-britain - Install british theme
 games-simulation/simutrans:pak128-german - Install german theme
