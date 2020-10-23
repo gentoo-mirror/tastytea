@@ -78,7 +78,7 @@ src_prepare() {
 		   "MULTI_THREAD=1" \
 		   "USE_UPNP=$(usex upnp 1 0)" \
 		   "USE_FREETYPE=$(usex freetype 1 0)" \
-		   "USE_ZSTD=1" \
+		   "USE_ZSTD=$(usex zstd 1 0)" \
 		   "VERBOSE=1" \
 		   "STATIC=0" \
 		> config.default || die
