@@ -39,12 +39,14 @@ RDEPEND="
 	media-libs/libsdl2[sound,video]
 	media-libs/freetype
 	net-libs/miniupnpc
+	app-arch/zstd
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
 	|| ( app-arch/zip app-arch/unzip )
 	virtual/imagemagick-tools[png]
-	|| ( app-arch/rar app-arch/unrar )"
+	|| ( app-arch/rar app-arch/unrar )
+"
 
 S=${WORKDIR}
 
@@ -73,7 +75,14 @@ src_prepare() {
 	default
 
 	strip-flags # bug #293927
-	printf "BACKEND=mixer_sdl\nCOLOUR_DEPTH=16\nOSTYPE=linux\nVERBOSE=1" \
+	printf "%s\n" "BACKEND=mixer_sdl" \
+		   "OSTYPE=linux" \
+		   "MULTI_THREAD=1" \
+		   "USE_UPNP=1" \
+		   "USE_FREETYPE=1" \
+		   "USE_ZSTD=1" \
+		   "VERBOSE=1" \
+		   "STATIC=0" \
 		> config.default || die
 
 	# make it look in the install location for the data
