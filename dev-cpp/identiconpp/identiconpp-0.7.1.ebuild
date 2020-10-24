@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
@@ -42,8 +42,6 @@ if [[ "${PV}" != "9999" ]]; then
 fi
 
 src_prepare() {
-	cmake-utils_src_prepare
-
 	if use doc; then
 		HTML_DOCS="doc/html/*"
 	fi
@@ -54,10 +52,12 @@ src_prepare() {
 	if use test; then
 		mycmakeargs+=(-DWITH_TESTS=YES)
 	fi
+
+	cmake_src_prepare
 }
 
 src_compile() {
-	cmake-utils_src_compile
+	cmake_src_compile
 
 	if use doc; then
 		./build_doc.sh
@@ -65,5 +65,5 @@ src_compile() {
 }
 
 src_test() {
-	BUILD_DIR="${BUILD_DIR}/tests" cmake-utils_src_test
+	BUILD_DIR="${BUILD_DIR}/tests" cmake_src_test
 }
