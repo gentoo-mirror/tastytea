@@ -3,18 +3,19 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 fi
 
-DESCRIPTION="Generates RSS feeds from Gitea releases or tags."
+DESCRIPTION="Generates RSS feeds from Gitea releases or tags"
 HOMEPAGE="https://schlomp.space/tastytea/gitea2rss"
 if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://schlomp.space/tastytea/gitea2rss.git"
 else
 	SRC_URI="https://schlomp.space/tastytea/gitea2rss/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}"
 fi
 
 LICENSE="GPL-3"
@@ -30,18 +31,13 @@ RDEPEND="
 	dev-libs/poco
 	dev-libs/jsoncpp
 "
-DEPEND="
-	dev-util/cmake
+DEPEND="${RDEPEND}"
+BDEPEND="
 	virtual/pkgconfig
 	app-text/asciidoc
-	${RDEPEND}
 "
 
 RESTRICT="!test? ( test )"
-
-if [[ "${PV}" != "9999" ]]; then
-	S="${WORKDIR}/${PN}"
-fi
 
 DOCS=("README.adoc" "config/nginx-example.conf")
 
@@ -54,5 +50,5 @@ src_configure() {
 		mycmakeargs+=(-DEXTRA_TEST_ARGS="~[http]")
 	fi
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
