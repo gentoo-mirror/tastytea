@@ -39,7 +39,7 @@ BDEPEND="
 
 RESTRICT="!test? ( test )"
 
-DOCS=("README.adoc" "config/nginx-example.conf")
+DOCS=("README.adoc" "doc/nginx-example.conf")
 
 src_configure() {
 	local mycmakeargs=(
