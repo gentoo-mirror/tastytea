@@ -1,15 +1,15 @@
-BDEPEND=dev-util/ninja >=dev-util/cmake-3.9.6
+BDEPEND=dev-util/ninja dev-util/cmake
 DEFINED_PHASES=compile configure install postinst prepare test
-DEPEND=>=dev-cpp/curlpp-0.8.1 dev-libs/libxdg-basedir dev-db/vsqlite++ dev-libs/icu rofi? ( x11-misc/rofi ) dev-util/cmake app-text/asciidoc dev-cpp/popl test? ( dev-cpp/catch ) doc? ( app-doc/doxygen )
+DEPEND=dev-libs/poco[data,json,sqlite,ssl,xml] dev-libs/boost[icu] rofi? ( x11-misc/rofi ) dev-util/cmake app-text/asciidoc dev-cpp/popl test? ( dev-cpp/catch ) doc? ( app-doc/doxygen )
 DESCRIPTION=Saves URIs of things you want to remember in a database.
 EAPI=7
 HOMEPAGE=https://schlomp.space/tastytea/remwharead
 IUSE=doc +firefox rofi test
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=>=dev-cpp/curlpp-0.8.1 dev-libs/libxdg-basedir dev-db/vsqlite++ dev-libs/icu rofi? ( x11-misc/rofi )
+RDEPEND=dev-libs/poco[data,json,sqlite,ssl,xml] dev-libs/boost[icu] rofi? ( x11-misc/rofi )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://schlomp.space/tastytea/remwharead/archive/0.10.0.tar.gz -> remwharead-0.10.0.tar.gz
-_eclasses_=cmake-utils	77cd39e6009811bf97a59d91ffd5b54f	edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	09a8beb8e6a8e02dc1e1bd83ac353741	l10n	8cdd85e169b835d518bc2fd59f780d8e	multilib	98584e405e2b0264d37e8f728327fed1	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb	wrapper	4251d4c84c25f59094fd557e0063a974	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
-_md5_=ec0395437fbba0bff74d6728fc0f525f
+_eclasses_=cmake	ac7cb516f6a288b6a82bc0649ce49878	edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	09a8beb8e6a8e02dc1e1bd83ac353741	l10n	8cdd85e169b835d518bc2fd59f780d8e	multilib	98584e405e2b0264d37e8f728327fed1	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb	wrapper	4251d4c84c25f59094fd557e0063a974	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_md5_=e1fa1ac6fe1c41f7ae4476f50f8026f7
