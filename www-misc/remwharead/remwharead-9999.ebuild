@@ -27,10 +27,9 @@ fi
 IUSE="doc +firefox rofi test"
 
 RDEPEND="
-	>=dev-cpp/curlpp-0.8.1
-	dev-libs/libxdg-basedir
-	dev-db/vsqlite++
-	dev-libs/icu
+	net-misc/curl
+	dev-libs/poco[data,json,sqlite,xml]
+	dev-libs/boost[icu]
 	rofi? ( x11-misc/rofi )
 "
 DEPEND="

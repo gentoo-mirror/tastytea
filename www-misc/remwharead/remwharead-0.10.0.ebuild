@@ -28,10 +28,8 @@ IUSE="doc +firefox rofi test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-cpp/curlpp-0.8.1
-	dev-libs/libxdg-basedir
-	dev-db/vsqlite++
-	dev-libs/icu
+	dev-libs/poco[data,json,sqlite,ssl,xml]
+	dev-libs/boost[icu]
 	rofi? ( x11-misc/rofi )
 "
 DEPEND="
