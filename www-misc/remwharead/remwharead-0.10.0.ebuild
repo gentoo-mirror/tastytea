@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
@@ -28,10 +28,8 @@ IUSE="doc +firefox rofi test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-cpp/curlpp-0.8.1
-	dev-libs/libxdg-basedir
-	dev-db/vsqlite++
-	dev-libs/icu
+	dev-libs/poco[data,json,sqlite,ssl,xml]
+	dev-libs/boost[icu]
 	rofi? ( x11-misc/rofi )
 "
 DEPEND="
@@ -53,11 +51,11 @@ src_configure() {
 		-DWITH_MOZILLA="$(usex firefox)"
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_compile() {
-	cmake-utils_src_compile
+	cmake_src_compile
 
 	if use doc; then
 		./build_doc.sh || die
@@ -71,7 +69,7 @@ src_install() {
 
 	use rofi && dobin scripts/remwharead-rofi || die
 
-	cmake-utils_src_install
+	cmake_src_install
 }
 
 pkg_postinst() {
