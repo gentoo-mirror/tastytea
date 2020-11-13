@@ -42,17 +42,10 @@ src_configure() {
 	local mycmakeargs=(
 		-DWITH_EXAMPLES=NO
 		-DWITH_TESTS="$(usex test)"
+		-DWITH_DOC="$(usex doc)"
 	)
 
 	cmake_src_configure
-}
-
-src_compile() {
-	cmake_src_compile
-
-	if use doc; then
-		./build_doc.sh
-	fi
 }
 
 src_test() {
@@ -61,7 +54,7 @@ src_test() {
 
 src_install() {
 	if use doc; then
-		HTML_DOCS="doc/html/*"
+		HTML_DOCS="build/doc/html/*"
 	fi
 
 	if use examples; then
