@@ -17,18 +17,20 @@ fi
 
 LICENSE="AGPL-3"
 SLOT="0"
-if [[ "${PV}" == "9999" ]]; then
-	KEYWORDS=""
-else
+if [[ "${PV}" != "9999" ]]; then
 	KEYWORDS="~amd64 ~x86"
 fi
 IUSE="doc examples test"
 
 RDEPEND=">=net-misc/curl-7.56.0[ssl]"
-DEPEND="${RDEPEND}
-	>=dev-util/cmake-3.9"
-BDEPEND="doc? ( app-doc/doxygen )
-	test? ( dev-cpp/catch )"
+DEPEND="
+	${RDEPEND}
+	>=dev-util/cmake-3.9
+"
+BDEPEND="
+	doc? ( app-doc/doxygen )
+	test? ( dev-cpp/catch )
+"
 
 RESTRICT="!test? ( test )"
 
@@ -40,17 +42,10 @@ src_configure() {
 	local mycmakeargs=(
 		-DWITH_EXAMPLES=NO
 		-DWITH_TESTS="$(usex test)"
+		-DWITH_DOC="$(usex doc)"
 	)
 
 	cmake_src_configure
-}
-
-src_compile() {
-	cmake_src_compile
-
-	if use doc; then
-		./build_doc.sh
-	fi
 }
 
 src_test() {
@@ -59,7 +54,7 @@ src_test() {
 
 src_install() {
 	if use doc; then
-		HTML_DOCS="doc/html/*"
+		HTML_DOCS="build/doc/html/*"
 	fi
 
 	if use examples; then

@@ -17,18 +17,20 @@ fi
 
 LICENSE="AGPL-3"
 SLOT="0"
-if [[ "${PV}" == "9999" ]]; then
-	KEYWORDS=""
-else
+if [[ "${PV}" != "9999" ]]; then
 	KEYWORDS="~amd64 ~x86"
 fi
 IUSE="doc examples test"
 
 RDEPEND=">=net-misc/curl-7.56.0[ssl]"
-DEPEND="${RDEPEND}
-	>=dev-util/cmake-3.9"
-BDEPEND="doc? ( app-doc/doxygen )
-	test? ( dev-cpp/catch )"
+DEPEND="
+	${RDEPEND}
+	>=dev-util/cmake-3.9
+"
+BDEPEND="
+	doc? ( app-doc/doxygen )
+	test? ( dev-cpp/catch )
+"
 
 RESTRICT="!test? ( test )"
 
