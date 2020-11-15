@@ -13,7 +13,7 @@ KEYWORDS=""
 IUSE=""
 RDEPEND="
 	>=dev-libs/boost-1.62.0
-	>=dev-cpp/mastodonpp-0.4.0
+	>=dev-cpp/mastodonpp-0.5.6
 	>=dev-libs/jsoncpp-1.7.4
 	>=dev-cpp/restclient-cpp-0.5.1
 "
