@@ -1,8 +1,8 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-inherit git-r3 cmake-utils
+inherit git-r3 cmake
 
 DESCRIPTION="Mastodon bot that expands shortened URLs."
 HOMEPAGE="https://schlomp.space/tastytea/expandurl-mastodon"
@@ -27,7 +27,7 @@ src_unpack() {
 }
 
 src_install() {
-	cmake-utils_src_install
+	cmake_src_install
 	newinitd init/expandurl-mastodon.openrc expandurl-mastodon
 	echo "EXPANDURL_USER=\"expandurl\"" | newconfd - expandurl-mastodon
 }

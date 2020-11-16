@@ -1,9 +1,9 @@
-# Copyright 2019 Gentoo Authors
+# Copyright 2019, 2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="Wrapper around libconfig that writes and reads files in XDG_CONFIG_HOME"
 HOMEPAGE="https://schlomp.space/tastytea/xdgcfg"
@@ -31,11 +31,11 @@ src_configure() {
 		-DWITH_TESTS=$(usex test)
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_compile() {
-	cmake-utils_src_compile
+	cmake_src_compile
 
 	if use doc; then
 		./build_doc.sh || die "Generation of HTML documentation failed."
@@ -43,7 +43,7 @@ src_compile() {
 }
 
 src_test() {
-	BUILD_DIR="${BUILD_DIR}/tests" cmake-utils_src_test
+	BUILD_DIR="${BUILD_DIR}/tests" cmake_src_test
 }
 
 src_install() {
@@ -51,7 +51,7 @@ src_install() {
 		HTML_DOCS="doc/html/*"
 	fi
 
-	cmake-utils_src_install
+	cmake_src_install
 
 	if use examples; then
 		dodoc examples/example.cpp
