@@ -28,7 +28,7 @@ DEPEND="
 	>=dev-util/cmake-3.9
 "
 BDEPEND="
-	doc? ( app-doc/doxygen )
+	doc? ( app-doc/doxygen[dot] )
 	test? ( dev-cpp/catch )
 "
 

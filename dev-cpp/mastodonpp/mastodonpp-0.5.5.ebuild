@@ -27,7 +27,7 @@ IUSE="doc examples test"
 RDEPEND=">=net-misc/curl-7.56.0[ssl]"
 DEPEND="${RDEPEND}
 	>=dev-util/cmake-3.9"
-BDEPEND="doc? ( app-doc/doxygen )
+BDEPEND="doc? ( app-doc/doxygen[dot] )
 	test? ( dev-cpp/catch )"
 
 RESTRICT="!test? ( test )"
