@@ -54,7 +54,7 @@ src_test() {
 
 src_install() {
 	if use doc; then
-		HTML_DOCS="build/doc/html/*"
+		HTML_DOCS="${BUILD_DIR}/doc/html/*"
 	fi
 
 	if use examples; then
