@@ -6,7 +6,7 @@ EAPI=7
 inherit cmake
 
 DESCRIPTION="C++ wrapper for libcURL"
-HOMEPAGE="http://www.curlpp.org/"
+HOMEPAGE="https://www.curlpp.org/"
 SRC_URI="https://github.com/jpbarrette/curlpp/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
