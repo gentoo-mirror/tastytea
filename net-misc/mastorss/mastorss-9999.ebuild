@@ -23,10 +23,10 @@ SLOT="0"
 IUSE=""
 
 RDEPEND="
-	>=dev-libs/boost-1.62.0
+	dev-libs/boost
 	>=dev-cpp/mastodonpp-0.5.6
-	>=dev-libs/jsoncpp-1.7.4
-	>=dev-cpp/restclient-cpp-0.5.1
+	dev-libs/jsoncpp
+	net-misc/curl
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
