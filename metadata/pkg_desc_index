@@ -14,7 +14,7 @@ games-simulation/simutrans 0.120.4.1-r2 0.121.0 0.122.0: A free Transport Tycoon
 media-sound/whipper 1.0.0_pre20200530: A Python CD-DA ripper preferring accuracy over speed (forked from morituri)
 net-misc/expandurl-mastodon 9999: Mastodon bot that expands shortened URLs.
 net-misc/feiertagebot 9999: Allows you to execute files from compiled languages as scripts.
-net-misc/mastorss 0.12.0 0.12.1 9999: Another RSS to Mastodon bot
+net-misc/mastorss 0.12.1 0.12.2 9999: Another RSS to Mastodon bot
 net-misc/soupbot 9999: soupbot is a soup-recommending bot for Mastodon
 net-misc/whyblocked 0.15.0 9999-r8: whyblocked reminds you why you blocked someone.
 sys-apps/hashboot 0.9.14 9999: Check integrity of files in /boot
