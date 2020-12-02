@@ -56,11 +56,11 @@ pkg_pretend () {
 	for cat in ${categories[@]}; do
 		local thread_model="$(LC_ALL=C ${cat/cross-/}-gcc -v 2>&1 \
 			  | grep 'Thread model' | cut -d' ' -f3)" || die
-		if ! has_version -b "${cat}/mingw64-runtime[libraries]" ||
+		if ! has_version -b ">=${cat}/mingw64-runtime-8.0.0[libraries]" ||
 				! has_version -b "${cat}/gcc" ||
 				[[ "${thread_model}" != "posix" ]]; then
 			eerror "The ${cat} toolchain is not properly installed."
-			eerror "Make sure to install ${cat}/mingw64-runtime with USE=\"libraries\""
+			eerror "Make sure to install ${cat}/mingw64-runtime >= 8.0.0 with USE=\"libraries\""
 			eerror "and ${cat}/gcc with EXTRA_ECONF=\"--enable-threads=posix\"."
 			eerror "See <https://wiki.gentoo.org/wiki/DXVK> for more information."
 
