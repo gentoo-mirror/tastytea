@@ -1,6 +1,6 @@
 acct-group/pleroma 0: System group: pleroma
 acct-user/pleroma 0: User for www-apps/pleroma
-app-emulation/dxvk 1.7.1 1.7.2 9999: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
+app-emulation/dxvk 1.7.2 1.7.3 9999: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 dev-cpp/curlpp 0.8.1-r2: C++ wrapper for libcURL
 dev-cpp/identiconpp 0.7.1 0.7.2 9999: Library to generate identicons for C++.
 dev-cpp/mastodon-cpp 0.111.5 9999: mastodon-cpp is a C++ wrapper for the Mastodon API.
