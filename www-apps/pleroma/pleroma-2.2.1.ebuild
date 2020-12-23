@@ -13,7 +13,7 @@ EGIT_COMMIT="v${PV}"
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="apache +nginx syslog"
+IUSE="apache exif ffmpeg imagemagick +nginx syslog"
 
 RDEPEND="
 	acct-group/pleroma
@@ -23,6 +23,10 @@ RDEPEND="
 	apache? ( www-servers/apache )
 	nginx? ( www-servers/nginx[nginx_modules_http_slice] )
 	dev-util/cmake
+	sys-apps/file
+	imagemagick? ( virtual/imagemagick-tools )
+	ffmpeg? ( media-video/ffmpeg )
+	exif? ( media-libs/exiftool )
 "
 DEPEND=""
 
