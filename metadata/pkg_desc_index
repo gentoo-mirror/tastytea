@@ -3,7 +3,6 @@ acct-user/pleroma 0: User for www-apps/pleroma
 app-emulation/dxvk 1.7.2 1.7.3 9999: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 dev-cpp/curlpp 0.8.1-r2: C++ wrapper for libcURL
 dev-cpp/identiconpp 0.7.1 0.7.2 9999: Library to generate identicons for C++.
-dev-cpp/mastodonpp 0.5.5 0.5.7 9999: C++ wrapper for the Mastodon and Pleroma APIs.
 dev-cpp/restclient-cpp 0.5.1-r1 0.5.2: C++ client for making HTTP/REST requests
 dev-cpp/xdgcfg 0.5.0: Wrapper around libconfig that writes and reads files in XDG_CONFIG_HOME
 dev-lang/compilescript 0.4.1 9999: Allows you to execute files from compiled languages as scripts.
@@ -11,7 +10,6 @@ dev-perl/Mail-GnuPG 0.23: Process email with GPG
 games-server/factorio-server 0.16.51-r1 0.17.79: Factorio is a game in which you build and maintain factories.
 media-sound/whipper 1.0.0_pre20200530: A Python CD-DA ripper preferring accuracy over speed (forked from morituri)
 net-misc/feiertagebot 9999: Allows you to execute files from compiled languages as scripts.
-net-misc/mastorss 0.12.2 0.13.0 9999: Another RSS to Mastodon bot
 net-misc/soupbot 9999: soupbot is a soup-recommending bot for Mastodon
 net-misc/whyblocked 0.15.0 9999-r8: whyblocked reminds you why you blocked someone.
 sys-apps/hashboot 0.9.14 9999: Check integrity of files in /boot
