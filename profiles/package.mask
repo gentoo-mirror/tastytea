@@ -3,9 +3,3 @@
 # for removal in 30 days.
 # [1] <https://wiki.gentoo.org/wiki/Project:GURU>
 dev-cpp/mastodonpp
-
-# tastytea <gentoo@tastytea.de> (2020-11-29)
-# The package is in the guru[1] repository now. Please use that instead. Masked
-# for removal in 30 days.
-# [1] <https://wiki.gentoo.org/wiki/Project:GURU>
-net-misc/mastorss
