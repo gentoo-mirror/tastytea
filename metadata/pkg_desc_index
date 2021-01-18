@@ -15,7 +15,7 @@ net-misc/whyblocked 0.15.0 9999-r8: whyblocked reminds you why you blocked someo
 sys-apps/hashboot 0.9.14 9999: Check integrity of files in /boot
 www-apps/gitea 1.12.5 1.12.6: A painless self-hosted Git service
 www-apps/libravatarserv 0.7.2 0.7.4 9999: Simple libravatar server
-www-apps/pleroma 2.2.0 2.2.1: Microblogging server software that can federate with other servers.
+www-apps/pleroma 2.2.1 2.2.2: Microblogging server software that can federate with other servers.
 www-misc/gitea2rss 0.5.2 0.6.0 9999: Generates RSS feeds from Gitea releases or tags
 www-misc/remwharead 0.10.0 9999: Saves URIs of things you want to remember in a database.
 x11-themes/paper-gtk-theme 9999: Paper Theme Suite for GTK 3 and GTK 2
