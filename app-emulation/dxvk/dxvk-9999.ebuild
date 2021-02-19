@@ -43,7 +43,7 @@ RDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/dxvk-9999_add-compiler-flags.patch"
+	"${FILESDIR}/dxvk-1.8_add-compiler-flags.patch"
 )
 
 RESTRICT="!test? ( test )"
