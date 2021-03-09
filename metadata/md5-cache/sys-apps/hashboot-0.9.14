@@ -9,4 +9,4 @@ LICENSE=hug-ware
 RDEPEND=firmware? ( sys-apps/flashrom )
 SLOT=0
 SRC_URI=https://schlomp.space/tastytea/hashboot/archive/0.9.14.tar.gz -> hashboot-0.9.14.tar.gz
-_md5_=c21a80080d84bfdb0495744b1b1a74fc
+_md5_=7369fc66649b97577cdfaf777834a07a
