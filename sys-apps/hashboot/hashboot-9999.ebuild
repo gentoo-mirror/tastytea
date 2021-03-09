@@ -17,6 +17,8 @@ IUSE="firmware"
 RDEPEND="firmware? ( sys-apps/flashrom )"
 DEPEND="app-text/asciidoc"
 
+S="${WORKDIR}/${PN}"
+
 pkg_preinst() {
 	if grep -q '^rc_parallel="YES"' /etc/rc.conf; then
 		ewarn "hashboot does not work properly with parallel boot enabled."
