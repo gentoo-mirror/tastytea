@@ -3,9 +3,10 @@ DEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DESCRIPTION=Paper icon theme
 EAPI=6
 HOMEPAGE=https://snwh.org/paper
+INHERIT=git-r3
 KEYWORDS=~amd64 ~x86
 LICENSE=CC-BY-SA-4.0
 PROPERTIES=live
 SLOT=0
-_eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441
+_eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52
 _md5_=0f2ac393b88276aa01e3d4f332f47081

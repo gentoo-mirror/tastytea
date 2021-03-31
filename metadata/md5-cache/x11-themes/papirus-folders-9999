@@ -3,9 +3,10 @@ DEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DESCRIPTION=Allows to change the color of folders
 EAPI=6
 HOMEPAGE=https://github.com/PapirusDevelopmentTeam/papirus-folders
+INHERIT=git-r3
 LICENSE=MIT
 PROPERTIES=live
 RDEPEND=x11-themes/papirus-icon-theme
 SLOT=0
-_eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441
+_eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52
 _md5_=7d4c895c766de9faca0a59f97cf6aecc
