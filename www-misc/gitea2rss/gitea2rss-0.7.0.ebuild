@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -28,7 +28,7 @@ fi
 IUSE="test"
 
 RDEPEND="
-	dev-libs/poco
+	net-misc/curl[ssl]
 	dev-libs/jsoncpp
 "
 DEPEND="${RDEPEND}"
@@ -39,7 +39,7 @@ BDEPEND="
 
 RESTRICT="!test? ( test )"
 
-DOCS=("README.adoc" "config/nginx-example.conf")
+DOCS=("README.adoc" "doc/nginx-example.conf")
 
 src_configure() {
 	local mycmakeargs=(
@@ -51,4 +51,8 @@ src_configure() {
 	fi
 
 	cmake_src_configure
+}
+
+src_test() {
+	BUILD_DIR="${BUILD_DIR}/tests" cmake_src_test
 }
