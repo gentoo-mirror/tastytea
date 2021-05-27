@@ -1,6 +1,7 @@
 acct-group/pleroma 0: System group: pleroma
 acct-user/pleroma 0: User for www-apps/pleroma
 app-emulation/dxvk 1.8 1.8.1 9999: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
+app-text/epubgrep 9999: Search tool for EPUB e-books
 dev-cpp/curlpp 0.8.1-r2: C++ wrapper for libcURL
 dev-cpp/identiconpp 0.7.1 0.7.2 9999: Library to generate identicons for C++.
 dev-cpp/restclient-cpp 0.5.1-r1 0.5.2: C++ client for making HTTP/REST requests
