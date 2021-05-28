@@ -8,7 +8,7 @@ dev-cpp/restclient-cpp 0.5.1-r1 0.5.2: C++ client for making HTTP/REST requests
 dev-cpp/xdgcfg 0.5.0: Wrapper around libconfig that writes and reads files in XDG_CONFIG_HOME
 dev-lang/compilescript 0.4.1 9999: Allows you to execute files from compiled languages as scripts.
 dev-perl/Mail-GnuPG 0.23: Process email with GPG
-games-server/factorio-server 1.1.32 1.1.33: Factorio is a game in which you build and maintain factories.
+games-server/factorio-server 1.1.33 1.1.34: Factorio is a game in which you build and maintain factories.
 media-sound/whipper 1.0.0_pre20200530: A Python CD-DA ripper preferring accuracy over speed (forked from morituri)
 net-misc/feiertagebot 9999: Allows you to execute files from compiled languages as scripts.
 net-misc/soupbot 9999: soupbot is a soup-recommending bot for Mastodon
