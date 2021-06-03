@@ -22,12 +22,13 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
+	dev-cpp/nlohmann_json
 	dev-cpp/termcolor
 	test? ( dev-cpp/catch )
 "
 BDEPEND="
-	sys-devel/gettext
 	app-text/asciidoc
+	sys-devel/gettext
 "
 
 src_configure() {
@@ -37,8 +38,4 @@ src_configure() {
 	)
 
 	cmake_src_configure
-}
-
-src_test() {
-	BUILD_DIR="${BUILD_DIR}/tests" cmake_src_test
 }
