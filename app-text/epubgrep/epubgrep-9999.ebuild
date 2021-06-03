@@ -22,12 +22,13 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
+	dev-cpp/nlohmann_json
 	dev-cpp/termcolor
 	test? ( dev-cpp/catch )
 "
 BDEPEND="
-	sys-devel/gettext
 	app-text/asciidoc
+	sys-devel/gettext
 "
 
 src_configure() {
