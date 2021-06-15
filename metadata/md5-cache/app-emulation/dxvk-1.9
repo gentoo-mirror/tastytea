@@ -8,10 +8,10 @@ INHERIT=flag-o-matic meson multilib-minimal
 IUSE=+d3d9 +d3d10 +d3d11 debug +dxgi video_cards_nvidia test abi_x86_32 abi_x86_64
 KEYWORDS=~amd64
 LICENSE=ZLIB
-RDEPEND=media-libs/vulkan-loader[abi_x86_32(-)?,abi_x86_64(-)?] || ( video_cards_nvidia? ( >=x11-drivers/nvidia-drivers-440.31 ) >=media-libs/mesa-19.2 ) || ( >=app-emulation/wine-staging-4.5[abi_x86_32(-)?,abi_x86_64(-)?,vulkan] >=app-emulation/wine-vanilla-4.5[abi_x86_32(-)?,abi_x86_64(-)?,vulkan] )
+RDEPEND=media-libs/vulkan-loader[abi_x86_32(-)?,abi_x86_64(-)?] || ( video_cards_nvidia? ( >=x11-drivers/nvidia-drivers-440.31 ) >=media-libs/mesa-20.2 ) || ( >=app-emulation/wine-staging-4.5[abi_x86_32(-)?,abi_x86_64(-)?,vulkan] >=app-emulation/wine-vanilla-4.5[abi_x86_32(-)?,abi_x86_64(-)?,vulkan] )
 REQUIRED_USE=|| ( abi_x86_32 abi_x86_64 )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/doitsujin/dxvk/archive/v1.8.tar.gz -> dxvk-1.8.tar.gz
+SRC_URI=https://github.com/doitsujin/dxvk/archive/v1.9.tar.gz -> dxvk-1.9.tar.gz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	meson	5ec14fdbc5446b8767e87e186e3b1a52	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	multilib-build	c311a933538fe97b72600926696ea66f	multilib-minimal	12533389e8f5cc25f70ffcddbc9b3d29
-_md5_=fb5ea92d1367d11dd7383077af801ec9
+_md5_=de21294b949ae28d91f257a015c803af
