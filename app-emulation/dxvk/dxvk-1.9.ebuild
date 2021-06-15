@@ -34,7 +34,7 @@ RDEPEND="
 	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
 	|| (
 		video_cards_nvidia? ( >=x11-drivers/nvidia-drivers-440.31 )
-		>=media-libs/mesa-19.2
+		>=media-libs/mesa-20.2
 	)
 	|| (
 		>=app-emulation/wine-staging-4.5[${MULTILIB_USEDEP},vulkan]
