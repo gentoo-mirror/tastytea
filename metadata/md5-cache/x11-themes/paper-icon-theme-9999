@@ -8,5 +8,5 @@ KEYWORDS=~amd64 ~x86
 LICENSE=CC-BY-SA-4.0
 PROPERTIES=live
 SLOT=0
-_eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52
+_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
 _md5_=0f2ac393b88276aa01e3d4f332f47081
