@@ -15,10 +15,13 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="apache exif ffmpeg imagemagick +nginx syslog"
 
+# Erlang-24 issue should be fixed in >pleroma-2.3.0.
+# <https://git.pleroma.social/pleroma/pleroma/-/issues/2647>
 RDEPEND="
 	acct-group/pleroma
 	acct-user/pleroma
 	>=dev-lang/elixir-1.8.1
+	<dev-lang/erlang-24.0
 	>=dev-db/postgresql-9.6.13[uuid]
 	apache? ( www-servers/apache )
 	nginx? ( www-servers/nginx[nginx_modules_http_slice] )
