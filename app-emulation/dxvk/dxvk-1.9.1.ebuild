@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MULTILIB_COMPAT=( abi_x86_{32,64} )
 inherit flag-o-matic meson multilib-minimal
@@ -34,7 +34,7 @@ RDEPEND="
 	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
 	|| (
 		video_cards_nvidia? ( >=x11-drivers/nvidia-drivers-440.31 )
-		>=media-libs/mesa-19.2
+		>=media-libs/mesa-20.2
 	)
 	|| (
 		>=app-emulation/wine-staging-4.5[${MULTILIB_USEDEP},vulkan]
