@@ -1,7 +1,9 @@
 acct-group/pleroma 0: System group: pleroma
 acct-user/pleroma 0: User for www-apps/pleroma
 app-emulation/dxvk 1.9 1.9.1 9999: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
+app-i18n/poedit 3.0: GUI gettext translations editor
 app-text/epubgrep 9999: Search tool for EPUB e-books
+dev-cpp/cpprest 2.10.18: REST SDK using an asynchronous C++ API design
 dev-cpp/curlpp 0.8.1-r2: C++ wrapper for libcURL
 dev-cpp/identiconpp 0.7.1 0.7.2 9999: Library to generate identicons for C++.
 dev-cpp/restclient-cpp 0.5.1-r1 0.5.2: C++ client for making HTTP/REST requests
@@ -13,6 +15,7 @@ media-sound/whipper 1.0.0_pre20200530: A Python CD-DA ripper preferring accuracy
 net-misc/feiertagebot 9999: Allows you to execute files from compiled languages as scripts.
 net-misc/soupbot 9999: soupbot is a soup-recommending bot for Mastodon
 net-misc/whyblocked 0.15.0 9999-r8: whyblocked reminds you why you blocked someone.
+sci-libs/cld2 0_pre20150821: Compact Language Detector 2
 sys-apps/hashboot 0.9.14 9999: Check integrity of files in /boot
 www-apps/gitea 1.12.5 1.12.6: A painless self-hosted Git service
 www-apps/libravatarserv 0.7.2 0.7.4 9999: Simple libravatar server
