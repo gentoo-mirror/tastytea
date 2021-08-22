@@ -1,4 +1,5 @@
 kind: pipeline
+type: docker
 name: check
 
 steps:
@@ -6,6 +7,9 @@ steps:
   image: tastytea/repoman
   pull: always
   commands:
+  - mkdir /etc/portage/repos.conf
+  - echo -e '[guru]\nlocation = /var/db/repos/guru\nsync-type = git\nsync-uri = https://github.com/gentoo-mirror/guru.git' > /etc/portage/repos.conf/guru.conf
+  - emaint sync -r guru
   - repoman full --include-dev --xmlparse
 
 # - name: pkgcheck
