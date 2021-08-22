@@ -2,14 +2,28 @@ kind: pipeline
 type: docker
 name: check
 
+volumes:
+- name: guru
+  temp: {}
+
 steps:
+- name: Clone ::guru
+  image: alpine/git
+  volumes:
+  - name: guru
+    path: /drone/guru
+  commands:
+  - git clone https://github.com/gentoo-mirror/guru.git /drone/guru
+
 - name: repoman
   image: tastytea/repoman
   pull: always
+  volumes:
+  - name: guru
+    path: /drone/guru
   commands:
   - mkdir /etc/portage/repos.conf
-  - echo -e '[guru]\nlocation = /var/db/repos/guru\nsync-type = git\nsync-uri = https://github.com/gentoo-mirror/guru.git' > /etc/portage/repos.conf/guru.conf
-  - emaint sync -r guru
+  - echo -e '[guru]\nlocation = /drone/guru' > /etc/portage/repos.conf/guru.conf
   - repoman full --include-dev --xmlparse
 
 # - name: pkgcheck
