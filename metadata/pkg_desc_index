@@ -17,7 +17,7 @@ net-misc/soupbot 9999: soupbot is a soup-recommending bot for Mastodon
 net-misc/whyblocked 0.15.0 9999-r8: whyblocked reminds you why you blocked someone.
 sci-libs/cld2 0_pre20150821: Compact Language Detector 2
 sys-apps/hashboot 0.9.14 9999: Check integrity of files in /boot
-www-apps/gitea 1.12.5 1.12.6: A painless self-hosted Git service
+www-apps/gitea 1.15.0: A painless self-hosted Git service
 www-apps/libravatarserv 0.7.2 0.7.4 9999: Simple libravatar server
 www-apps/pleroma 2.3.0-r1 2.4.0: Microblogging server software that can federate with other servers.
 www-misc/remwharead 0.10.0 9999: Saves URIs of things you want to remember in a database.
