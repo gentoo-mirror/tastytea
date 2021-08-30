@@ -113,7 +113,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	fcaps_pkg_postinst
+	use filecaps && fcaps_pkg_postinst # Bug 811105
 	go-module_pkg_postinst
 	tmpfiles_process gitea.conf
 
