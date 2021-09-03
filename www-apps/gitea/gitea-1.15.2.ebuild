@@ -2,21 +2,15 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-inherit fcaps go-module tmpfiles systemd
-MY_PV="${PV/_rc/-rc}"
 
+inherit fcaps go-module tmpfiles systemd
+
+MY_PV="${PV/_rc/-rc}"
 DESCRIPTION="A painless self-hosted Git service"
 HOMEPAGE="https://gitea.io"
-
-if [[ ${PV} != 9999* ]] ; then
-	SRC_URI="https://github.com/go-gitea/gitea/releases/download/v${MY_PV}/gitea-src-${MY_PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64"
-	S="${WORKDIR}"
-else
-	EGIT_REPO_URI="https://github.com/go-gitea/gitea"
-	inherit git-r3
-	S="${WORKDIR}/${P}"
-fi
+SRC_URI="https://github.com/go-gitea/gitea/releases/download/v${MY_PV}/gitea-src-${MY_PV}.tar.gz -> ${P}.tar.gz"
+KEYWORDS="~amd64 ~arm ~arm64"
+S="${WORKDIR}"
 
 LICENSE="Apache-2.0 BSD BSD-2 ISC MIT MPL-2.0"
 SLOT="0"
@@ -26,17 +20,16 @@ COMMON_DEPEND="
 	acct? (
 		acct-group/git
 		acct-user/git[gitea] )
-	pam? ( sys-libs/pam )"
+	pam? ( sys-libs/pam )
+"
 DEPEND="${COMMON_DEPEND}"
-RDEPEND="${COMMON_DEPEND}
-	dev-vcs/git"
+RDEPEND="
+	${COMMON_DEPEND}
+	dev-vcs/git
+"
 
-DOCS=(
-	custom/conf/app.example.ini CONTRIBUTING.md README.md
-)
-FILECAPS=(
-	-m 711 cap_net_bind_service+ep usr/bin/gitea
-)
+DOCS=( custom/conf/app.example.ini CONTRIBUTING.md README.md )
+FILECAPS=( -m 711 cap_net_bind_service+ep usr/bin/gitea )
 
 RESTRICT="test"
 QA_PRESTRIPPED="usr/bin/gitea"
@@ -113,8 +106,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	use filecaps && fcaps_pkg_postinst
-	go-module_pkg_postinst
+	fcaps_pkg_postinst
 	tmpfiles_process gitea.conf
 
 	ewarn "The default JWT signing algorithm changed in 1.15.0 from HS256 (symmetric) to"
