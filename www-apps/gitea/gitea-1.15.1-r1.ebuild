@@ -29,7 +29,7 @@ RDEPEND="
 "
 
 DOCS=( custom/conf/app.example.ini CONTRIBUTING.md README.md )
-FILECAPS=( cap_net_bind_service+ep usr/bin/gitea )
+FILECAPS=( -m 711 cap_net_bind_service+ep usr/bin/gitea )
 
 RESTRICT="test"
 QA_PRESTRIPPED="usr/bin/gitea"
