@@ -32,7 +32,7 @@ src_prepare() {
 src_install() {
 	newbin gotify-linux-amd64 ${PN}
 	dodoc config.example.yml
-	doinitd "${FILESDIR}/${PN}.initd"
+	newinitd "${FILESDIR}/${PN}.initd" ${PN}
 
 	if use logrotate; then
 		insinto etc/logrotate.d
