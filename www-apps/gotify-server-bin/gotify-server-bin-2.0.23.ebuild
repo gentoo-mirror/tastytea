@@ -7,7 +7,7 @@ DESCRIPTION="Simple server for sending and receiving messages in real-time per W
 HOMEPAGE="https://gotify.net/"
 SRC_URI="
 	https://github.com/gotify/server/releases/download/v${PV}/gotify-linux-amd64.zip -> ${P}.zip
-	https://raw.githubusercontent.com/gotify/server/v${PV}/config.example.yml
+	https://raw.githubusercontent.com/gotify/server/v${PV}/config.example.yml -> ${P}_config.example.yml
 "
 S="${WORKDIR}"
 
@@ -23,7 +23,7 @@ BDEPEND="app-arch/unzip"
 QA_PREBUILT="/usr/bin/${PN}"
 
 src_prepare() {
-	cp "${DISTDIR}/config.example.yml" . || die
+	cp "${DISTDIR}/${P}_config.example.yml" config.example.yml || die
 	sed -i 's/listenaddr: ""/listenaddr: "[::1]"/' config.example.yml || die
 
 	default
