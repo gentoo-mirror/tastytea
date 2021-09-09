@@ -10,4 +10,4 @@ LICENSE=MIT
 RDEPEND=acct-user/gotify
 SLOT=0
 SRC_URI=https://github.com/gotify/server/releases/download/v2.0.23/gotify-linux-amd64.zip -> gotify-server-bin-2.0.23.zip https://raw.githubusercontent.com/gotify/server/v2.0.23/config.example.yml -> gotify-server-bin-2.0.23_config.example.yml
-_md5_=e740ce41ee5c84cc8f0c529526fa0f7a
+_md5_=a387c9bcdd7f4261c357f413955cdce8
