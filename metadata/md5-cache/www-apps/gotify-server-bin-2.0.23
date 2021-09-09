@@ -1,0 +1,13 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=install prepare
+DEPEND=acct-user/gotify
+DESCRIPTION=Simple server for sending and receiving messages in real-time per WebSocket
+EAPI=8
+HOMEPAGE=https://gotify.net/
+IUSE=logrotate
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=acct-user/gotify
+SLOT=0
+SRC_URI=https://github.com/gotify/server/releases/download/v2.0.23/gotify-linux-amd64.zip -> gotify-server-bin-2.0.23.zip https://raw.githubusercontent.com/gotify/server/v2.0.23/config.example.yml
+_md5_=69d94282933c12226f6a0b00db6bb532

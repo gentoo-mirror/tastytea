@@ -13,6 +13,7 @@ dev-cpp/cpprest:websockets - Support the WebSocket protocol
 media-sound/whipper:cover - Enable cover art embedding
 sys-apps/hashboot:firmware - Enable firmware support through sys-apps/flashrom.
 www-apps/gitea:acct - User and group management via acct-*/git packages
+www-apps/gotify-server-bin:logrotate - Use app-admin/logrotate for rotating logs
 www-apps/pleroma:apache - Installs a configuration file for apache.
 www-apps/pleroma:nginx - Installs a configuration file for nginx.
 www-misc/remwharead:firefox - Install wrapper for Firefox-plugin

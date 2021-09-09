@@ -1,4 +1,6 @@
+acct-group/gotify 0: System group: gotify
 acct-group/pleroma 0: System group: pleroma
+acct-user/gotify 0: User for www-servers/gotify-server{,-bin}
 acct-user/pleroma 0: User for www-apps/pleroma
 app-emulation/dxvk 1.9 1.9.1 9999: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-i18n/poedit 3.0: GUI gettext translations editor
@@ -18,6 +20,7 @@ net-misc/whyblocked 0.15.0 9999-r8: whyblocked reminds you why you blocked someo
 sci-libs/cld2 0_pre20150821: Compact Language Detector 2
 sys-apps/hashboot 0.9.14 9999: Check integrity of files in /boot
 www-apps/gitea 1.15.1-r1 1.15.2: A painless self-hosted Git service
+www-apps/gotify-server-bin 2.0.23: Simple server for sending and receiving messages in real-time per WebSocket
 www-apps/libravatarserv 0.7.2 0.7.4 9999: Simple libravatar server
 www-apps/pleroma 2.3.0-r1 2.4.0 2.4.1: Microblogging server software that can federate with other servers.
 www-misc/remwharead 0.10.0 9999: Saves URIs of things you want to remember in a database.
