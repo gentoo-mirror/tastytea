@@ -1,0 +1,6 @@
+/var/log/gotify-server-bin/*.log {
+	missingok
+	notifempty
+	sharedscripts
+	endscript
+}
