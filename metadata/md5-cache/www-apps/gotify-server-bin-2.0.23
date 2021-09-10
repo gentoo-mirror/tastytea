@@ -9,5 +9,5 @@ KEYWORDS=~amd64
 LICENSE=MIT
 RDEPEND=acct-user/gotify
 SLOT=0
-SRC_URI=https://github.com/gotify/server/releases/download/v2.0.23/gotify-linux-amd64.zip -> gotify-server-bin-2.0.23.zip https://raw.githubusercontent.com/gotify/server/v2.0.23/config.example.yml -> gotify-server-bin-2.0.23_config.example.yml
-_md5_=a387c9bcdd7f4261c357f413955cdce8
+SRC_URI=amd64? ( https://github.com/gotify/server/releases/download/v2.0.23/gotify-linux-amd64.zip -> gotify-server-bin-2.0.23_amd64.zip ) x86? ( https://github.com/gotify/server/releases/download/v2.0.23/gotify-linux-386.zip -> gotify-server-bin-2.0.23_x86.zip ) arm? ( https://github.com/gotify/server/releases/download/v2.0.23/gotify-linux-arm-7.zip -> gotify-server-bin-2.0.23_arm.zip ) arm64? ( https://github.com/gotify/server/releases/download/v2.0.23/gotify-linux-arm64.zip -> gotify-server-bin-2.0.23_arm64.zip ) https://raw.githubusercontent.com/gotify/server/v2.0.23/config.example.yml -> gotify-server-bin-2.0.23_config.example.yml
+_md5_=0c9278424a0142f0b7fdb1a0a97459f9
