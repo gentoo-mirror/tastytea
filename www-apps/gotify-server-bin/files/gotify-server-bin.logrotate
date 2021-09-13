@@ -2,4 +2,7 @@
 	missingok
 	notifempty
 	sharedscripts
+	postrotate
+		rc-service gotify-server-bin restart > /dev/null
+	endscript
 }
