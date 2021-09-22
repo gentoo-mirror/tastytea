@@ -107,7 +107,6 @@ src_install() {
 
 pkg_postinst() {
 	fcaps_pkg_postinst
-	go-module_pkg_postinst
 	tmpfiles_process gitea.conf
 
 	ewarn "The default JWT signing algorithm changed in 1.15.0 from HS256 (symmetric) to"
