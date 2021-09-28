@@ -46,7 +46,6 @@ src_prepare() {
 	plocale_for_each_disabled_locale my_rm_loc
 
 	setup-wxwidgets
-	xdg_src_prepare
 	default
 }
 
