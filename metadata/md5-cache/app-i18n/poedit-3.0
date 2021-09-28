@@ -13,4 +13,4 @@ RDEPEND=app-text/gtkspell:3 x11-libs/gtk+:3 >=dev-cpp/lucene++-3.0.5 >=dev-libs/
 SLOT=0
 SRC_URI=https://github.com/vslavik/poedit/releases/download/v3.0-oss/poedit-3.0.tar.gz
 _eclasses_=plocale	89c6aac5da68423465e6fd79fb4ad5fb	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	wxwidgets	7e8a20d3bacea0e3ecf6e96fb72180aa	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	6024fbc93167fad782e2032933654857
-_md5_=de5e3abf7c3a5d11df305a5845777841
+_md5_=bcc33af2b472fdf70ffebb91ad103bfe
