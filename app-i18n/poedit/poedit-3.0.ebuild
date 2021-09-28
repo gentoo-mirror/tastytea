@@ -47,6 +47,7 @@ src_prepare() {
 
 	setup-wxwidgets
 	xdg_src_prepare
+	default
 }
 
 src_configure() {
