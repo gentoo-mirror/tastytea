@@ -7,5 +7,5 @@ LICENSE=Factorio
 RDEPEND=app-misc/screen
 RESTRICT=bindist mirror
 SLOT=0
-SRC_URI=https://www.factorio.com/get-download/1.1.41/headless/linux64 -> factorio-server-1.1.41.tar.xz
+SRC_URI=https://www.factorio.com/get-download/1.1.46/headless/linux64 -> factorio-server-1.1.46.tar.xz
 _md5_=6a7f68316d428fdcedcbfdf9c4f73705
