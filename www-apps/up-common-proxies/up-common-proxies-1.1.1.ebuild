@@ -73,7 +73,7 @@ DEPEND="${RDEPEND}"
 
 src_prepare() {
 	sed -i -e "s|^WorkingDirectory=.*|WorkingDirectory=/etc/${PN}|" \
-		-e 's|^ExecStart=.*|ExecStart=/usr/bin/up-rewrite-proxy|' \
+		-e 's|^ExecStart=.*|ExecStart=/usr/bin/up-rewrite|' \
 		up-rewrite-proxy.service || die
 
 	cp "${FILESDIR}/${PN}.logrotate" . || die
