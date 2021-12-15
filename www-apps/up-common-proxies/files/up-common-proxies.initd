@@ -16,5 +16,4 @@ command_args="-c /etc/${name}/config.toml"
 depend() {
 	need net
 	use dns
-	after logger
 }

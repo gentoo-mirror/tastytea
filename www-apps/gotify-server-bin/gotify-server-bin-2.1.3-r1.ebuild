@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit systemd
+
 DESCRIPTION="Simple server for sending and receiving messages in real-time per WebSocket"
 HOMEPAGE="https://gotify.net/"
 # NOTE: Only amd64 is tested.
@@ -18,7 +20,7 @@ S="${WORKDIR}"
 LICENSE="Apache-2.0 BSD BSD-2 MIT MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="logrotate"
+IUSE="logrotate systemd"
 
 RDEPEND="acct-user/gotify"
 DEPEND="${RDEPEND}"
@@ -29,6 +31,12 @@ QA_PREBUILT="/usr/bin/${PN}"
 src_prepare() {
 	cp "${DISTDIR}/${P}_config.example.yml" config.example.yml || die
 	sed -i 's/listenaddr: ""/listenaddr: "[::1]"/' config.example.yml || die
+
+	cp "${FILESDIR}/${PN}.logrotate" . || die
+	if use systemd; then
+		sed -Ei "s/^(\s*)rc-service.*/\1systemctl restart ${PN}.service/" \
+			${PN}.logrotate || die
+	fi
 
 	default
 }
@@ -41,11 +49,13 @@ src_install() {
 
 	newbin gotify-linux-${myarch} ${PN}
 	dodoc config.example.yml
+
 	newinitd "${FILESDIR}/${PN}.initd" ${PN}
+	systemd_newunit "${FILESDIR}/${PN}.service" ${PN}.service
 
 	if use logrotate; then
 		insinto etc/logrotate.d
-		newins "${FILESDIR}/${PN}.logrotate" "${PN}"
+		newins ${PN}.logrotate ${PN}
 	fi
 
 	diropts --owner=gotify --group=gotify --mode=750

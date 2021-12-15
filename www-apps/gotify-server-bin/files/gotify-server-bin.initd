@@ -7,10 +7,13 @@ description="gotify server (bin)"
 command="/usr/bin/${name}"
 pidfile="/run/${name}.pid"
 logdir="/var/log/${name}"
-start_stop_daemon_args="--background --make-pidfile --pidfile ${pidfile} --user gotify:gotify --chdir /var/lib/gotify --stdout ${logdir}/${name}.log --stderr ${logdir}/error.log"
+command_background="yes"
+command_user="gotify:gotify"
+directory="/var/lib/gotify"
+output_log="${logdir}/${name}.log"
+error_log="${logdir}/error.log"
 
 depend() {
 	need net
 	use dns
-	after logger
 }
