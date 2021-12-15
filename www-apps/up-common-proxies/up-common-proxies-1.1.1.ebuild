@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit go-module
+inherit go-module systemd
 
 DESCRIPTION="Rewrite proxy for UnifiedPush"
 HOMEPAGE="https://github.com/UnifiedPush/common-proxies"
@@ -66,10 +66,24 @@ S="${WORKDIR}/${PN/up-/}-${PV}"
 LICENSE="BSD-2 MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="logrotate"
+IUSE="logrotate systemd"
 
 RDEPEND="acct-user/gotify"
 DEPEND="${RDEPEND}"
+
+src_prepare() {
+	sed -i -e "s|^WorkingDirectory=.*|WorkingDirectory=/etc/${PN}|" \
+		-e 's|^ExecStart=.*|ExecStart=/usr/bin/up-rewrite-proxy|' \
+		up-rewrite-proxy.service || die
+
+	cp "${FILESDIR}/${PN}.logrotate" . || die
+	if use systemd; then
+		sed -Ei "s/^(\s*)rc-service.*/\1systemctl restart ${PN}.service/" \
+			${PN}.logrotate || die
+	fi
+
+	default
+}
 
 src_compile() {
 	emake local
@@ -80,10 +94,11 @@ src_install() {
 	dodoc docs/{config.md,reverse_proxy.md}
 
 	newinitd "${FILESDIR}/${PN}.initd" ${PN}
+	systemd_newunit up-rewrite-proxy.service ${PN}.service
 
 	if use logrotate; then
 		insinto etc/logrotate.d
-		newins "${FILESDIR}/${PN}.logrotate" "${PN}"
+		newins ${PN}.logrotate "${PN}"
 	fi
 
 	diropts --owner=gotify --group=gotify --mode=750
