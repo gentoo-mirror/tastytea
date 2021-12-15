@@ -1,0 +1,8 @@
+/var/log/up-common-proxies/*.log {
+	missingok
+	notifempty
+	sharedscripts
+	postrotate
+		rc-service up-common-proxies restart > /dev/null
+	endscript
+}
