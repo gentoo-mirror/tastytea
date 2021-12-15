@@ -65,7 +65,7 @@ S="${WORKDIR}/${PN/up-/}-${PV}"
 
 LICENSE="BSD-2 MIT"
 SLOT="0"
-# KEYWORDS="~amd64"
+KEYWORDS="~amd64"
 IUSE="logrotate"
 
 RDEPEND="acct-user/gotify"
@@ -79,16 +79,19 @@ src_install() {
 	dobin up-rewrite
 	dodoc docs/{config.md,reverse_proxy.md}
 
-	diropts --owner=gotify --group=gotify --mode=750
-	insinto etc/${PN}
-	newins example-config.toml config.toml
-
 	newinitd "${FILESDIR}/${PN}.initd" ${PN}
 
 	if use logrotate; then
 		insinto etc/logrotate.d
 		newins "${FILESDIR}/${PN}.logrotate" "${PN}"
 	fi
+
+	diropts --owner=gotify --group=gotify --mode=750
+	keepdir var/log/${PN}
+
+	insopts --owner=gotify --group=gotify --mode=750
+	insinto etc/${PN}
+	newins example-config.toml config.toml
 
 	einstalldocs
 }
