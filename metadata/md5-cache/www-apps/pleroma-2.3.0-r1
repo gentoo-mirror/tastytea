@@ -10,5 +10,5 @@ LICENSE=AGPL-3
 PROPERTIES=live
 RDEPEND=acct-group/pleroma acct-user/pleroma >=dev-lang/elixir-1.8.1 <dev-lang/erlang-24.0 >=dev-db/postgresql-9.6.13[uuid] apache? ( www-servers/apache ) nginx? ( www-servers/nginx[nginx_modules_http_slice] ) dev-util/cmake sys-apps/file imagemagick? ( virtual/imagemagick-tools ) ffmpeg? ( media-video/ffmpeg ) exif? ( media-libs/exiftool )
 SLOT=0
-_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	systemd	2736b403a83f194b59b767f3b344c2c1
+_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	systemd	2736b403a83f194b59b767f3b344c2c1
 _md5_=cb5a68dd08fc6c7f778d8c30b3831ac6
