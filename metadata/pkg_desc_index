@@ -14,6 +14,7 @@ dev-lang/compilescript 0.4.1 9999: Allows you to execute files from compiled lan
 dev-perl/Mail-GnuPG 0.23: Process email with GPG
 games-server/factorio-server 1.1.49 1.1.50: Factorio is a game in which you build and maintain factories.
 media-sound/whipper 1.0.0_pre20200530: A Python CD-DA ripper preferring accuracy over speed (forked from morituri)
+net-im/nheko 9999: Native desktop client for Matrix using Qt
 net-misc/feiertagebot 9999: Allows you to execute files from compiled languages as scripts.
 net-misc/soupbot 9999: soupbot is a soup-recommending bot for Mastodon
 net-misc/whyblocked 0.15.0 9999-r8: whyblocked reminds you why you blocked someone.

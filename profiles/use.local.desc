@@ -11,6 +11,9 @@ app-i18n/poedit:crowdin - Enable Crowdin (online translation platform) integrati
 dev-cpp/cpprest:brotli - Enable brotli compression/decompression support
 dev-cpp/cpprest:websockets - Support the WebSocket protocol
 media-sound/whipper:cover - Enable cover art embedding
+net-im/nheko:pipewire - Pull in dependencies for media-video/pipewire support
+net-im/nheko:video - Enables video calls
+net-im/nheko:voip - Enables audio calls
 sys-apps/hashboot:firmware - Enable firmware support through sys-apps/flashrom.
 www-apps/gitea:acct - User and group management via acct-*/git packages
 www-apps/gotify-server-bin:logrotate - Use app-admin/logrotate for rotating logs
