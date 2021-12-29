@@ -102,7 +102,7 @@ src_install() {
 	cmake_src_install
 
 	# Remove stuff from bundled libs.
-	rm -r "${D}/usr/lib64" || die
+	rm -r "${D}/usr/$(get_libdir)" || die
 	rm -r "${D}/usr/include" || die
 }
 
