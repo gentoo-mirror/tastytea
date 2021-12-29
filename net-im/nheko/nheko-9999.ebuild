@@ -70,14 +70,14 @@ src_prepare() {
 	sed -Ei '/GIT_(REPOSITORY|TAG)/d' CMakeLists.txt || die
 	sed -Ei '/GIT_(REPOSITORY|TAG)/d' ../mtxclient.git/CMakeLists.txt || die
 
-	cmake_src_prepare
-}
-
-src_configure() {
 	mkdir -p "${WORKDIR}/${P}_build/_deps" || die
 	mv ../mtxclient.git "${WORKDIR}/${P}_build/_deps/matrixclient-src" || die
 	mv ../coeurl.git "${WORKDIR}/${P}_build/_deps/coeurl-src" || die
 
+	cmake_src_prepare
+}
+
+src_configure() {
 	local -a mycmakeargs=(
 		"-DUSE_BUNDLED_MTXCLIENT=ON"
 		"-DUSE_BUNDLED_COEURL=ON"
