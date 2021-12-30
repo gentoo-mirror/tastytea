@@ -59,8 +59,7 @@ BDEPEND="dev-qt/linguist-tools:5"
 
 src_unpack() {
 	for repo_uri in ${EGIT_REPO_URI[@]}; do
-		git-r3_fetch ${repo_uri}
-		git-r3_checkout ${repo_uri} "${WORKDIR}/${repo_uri##*/}"
+		EGIT_REPO_URI="${repo_uri}" EGIT_CHECKOUT_DIR="${WORKDIR}/${repo_uri##*/}" git-r3_src_unpack
 	done
 	mv nheko.git ${P}
 }
