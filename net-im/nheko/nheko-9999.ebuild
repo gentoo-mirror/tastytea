@@ -92,11 +92,6 @@ src_configure() {
 	cmake_src_configure
 }
 
-pkg_preinst() {
-	einfo "This ebuild bundles mtxclient and coeurl."
-	einfo "Oh, and also this is a bit hacky. :-)"
-}
-
 src_install() {
 	cmake_src_install
 
