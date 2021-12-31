@@ -7,8 +7,8 @@ inherit cmake git-r3 optfeature xdg
 
 DESCRIPTION="Native desktop client for Matrix using Qt"
 HOMEPAGE="https://github.com/Nheko-Reborn/nheko"
-EGIT_REPO_URI=(
-	"https://github.com/Nheko-Reborn/nheko.git"
+EGIT_REPO_URI="https://github.com/Nheko-Reborn/nheko.git"
+MY_DEP_URIS=(
 	"https://github.com/Nheko-Reborn/mtxclient.git"
 	"https://nheko.im/nheko-reborn/coeurl.git"
 )
@@ -58,10 +58,13 @@ DEPEND="
 BDEPEND="dev-qt/linguist-tools:5"
 
 src_unpack() {
-	for repo_uri in ${EGIT_REPO_URI[@]}; do
+	# Unpack dependencies first. The commit ID of the repo used in the last call
+	# to git-r3_src_unpack is stored.
+	for repo_uri in ${MY_DEP_URIS[@]}; do
 		EGIT_REPO_URI="${repo_uri}" EGIT_CHECKOUT_DIR="${WORKDIR}/${repo_uri##*/}" git-r3_src_unpack
 	done
-	mv nheko.git ${P}
+
+	git-r3_src_unpack
 }
 
 src_prepare() {
