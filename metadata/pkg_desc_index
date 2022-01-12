@@ -2,7 +2,7 @@ acct-group/gotify 0: System group: gotify
 acct-group/pleroma 0: System group: pleroma
 acct-user/gotify 0: User for www-servers/gotify-server{,-bin}
 acct-user/pleroma 0: User for www-apps/pleroma
-app-emulation/dxvk 1.9.1 1.9.2 9999: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
+app-emulation/dxvk 1.9.2 1.9.3 9999: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-i18n/poedit 3.0 3.0.1: GUI gettext translations editor
 app-text/epubgrep 9999: Search tool for EPUB e-books
 dev-cpp/cpprest 2.10.18: REST SDK using an asynchronous C++ API design
