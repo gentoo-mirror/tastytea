@@ -29,11 +29,12 @@ RDEPEND="
 	>=dev-libs/qtkeychain-0.12.0
 	dev-libs/spdlog
 	dev-qt/qtconcurrent:5
+	dev-qt/qtdeclarative:5[widgets]
 	dev-qt/qtgraphicaleffects:5
 	dev-qt/qtgui:5[gif,jpeg,png]
 	dev-qt/qtimageformats
-	dev-qt/qtmultimedia:5[gstreamer,qml]
-	dev-qt/qtquickcontrols2:5
+	dev-qt/qtmultimedia:5[gstreamer,qml,widgets]
+	dev-qt/qtquickcontrols2:5[widgets]
 	dev-qt/qtsvg:5
 	net-misc/curl
 	pipewire? ( media-video/pipewire[gstreamer] )
