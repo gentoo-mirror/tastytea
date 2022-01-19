@@ -31,9 +31,13 @@ eselect repository enable tastytea
 layman -fa tastytea
 ----
 
-== PGP key
+== Signing keys
 
-I use PGP to sign commits.
+I use SSH to sign commits. Before 2022-01-19, I used PGP.
+
+SSH key: `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPp7WPSOAZBNPuZ3LVlbE2KiOIxlVW4PGAHIx0b7EJKH`
+
+=== PGP
 
 Fingerprint: `D5B4 C43B 48A8 79F6 3529  36E6 5934 6E0E A35C 67E5`
 
