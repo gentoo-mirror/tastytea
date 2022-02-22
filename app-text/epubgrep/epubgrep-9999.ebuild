@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -16,7 +16,7 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-libs/boost[nls]
-	app-arch/libarchive[bzip2,iconv,lzma,zlib]
+	app-arch/libarchive[bzip2,iconv,lzma,zlib(+)]
 	dev-libs/libfmt
 	dev-libs/pugixml
 "
