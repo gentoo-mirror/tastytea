@@ -1,3 +1,0 @@
-# tastytea <gentoo@tastytea> (2021-08-28)
-# Newer version in ::gentoo tree, wrong version number. Removal in 30 days.
-media-sound/whipper
