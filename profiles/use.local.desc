@@ -10,7 +10,6 @@ app-i18n/poedit:cld2 - Better language autodetection and non-English source lang
 app-i18n/poedit:crowdin - Enable Crowdin (online translation platform) integration
 dev-cpp/cpprest:brotli - Enable brotli compression/decompression support
 dev-cpp/cpprest:websockets - Support the WebSocket protocol
-media-sound/whipper:cover - Enable cover art embedding
 net-im/nheko:pipewire - Pull in dependencies for media-video/pipewire support
 net-im/nheko:video - Enables video calls
 net-im/nheko:voip - Enables audio calls
