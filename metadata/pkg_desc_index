@@ -27,4 +27,4 @@ www-apps/up-common-proxies 1.1.1: Rewrite proxy for UnifiedPush
 www-misc/remwharead 0.10.0 9999: Saves URIs of things you want to remember in a database.
 x11-themes/paper-gtk-theme 9999: Paper Theme Suite for GTK 3 and GTK 2
 x11-themes/paper-icon-theme 9999: Paper icon theme
-x11-themes/papirus-folders 1.11.0: Allows changing the color of folders in Papirus icon theme
+x11-themes/papirus-folders 1.11.0 1.12.0: Allows changing the color of folders in Papirus icon theme
