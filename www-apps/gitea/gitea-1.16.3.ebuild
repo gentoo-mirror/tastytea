@@ -1,14 +1,13 @@
 # Copyright 2016-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit fcaps go-module tmpfiles systemd
 
-MY_PV="${PV/_rc/-rc}"
 DESCRIPTION="A painless self-hosted Git service"
-HOMEPAGE="https://gitea.io"
-SRC_URI="https://github.com/go-gitea/gitea/releases/download/v${MY_PV}/gitea-src-${MY_PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://gitea.io https://github.com/go-gitea/gitea"
+SRC_URI="https://github.com/go-gitea/gitea/releases/download/v${PV}/gitea-src-${PV}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~amd64 ~arm ~arm64"
 S="${WORKDIR}"
 
@@ -16,23 +15,22 @@ LICENSE="Apache-2.0 BSD BSD-2 ISC MIT MPL-2.0"
 SLOT="0"
 IUSE="+acct pam sqlite"
 
-COMMON_DEPEND="
+DEPEND="
 	acct? (
 		acct-group/git
 		acct-user/git[gitea] )
-	pam? ( sys-libs/pam )
-"
-DEPEND="${COMMON_DEPEND}"
-RDEPEND="
-	${COMMON_DEPEND}
-	dev-vcs/git
-"
+	pam? ( sys-libs/pam )"
+RDEPEND="${DEPEND}
+	dev-vcs/git"
 
-DOCS=( custom/conf/app.example.ini CONTRIBUTING.md README.md )
-FILECAPS=( -m 0711 cap_net_bind_service+ep usr/bin/gitea )
+DOCS=(
+	custom/conf/app.example.ini CONTRIBUTING.md README.md
+)
+FILECAPS=(
+	-m 0711 cap_net_bind_service+ep usr/bin/gitea
+)
 
 RESTRICT="test"
-QA_PRESTRIPPED="usr/bin/gitea"
 
 src_prepare() {
 	default
@@ -52,13 +50,6 @@ src_prepare() {
 	if use sqlite ; then
 		sed -i -e "s#^DB_TYPE = .*#DB_TYPE = sqlite3#" custom/conf/app.example.ini || die
 	fi
-
-	einfo "Remove tests which are known to fail with network-sandbox enabled."
-	rm ./modules/migrations/github_test.go || die
-
-	einfo "Remove tests which depend on gitea git-repo."
-	rm ./modules/git/blob_test.go || die
-	rm ./modules/git/repo_test.go || die
 }
 
 src_compile() {
@@ -73,10 +64,10 @@ src_compile() {
 		"-X code.gitea.io/gitea/modules/setting.AppWorkPath=${EPREFIX}/var/lib/gitea"
 	)
 	local makeenv=(
-		TAGS="${gitea_tags[*]}"
+		DRONE_TAG="${PV}"
 		LDFLAGS="-extldflags \"${LDFLAGS}\" ${gitea_settings[*]}"
+		TAGS="${gitea_tags[*]}"
 	)
-	[[ ${PV} != 9999* ]] && makeenv+=("DRONE_TAG=${MY_PV}")
 
 	env "${makeenv[@]}" emake backend
 }
@@ -95,7 +86,7 @@ src_install() {
 
 	insinto /etc/gitea
 	newins custom/conf/app.example.ini app.ini
-	if use acct ; then
+	if use acct; then
 		fowners root:git /etc/gitea/{,app.ini}
 		fperms g+w,o-rwx /etc/gitea/{,app.ini}
 
