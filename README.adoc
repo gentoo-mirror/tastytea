@@ -35,7 +35,9 @@ layman -fa tastytea
 
 I use SSH to sign commits. Before 2022-01-19, I used PGP.
 
-SSH key: `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPp7WPSOAZBNPuZ3LVlbE2KiOIxlVW4PGAHIx0b7EJKH`
+Fingerprint: `SHA256:FBkvrOlhq5use1XEttyUGT4bUTDVA1ar9SgIc9P03cM`
+
+Public key: `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPp7WPSOAZBNPuZ3LVlbE2KiOIxlVW4PGAHIx0b7EJKH`
 
 === PGP
 
