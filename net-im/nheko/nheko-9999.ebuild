@@ -16,7 +16,7 @@ MY_DEP_URIS=(
 LICENSE="GPL-3 MIT"
 SLOT="0"
 KEYWORDS=""
-IUSE="X pipewire video voip"
+IUSE="X video voip"
 REQUIRED_USE="video? ( voip )"
 
 MY_GST_V="1.18"
@@ -41,7 +41,6 @@ RDEPEND="
 	dev-qt/qtquickcontrols2:5[widgets]
 	dev-qt/qtsvg:5
 	net-misc/curl
-	pipewire? ( media-video/pipewire[gstreamer] )
 	voip? (
 		>=media-plugins/gst-plugins-dtls-${MY_GST_V}
 		media-plugins/gst-plugins-libnice
