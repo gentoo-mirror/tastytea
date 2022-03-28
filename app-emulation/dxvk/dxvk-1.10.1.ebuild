@@ -11,7 +11,7 @@ fi
 
 DESCRIPTION="Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine"
 HOMEPAGE="https://github.com/doitsujin/dxvk"
-if [[ "${PV}" == "9999" ]]; then
+if [[ "${PV}" == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/doitsujin/dxvk.git"
 else
 	SRC_URI="https://github.com/doitsujin/dxvk/archive/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -19,9 +19,7 @@ fi
 
 LICENSE="ZLIB"
 SLOT="0"
-if [[ "${PV}" == "9999" ]]; then
-	KEYWORDS=""
-else
+if [[ "${PV}" != *9999* ]]; then
 	KEYWORDS="~amd64"
 fi
 IUSE="+d3d9 +d3d10 +d3d11 debug +dxgi video_cards_nvidia test"
