@@ -16,7 +16,7 @@ MY_DEP_URIS=(
 LICENSE="GPL-3 MIT"
 SLOT="0"
 KEYWORDS=""
-IUSE="X video voip"
+IUSE="X dbus video voip"
 REQUIRED_USE="video? ( voip )"
 
 MY_GST_V="1.18"
@@ -31,7 +31,7 @@ RDEPEND="
 	dev-qt/qtconcurrent:5
 	dev-qt/qtdeclarative:5[widgets]
 	dev-qt/qtgraphicaleffects:5
-	dev-qt/qtgui:5[gif,jpeg,png]
+	dev-qt/qtgui:5[dbus?,gif,jpeg,png]
 	dev-qt/qtimageformats
 	dev-qt/qtmultimedia:5[gstreamer,qml,widgets]
 	dev-qt/qtquickcontrols2:5[widgets]
