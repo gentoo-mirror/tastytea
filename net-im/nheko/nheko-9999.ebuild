@@ -114,9 +114,11 @@ src_install() {
 
 pkg_postinst() {
 	optfeature "audio & video file playback support" \
-			   "media-plugins/gst-plugins-meta[ffmpeg]"
+		"media-plugins/gst-plugins-meta[ffmpeg]"
 	optfeature "secrets storage support other than kwallet (gnome-keyring or keepassxc)" \
-			   "dev-libs/qtkeychain[gnome-keyring]"
+		"dev-libs/qtkeychain[gnome-keyring]"
+	optfeature "additional, less common, image format support" \
+		"kde-frameworks/kimageformats"
 
 	xdg_pkg_postinst
 }
