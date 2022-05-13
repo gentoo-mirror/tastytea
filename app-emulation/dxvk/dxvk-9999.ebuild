@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MULTILIB_COMPAT=( abi_x86_{32,64} )
 inherit flag-o-matic meson multilib-minimal
@@ -11,7 +11,7 @@ fi
 
 DESCRIPTION="Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine"
 HOMEPAGE="https://github.com/doitsujin/dxvk"
-if [[ "${PV}" == "9999" ]]; then
+if [[ "${PV}" == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/doitsujin/dxvk.git"
 else
 	SRC_URI="https://github.com/doitsujin/dxvk/archive/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -19,12 +19,10 @@ fi
 
 LICENSE="ZLIB"
 SLOT="0"
-if [[ "${PV}" == "9999" ]]; then
-	KEYWORDS=""
-else
+if [[ "${PV}" != *9999* ]]; then
 	KEYWORDS="~amd64"
 fi
-IUSE="+d3d9 +d3d10 +d3d11 debug +dxgi video_cards_nvidia test"
+IUSE="+d3d9 +d3d10 +d3d11 debug +dxgi video_cards_nvidia skip-toolchain-check test"
 
 DEPEND="
 	dev-util/vulkan-headers
@@ -34,7 +32,7 @@ RDEPEND="
 	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
 	|| (
 		video_cards_nvidia? ( >=x11-drivers/nvidia-drivers-440.31 )
-		>=media-libs/mesa-19.2
+		>=media-libs/mesa-20.2
 	)
 	|| (
 		>=app-emulation/wine-staging-4.5[${MULTILIB_USEDEP},vulkan]
@@ -49,26 +47,28 @@ PATCHES=(
 RESTRICT="!test? ( test )"
 
 pkg_pretend () {
-	local -a categories
-	use abi_x86_64 && categories+=("cross-x86_64-w64-mingw32")
-	use abi_x86_32 && categories+=("cross-i686-w64-mingw32")
+	if ! use skip-toolchain-check; then
+		local -a categories
+		use abi_x86_64 && categories+=("cross-x86_64-w64-mingw32")
+		use abi_x86_32 && categories+=("cross-i686-w64-mingw32")
 
-	for cat in ${categories[@]}; do
-		local thread_model="$(LC_ALL=C ${cat/cross-/}-gcc -v 2>&1 \
+		for cat in ${categories[@]}; do
+			local thread_model="$(LC_ALL=C ${cat/cross-/}-gcc -v 2>&1 \
 			  | grep 'Thread model' | cut -d' ' -f3)" || die
-		if ! has_version -b "${cat}/mingw64-runtime[libraries]" ||
-				! has_version -b "${cat}/gcc" ||
-				[[ "${thread_model}" != "posix" ]]; then
-			eerror "The ${cat} toolchain is not properly installed."
-			eerror "Make sure to install ${cat}/mingw64-runtime with USE=\"libraries\""
-			eerror "and ${cat}/gcc with EXTRA_ECONF=\"--enable-threads=posix\"."
-			eerror "See <https://wiki.gentoo.org/wiki/DXVK> for more information."
+			if ! has_version -b ">=${cat}/mingw64-runtime-8.0.0[libraries]" ||
+					! has_version -b "${cat}/gcc" ||
+					[[ "${thread_model}" != "posix" ]]; then
+				eerror "The ${cat} toolchain is not properly installed."
+				eerror "Make sure to install ${cat}/mingw64-runtime >= 8.0.0 with USE=\"libraries\""
+				eerror "and ${cat}/gcc with EXTRA_ECONF=\"--enable-threads=posix\"."
+				eerror "See <https://wiki.gentoo.org/wiki/DXVK> for more information."
 
-			einfo "Alternatively you can install app-emulation/dxvk-bin from the “guru” repo."
+				einfo "Alternatively you can install app-emulation/dxvk-bin from the “guru” repo."
 
-			die "${cat} toolchain is not properly installed."
-		fi
-	done
+				die "${cat} toolchain is not properly installed."
+			fi
+		done
+	fi
 
 	einfo "Please report build errors first to the package maintainer via"
 	einfo "<https://schlomp.space/tastytea/overlay/issues> or email."
