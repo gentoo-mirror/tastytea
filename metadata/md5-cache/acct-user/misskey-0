@@ -1,0 +1,9 @@
+DEFINED_PHASES=install postinst preinst prerm pretend
+DESCRIPTION=User for Misskey
+EAPI=8
+INHERIT=acct-user
+KEYWORDS=~amd64
+RDEPEND=acct-group/misskey
+SLOT=0
+_eclasses_=user-info	69a1ed744ec33cf2c910ff2bd6084d11	user	ccdfe713e9e8d4a8714f0370512ca086	acct-user	38e6655114f60cacc969baf808da755b
+_md5_=cfd3113fe9bef571a4b5d9c90791b5d2

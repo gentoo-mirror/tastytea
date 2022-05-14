@@ -16,6 +16,7 @@ net-im/nheko:voip - Enables audio calls
 sys-apps/hashboot:firmware - Enable firmware support through sys-apps/flashrom.
 www-apps/gitea:acct - User and group management via acct-*/git packages
 www-apps/gotify-server-bin:logrotate - Use app-admin/logrotate for rotating logs
+www-apps/misskey:nginx - Make init script depend on nginx
 www-apps/pleroma:apache - Installs a configuration file for apache.
 www-apps/pleroma:nginx - Installs a configuration file for nginx.
 www-apps/up-common-proxies:logrotate - Use app-admin/logrotate for rotating logs
