@@ -1,0 +1,18 @@
+#!/sbin/openrc-run
+
+name=misskey
+description="Misskey daemon"
+
+command="/usr/bin/npm"
+command_args="start"
+command_user="misskey"
+
+supervisor="supervise-daemon"
+supervise_daemon_args=" -d /opt/misskey/misskey -e NODE_ENV=\"production\""
+
+pidfile="/run/${RC_SVCNAME}.pid"
+
+depend() {
+	need net
+	use logger
+}
