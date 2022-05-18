@@ -6,7 +6,7 @@
 
 EAPI=7
 
-inherit savedconfig
+inherit optfeature savedconfig
 
 # NOTE: update for each bump
 MY_COMMIT_ASSETS="0179793ec891856d6f37a3be16ba4c22f67a81b5"
@@ -48,7 +48,6 @@ RDEPEND="
 	acct-user/misskey
 	dev-db/postgresql
 	dev-db/redis
-	media-video/ffmpeg
 	nginx? ( www-servers/nginx )
 "
 
@@ -103,6 +102,8 @@ pkg_postinst() {
 	if use nginx; then
 		einfo "An nginx example config can be found at <https://misskey-hub.net/en/docs/admin/nginx.html>"
 	fi
+
+	optfeature "thumbnail generation support" media-video/ffmpeg
 }
 
 pkg_config() {
