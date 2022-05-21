@@ -96,10 +96,12 @@ src_install() {
 }
 
 pkg_preinst() {
+	pushd "${EROOT}"/opt/misskey/misskey || die
+	ebegin "Cleaning ${EROOT}/opt/misskey/misskey"
+	yarn cleanall || die
+	eend
 	ebegin "Removing ${EROOT}/opt/misskey/misskey/{built,node_modules,packages}"
-	rm -rf "${EROOT}"/opt/misskey/misskey/built || die
-	rm -rf "${EROOT}"/opt/misskey/misskey/node_modules || die
-	rm -rf "${EROOT}"/opt/misskey/misskey/packages || die
+	rm -rf {built,node_modules,packages} || die
 	eend
 }
 
