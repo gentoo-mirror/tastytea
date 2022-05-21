@@ -95,28 +95,27 @@ src_install() {
 	fi
 }
 
-pkg_preinst() {
-	# Clean up changes that were made after installation
-	if [[ -d "${EROOT}"/opt/misskey/misskey ]]; then
-		cd "${EROOT}"/opt/misskey/misskey || die
+# pkg_preinst() {
+# 	# Clean up changes that were made after installation
+# 	if [[ -d "${EROOT}"/opt/misskey/misskey ]]; then
+# 		cd "${EROOT}"/opt/misskey/misskey || die
 
-		ebegin "Running 'yarn cleanall' in ${EROOT}/opt/misskey/misskey"
-		su -s /bin/bash -c "yarn cleanall" misskey
-		eend ${?}
+# 		ebegin "Running 'yarn cleanall' in ${EROOT}/opt/misskey/misskey"
+# 		su -s /bin/bash -c "yarn --verbose cleanall" misskey
+# 		eend ${?}
 
-		ebegin "Removing ${EROOT}/opt/misskey/misskey/{built,node_modules,packages}"
-		rm -rf {built,node_modules,packages} || die
-		eend ${?}
-	fi
-}
+# 		ebegin "Removing ${EROOT}/opt/misskey/misskey/{built,node_modules,packages}"
+# 		rm -rf {built,node_modules,packages} || die
+# 		eend ${?}
+# 	fi
+# }
 
 pkg_postinst() {
 	elog "Run emerge --config ${CATEGORY}/${PN} to initialise the PostgreSQL database"
 
-	ebegin "Running 'yarn migrate'"
+	einfo "Running 'yarn migrate'"
 	cd "${EROOT}"/opt/misskey/misskey || die
-	su -s /bin/bash -c "yarn migrate" misskey
-	eend ${?}
+	su -s /bin/bash -c "yarn --verbose migrate" misskey || die
 
 	if use nginx; then
 		einfo "An nginx example config can be found at <https://misskey-hub.net/en/docs/admin/nginx.html>"
