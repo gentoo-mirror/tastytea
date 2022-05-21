@@ -114,8 +114,9 @@ pkg_postinst() {
 	elog "Run emerge --config ${CATEGORY}/${PN} to initialise the PostgreSQL database"
 
 	einfo "Running 'yarn migrate'"
-	cd "${EROOT}"/opt/misskey/misskey || die
-	su -s /bin/bash -c "yarn --verbose migrate" misskey || die
+	su --shell /bin/bash --login --command \
+		"cd misskey && yarn --verbose migrate" \
+		misskey || die "migration failed"
 
 	if use nginx; then
 		einfo "An nginx example config can be found at <https://misskey-hub.net/en/docs/admin/nginx.html>"
@@ -131,8 +132,9 @@ pkg_config() {
 	echo "create database misskey; create user misskey with encrypted password '${MY_PASSWORD}'; grant all privileges on database misskey to misskey; \q" \
 		| su -lc psql postgres || die "database creation failed"
 
-	cd "${EROOT}"/opt/misskey/misskey || die
-	su -s /bin/bash -c "yarn run init" misskey || die "database initialisation failed"
+	su --shell /bin/bash --login --command \
+		"cd misskey && yarn --verbose run init" \
+		misskey || die "database initialisation failed"
 
 	ewarn "When you first start Misskey you will be asked to add an admin account via the web interface, and registrations are enabled."
 	ewarn "Do not expose the web interface to the public until after you configured your instance\!"
