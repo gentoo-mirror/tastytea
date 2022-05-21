@@ -95,6 +95,16 @@ src_install() {
 	fi
 }
 
+pkg_preinst() {
+	pushd "${EROOT}"/opt/misskey/misskey || die
+	ebegin "Cleaning ${EROOT}/opt/misskey/misskey"
+	yarn cleanall || die
+	eend
+	ebegin "Removing ${EROOT}/opt/misskey/misskey/{built,node_modules,packages}"
+	rm -rf {built,node_modules,packages} || die
+	eend
+}
+
 pkg_postinst() {
 	elog "Run emerge --config ${CATEGORY}/${PN} to initialise the PostgreSQL database"
 	elog "Run 'su -c \"yarn migrate\" misskey' in ${EROOT}/opt/misskey/misskey and restart the service to apply changes"
