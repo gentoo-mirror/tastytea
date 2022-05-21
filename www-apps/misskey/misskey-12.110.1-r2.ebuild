@@ -96,18 +96,27 @@ src_install() {
 }
 
 pkg_preinst() {
-	pushd "${EROOT}"/opt/misskey/misskey || die
-	ebegin "Cleaning ${EROOT}/opt/misskey/misskey"
-	yarn cleanall || die
-	eend
-	ebegin "Removing ${EROOT}/opt/misskey/misskey/{built,node_modules,packages}"
-	rm -rf {built,node_modules,packages} || die
-	eend
+	# Clean up changes that were made after installation
+	if [[ -d "${EROOT}"/opt/misskey/misskey ]]; then
+		cd "${EROOT}"/opt/misskey/misskey || die
+
+		ebegin "Running 'yarn cleanall' in ${EROOT}/opt/misskey/misskey"
+		su -s /bin/bash -c "yarn cleanall" misskey
+		eend ${?}
+
+		ebegin "Removing ${EROOT}/opt/misskey/misskey/{built,node_modules,packages}"
+		rm -rf {built,node_modules,packages} || die
+		eend ${?}
+	fi
 }
 
 pkg_postinst() {
 	elog "Run emerge --config ${CATEGORY}/${PN} to initialise the PostgreSQL database"
-	elog "Run 'su -c \"yarn migrate\" misskey' in ${EROOT}/opt/misskey/misskey and restart the service to apply changes"
+
+	ebegin "Running 'yarn migrate'"
+	cd "${EROOT}"/opt/misskey/misskey || die
+	su -s /bin/bash -c "yarn migrate" misskey
+	eend ${?}
 
 	if use nginx; then
 		einfo "An nginx example config can be found at <https://misskey-hub.net/en/docs/admin/nginx.html>"
@@ -123,8 +132,8 @@ pkg_config() {
 	echo "create database misskey; create user misskey with encrypted password '${MY_PASSWORD}'; grant all privileges on database misskey to misskey; \q" \
 		| su -lc psql postgres || die "database creation failed"
 
-	cd "${EROOT}/opt/misskey/misskey"
-	yarn run init || die "database initialisation failed"
+	cd "${EROOT}"/opt/misskey/misskey || die
+	su -s /bin/bash -c "yarn run init" misskey || die "database initialisation failed"
 
 	ewarn "When you first start Misskey you will be asked to add an admin account via the web interface, and registrations are enabled."
 	ewarn "Do not expose the web interface to the public until after you configured your instance\!"
