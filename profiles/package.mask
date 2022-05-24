@@ -1,10 +1,3 @@
 # tastytea <tastytea@tastytea.de> (2022-05-13)
 # Very experimental, use at your own risk. 💣
 www-apps/misskey
-
-# tastytea <tastytea@tastytea.de> (2022-03-26)
-# Ebuild is in a bad state, I will soon not use it anymore. Removal on
-# 2022-04-30 or a bit later.
-www-apps/pleroma
-acct-user/pleroma
-acct-group/pleroma
