@@ -22,5 +22,6 @@
 	</upstream>
 	<use>
 		<flag name="nginx">Make init script depend on nginx</flag>
+		<flag name="source">Install full source code</flag>
 	</use>
 </pkgmetadata>
