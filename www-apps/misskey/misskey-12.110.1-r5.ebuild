@@ -80,11 +80,10 @@ src_compile() {
 }
 
 src_install() {
-	rm -rf npm-cache || die "Deleting cache failed"
-
 	insinto opt/misskey/misskey
 	insopts -o misskey -g misskey
 	if use source; then
+		rm -rf npm-cache || die "Deleting cache failed"
 		doins -r .
 	else
 		doins -r package.json .node-version .config built packages
