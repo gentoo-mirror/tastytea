@@ -16,23 +16,26 @@ HOMEPAGE="https://misskey-hub.net/"
 SRC_URI="
 	https://github.com/misskey-dev/misskey/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/misskey-dev/assets/archive/${MY_COMMIT_ASSETS}.tar.gz -> ${PN}-assets-${PV}.tar.gz
-	https://tastytea.de/files/gentoo/${P}-deps.tar
+	https://tastytea.de/files/gentoo/${P}-r6-deps.tar.xz
 "
 
-# NOTE: To generate the (incomplete) deps archive:
-#       echo 'yarn-offline-mirror "./npm-cache"' >> .yarnrc
-#       echo 'cache=./npm_cache' >> .npmrc
+# NOTE: to generate the deps archive:
+#       export YARN_CACHE_FOLDER="$(realpath ./packages-cache)"
+#       export CYPRESS_CACHE_FOLDER="$(realpath ./packages-cache)"
+#       export npm_config_cache="$(realpath ./packages-cache)"
+#       yarn clean-all && rm -r packages-cache
 #       yarn install
-#       tar -caf ${P}-deps.tar npm-cache
+#       tar -caf ${P}-deps.tar.xz packages-cache
+#       unset YARN_CACHE_FOLDER CYPRESS_CACHE_FOLDER npm_config_cache
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="nginx"
+IUSE="nginx +savedconfig source"
 
 REQUIRED_USE="savedconfig"
 
-RESTRICT="network-sandbox"
+RESTRICT="strip"
 
 COMMON_DEPEND="
 	net-libs/nodejs:0/16
@@ -55,14 +58,17 @@ src_unpack() {
 	default
 	mv --no-target-directory assets-${MY_COMMIT_ASSETS} ${P}/${PN}-assets \
 		|| die "Could not move assets"
-	mv npm-cache ${P}/ || die "Could not move npm cache"
+	mv packages-cache ${T}/ || die "Could not move packages cache"
 }
 
 src_prepare() {
-	yarn config set yarn-offline-mirror $(realpath ./npm-cache) \
-		 || die "Setting up npm offline cache failed"
-	npm config set cache $(realpath ./npm-cache) \
-		|| die "Setting up npm offline cache failed"
+	export YARNFLAGS="--offline --verbose --frozen-lockfile"
+	export YARN_CACHE_FOLDER="${T}"/packages-cache
+	export CYPRESS_CACHE_FOLDER="${T}"/packages-cache
+	export npm_config_cache="${T}"/packages-cache
+	# use system node-gyp
+	PATH+=":/usr/lib64/node_modules/npm/bin/node-gyp-bin"
+	export npm_config_nodedir=/usr/include/node/
 
 	restore_config .config/default.yml
 	if [[ ! -f .config/default.yml ]]; then
@@ -74,16 +80,19 @@ src_prepare() {
 }
 
 src_compile() {
-	# this still downloads stuff 🙃
-	yarn --offline install || die "dependency installation failed"
-	NODE_ENV=production yarn --offline build || die "build failed"
+	yarn ${YARNFLAGS} install || die "dependency installation failed"
+	NODE_ENV=production yarn ${YARNFLAGS} build || die "build failed"
 }
 
 src_install() {
-	rm -rf npm-cache || die "Deleting cache failed"
 	insinto opt/misskey/misskey
 	insopts -o misskey -g misskey
-	doins -r .
+	if use source; then
+		doins -r .
+	else
+		doins -r package.json .node-version .config built packages
+	fi
+
 	# insopts doesn't affect directories
 	chown --recursive misskey:misskey "${ED}"/opt/misskey/misskey
 	chmod o= "${ED}"/opt/misskey/misskey
@@ -93,11 +102,20 @@ src_install() {
 		sed -i 's/use logger$/use logger nginx/' "${ED}"/etc/init.d/${PN} \
 			|| die "Could not modify OpenRC init script"
 	fi
+
+	einstalldocs
 }
 
 pkg_postinst() {
-	elog "Run emerge --config ${CATEGORY}/${PN} to initialise the PostgreSQL database"
-	elog "Run 'su -c \"yarn migrate\" misskey' in ${EROOT}/opt/misskey/misskey and restart the service to apply changes"
+	# Only run migrations if database exists
+	if su --login --command "psql misskey -c ''" postgres; then
+		einfo "Running 'yarn migrate'"
+		su --shell /bin/bash --login --command \
+		   "cd misskey && yarn ${YARNFLAGS} --verbose migrate" \
+		   misskey || die "migration failed"
+	else
+		elog "Run emerge --config ${CATEGORY}/${PN} to initialise the PostgreSQL database"
+	fi
 
 	if use nginx; then
 		einfo "An nginx example config can be found at <https://misskey-hub.net/en/docs/admin/nginx.html>"
@@ -109,12 +127,13 @@ pkg_postinst() {
 pkg_config() {
 	einfo "Initialising PostgreSQL database"
 	echo -n "password for misskey user: "
-	read MY_PASSWORD
+	read MY_PASSWORD || die "Reading password failed"
 	echo "create database misskey; create user misskey with encrypted password '${MY_PASSWORD}'; grant all privileges on database misskey to misskey; \q" \
-		| su -lc psql postgres || die "database creation failed"
+		| su --login --command psql postgres || die "database creation failed"
 
-	cd "${EROOT}/opt/misskey/misskey"
-	yarn run init || die "database initialisation failed"
+	su --shell /bin/bash --login --command \
+		"cd misskey && yarn ${YARNFLAGS} run init" \
+		misskey || die "database initialisation failed"
 
 	ewarn "When you first start Misskey you will be asked to add an admin account via the web interface, and registrations are enabled."
 	ewarn "Do not expose the web interface to the public until after you configured your instance\!"
