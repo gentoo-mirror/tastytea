@@ -1,9 +1,6 @@
 # Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# TODO: systemd support, ffmpeg USE-flags, postgresql USE-flags,
-#       nginx USE-flags, bundle node_modules/cypress deps
-
 EAPI=7
 
 inherit optfeature savedconfig
