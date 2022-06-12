@@ -103,7 +103,7 @@ src_install() {
 	einstalldocs
 }
 
-src_preinst() {
+pkg_preinst() {
 	# Apparently Misskey creates files at runtime that can interfere
 	# after an upgrade. Normally you would run 'yarn cleanall'.
 	einfo "Cleaning up Misskey directory …"
