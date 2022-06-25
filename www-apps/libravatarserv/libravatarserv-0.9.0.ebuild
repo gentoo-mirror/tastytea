@@ -25,8 +25,8 @@ SLOT="0"
 
 RDEPEND="
 	dev-cpp/identiconpp
-	dev-libs/crypto++
-	media-gfx/imagemagick
+	dev-libs/crypto++:=
+	media-gfx/imagemagick:=
 "
 DEPEND="${RDEPEND}"
 
