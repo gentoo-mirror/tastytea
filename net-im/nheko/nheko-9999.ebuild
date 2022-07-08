@@ -24,6 +24,7 @@ RDEPEND="
 	app-text/cmark
 	dev-cpp/qt-jdenticon
 	>=dev-db/lmdb++-1.0.0
+	dev-libs/libfmt:=
 	dev-libs/olm
 	>=dev-libs/openssl-1.1.0
 	>=dev-libs/qtkeychain-0.12.0
