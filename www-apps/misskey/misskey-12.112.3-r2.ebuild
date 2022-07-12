@@ -35,7 +35,8 @@ REQUIRED_USE="savedconfig"
 RESTRICT="strip network-sandbox"
 
 COMMON_DEPEND="
-	net-libs/nodejs:0/16
+	>=net-libs/nodejs-16:=[npm]
+	<net-libs/nodejs-17
 	sys-apps/yarn
 "
 BDEPEND="
