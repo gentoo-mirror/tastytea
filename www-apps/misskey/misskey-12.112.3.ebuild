@@ -54,6 +54,11 @@ RDEPEND="
 	nginx? ( www-servers/nginx )
 "
 
+QA_PREBUILT="
+	/opt/misskey/misskey/packages/backend/node_modules/msgpackr-extract/prebuilds/*
+	/opt/misskey/misskey/packages/client/node_modules/microtime/prebuilds/*
+"
+
 src_unpack() {
 	default
 	mv --no-target-directory assets-${MY_COMMIT_ASSETS} ${P}/${PN}-assets \
