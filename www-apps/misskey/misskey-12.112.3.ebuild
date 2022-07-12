@@ -20,19 +20,19 @@ SRC_URI="
 #       export YARN_CACHE_FOLDER="$(realpath ./packages-cache)"
 #       export CYPRESS_CACHE_FOLDER="$(realpath ./packages-cache)"
 #       export npm_config_cache="$(realpath ./packages-cache)"
-#       yarn clean-all && rm -r packages-cache
+#       yarn clean-all && rm -rf packages-cache
 #       yarn install
 #       tar -caf ${P}-deps.tar.xz packages-cache
 #       unset YARN_CACHE_FOLDER CYPRESS_CACHE_FOLDER npm_config_cache
 
 LICENSE="GPL-3"
 SLOT="0"
-# KEYWORDS="~amd64"
+KEYWORDS="~amd64"
 IUSE="nginx +savedconfig source"
 
 REQUIRED_USE="savedconfig"
 
-RESTRICT="strip"
+RESTRICT="strip network-sandbox"
 
 COMMON_DEPEND="
 	|| (
