@@ -114,7 +114,7 @@ pkg_preinst() {
 	# after an upgrade. Normally you would run 'yarn cleanall'.
 	einfo "Cleaning up Misskey directory …"
 	su --shell /bin/bash --login --command \
-		"rm -rf misskey/{built,packages,node_modules}" \
+		"rm -rf misskey/{built,node_modules} && rm -rf misskey/packages/{backend,client,sw}/{built,node_modules}" \
 		misskey || die "cleanup failed"
 }
 
