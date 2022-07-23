@@ -21,14 +21,14 @@ REQUIRED_USE="video? ( voip )"
 
 MY_GST_V="1.18"
 RDEPEND="
-	app-text/cmark
+	app-text/cmark:=
 	dev-cpp/qt-jdenticon
 	>=dev-db/lmdb++-1.0.0
 	dev-libs/libfmt:=
 	dev-libs/olm
 	>=dev-libs/openssl-1.1.0
-	>=dev-libs/qtkeychain-0.12.0
-	dev-libs/spdlog
+	>=dev-libs/qtkeychain-0.12.0:=
+	dev-libs/spdlog:=
 	dev-qt/qtconcurrent:5
 	dev-qt/qtdeclarative:5[widgets]
 	dev-qt/qtgraphicaleffects:5
