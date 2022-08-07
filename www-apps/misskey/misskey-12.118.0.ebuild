@@ -5,7 +5,7 @@ EAPI=7
 
 inherit optfeature savedconfig
 
-# NOTE: update for each bump
+# NOTE: check for updates on each bump
 MY_COMMIT_ASSETS="0179793ec891856d6f37a3be16ba4c22f67a81b5"
 
 DESCRIPTION="An interplanetary microblogging platform"
@@ -20,7 +20,6 @@ SRC_URI="
 #       export YARN_CACHE_FOLDER="$(realpath ./packages-cache)"
 #       export CYPRESS_CACHE_FOLDER="$(realpath ./packages-cache)"
 #       export npm_config_cache="$(realpath ./packages-cache)"
-#       yarn clean-all && rm -rf packages-cache
 #       yarn install
 #       tar -caf ${P}-deps.tar.xz packages-cache
 #       unset YARN_CACHE_FOLDER CYPRESS_CACHE_FOLDER npm_config_cache
@@ -36,7 +35,7 @@ RESTRICT="strip network-sandbox"
 
 COMMON_DEPEND="
 	>=net-libs/nodejs-16:=[npm]
-	<net-libs/nodejs-17
+	<net-libs/nodejs-19
 	sys-apps/yarn
 "
 BDEPEND="
@@ -114,7 +113,7 @@ pkg_preinst() {
 	# after an upgrade. Normally you would run 'yarn cleanall'.
 	einfo "Cleaning up Misskey directory …"
 	su --shell /bin/bash --login --command \
-		"rm -rf misskey/{built,packages,node_modules}" \
+		"rm -rf misskey/{built,node_modules} && rm -rf misskey/packages/{backend,client,sw}/{built,node_modules}" \
 		misskey || die "cleanup failed"
 }
 
