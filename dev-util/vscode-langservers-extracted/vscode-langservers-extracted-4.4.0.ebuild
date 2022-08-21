@@ -6,7 +6,7 @@ EAPI=8
 DESCRIPTION="HTML/CSS/JSON/ESLint/Markdown language servers extracted from vscode."
 HOMEPAGE="https://github.com/hrsh7th/vscode-langservers-extracted"
 SRC_URI="
-	https://registry.npmjs.org/${PN}/-/${P}.tgz
+	mirror://npm/${PN}/-/${PN}-4.4.0.tgz
 	https://tastytea.de/files/gentoo/${P}-deps.tar.xz
 "
 S="${WORKDIR}"
