@@ -1,0 +1,12 @@
+#!/bin/sh
+# some paths must be writable, so we put them into a temporary directory
+
+TMPPATH="$(mktemp --directory lua-language-server.XXXX --tmpdir)"
+
+EPREFIX/opt/lua-language-server/bin/lua-language-server \
+    -E EPREFIX/opt/lua-language-server/main.lua \
+    --logpath="${TMPPATH}/log" \
+    --metapath="${TMPPATH}/meta" \
+    "$@"
+
+rm -rf "${TMPPATH}"
