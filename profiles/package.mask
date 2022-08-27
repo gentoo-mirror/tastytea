@@ -1,3 +1,0 @@
-# tastytea <gentoo@tastytea.de> (2022-07-25)
-# Package is in ::gentoo now, removal on 2022-08-25.
-app-emulation/dxvk

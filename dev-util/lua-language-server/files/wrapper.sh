@@ -5,8 +5,8 @@ DATAPATH="${XDG_DATA_HOME:-${HOME}/.local/share}/lua-language-server"
 STATEPATH="${XDG_STATE_HOME:-${HOME}/.local/state}/lua-language-server"
 mkdir --parents ${DATAPATH} ${STATEPATH}
 
-exec EPREFIX/opt/lua-language-server/bin/lua-language-server \
-    -E EPREFIX/opt/lua-language-server/main.lua \
+exec @GENTOO_PORTAGE_EPREFIX@/opt/lua-language-server/bin/lua-language-server \
+    -E @GENTOO_PORTAGE_EPREFIX@/opt/lua-language-server/main.lua \
     --logpath="${STATEPATH}/log" \
     --metapath="${DATAPATH}/meta" \
     "$@"
