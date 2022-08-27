@@ -2,11 +2,6 @@
 # Please add your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using pmaint *
 
-app-emulation/dxvk:d3d10 - Build D3D10
-app-emulation/dxvk:d3d11 - Build D3D11
-app-emulation/dxvk:d3d9 - Build D3D9
-app-emulation/dxvk:dxgi - Build DXGI
-app-emulation/dxvk:skip-toolchain-check - Do not check if the toolchain is installed correctly
 app-i18n/poedit:cld2 - Better language autodetection and non-English source languages via sci-libs/cld2
 app-i18n/poedit:crowdin - Enable Crowdin (online translation platform) integration
 dev-cpp/cpprest:brotli - Enable brotli compression/decompression support
