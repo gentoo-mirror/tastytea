@@ -7,7 +7,7 @@ EAPI=8
 
 LUA_COMPAT=( lua{5-{1,3,4},jit} )
 
-inherit lua-single ninja-utils toolchain-funcs
+inherit lua-single ninja-utils prefix toolchain-funcs
 
 DESCRIPTION="A language server that offers Lua language support"
 HOMEPAGE="https://github.com/sumneko/lua-language-server"
@@ -39,7 +39,7 @@ src_prepare() {
 	sed -i "s/flags = \"-Wall -Werror\"/flags = \"-Wall ${CXXFLAGS}\"/" \
 		make/code_format.lua || die
 
-	sed "s/EPREFIX/${EPREFIX}/g" "${FILESDIR}"/wrapper-r1.sh.in > wrapper.sh || die
+	prefixify_ro "${FILESDIR}"/wrapper.sh
 
 	default
 }
@@ -50,7 +50,7 @@ src_compile() {
 }
 
 src_install() {
-	newbin wrapper.sh ${PN}
+	newbin "${T}"/wrapper.sh ${PN}
 
 	into /opt/${PN}
 	dobin bin/${PN}
