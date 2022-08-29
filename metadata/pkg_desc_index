@@ -13,6 +13,7 @@ dev-lang/compilescript 0.4.1 9999: Allows you to execute files from compiled lan
 dev-perl/Mail-GnuPG 0.23: Process email with GPG
 dev-util/highlight-diffpatch 9999: Highlight diff-ed patches
 dev-util/lua-language-server 3.5.3-r1: A language server that offers Lua language support
+dev-util/qml-lsp 0.2.0 0.2.0_p20220610: Collection of QML tools, including qml-lsp, qml-dap, and qml-refactor-fairy
 dev-util/vscode-langservers-extracted 4.4.0: HTML/CSS/JSON/ESLint/Markdown language servers extracted from vscode.
 games-server/factorio-server 1.1.59 1.1.61: Factorio is a game in which you build and maintain factories.
 net-im/nheko 9999: Native desktop client for Matrix using Qt
