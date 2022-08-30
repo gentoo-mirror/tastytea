@@ -11,7 +11,10 @@ dev-cpp/restclient-cpp 0.5.1-r1 0.5.2: C++ client for making HTTP/REST requests
 dev-cpp/xdgcfg 0.5.0: Wrapper around libconfig that writes and reads files in XDG_CONFIG_HOME
 dev-lang/compilescript 0.4.1 9999: Allows you to execute files from compiled languages as scripts.
 dev-perl/Mail-GnuPG 0.23: Process email with GPG
+dev-python/pygls 0.12.1: A pythonic generic language server
 dev-util/bash-language-server 3.1.0: A language server for Bash
+dev-util/cmake-language-server 0.1.6: CMake LSP Implementation
+dev-util/cmakelang 0.6.13: Quality Assurance (QA) tools for cmake (formerly cmake_format)
 dev-util/highlight-diffpatch 9999: Highlight diff-ed patches
 dev-util/lemminx-bin 0.21.0: XML Language Server
 dev-util/lua-language-server 3.5.3-r1: A language server that offers Lua language support
