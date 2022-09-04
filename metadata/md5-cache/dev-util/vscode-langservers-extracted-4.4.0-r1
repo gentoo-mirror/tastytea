@@ -9,4 +9,4 @@ LICENSE=Apache-2.0 ISC MIT
 RDEPEND=net-libs/nodejs[npm]
 SLOT=0
 SRC_URI=mirror://npm/vscode-langservers-extracted/-/vscode-langservers-extracted-4.4.0.tgz https://tastytea.de/files/gentoo/vscode-langservers-extracted-4.4.0-deps.tar.xz
-_md5_=247d54c948a323119ec45a9002377b98
+_md5_=8ba188b437a39d8b6de01df544b749c0

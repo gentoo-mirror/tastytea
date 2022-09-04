@@ -11,4 +11,4 @@ RDEPEND=net-libs/nodejs[npm]
 SLOT=0
 SRC_URI=mirror://npm/bash-language-server/-/bash-language-server-3.1.0.tgz https://tastytea.de/files/gentoo/bash-language-server-3.1.0-deps.tar.xz
 _eclasses_=optfeature	1a2157392a869265b2afcb63a26c12ac
-_md5_=e4d8cc33f076340c31ae29ad797f888e
+_md5_=a8ba1fb699d3d6809748a9ef947f73ad
