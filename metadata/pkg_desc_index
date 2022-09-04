@@ -12,14 +12,15 @@ dev-cpp/xdgcfg 0.5.0: Wrapper around libconfig that writes and reads files in XD
 dev-lang/compilescript 0.4.1 9999: Allows you to execute files from compiled languages as scripts.
 dev-perl/Mail-GnuPG 0.23: Process email with GPG
 dev-python/pygls 0.12.1: A pythonic generic language server
-dev-util/bash-language-server 3.1.0: A language server for Bash
+dev-util/bash-language-server 3.1.0 3.1.0-r1: A language server for Bash
 dev-util/cmake-language-server 0.1.6: CMake LSP Implementation
 dev-util/cmakelang 0.6.13: Quality Assurance (QA) tools for cmake (formerly cmake_format)
 dev-util/highlight-diffpatch 9999: Highlight diff-ed patches
 dev-util/lemminx-bin 0.21.0: XML Language Server
 dev-util/lua-language-server 3.5.3-r1: A language server that offers Lua language support
 dev-util/qml-lsp 0.2.0 0.2.0_p20220610: Collection of QML tools, including qml-lsp, qml-dap, and qml-refactor-fairy
-dev-util/vscode-langservers-extracted 4.4.0: HTML/CSS/JSON/ESLint/Markdown language servers extracted from vscode.
+dev-util/typescript-language-server 1.1.2: TypeScript & JavaScript Language Server
+dev-util/vscode-langservers-extracted 4.4.0 4.4.0-r1: HTML/CSS/JSON/ESLint/Markdown language servers extracted from vscode.
 games-server/factorio-server 1.1.61 1.1.68: Factorio is a game in which you build and maintain factories.
 net-im/nheko 9999: Native desktop client for Matrix using Qt
 net-misc/feiertagebot 9999: Allows you to execute files from compiled languages as scripts.

@@ -1,0 +1,14 @@
+BDEPEND=net-libs/nodejs[npm]
+DEFINED_PHASES=install postinst unpack
+DEPEND=net-libs/nodejs[npm]
+DESCRIPTION=A language server for Bash
+EAPI=8
+HOMEPAGE=https://github.com/bash-lsp/bash-language-server
+INHERIT=optfeature
+KEYWORDS=~amd64
+LICENSE=Apache-2.0 BSD-2 BSD ISC MIT public-domain
+RDEPEND=net-libs/nodejs[npm]
+SLOT=0
+SRC_URI=mirror://npm/bash-language-server/-/bash-language-server-3.1.0.tgz https://tastytea.de/files/gentoo/bash-language-server-3.1.0-deps.tar.xz
+_eclasses_=optfeature	1a2157392a869265b2afcb63a26c12ac
+_md5_=e4d8cc33f076340c31ae29ad797f888e
