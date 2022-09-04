@@ -40,7 +40,7 @@ src_install() {
 		--global \
 		--prefix "${ED}"/usr \
 		--cache "${T}"/npm-cache \
-		install "${DISTDIR}"/${P}.tgz || die "Compilation failed"
+		install "${DISTDIR}"/${P}.tgz || die "npm install failed"
 
 	einstalldocs
 }
