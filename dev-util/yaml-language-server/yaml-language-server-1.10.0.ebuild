@@ -3,10 +3,8 @@
 
 EAPI=8
 
-inherit optfeature
-
-DESCRIPTION="A language server for Bash"
-HOMEPAGE="https://github.com/bash-lsp/bash-language-server"
+DESCRIPTION="Language Server for YAML Files"
+HOMEPAGE="https://github.com/redhat-developer/yaml-language-server"
 SRC_URI="
 	mirror://npm/${PN}/-/${P}.tgz
 	https://tastytea.de/files/gentoo/${P}-deps.tar.xz
@@ -17,7 +15,7 @@ S="${WORKDIR}"
 #       npm --cache "$(realpath ./npm-cache)" install $(portageq envvar DISTDIR)/${P}.tgz
 #       tar -caf ${P}-deps.tar.xz npm-cache
 
-LICENSE="Apache-2.0 BSD-2 BSD ISC MIT public-domain"
+LICENSE="Apache-2.0 BSD-2 ISC MIT-with-advertising"
 SLOT="0"
 KEYWORDS="~amd64"
 
@@ -41,8 +39,4 @@ src_install() {
 		install "${DISTDIR}"/${P}.tgz || die "npm install failed"
 
 	einstalldocs
-}
-
-pkg_postinst() {
-	optfeature "linting support" dev-util/shellcheck dev-util/shellcheck-bin
 }
