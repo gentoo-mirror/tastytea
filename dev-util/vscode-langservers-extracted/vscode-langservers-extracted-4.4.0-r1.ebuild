@@ -19,9 +19,8 @@ LICENSE="Apache-2.0 ISC MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="net-libs/nodejs[npm]"
-RDEPEND="${DEPEND}"
-BDEPEND="${DEPEND}"
+RDEPEND="net-libs/nodejs"
+BDEPEND="net-libs/nodejs[npm]"
 
 src_unpack() {
 	cd "${T}" || die "Could not cd to temporary directory"
