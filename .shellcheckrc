@@ -6,5 +6,6 @@ disable=SC2034          # unused variable
 disable=SC2115          # empty variable in path
 disable=SC2086,SC2206   # quote variables
 disable=SC2046          # quote $(foo)
+disable=SC2207          # Quote in arrays
 
 # vim: set ts=4 sw=4 et tw=80 ft=bash:
