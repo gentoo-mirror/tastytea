@@ -1,0 +1,8 @@
+# tastytea <gentoo@tastytea.de> (2022-09-08)
+# Package is in ::guru[1] now, removal on 2022-10-10.
+# [1] <https://wiki.gentoo.org/wiki/Project:GURU>
+dev-util/bash-language-server
+dev-util/typescript-language-server
+dev-util/vscode-langservers-extracted
+dev-util/yaml-language-server
+dev-util/lemminx-bin
