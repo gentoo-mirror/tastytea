@@ -3,13 +3,14 @@
 
 EAPI=8
 
+MAJORV="${PV%%.*}"
+FONT_PN=${PN}-${MAJORV}
+
 inherit font
 
-MAJORV="${PV%%.*}"
-
-DESCRIPTION="Sans serif font family for user interface environments"
-HOMEPAGE="https://adobe-fonts.github.io/source-sans/"
-SRC_URI="https://github.com/adobe-fonts/source-sans/archive/${PV}R.tar.gz -> source-sans-${PV}.tar.gz"
+DESCRIPTION="Serif font family for user interface environments"
+HOMEPAGE="https://adobe-fonts.github.io/source-serif/"
+SRC_URI="https://github.com/adobe-fonts/source-serif/archive/${PV}R.tar.gz -> source-serif-${PV}.tar.gz"
 S="${WORKDIR}/${P}R"
 
 LICENSE="OFL-1.1"

@@ -3,19 +3,18 @@
 
 EAPI=8
 
+FONT_PN=${PN}-pro
+
 inherit font
 
-REALV="2.020R-ro/1.075R-it"
-
-DESCRIPTION="Sans serif font family for user interface environments"
-HOMEPAGE="https://adobe-fonts.github.io/source-sans/"
-SRC_URI="https://github.com/adobe-fonts/source-sans/archive/${REALV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-${REALV//\//-}"
+DESCRIPTION="Serif font family for user interface environments"
+HOMEPAGE="https://adobe-fonts.github.io/source-serif/"
+SRC_URI="https://github.com/adobe-fonts/source-serif/archive/${PV}R.tar.gz -> source-serif-${PV}.tar.gz"
+S="${WORKDIR}/${P}R"
 
 LICENSE="OFL-1.1"
 SLOT="pro"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos"
-IUSE="cjk"
 
 RESTRICT="binchecks strip"
 
