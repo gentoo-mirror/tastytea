@@ -3,6 +3,8 @@
 
 EAPI=8
 
+FONT_PN=${PN}-pro
+
 inherit font
 
 DESCRIPTION="Serif font family for user interface environments"

@@ -3,9 +3,10 @@
 
 EAPI=8
 
-inherit font
-
 MAJORV="${PV%%.*}"
+FONT_PN=${PN}-${MAJORV}
+
+inherit font
 
 DESCRIPTION="Serif font family for user interface environments"
 HOMEPAGE="https://adobe-fonts.github.io/source-serif/"
