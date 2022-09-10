@@ -12,4 +12,4 @@ RESTRICT=binchecks strip
 SLOT=pro
 SRC_URI=https://github.com/adobe-fonts/source-serif/archive/3.001R.tar.gz -> source-serif-3.001.tar.gz
 _eclasses_=font	d31f12a0f6e13d56dc3062e76ae58a61
-_md5_=a50fa7056de0bba4ffe67a6e2ad6bfb9
+_md5_=923f70772460eb9c9bba4bdb52347f2e

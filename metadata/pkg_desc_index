@@ -25,8 +25,8 @@ dev-util/yaml-language-server 1.10.0: Language Server for YAML Files
 games-server/factorio-server 1.1.61 1.1.68: Factorio is a game in which you build and maintain factories.
 media-fonts/source-code-pro 2.038: Monospaced font family for user interface and coding environments
 media-fonts/source-han-sans 2.004: Pan-CJK OpenType/CFF font family
-media-fonts/source-sans 2.020 3.046: Sans serif font family for user interface environments
-media-fonts/source-serif 3.001 4.004: Serif font family for user interface environments
+media-fonts/source-sans 2.020-r1 3.046-r1: Sans serif font family for user interface environments
+media-fonts/source-serif 3.001-r1 4.004-r1: Serif font family for user interface environments
 net-im/nheko 9999: Native desktop client for Matrix using Qt
 net-misc/feiertagebot 9999: Allows you to execute files from compiled languages as scripts.
 net-misc/soupbot 9999: soupbot is a soup-recommending bot for Mastodon
