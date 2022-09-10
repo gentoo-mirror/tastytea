@@ -3,28 +3,25 @@
 
 EAPI=8
 
-inherit font
+MAJORV="${PV%%.*}"
+FONT_PN=${PN}-${MAJORV}
 
-REALV="2.020R-ro/1.075R-it"
+inherit font
 
 DESCRIPTION="Sans serif font family for user interface environments"
 HOMEPAGE="https://adobe-fonts.github.io/source-sans/"
-SRC_URI="https://github.com/adobe-fonts/source-sans/archive/${REALV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-${REALV//\//-}"
+SRC_URI="https://github.com/adobe-fonts/source-sans/archive/${PV}R.tar.gz -> source-sans-${PV}.tar.gz"
+S="${WORKDIR}/${P}R"
 
 LICENSE="OFL-1.1"
-SLOT="pro"
+SLOT="${MAJORV}"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos"
-IUSE="cjk"
 
 RESTRICT="binchecks strip"
 
-RDEPEND="
-	media-libs/fontconfig
-	!media-fonts/source-pro
-"
+RDEPEND="media-libs/fontconfig"
 
-FONT_CONF=( "${FILESDIR}"/63-${PN}-pro.conf )
+FONT_CONF=( "${FILESDIR}"/63-${PN}-${MAJORV}.conf )
 FONT_SUFFIX="otf"
 
 src_prepare() {
