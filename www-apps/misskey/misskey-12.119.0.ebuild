@@ -60,7 +60,7 @@ src_unpack() {
 	default
 	mv --no-target-directory assets-${MY_COMMIT_ASSETS} ${P}/${PN}-assets \
 		|| die "Could not move assets"
-	mv packages-cache ${T}/ || die "Could not move packages cache"
+	mv packages-cache "${T}"/ || die "Could not move packages cache"
 }
 
 src_prepare() {
@@ -99,7 +99,7 @@ src_install() {
 	chown --recursive misskey:misskey "${ED}"/opt/misskey/misskey
 	chmod o= "${ED}"/opt/misskey/misskey
 
-	newinitd ${FILESDIR}/${PN}.initd ${PN}
+	newinitd "${FILESDIR}"/${PN}.initd ${PN}
 	if use nginx; then
 		sed -i 's/use logger$/use logger nginx/' "${ED}"/etc/init.d/${PN} \
 			|| die "Could not modify OpenRC init script"
