@@ -16,15 +16,12 @@ if [[ "${PV}" == "9999" ]]; then
 else
 	SRC_URI="https://schlomp.space/tastytea/libravatarserv/archive/${PV}.tar.gz
 		-> ${P}.tar.gz"
+	KEYWORDS="~amd64"
+	S="${WORKDIR}/${PN}"
 fi
 
 LICENSE="GPL-3"
 SLOT="0"
-if [[ "${PV}" == "9999" ]]; then
-	KEYWORDS=""
-else
-	KEYWORDS="~amd64"
-fi
 IUSE=""
 
 RDEPEND="
@@ -36,7 +33,3 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 DOCS=("README.md" "doc/nginx-example.conf")
-
-if [[ "${PV}" != "9999" ]]; then
-	S="${WORKDIR}/${PN}"
-fi
