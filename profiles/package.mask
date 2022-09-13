@@ -1,3 +1,7 @@
+# tastytea <gentoo@tastytea.de> (2022-09-13)
+# Dead upstream, removal on 2022-10-14.
+dev-cpp/xdgcfg
+
 # tastytea <gentoo@tastytea.de> (2022-09-08)
 # Package is in ::guru[1] now, removal on 2022-10-10.
 # [1] <https://wiki.gentoo.org/wiki/Project:GURU>
