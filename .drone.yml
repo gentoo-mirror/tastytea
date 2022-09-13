@@ -23,7 +23,9 @@ steps:
     path: /drone/guru
   commands:
   - echo -e '[guru]\nlocation = /drone/guru' > /etc/portage/repos.conf/guru.conf
-  - pkgcheck --verbose scan --net --checks='-ImlateCheck,-RedundantVersionCheck'
+  - pkgcheck --verbose scan --net
+    --checks='-ImlateCheck,-RedundantVersionCheck'
+    --keywords='-NonsolvableDepsInDev'
 
 - name: notify
   image: drillster/drone-email
