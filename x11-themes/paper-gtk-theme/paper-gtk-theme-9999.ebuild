@@ -8,7 +8,6 @@ HOMEPAGE="https://snwh.org/paper"
 EGIT_REPO_URI="https://github.com/snwh/paper-gtk-theme.git"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
 
 src_unpack() {
 	git-r3_src_unpack
