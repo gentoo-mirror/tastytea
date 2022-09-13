@@ -16,16 +16,15 @@ if [[ "${PV}" == "9999" ]]; then
 else
 	SRC_URI="https://schlomp.space/tastytea/identiconpp/archive/${PV}.tar.gz
 		-> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="GPL-3"
 SLOT="0"
-if [[ "${PV}" == "9999" ]]; then
-	KEYWORDS=""
-else
-	KEYWORDS="~amd64"
-fi
 IUSE="doc examples test"
+
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	media-gfx/imagemagick[png,cxx]
@@ -36,10 +35,6 @@ DEPEND="
 	test? ( dev-cpp/catch )
 	${RDEPEND}
 "
-
-if [[ "${PV}" != "9999" ]]; then
-	S="${WORKDIR}/${PN}"
-fi
 
 src_prepare() {
 	if use doc; then
