@@ -22,7 +22,6 @@ steps:
   - name: guru
     path: /drone/guru
   commands:
-  - mkdir /etc/portage/repos.conf
   - echo -e '[guru]\nlocation = /drone/guru' > /etc/portage/repos.conf/guru.conf
   - pkgcheck --verbose scan --net
 
