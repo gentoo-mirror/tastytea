@@ -19,15 +19,12 @@ else
 		https://schlomp.space/tastytea/whyblocked/archive/${PV}.tar.gz -> ${P}.tar.gz
 		https://schlomp.space/tastytea/xdgcfg/archive/${XDGCFG_PV}.tar.gz -> xdgcfg-${XDGCFG_PV}.tar.gz
 	"
+	S="${WORKDIR}/${PN}"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="GPL-3"
 SLOT="0"
-if [[ "${PV}" == "9999" ]]; then
-	KEYWORDS=""
-else
-	KEYWORDS="~amd64"
-fi
 IUSE="nls"
 
 RDEPEND="
@@ -42,10 +39,6 @@ DEPEND="
 	app-text/asciidoc
 	${RDEPEND}
 "
-
-if [[ "${PV}" != "9999" ]]; then
-	S="${WORKDIR}/${PN}"
-fi
 
 src_unpack() {
 	if [[ "${PV}" == "9999" ]]; then

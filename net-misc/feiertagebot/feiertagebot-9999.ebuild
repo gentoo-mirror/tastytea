@@ -19,15 +19,12 @@ else
 		https://schlomp.space/tastytea/feiertagebot/archive/${PV}.tar.gz -> ${P}.tar.gz
 		https://schlomp.space/tastytea/xdgjson/archive/${XDGJSON_PV}.tar.gz -> xdgcfg-${XDGJSON_PV}.tar.gz
 	"
+	S="${WORKDIR}/${PN}"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3"
 SLOT="0"
-if [[ "${PV}" == "9999" ]]; then
-	KEYWORDS=""
-else
-	KEYWORDS="~amd64 ~x86"
-fi
 IUSE=""
 
 RDEPEND="
@@ -40,10 +37,6 @@ DEPEND="
 	dev-util/cmake
 	${RDEPEND}
 "
-
-if [[ "${PV}" != "9999" ]]; then
-	S="${WORKDIR}/${PN}"
-fi
 
 src_unpack() {
 	if [[ "${PV}" == "9999" ]]; then

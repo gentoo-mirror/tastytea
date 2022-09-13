@@ -15,16 +15,14 @@ if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://schlomp.space/tastytea/remwharead.git"
 else
 	SRC_URI="https://schlomp.space/tastytea/remwharead/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3"
 SLOT="0"
-if [[ "${PV}" == "9999" ]]; then
-	KEYWORDS=""
-else
-	KEYWORDS="~amd64 ~x86"
-fi
 IUSE="doc +firefox rofi test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	net-misc/curl
@@ -40,10 +38,6 @@ DEPEND="
 	test? ( dev-cpp/catch )
 	doc? ( app-doc/doxygen )
 "
-
-if [[ "${PV}" != "9999" ]]; then
-	S="${WORKDIR}/${PN}"
-fi
 
 src_configure() {
 	local mycmakeargs=(
