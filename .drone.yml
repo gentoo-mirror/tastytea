@@ -1,22 +1,22 @@
 kind: pipeline
 type: docker
-name: check
+name: check all packages
 
 volumes:
 - name: guru
   temp: {}
 
 steps:
-- name: Clone ::guru
-  image: alpine/git
+- name: clone ::guru
+  image: docker:git
   volumes:
   - name: guru
     path: /drone/guru
   commands:
   - git clone https://github.com/gentoo-mirror/guru.git /drone/guru
 
-- name: repoman
-  image: tastytea/repoman
+- name: pkgcheck
+  image: tastytea/pkgcheck
   pull: always
   volumes:
   - name: guru
@@ -24,13 +24,7 @@ steps:
   commands:
   - mkdir /etc/portage/repos.conf
   - echo -e '[guru]\nlocation = /drone/guru' > /etc/portage/repos.conf/guru.conf
-  - repoman full --include-dev --xmlparse
-
-# - name: pkgcheck
-#   image: tastytea/pkgcheck
-#   pull: always
-#   commands:
-#   - for catpkg in $(ls -d *-*/*); do pkgcheck scan --net $${catpkg}; done
+  - pkgcheck --verbose scan --net
 
 - name: notify
   image: drillster/drone-email
