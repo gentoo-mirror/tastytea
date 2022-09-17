@@ -22,7 +22,7 @@ dev-util/qml-lsp 0.2.0 0.2.0_p20220610: Collection of QML tools, including qml-l
 dev-util/typescript-language-server 1.1.2: TypeScript & JavaScript Language Server
 dev-util/vscode-langservers-extracted 4.4.0 4.4.0-r1: HTML/CSS/JSON/ESLint/Markdown language servers extracted from vscode.
 dev-util/yaml-language-server 1.10.0: Language Server for YAML Files
-games-server/factorio-server 1.1.61 1.1.68: Factorio is a game in which you build and maintain factories.
+games-server/factorio-server 1.1.68 1.1.69: Factorio is a game in which you build and maintain factories.
 media-fonts/source-code-pro 2.038: Monospaced font family for user interface and coding environments
 media-fonts/source-han-sans 2.004: Pan-CJK OpenType/CFF font family
 media-fonts/source-sans 2.020-r1 3.046-r1: Sans serif font family for user interface environments
