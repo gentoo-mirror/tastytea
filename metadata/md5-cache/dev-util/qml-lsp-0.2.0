@@ -11,5 +11,5 @@ RDEPEND=dev-libs/tree-sitter dev-qt/qtcore
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://invent.kde.org/sdk/qml-lsp/-/archive/rjienrlwey-number-two/qml-lsp-rjienrlwey-number-two.tar.bz2 https://tastytea.de/files/gentoo/qml-lsp-0.2.0-vendor.tar.xz
-_eclasses_=go-module	05668e36c51c78c9681fdf4aefa0abec
+_eclasses_=go-module	b088539f282ed242c23f38fa65472184
 _md5_=5faf3dce9c641b40c65dc2b25016b4f9
