@@ -28,6 +28,7 @@ RDEPEND="
 	dev-libs/olm
 	>=dev-libs/openssl-1.1.0
 	>=dev-libs/qtkeychain-0.12.0:=
+	>=dev-libs/re2-0.2022.04.01
 	dev-libs/spdlog:=
 	dev-qt/qtconcurrent:5
 	dev-qt/qtdeclarative:5[widgets]
