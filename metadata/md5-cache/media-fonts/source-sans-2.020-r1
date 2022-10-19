@@ -11,5 +11,5 @@ RDEPEND=media-libs/fontconfig !media-fonts/source-pro
 RESTRICT=binchecks strip
 SLOT=pro
 SRC_URI=https://github.com/adobe-fonts/source-sans/archive/2.020R-ro/1.075R-it.tar.gz -> source-sans-2.020.tar.gz
-_eclasses_=font	d31f12a0f6e13d56dc3062e76ae58a61
+_eclasses_=font	bc7d91ca9054e47ad87b5763214665a4
 _md5_=f7788682f1c130505ae5e2202730703c
