@@ -11,5 +11,5 @@ RDEPEND=dev-libs/tree-sitter dev-qt/qtcore
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://invent.kde.org/sdk/qml-lsp/-/archive/19c7deccfc2d4f4ea0d6d7e94dc75088d2612727/qml-lsp-19c7deccfc2d4f4ea0d6d7e94dc75088d2612727.tar.bz2 https://tastytea.de/files/gentoo/qml-lsp-0.2.0_p20220610-vendor.tar.xz
-_eclasses_=go-module	b088539f282ed242c23f38fa65472184
+_eclasses_=go-module	15312495dc4fd84f8c37bbe228ea2abd
 _md5_=34518f0ff9ea2ae38020bc2c51850361
