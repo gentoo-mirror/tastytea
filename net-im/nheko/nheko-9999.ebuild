@@ -23,12 +23,14 @@ MY_GST_V="1.18"
 RDEPEND="
 	app-text/cmark:=
 	dev-cpp/qt-jdenticon
+	dev-db/lmdb:=
 	>=dev-db/lmdb++-1.0.0
+	dev-libs/libevent:=
 	dev-libs/libfmt:=
 	dev-libs/olm
-	>=dev-libs/openssl-1.1.0
+	>=dev-libs/openssl-1.1.0:=
 	>=dev-libs/qtkeychain-0.12.0:=
-	>=dev-libs/re2-0.2022.04.01
+	>=dev-libs/re2-0.2022.04.01:=
 	dev-libs/spdlog:=
 	dev-qt/qtconcurrent:5
 	dev-qt/qtdeclarative:5[widgets]
@@ -52,6 +54,7 @@ RDEPEND="
 			>=media-plugins/gst-plugins-qt5-${MY_GST_V}
 			X? (
 				>=media-plugins/gst-plugins-ximagesrc-${MY_GST_V}
+				x11-libs/libxcb:=
 				x11-libs/xcb-util-wm
 			)
 		)
