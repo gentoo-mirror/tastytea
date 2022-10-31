@@ -1,11 +1,12 @@
 BDEPEND=sys-apps/yarn
-DEFINED_PHASES=compile install prepare
+DEFINED_PHASES=compile install postinst prepare
 DESCRIPTION=A moderation tool for Matrix
 EAPI=8
 HOMEPAGE=https://github.com/matrix-org/mjolnir
 IUSE=doc
+KEYWORDS=~amd64
 LICENSE=0BSD Apache-2.0 BSD BSD-2 ISC MIT PYTHON Unlicense
 RDEPEND=>=net-libs/nodejs-16
 SLOT=0
 SRC_URI=https://github.com/matrix-org/mjolnir/archive/refs/tags/v1.5.0.tar.gz -> mjolnir-1.5.0.tar.gz https://tastytea.de/files/gentoo/mjolnir-1.5.0-deps.tar.xz
-_md5_=9b3b5ae99cc73331a12ee1b160e8e627
+_md5_=4174a61b6e3064bde78bc138eeb67210
