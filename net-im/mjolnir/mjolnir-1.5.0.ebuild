@@ -16,7 +16,7 @@ SRC_URI="
 
 LICENSE="0BSD Apache-2.0 BSD BSD-2 ISC MIT PYTHON Unlicense"
 SLOT="0"
-# KEYWORDS="~amd64"
+KEYWORDS="~amd64"
 IUSE="doc"
 
 RDEPEND=">=net-libs/nodejs-16"
@@ -50,7 +50,7 @@ src_install() {
 	newinitd "${FILESDIR}"/${PN}.initd ${PN}
 }
 
-pkg_postinstall() {
+pkg_postinst() {
 	if [[ ! -f "${EROOT}"/opt/${PN}/config/production.yaml ]]; then
 		elog "Copy the configuration example from /usr/share/doc/${PF}/default.yaml*"
 		elog "into /opt/${PN}/config/production.yaml and edit it."
