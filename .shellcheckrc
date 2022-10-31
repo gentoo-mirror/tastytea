@@ -1,3 +1,5 @@
+shell=bash
+
 # This disables some warnings for stuff that is normal in ebuilds. Less false
 # positives, but also less right positives.
 
