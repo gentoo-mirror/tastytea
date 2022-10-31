@@ -19,5 +19,8 @@ depend() {
 
 start_pre() {
 	local cfg=/opt/mjolnir/config/production.yaml
-	[[ -f ${cfg} ]] || echo "${cfg} does not exist or is not a regular file" >&2
+	if [[ -f ${cfg} ]]; then
+		echo "${cfg} does not exist or is not a regular file" >&2
+		return 1
+	fi
 }
