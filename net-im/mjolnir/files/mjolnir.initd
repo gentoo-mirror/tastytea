@@ -1,0 +1,23 @@
+#!/sbin/openrc-run
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="mjolnir daemon"
+description="mjolnir daemon"
+command=/usr/bin/node
+command_args="mjolnir/index.js"
+command_user="${MJOLNIR_USER:-synapse}"
+
+supervisor="supervise-daemon"
+supervise_daemon_args=" -d /opt/mjolnir -e NODE_ENV=\"production\""
+
+pidfile="/run/${RC_SVCNAME}.pid"
+
+depend() {
+	need net
+}
+
+start_pre() {
+	local cfg=/opt/mjolnir/config/production.yaml
+	[[ -f ${cfg} ]] || echo "${cfg} does not exist or is not a regular file" >&2
+}
