@@ -10,5 +10,5 @@ LICENSE=hug-ware
 PROPERTIES=live
 RDEPEND=firmware? ( sys-apps/flashrom )
 SLOT=0
-_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f
 _md5_=f882b57bc99374b0f35dff6c45894d40
