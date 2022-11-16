@@ -17,7 +17,7 @@ dev-util/cmake-language-server 0.1.6: CMake LSP Implementation
 dev-util/cmakelang 0.6.13: Quality Assurance (QA) tools for cmake (formerly cmake_format)
 dev-util/highlight-diffpatch 9999: Highlight diff-ed patches
 dev-util/lemminx-bin 0.21.0: XML Language Server
-dev-util/lua-language-server 3.5.5 3.5.6: A language server that offers Lua language support
+dev-util/lua-language-server 3.5.5 3.5.6 3.6.3: A language server that offers Lua language support
 dev-util/qml-lsp 0.2.0 0.2.0_p20220610: Collection of QML tools, including qml-lsp, qml-dap, and qml-refactor-fairy
 dev-util/typescript-language-server 1.1.2: TypeScript & JavaScript Language Server
 dev-util/vscode-langservers-extracted 4.4.0 4.4.0-r1: HTML/CSS/JSON/ESLint/Markdown language servers extracted from vscode.
