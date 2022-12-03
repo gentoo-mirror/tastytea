@@ -138,7 +138,7 @@ pkg_postinst() {
 pkg_config() {
 	einfo "Initialising PostgreSQL database"
 	echo -n "password for misskey user: "
-	read MY_PASSWORD || die "Reading password failed"
+	read -r MY_PASSWORD || die "Reading password failed"
 	echo "create database misskey; create user misskey with encrypted password '${MY_PASSWORD}'; grant all privileges on database misskey to misskey; \q" \
 		| su --login --command psql postgres || die "database creation failed"
 
