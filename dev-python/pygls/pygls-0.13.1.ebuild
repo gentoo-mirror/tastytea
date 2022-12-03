@@ -26,7 +26,10 @@ DEPEND="
 	dev-python/toml[${PYTHON_USEDEP}]
 "
 RDEPEND="
-	<dev-python/pydantic-1.10.0[${PYTHON_USEDEP}]
+	dev-python/pydantic[${PYTHON_USEDEP}]
+	python_targets_python3_11? (
+		>=dev-python/pydantic-1.10.2[${PYTHON_USEDEP}]
+	)
 	<dev-python/typeguard-3.0.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
