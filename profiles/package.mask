@@ -1,0 +1,5 @@
+# tastytea <gentoo@tastytea.de> (2023-01-06)
+# Package is in ::guru[1] now,  removal on 2023-02-06
+# [1] <https://wiki.gentoo.org/wiki/Project:GURU>
+# (was masked before but i forgot to remove it 🤦)
+dev-util/typescript-language-server
