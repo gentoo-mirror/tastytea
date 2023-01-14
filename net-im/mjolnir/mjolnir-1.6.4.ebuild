@@ -3,14 +3,26 @@
 
 EAPI=8
 
+MATRIX_RUST_SDK_V="0.1.0-beta.1"
 DESCRIPTION="A moderation tool for Matrix"
 HOMEPAGE="https://github.com/matrix-org/mjolnir"
 SRC_URI="
 	https://github.com/matrix-org/mjolnir/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	https://tastytea.de/files/gentoo/${P}-deps.tar.xz
+	elibc_glibc? (
+		amd64? (
+			https://github.com/matrix-org/matrix-rust-sdk/releases/download/matrix-sdk-crypto-nodejs-v${MATRIX_RUST_SDK_V}/matrix-sdk-crypto.linux-x64-gnu.node -> matrix-sdk-crypto-${MATRIX_RUST_SDK_V}.linux-x64-gnu.node
+		)
+	)
+	elibc_musl? (
+		amd64? (
+			https://github.com/matrix-org/matrix-rust-sdk/releases/download/matrix-sdk-crypto-nodejs-v${MATRIX_RUST_SDK_V}/matrix-sdk-crypto.linux-x64-musl.node -> matrix-sdk-crypto-${MATRIX_RUST_SDK_V}.linux-x64-musl.node
+		)
+	)
 "
 
 # NOTE: to generate the deps archive:
+#       tar -xf /var/cache/distfiles/${P}.tar.gz && cd ${P}
 #       yarn --cache-folder ./yarn-cache install
 #       tar -caf ${P}-deps.tar.xz yarn-cache
 
@@ -20,12 +32,25 @@ KEYWORDS="~amd64"
 IUSE="doc"
 
 RDEPEND=">=net-libs/nodejs-16"
-BDEPEND="sys-apps/yarn"
+BDEPEND="
+	sys-apps/yarn
+	dev-lang/typescript
+"
 
 MY_YARNOPTS="--offline --non-interactive --no-progress --verbose"
 
 src_prepare() {
 	yarn ${MY_YARNOPTS} --cache-folder ../yarn-cache install || die
+
+	local my_libc="gnu"
+	use elibc_musl && my_libc="musl"
+	local my_arch="x64"
+
+	# this is not cached but downloaded by a script usually
+	mkdir -p node_modules/@matrix-org/matrix-sdk-crypto-nodejs || die
+	cp "${DISTDIR}"/matrix-sdk-crypto-${MATRIX_RUST_SDK_V}.linux-${my_arch}-${my_libc}.node \
+		node_modules/@matrix-org/matrix-sdk-crypto-nodejs/matrix-sdk-crypto.linux-${my_arch}-${my_libc}.node \
+		|| die
 
 	default
 }
