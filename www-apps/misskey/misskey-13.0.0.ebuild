@@ -70,6 +70,7 @@ src_prepare() {
 	export CYPRESS_CACHE_FOLDER="${T}"/packages-cache
 	export npm_config_cache="${T}"/packages-cache
 	export PNPMFLAGS="--verbose"
+
 	# use system node-gyp
 	PATH+=":/usr/lib64/node_modules/npm/bin/node-gyp-bin"
 	export npm_config_nodedir=/usr/include/node/
@@ -87,6 +88,7 @@ src_prepare() {
 			"${T}"/bin/pnpm || die "Could not symlink pnpm.js"
 		PATH="${T}/bin:${PATH}"
 	fi
+	pnpm config set cache "${T}"/packages-cache
 
 	default
 }
