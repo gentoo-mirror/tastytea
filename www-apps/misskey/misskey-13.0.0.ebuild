@@ -88,12 +88,13 @@ src_prepare() {
 			"${T}"/bin/pnpm || die "Could not symlink pnpm.js"
 		PATH="${T}/bin:${PATH}"
 	fi
-	pnpm config set cache "${T}"/packages-cache
 
 	default
 }
 
 src_compile() {
+	pnpm config set cache "${T}"/packages-cache
+	pnpm config list
 	pnpm ${PNPMFLAGS} install || die "dependency installation failed"
 	NODE_ENV=production pnpm ${PNPMFLAGS} run build || die "build failed"
 }
