@@ -95,7 +95,7 @@ src_prepare() {
 }
 
 src_compile() {
-	pnpm ${PNPMFLAGS} install || die "dependency installation failed"
+	pnpm ${PNPMFLAGS} install --frozen-lockfile || die "dependency installation failed"
 	NODE_ENV=production pnpm ${PNPMFLAGS} run build || die "build failed"
 }
 
@@ -152,7 +152,7 @@ pkg_config() {
 	einfo "Initialising PostgreSQL database"
 	echo -n "password for misskey user: "
 	read -r MY_PASSWORD || die "Reading password failed"
-	echo "create database misskey; create user misskey with encrypted password '${MY_PASSWORD}'; grant all privileges on database misskey to misskey; \q" \
+	echo "create database misskey with encoding = 'UTF8'; create user misskey with encrypted password '${MY_PASSWORD}'; grant all privileges on database misskey to misskey; \q" \
 		| su --login --command psql postgres || die "database creation failed"
 
 	su --shell /bin/bash --login --command \
