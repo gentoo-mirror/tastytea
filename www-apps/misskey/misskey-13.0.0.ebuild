@@ -58,8 +58,8 @@ QA_PREBUILT="
 
 pnpm() {
 	# use the pnpm from nodejs if it isn't available otherwise
-	if type pnpm > /dev/null 2>&1; then
-		pnpm "${@}"
+	if [[ -x /usr/bin/pnpm ]] > /dev/null 2>&1; then
+		/usr/bin/pnpm "${@}"
 	else
 		/usr/$(get_libdir)/node_modules/corepack/dist/pnpm.js "${@}"
 	fi
@@ -105,7 +105,7 @@ src_install() {
 	if use source; then
 		doins -r .
 	else
-		doins -r package.json .node-version .config built packages
+		doins -r package.json .node-version .config built node_modules packages
 	fi
 
 	# insopts doesn't affect directories
