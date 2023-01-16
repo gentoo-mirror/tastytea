@@ -56,6 +56,16 @@ QA_PREBUILT="
 	/opt/misskey/misskey/packages/client/node_modules/microtime/prebuilds/*
 "
 
+enable_pnpm_temp() {
+	# enable pnpm (part of nodejs) temporarily if it isn't available
+	if ! type pnpm > /dev/null 2>&1; then
+		mkdir "${T}"/bin || die
+		ln -s /usr/$(get_libdir)/node_modules/corepack/dist/pnpm.js \
+			"${T}"/bin/pnpm || die "Could not symlink pnpm.js"
+		PATH="${T}/bin:${PATH}"
+	fi
+}
+
 src_unpack() {
 	default
 	mv --no-target-directory assets-${MY_COMMIT_ASSETS} ${P}/${PN}-assets \
@@ -80,13 +90,7 @@ src_prepare() {
 		die "No config file found"
 	fi
 
-	# enable pnpm (part of nodejs) temporarily if it isn't available
-	if ! type pnpm > /dev/null 2>&1; then
-		mkdir "${T}"/bin || die
-		ln -s /usr/$(get_libdir)/node_modules/corepack/dist/pnpm.js \
-			"${T}"/bin/pnpm || die "Could not symlink pnpm.js"
-		PATH="${T}/bin:${PATH}"
-	fi
+	enable_pnpm_temp
 	pnpm config set cache "${T}"/packages-cache
 	pnpm config set store-dir "${T}"/packages-cache
 
@@ -130,6 +134,7 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
+	enable_pnpm_temp
 	# Only run migrations if database exists
 	if su --login --command "psql misskey -c ''" postgres; then
 		einfo "Running migration…"
@@ -148,6 +153,7 @@ pkg_postinst() {
 }
 
 pkg_config() {
+	enable_pnpm_temp
 	einfo "Initialising PostgreSQL database"
 	echo -n "password for misskey user: "
 	read -r MY_PASSWORD || die "Reading password failed"
