@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
 		<email>gentoo@tastytea.de</email>
@@ -19,6 +19,7 @@
 		<doc lang="ja">https://misskey-hub.net/docs/misskey.html</doc>
 		<doc lang="en">https://misskey-hub.net/en/docs/misskey.html</doc>
 		<bugs-to>https://github.com/misskey-dev/misskey/issues</bugs-to>
+		<remote-id type="github">misskey-dev/misskey</remote-id>
 	</upstream>
 	<use>
 		<flag name="nginx">Make init script depend on nginx</flag>

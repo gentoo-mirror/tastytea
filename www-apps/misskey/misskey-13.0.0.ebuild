@@ -14,7 +14,7 @@ HOMEPAGE="https://misskey-hub.net/"
 SRC_URI="
 	https://github.com/misskey-dev/misskey/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/misskey-dev/assets/archive/${MY_COMMIT_ASSETS}.tar.gz -> ${PN}-assets-${MY_COMMIT_ASSETS}.tar.gz
-	https://github.com/misskey-dev/emojis/archive/${MY_COMMIT_EMOJIS}.tar.gz -> ${PN}-assets-${MY_COMMIT_EMOJIS}.tar.gz
+	https://github.com/misskey-dev/emojis/archive/${MY_COMMIT_EMOJIS}.tar.gz -> ${PN}-emojis-${MY_COMMIT_EMOJIS}.tar.gz
 	https://tastytea.de/files/gentoo/${P}-deps.tar.xz
 "
 
@@ -60,7 +60,7 @@ src_unpack() {
 	default
 	mv --no-target-directory assets-${MY_COMMIT_ASSETS} ${P}/${PN}-assets \
 		|| die "Could not move assets"
-	mv --no-target-directory emojis-${MY_COMMIT_ASSETS} ${P}/fluent-emojis \
+	mv --no-target-directory emojis-${MY_COMMIT_EMOJIS} ${P}/fluent-emojis \
 		|| die "Could not move emojis"
 	mv packages-cache "${T}"/ || die "Could not move packages cache"
 }
