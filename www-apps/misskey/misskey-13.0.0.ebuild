@@ -70,6 +70,7 @@ src_prepare() {
 	export CYPRESS_CACHE_FOLDER="${T}"/packages-cache
 	export npm_config_cache="${T}"/packages-cache
 	export PNPMFLAGS="--verbose"
+
 	# use system node-gyp
 	PATH+=":/usr/lib64/node_modules/npm/bin/node-gyp-bin"
 	export npm_config_nodedir=/usr/include/node/
@@ -92,6 +93,8 @@ src_prepare() {
 }
 
 src_compile() {
+	pnpm config set cache "${T}"/packages-cache
+	pnpm config list
 	pnpm ${PNPMFLAGS} install || die "dependency installation failed"
 	NODE_ENV=production pnpm ${PNPMFLAGS} run build || die "build failed"
 }
