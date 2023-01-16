@@ -60,7 +60,7 @@ src_unpack() {
 	default
 	mv --no-target-directory assets-${MY_COMMIT_ASSETS} ${P}/${PN}-assets \
 		|| die "Could not move assets"
-	mv --no-target-directory emojis-${MY_COMMIT_ASSETS} ${P}/fluent-emojis \
+	mv --no-target-directory emojis-${MY_COMMIT_EMOJIS} ${P}/fluent-emojis \
 		|| die "Could not move emojis"
 	mv packages-cache "${T}"/ || die "Could not move packages cache"
 }
