@@ -19,12 +19,12 @@ SRC_URI="
 "
 
 # NOTE: to generate the deps archive:
-#       export YARN_CACHE_FOLDER="$(realpath ./packages-cache)"
 #       export CYPRESS_CACHE_FOLDER="$(realpath ./packages-cache)"
 #       export npm_config_cache="$(realpath ./packages-cache)"
+#       pnpm config set store-dir "$(realpath ./packages-cache)"
 #       pnpm install
 #       tar -caf ${P}-deps.tar.xz packages-cache
-#       unset YARN_CACHE_FOLDER CYPRESS_CACHE_FOLDER npm_config_cache
+#       unset CYPRESS_CACHE_FOLDER npm_config_cache
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -66,7 +66,6 @@ src_unpack() {
 }
 
 src_prepare() {
-	export YARN_CACHE_FOLDER="${T}"/packages-cache
 	export CYPRESS_CACHE_FOLDER="${T}"/packages-cache
 	export npm_config_cache="${T}"/packages-cache
 	export PNPMFLAGS="--verbose"
@@ -88,13 +87,13 @@ src_prepare() {
 			"${T}"/bin/pnpm || die "Could not symlink pnpm.js"
 		PATH="${T}/bin:${PATH}"
 	fi
+	pnpm config set cache "${T}"/packages-cache
+	pnpm config set store-dir "${T}"/packages-cache
 
 	default
 }
 
 src_compile() {
-	pnpm config set cache "${T}"/packages-cache
-	pnpm config list
 	pnpm ${PNPMFLAGS} install || die "dependency installation failed"
 	NODE_ENV=production pnpm ${PNPMFLAGS} run build || die "build failed"
 }
