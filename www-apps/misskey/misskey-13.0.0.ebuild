@@ -57,6 +57,7 @@ QA_PREBUILT="
 "
 
 setup_pnpm() {
+	ewarn "This ebuild is getting more and more hacky… 🥴"
 	# use the pnpm from nodejs if it isn't installed
 	if ! type pnpm > /dev/null 2>&1; then
 		mkdir "${T}"/bin || die "could not create dir in temporary directory"
