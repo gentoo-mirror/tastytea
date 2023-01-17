@@ -28,7 +28,7 @@ SRC_URI="
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+# KEYWORDS="~amd64"
 IUSE="nginx +savedconfig source"
 
 REQUIRED_USE="savedconfig"
@@ -136,13 +136,11 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	setup_pnpm
-
 	# Only run migrations if database exists
 	if su --login --command "psql misskey -c ''" postgres; then
 		einfo "Running migration…"
 		su --shell /bin/bash --login --command \
-		   "cd misskey && pnpm run migrate" \
+		   "cd misskey && PATH=\"${T}/bin/pnpm:${PATH}\" pnpm run migrate" \
 		   misskey || die "migration failed"
 	else
 		elog "Run emerge --config ${CATEGORY}/${PN} to initialise the PostgreSQL database"
@@ -156,8 +154,6 @@ pkg_postinst() {
 }
 
 pkg_config() {
-	setup_pnpm
-
 	einfo "Initialising PostgreSQL database"
 	echo -n "password for misskey user: "
 	read -r MY_PASSWORD || die "Reading password failed"
@@ -165,7 +161,7 @@ pkg_config() {
 		| su --login --command psql postgres || die "database creation failed"
 
 	su --shell /bin/bash --login --command \
-		"cd misskey && pnpm run init" \
+		"cd misskey && PATH=\"${T}/bin/pnpm:${PATH}\" pnpm run init" \
 		misskey || die "database initialisation failed"
 
 	ewarn "When you first start Misskey you will be asked to add an admin account via the web interface, and registrations are enabled."
