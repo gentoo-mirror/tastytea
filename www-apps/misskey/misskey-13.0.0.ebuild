@@ -22,7 +22,7 @@ SRC_URI="
 #       export CYPRESS_CACHE_FOLDER="$(realpath ./packages-cache)"
 #       export npm_config_cache="$(realpath ./packages-cache)"
 #       pnpm config set store-dir "$(realpath ./packages-cache)"
-#       pnpm install
+#       pnpm install --frozen-lockfile
 #       tar -caf ${P}-deps.tar.xz packages-cache
 #       unset CYPRESS_CACHE_FOLDER npm_config_cache
 
@@ -56,13 +56,18 @@ QA_PREBUILT="
 	/opt/misskey/misskey/packages/client/node_modules/microtime/prebuilds/*
 "
 
-pnpm() {
-	# use the pnpm from nodejs if it isn't available otherwise
-	if [[ -x /usr/bin/pnpm ]] > /dev/null 2>&1; then
-		/usr/bin/pnpm "${@}"
-	else
-		/usr/$(get_libdir)/node_modules/corepack/dist/pnpm.js "${@}"
+setup_pnpm() {
+	# use the pnpm from nodejs if it isn't installed
+	if ! type pnpm > /dev/null 2>&1; then
+		mkdir "${T}"/bin || die "could not create dir in temporary directory"
+		ln -s /usr/$(get_libdir)/node_modules/corepack/dist/pnpm.js \
+			"${T}"/bin/pnpm || die "could not create pnpm symlink"
+		PATH="${T}/bin:${PATH}"
 	fi
+}
+
+pkg_setup() {
+	setup_pnpm
 }
 
 src_unpack() {
@@ -135,7 +140,7 @@ pkg_postinst() {
 	if su --login --command "psql misskey -c ''" postgres; then
 		einfo "Running migration…"
 		su --shell /bin/bash --login --command \
-		   "cd misskey && pnpm run migrate" \
+		   "cd misskey && PATH=\"${T}/bin/pnpm:${PATH}\" pnpm run migrate" \
 		   misskey || die "migration failed"
 	else
 		elog "Run emerge --config ${CATEGORY}/${PN} to initialise the PostgreSQL database"
@@ -156,7 +161,7 @@ pkg_config() {
 		| su --login --command psql postgres || die "database creation failed"
 
 	su --shell /bin/bash --login --command \
-		"cd misskey && pnpm run init" \
+		"cd misskey && PATH=\"${T}/bin/pnpm:${PATH}\" pnpm run init" \
 		misskey || die "database initialisation failed"
 
 	ewarn "When you first start Misskey you will be asked to add an admin account via the web interface, and registrations are enabled."
