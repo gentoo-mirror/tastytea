@@ -57,6 +57,7 @@ QA_PREBUILT="
 "
 
 setup_pnpm() {
+	ewarn "This ebuild is getting more and more hacky… 🥴"
 	# use the pnpm from nodejs if it isn't installed
 	if ! type pnpm > /dev/null 2>&1; then
 		mkdir "${T}"/bin || die "could not create dir in temporary directory"
@@ -130,7 +131,7 @@ pkg_preinst() {
 	# Apparently Misskey creates files at runtime that can interfere
 	# after an upgrade. Normally you would run 'yarn cleanall'.
 	einfo "Cleaning up Misskey directory …"
-	su --shell /bin/bash --command \
+	su --shell /bin/bash --login --command \
 		"rm -rf misskey/{built,node_modules} && rm -rf misskey/packages/{backend,client,sw}/{built,node_modules}" \
 		misskey || die "cleanup failed"
 }
@@ -140,7 +141,7 @@ pkg_postinst() {
 	if su --command "psql misskey -c ''" postgres; then
 		einfo "Running migration…"
 		su --shell /bin/bash --command \
-		   "cd misskey && pnpm run migrate" \
+		   "cd \"${ED}\"/opt/misskey/misskey && pnpm run migrate" \
 		   misskey || die "migration failed"
 	else
 		elog "Run emerge --config ${CATEGORY}/${PN} to initialise the PostgreSQL database"
@@ -161,7 +162,7 @@ pkg_config() {
 		| su --command psql postgres || die "database creation failed"
 
 	su --shell /bin/bash --command \
-		"cd misskey && pnpm run init" \
+		"cd \"${ED}\"/opt/misskey/misskey && pnpm run init" \
 		misskey || die "database initialisation failed"
 
 	ewarn "When you first start Misskey you will be asked to add an admin account via the web interface, and registrations are enabled."
