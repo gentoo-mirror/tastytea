@@ -62,7 +62,7 @@ setup_pnpm() {
 		mkdir "${T}"/bin || die "could not create dir in temporary directory"
 		ln -s /usr/$(get_libdir)/node_modules/corepack/dist/pnpm.js \
 			"${T}"/bin/pnpm || die "could not create pnpm symlink"
-		PATH="${T}/bin:${PATH}"
+		export PATH="${T}/bin:${PATH}"
 	fi
 }
 
@@ -130,17 +130,17 @@ pkg_preinst() {
 	# Apparently Misskey creates files at runtime that can interfere
 	# after an upgrade. Normally you would run 'yarn cleanall'.
 	einfo "Cleaning up Misskey directory …"
-	su --shell /bin/bash --login --command \
+	su --shell /bin/bash --command \
 		"rm -rf misskey/{built,node_modules} && rm -rf misskey/packages/{backend,client,sw}/{built,node_modules}" \
 		misskey || die "cleanup failed"
 }
 
 pkg_postinst() {
 	# Only run migrations if database exists
-	if su --login --command "psql misskey -c ''" postgres; then
+	if su --command "psql misskey -c ''" postgres; then
 		einfo "Running migration…"
-		su --shell /bin/bash --login --command \
-		   "cd misskey && PATH=\"${T}/bin/pnpm:${PATH}\" pnpm run migrate" \
+		su --shell /bin/bash --command \
+		   "cd misskey && pnpm run migrate" \
 		   misskey || die "migration failed"
 	else
 		elog "Run emerge --config ${CATEGORY}/${PN} to initialise the PostgreSQL database"
@@ -158,10 +158,10 @@ pkg_config() {
 	echo -n "password for misskey user: "
 	read -r MY_PASSWORD || die "Reading password failed"
 	echo "create database misskey with encoding = 'UTF8'; create user misskey with encrypted password '${MY_PASSWORD}'; grant all privileges on database misskey to misskey; \q" \
-		| su --login --command psql postgres || die "database creation failed"
+		| su --command psql postgres || die "database creation failed"
 
-	su --shell /bin/bash --login --command \
-		"cd misskey && PATH=\"${T}/bin/pnpm:${PATH}\" pnpm run init" \
+	su --shell /bin/bash --command \
+		"cd misskey && pnpm run init" \
 		misskey || die "database initialisation failed"
 
 	ewarn "When you first start Misskey you will be asked to add an admin account via the web interface, and registrations are enabled."
