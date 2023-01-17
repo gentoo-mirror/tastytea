@@ -22,13 +22,13 @@ SRC_URI="
 #       export CYPRESS_CACHE_FOLDER="$(realpath ./packages-cache)"
 #       export npm_config_cache="$(realpath ./packages-cache)"
 #       pnpm config set store-dir "$(realpath ./packages-cache)"
-#       pnpm install
+#       pnpm install --frozen-lockfile
 #       tar -caf ${P}-deps.tar.xz packages-cache
 #       unset CYPRESS_CACHE_FOLDER npm_config_cache
 
 LICENSE="GPL-3"
 SLOT="0"
-# KEYWORDS="~amd64"
+KEYWORDS="~amd64"
 IUSE="nginx +savedconfig source"
 
 REQUIRED_USE="savedconfig"
@@ -56,13 +56,18 @@ QA_PREBUILT="
 	/opt/misskey/misskey/packages/client/node_modules/microtime/prebuilds/*
 "
 
-pnpm() {
-	# use the pnpm from nodejs if it isn't available otherwise
-	if [[ -x /usr/bin/pnpm ]] > /dev/null 2>&1; then
-		/usr/bin/pnpm "${@}"
-	else
-		/usr/$(get_libdir)/node_modules/corepack/dist/pnpm.js "${@}"
+setup_pnpm() {
+	# use the pnpm from nodejs if it isn't installed
+	if ! type pnpm > /dev/null 2>&1; then
+		mkdir "${T}"/bin || die "could not create dir in temporary directory"
+		ln -s /usr/$(get_libdir)/node_modules/corepack/dist/pnpm.js \
+			"${T}"/bin/pnpm || die "could not create pnpm symlink"
+		PATH="${T}/bin:${PATH}"
 	fi
+}
+
+pkg_setup() {
+	setup_pnpm
 }
 
 src_unpack() {
@@ -131,6 +136,8 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
+	setup_pnpm
+
 	# Only run migrations if database exists
 	if su --login --command "psql misskey -c ''" postgres; then
 		einfo "Running migration…"
@@ -149,6 +156,8 @@ pkg_postinst() {
 }
 
 pkg_config() {
+	setup_pnpm
+
 	einfo "Initialising PostgreSQL database"
 	echo -n "password for misskey user: "
 	read -r MY_PASSWORD || die "Reading password failed"
