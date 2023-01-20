@@ -141,7 +141,7 @@ pkg_postinst() {
 	if su --command "psql misskey -c ''" postgres; then
 		einfo "Running migration…"
 		su --shell /bin/bash --command \
-		   "cd \"${ED}\"/opt/misskey/misskey && pnpm run migrate" \
+		   "cd \"${EPREFIX}\"/opt/misskey/misskey && pnpm run migrate" \
 		   misskey || die "migration failed"
 	else
 		elog "Run emerge --config ${CATEGORY}/${PN} to initialise the PostgreSQL database"
@@ -162,7 +162,7 @@ pkg_config() {
 		| su --command psql postgres || die "database creation failed"
 
 	su --shell /bin/bash --command \
-		"cd \"${ED}\"/opt/misskey/misskey && pnpm run init" \
+		"cd \"${EPREFIX}\"/opt/misskey/misskey && pnpm run init" \
 		misskey || die "database initialisation failed"
 
 	ewarn "When you first start Misskey you will be asked to add an admin account via the web interface, and registrations are enabled."
