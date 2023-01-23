@@ -56,19 +56,11 @@ QA_PREBUILT="
 	/opt/misskey/misskey/packages/client/node_modules/microtime/prebuilds/*
 "
 
-setup_pnpm() {
-	ewarn "This ebuild is getting more and more hacky… 🥴"
-	# use the pnpm from nodejs if it isn't installed
-	if ! type pnpm > /dev/null 2>&1; then
-		mkdir "${T}"/bin || die "could not create dir in temporary directory"
-		ln -s /usr/$(get_libdir)/node_modules/corepack/dist/pnpm.js \
-			"${T}"/bin/pnpm || die "could not create pnpm symlink"
-		export PATH="${T}/bin:${PATH}"
-	fi
-}
-
 pkg_setup() {
-	setup_pnpm
+	# check if pnpm from nodejs is installed
+	if ! type pnpm > /dev/null 2>&1; then
+		eerror "pnpm not found. It can be installed with 'corepack enable'"
+	fi
 }
 
 src_unpack() {
@@ -137,13 +129,11 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	setup_pnpm
 	# Only run migrations if database exists
 	if su --command "psql misskey -c ''" postgres; then
 		einfo "Running migration…"
-		su --shell /bin/bash --command \
-		   "cd \"${EPREFIX}\"/opt/misskey/misskey && pnpm run migrate" \
-		   misskey || die "migration failed"
+		su --shell /bin/bash --login --command \
+		   "cd misskey && pnpm run migrate" misskey || die "migration failed"
 	else
 		elog "Run emerge --config ${CATEGORY}/${PN} to initialise the PostgreSQL database"
 	fi
@@ -156,16 +146,14 @@ pkg_postinst() {
 }
 
 pkg_config() {
-	setup_pnpm
 	einfo "Initialising PostgreSQL database"
 	echo -n "password for misskey user: "
 	read -r MY_PASSWORD || die "Reading password failed"
 	echo "create database misskey with encoding = 'UTF8'; create user misskey with encrypted password '${MY_PASSWORD}'; grant all privileges on database misskey to misskey; \q" \
 		| su --command psql postgres || die "database creation failed"
 
-	su --shell /bin/bash --command \
-		"cd \"${EPREFIX}\"/opt/misskey/misskey && pnpm run init" \
-		misskey || die "database initialisation failed"
+	su --shell /bin/bash --login --command \
+		"cd misskey && pnpm run init" misskey || die "database initialisation failed"
 
 	ewarn "When you first start Misskey you will be asked to add an admin account via the web interface, and registrations are enabled."
 	ewarn "Do not expose the web interface to the public until after you configured your instance\!"
