@@ -137,6 +137,7 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
+	setup_pnpm
 	# Only run migrations if database exists
 	if su --command "psql misskey -c ''" postgres; then
 		einfo "Running migration…"
@@ -155,6 +156,7 @@ pkg_postinst() {
 }
 
 pkg_config() {
+	setup_pnpm
 	einfo "Initialising PostgreSQL database"
 	echo -n "password for misskey user: "
 	read -r MY_PASSWORD || die "Reading password failed"
