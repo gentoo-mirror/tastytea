@@ -103,7 +103,7 @@ src_install() {
 	if use source; then
 		doins -r .
 	else
-		doins -r package.json .node-version .config built node_modules packages
+		doins -r package.json .node-version .config built node_modules packages fluent-emojis
 	fi
 
 	# insopts doesn't affect directories
