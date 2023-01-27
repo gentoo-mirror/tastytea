@@ -103,7 +103,8 @@ src_install() {
 	if use source; then
 		doins -r .
 	else
-		doins -r package.json .node-version .config built node_modules packages fluent-emojis
+		doins -r package.json .node-version .config built node_modules packages \
+			fluent-emojis pnpm-workspace.yaml pnpm-lock.yaml
 	fi
 
 	# insopts doesn't affect directories
