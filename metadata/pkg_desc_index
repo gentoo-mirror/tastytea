@@ -14,7 +14,7 @@ dev-python/pygls 0.12.3 0.13.1: A pythonic generic language server
 dev-util/cmake-language-server 0.1.6: CMake LSP Implementation
 dev-util/cmakelang 0.6.13: Quality Assurance (QA) tools for cmake (formerly cmake_format)
 dev-util/highlight-diffpatch 9999: Highlight diff-ed patches
-dev-util/lua-language-server 3.6.7 3.6.8: A language server that offers Lua language support
+dev-util/lua-language-server 3.6.8 3.6.9: A language server that offers Lua language support
 dev-util/qml-lsp 0.2.0 0.2.0_p20220610: Collection of QML tools, including qml-lsp, qml-dap, and qml-refactor-fairy
 dev-util/typescript-language-server 1.1.2: TypeScript & JavaScript Language Server
 games-server/factorio-server 1.1.74 1.1.76: Factorio is a game in which you build and maintain factories.
