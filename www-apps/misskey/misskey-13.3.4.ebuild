@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -36,7 +36,7 @@ REQUIRED_USE="savedconfig"
 RESTRICT="strip network-sandbox"
 
 COMMON_DEPEND="
-	>=net-libs/nodejs-18:=[npm]
+	>=net-libs/nodejs-18.13:=[npm]
 "
 BDEPEND="
 	${COMMON_DEPEND}
@@ -103,7 +103,8 @@ src_install() {
 	if use source; then
 		doins -r .
 	else
-		doins -r package.json .node-version .config built node_modules packages fluent-emojis
+		doins -r package.json .node-version .config built node_modules packages \
+			fluent-emojis pnpm-workspace.yaml pnpm-lock.yaml
 	fi
 
 	# insopts doesn't affect directories
