@@ -33,7 +33,7 @@ IUSE="nginx +savedconfig source"
 
 REQUIRED_USE="savedconfig"
 
-RESTRICT="strip network-sandbox"
+RESTRICT="strip"
 
 COMMON_DEPEND="
 	>=net-libs/nodejs-18.13:=[npm]
