@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit optfeature savedconfig
+inherit optfeature savedconfig unpacker
 
 # NOTE: check for updates on each bump
 MY_COMMIT_ASSETS="0179793ec891856d6f37a3be16ba4c22f67a81b5"
@@ -65,7 +65,7 @@ pkg_setup() {
 }
 
 src_unpack() {
-	default
+	unpacker_src_unpack
 	mv --no-target-directory assets-${MY_COMMIT_ASSETS} ${P}/${PN}-assets \
 		|| die "Could not move assets"
 	mv --no-target-directory emojis-${MY_COMMIT_EMOJIS} ${P}/fluent-emojis \
