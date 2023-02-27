@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit optfeature savedconfig
+inherit optfeature savedconfig unpacker
 
 # NOTE: check for updates on each bump
 MY_COMMIT_ASSETS="0179793ec891856d6f37a3be16ba4c22f67a81b5"
@@ -15,7 +15,7 @@ SRC_URI="
 	https://github.com/misskey-dev/misskey/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/misskey-dev/assets/archive/${MY_COMMIT_ASSETS}.tar.gz -> ${PN}-assets-${MY_COMMIT_ASSETS}.tar.gz
 	https://github.com/misskey-dev/emojis/archive/${MY_COMMIT_EMOJIS}.tar.gz -> ${PN}-emojis-${MY_COMMIT_EMOJIS}.tar.gz
-	https://tastytea.de/files/gentoo/${P}-deps.tar.xz
+	https://tastytea.de/files/gentoo/${P}-deps.tar.zst
 "
 
 # NOTE: to generate the deps archive:
@@ -23,7 +23,7 @@ SRC_URI="
 #       export npm_config_cache="$(realpath ./packages-cache)"
 #       pnpm config set store-dir "$(realpath ./packages-cache)"
 #       pnpm install --frozen-lockfile
-#       tar -caf ${P}-deps.tar.xz packages-cache
+#       ZSTD_CLEVEL=9 tar -caf ${P}-deps.tar.zst packages-cache
 #       unset CYPRESS_CACHE_FOLDER npm_config_cache
 
 LICENSE="GPL-3"
@@ -40,6 +40,7 @@ COMMON_DEPEND="
 "
 BDEPEND="
 	${COMMON_DEPEND}
+	app-arch/zstd
 	dev-lang/nasm
 	virtual/pkgconfig
 "
@@ -64,7 +65,7 @@ pkg_setup() {
 }
 
 src_unpack() {
-	default
+	unpacker_src_unpack
 	mv --no-target-directory assets-${MY_COMMIT_ASSETS} ${P}/${PN}-assets \
 		|| die "Could not move assets"
 	mv --no-target-directory emojis-${MY_COMMIT_EMOJIS} ${P}/fluent-emojis \
