@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@tastytea.de</email>
+		<name>Ronny (tastytea) Gutbrod</name>
+	</maintainer>
+	<longdescription lang="en">
+		The plugin is meant to suppress a wide range of noise origins (from
+		original paper): computer fans, office, crowd, plane, car, train,
+		construction.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">werman/noise-suppression-for-voice</remote-id>
+	</upstream>
+</pkgmetadata>
