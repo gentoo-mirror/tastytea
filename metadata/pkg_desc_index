@@ -19,6 +19,7 @@ dev-util/qml-lsp 0.2.0 0.2.0_p20220610: Collection of QML tools, including qml-l
 games-server/factorio-server 1.1.74 1.1.76: Factorio is a game in which you build and maintain factories.
 media-fonts/source-sans 2.020-r1: Sans serif font family for user interface environments
 media-fonts/source-serif 3.001-r1: Serif font family for user interface environments
+media-plugins/noise-suppression-for-voice-bin 1.03: Noise suppression plugin based on Xiph's RNNoise (VST2/3, LV2, LADSPA)
 net-im/mjolnir 1.6.2 1.6.4: A moderation tool for Matrix
 net-im/nheko 9999: Native desktop client for Matrix using Qt
 net-misc/feiertagebot 9999: Allows you to execute files from compiled languages as scripts.
