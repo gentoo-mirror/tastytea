@@ -23,7 +23,7 @@ SRC_URI="
 #       export npm_config_cache="$(realpath ./packages-cache)"
 #       pnpm config set store-dir "$(realpath ./packages-cache)"
 #       pnpm install --frozen-lockfile
-#       tar -caf ${P}-deps.tar.zst packages-cache
+#       ZSTD_CLEVEL=9 tar -caf ${P}-deps.tar.zst packages-cache
 #       unset CYPRESS_CACHE_FOLDER npm_config_cache
 
 LICENSE="GPL-3"
