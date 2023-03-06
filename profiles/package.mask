@@ -1,8 +1,3 @@
 # tastytea <gentoo@tastytea.de> (2023-02-20)
 # is in ::gentoo now, removal on 2023-03-20
 dev-cpp/curlpp
-
-# tastytea <gentoo@tastytea.de> (2023-02-05)
-# Live ebuild is in ::guru[1] now, removal on 2023-03-05
-# [1] <https://wiki.gentoo.org/wiki/Project:GURU>
-net-im/nheko
