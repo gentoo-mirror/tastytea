@@ -5,4 +5,7 @@
 		<email>gentoo@tastytea.de</email>
 		<name>Ronny (tastytea) Gutbrod</name>
 	</maintainer>
+	<upstream>
+		mote-id type="pypi">pygls</remote-id>
+	</upstream>
 </pkgmetadata>
