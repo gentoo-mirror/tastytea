@@ -1,4 +1,4 @@
-# Copyright 2020-2022 Gentoo Authors
+# Copyright 2020-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # TODO: unbundle deps, set flags correctly, verbose luamake, less sed hacks
@@ -10,8 +10,8 @@ LUA_COMPAT=( lua{5-{1,3,4},jit} )
 inherit lua-single ninja-utils prefix toolchain-funcs
 
 DESCRIPTION="A language server that offers Lua language support"
-HOMEPAGE="https://github.com/sumneko/lua-language-server"
-SRC_URI="https://github.com/sumneko/${PN}/releases/download/${PV}/${P}-submodules.zip -> ${P}.zip"
+HOMEPAGE="https://github.com/LuaLS/lua-language-server"
+SRC_URI="https://github.com/LuaLS/${PN}/releases/download/${PV}/${P}-submodules.zip -> ${P}.zip"
 S="${WORKDIR}"
 
 LICENSE="MIT"
