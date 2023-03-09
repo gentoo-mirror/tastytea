@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=poetry
+DISTUTILS_USE_PEP517=pdm
 DISTUTILS_SINGLE_IMPL=1
 PYTHON_COMPAT=( python3_{10..11} )
 inherit distutils-r1
@@ -23,8 +23,7 @@ RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
 	$(python_gen_cond_dep '
-		>=dev-python/pygls-0.12[${PYTHON_USEDEP}]
-		<dev-python/pygls-1[${PYTHON_USEDEP}]
+		>=dev-python/pygls-1.0.0[${PYTHON_USEDEP}]
 		dev-util/cmakelang[${PYTHON_USEDEP}]
 	')
 "
@@ -35,6 +34,9 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
-		$(python_gen_cond_dep 'dev-python/pytest-datadir[${PYTHON_USEDEP}]')
+		$(python_gen_cond_dep '
+			dev-python/pytest-datadir[${PYTHON_USEDEP}]
+			dev-python/cattrs[${PYTHON_USEDEP}]
+		')
 	)
 "

@@ -6,6 +6,6 @@
 		<name>Ronny (tastytea) Gutbrod</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">sumneko/lua-language-server</remote-id>
+		<remote-id type="github">LuaLS/lua-language-server</remote-id>
 	</upstream>
 </pkgmetadata>

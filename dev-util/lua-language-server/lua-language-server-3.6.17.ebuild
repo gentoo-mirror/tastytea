@@ -1,4 +1,4 @@
-# Copyright 2020-2022 Gentoo Authors
+# Copyright 2020-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # TODO: unbundle deps, set flags correctly, verbose luamake, less sed hacks
@@ -10,8 +10,8 @@ LUA_COMPAT=( lua{5-{1,3,4},jit} )
 inherit lua-single ninja-utils prefix toolchain-funcs
 
 DESCRIPTION="A language server that offers Lua language support"
-HOMEPAGE="https://github.com/sumneko/lua-language-server"
-SRC_URI="https://github.com/sumneko/${PN}/releases/download/${PV}/${P}-submodules.zip -> ${P}.zip"
+HOMEPAGE="https://github.com/LuaLS/lua-language-server"
+SRC_URI="https://github.com/LuaLS/${PN}/releases/download/${PV}/${P}-submodules.zip -> ${P}.zip"
 S="${WORKDIR}"
 
 LICENSE="MIT"
@@ -32,6 +32,7 @@ BDEPEND="
 QA_PREBUILT="/opt/lua-language-server/bin/lua-language-server"
 
 src_prepare() {
+	# replace sed commands with patches
 	sed -i "s/^cc = gcc$/cc = $(tc-getCC)/" \
 		3rd/luamake/compile/ninja/linux.ninja || die
 	sed -i "/require \"make.detect_platform\"/a lm.cc = '$(tc-getCC)'" \
@@ -39,7 +40,7 @@ src_prepare() {
 	sed -i "s/flags = \"-Wall -Werror\"/flags = \"-Wall ${CXXFLAGS}\"/" \
 		make/code_format.lua || die
 
-	prefixify_ro "${FILESDIR}"/wrapper.sh
+	prefixify_ro "${FILESDIR}"/wrapper-r1.sh
 
 	default
 }
@@ -50,7 +51,7 @@ src_compile() {
 }
 
 src_install() {
-	newbin "${T}"/wrapper.sh ${PN}
+	newbin "${T}"/wrapper-r1.sh ${PN}
 
 	into /opt/${PN}
 	dobin bin/${PN}

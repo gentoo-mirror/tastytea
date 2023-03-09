@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,21 +21,20 @@ IUSE="test"
 
 RESTRICT="!test? ( test )"
 
+RDEPEND="
+	dev-python/lsprotocol[${PYTHON_USEDEP}]
+	<dev-python/typeguard-3.0.0[${PYTHON_USEDEP}]
+"
 DEPEND="
+	${RDEPEND}
 	dev-python/wheel[${PYTHON_USEDEP}]
 	dev-python/toml[${PYTHON_USEDEP}]
-"
-RDEPEND="
-	dev-python/pydantic[${PYTHON_USEDEP}]
-	python_targets_python3_11? (
-		>=dev-python/pydantic-1.10.2[${PYTHON_USEDEP}]
-	)
-	<dev-python/typeguard-3.0.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		dev-python/mock[${PYTHON_USEDEP}]
+		dev-python/cattrs[${PYTHON_USEDEP}]
 	)
 "
 
