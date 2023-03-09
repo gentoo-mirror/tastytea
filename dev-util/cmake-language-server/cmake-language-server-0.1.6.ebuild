@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -24,6 +24,7 @@ RESTRICT="!test? ( test )"
 COMMON_DEPEND="
 	$(python_gen_cond_dep '
 		>=dev-python/pygls-0.12[${PYTHON_USEDEP}]
+		<dev-python/pygls-1[${PYTHON_USEDEP}]
 		dev-util/cmakelang[${PYTHON_USEDEP}]
 	')
 "
@@ -31,7 +32,6 @@ DEPEND="${COMMON_DEPEND}"
 RDEPEND="
 	${COMMON_DEPEND}
 	dev-util/cmake
-	dev-util/cmakelang
 "
 BDEPEND="
 	test? (
