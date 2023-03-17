@@ -11,5 +11,5 @@ RDEPEND=media-libs/fontconfig !media-fonts/source-pro
 RESTRICT=binchecks strip
 SLOT=pro
 SRC_URI=https://github.com/adobe-fonts/source-serif/archive/3.001R.tar.gz -> source-serif-3.001.tar.gz
-_eclasses_=font	5e03cb70902daa9ff8967c61130f0f60
+_eclasses_=font	aa113a3df9cd0a9693a1c1ee7c34a6eb
 _md5_=923f70772460eb9c9bba4bdb52347f2e
