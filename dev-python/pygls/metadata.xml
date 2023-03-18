@@ -6,6 +6,6 @@
 		<name>Ronny (tastytea) Gutbrod</name>
 	</maintainer>
 	<upstream>
-		mote-id type="pypi">pygls</remote-id>
+		<remote-id type="pypi">pygls</remote-id>
 	</upstream>
 </pkgmetadata>
