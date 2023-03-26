@@ -5,5 +5,5 @@ INHERIT=acct-user
 KEYWORDS=~amd64
 RDEPEND=acct-group/misskey
 SLOT=0
-_eclasses_=user-info	83547b4df3e1ba5a6bf91a0837eaa664	acct-user	98058a1561d517416b208e3219858871
+_eclasses_=user-info	83547b4df3e1ba5a6bf91a0837eaa664	acct-user	e0a8307fcba2b1c2ec2914c064c50a7f
 _md5_=cfd3113fe9bef571a4b5d9c90791b5d2
