@@ -48,7 +48,7 @@ RDEPEND="
 	${COMMON_DEPEND}
 	acct-user/misskey
 	>=dev-db/postgresql-15
-	dev-db/redis
+	>=dev-db/redis-7
 	nginx? ( www-servers/nginx )
 "
 
