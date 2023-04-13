@@ -1,3 +1,0 @@
-# tastytea <gentoo@tastytea.de> (2023-02-20)
-# is in ::gentoo now, removal on 2023-03-20
-dev-cpp/curlpp
