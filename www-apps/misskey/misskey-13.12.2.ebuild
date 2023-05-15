@@ -36,7 +36,7 @@ REQUIRED_USE="savedconfig"
 RESTRICT="strip network-sandbox"
 
 COMMON_DEPEND="
-	>=net-libs/nodejs-18.13:=[npm]
+	>=net-libs/nodejs-18.16:=[npm]
 "
 BDEPEND="
 	${COMMON_DEPEND}
