@@ -8,4 +8,7 @@
 	<use>
 		<flag name="logrotate">Use app-admin/logrotate for rotating logs</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">UnifiedPush/common-proxies</remote-id>
+	</upstream>
 </pkgmetadata>
