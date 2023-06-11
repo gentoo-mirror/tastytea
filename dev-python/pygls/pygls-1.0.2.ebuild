@@ -23,17 +23,16 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-python/lsprotocol[${PYTHON_USEDEP}]
-	<dev-python/typeguard-3.0.0[${PYTHON_USEDEP}]
+	>=dev-python/typeguard-3.0.0[${PYTHON_USEDEP}]
+	<dev-python/typeguard-4.0.0[${PYTHON_USEDEP}]
 "
 DEPEND="
 	${RDEPEND}
 	dev-python/wheel[${PYTHON_USEDEP}]
-	dev-python/toml[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
-		dev-python/mock[${PYTHON_USEDEP}]
 		dev-python/cattrs[${PYTHON_USEDEP}]
 	)
 "
