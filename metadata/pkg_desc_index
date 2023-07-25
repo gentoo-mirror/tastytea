@@ -27,7 +27,7 @@ net-misc/whyblocked 0.15.0 9999-r8: whyblocked reminds you why you blocked someo
 sci-libs/cld2 0_pre20150821: Compact Language Detector 2
 sys-apps/hashboot 0.9.14 9999: Check integrity of files in /boot
 www-apps/gitea 1.16.3: A painless self-hosted Git service
-www-apps/gotify-server-bin 2.2.4 2.2.5: Simple server for sending and receiving messages in real-time per WebSocket
+www-apps/gotify-server-bin 2.2.5 2.3.0: Simple server for sending and receiving messages in real-time per WebSocket
 www-apps/libravatarserv 0.7.5 0.9.0 9999: Simple libravatar server
 www-apps/misskey 13.12.2 13.13.2: An interplanetary microblogging platform
 www-apps/up-common-proxies 1.4.0 1.5.0: Rewrite proxy for UnifiedPush
