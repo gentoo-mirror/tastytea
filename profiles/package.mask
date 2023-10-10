@@ -1,0 +1,5 @@
+# tastytea <gentoo@tastytea.de> (2023-10-10)
+# i no longer use it, removal sometime after 2023-11-10
+www-apps/misskey
+acct-user/misskey
+acct-group/misskey
