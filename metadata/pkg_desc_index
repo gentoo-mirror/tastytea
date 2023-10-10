@@ -29,7 +29,7 @@ sys-apps/hashboot 0.9.14 9999: Check integrity of files in /boot
 www-apps/gitea 1.16.3: A painless self-hosted Git service
 www-apps/gotify-server-bin 2.3.0 2.4.0: Simple server for sending and receiving messages in real-time per WebSocket
 www-apps/libravatarserv 0.7.5 0.9.0 9999: Simple libravatar server
-www-apps/misskey 13.13.2 13.14.2 2023.9.3: An interplanetary microblogging platform
+www-apps/misskey 13.14.2 2023.9.3: An interplanetary microblogging platform
 www-apps/up-common-proxies 1.4.0 1.5.0: Rewrite proxy for UnifiedPush
 www-misc/remwharead 0.10.0 9999: Saves URIs of things you want to remember in a database.
 x11-misc/gcolor2 0.4-r4: A GTK+ color selector
