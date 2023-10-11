@@ -48,7 +48,6 @@ BDEPEND="
 	${COMMON_DEPEND}
 	app-arch/zstd
 	dev-lang/nasm
-	sys-apps/pnpm-bin
 	virtual/pkgconfig
 "
 RDEPEND="
