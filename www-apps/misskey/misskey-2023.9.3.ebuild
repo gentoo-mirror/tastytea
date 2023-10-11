@@ -36,16 +36,13 @@ REQUIRED_USE="savedconfig"
 RESTRICT="strip network-sandbox"
 
 COMMON_DEPEND="
-	>=net-libs/nodejs-18.16:=
-	|| (
-		>=net-libs/nodejs-20.5.0[corepack]
-		<net-libs/nodejs-20.5.0
-	)
+	>=net-libs/nodejs-20.4.0:=[npm]
 "
 BDEPEND="
 	${COMMON_DEPEND}
 	app-arch/zstd
 	dev-lang/nasm
+	sys-apps/pnpm-bin
 	virtual/pkgconfig
 "
 RDEPEND="
