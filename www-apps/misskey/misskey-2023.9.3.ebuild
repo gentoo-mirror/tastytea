@@ -36,7 +36,13 @@ REQUIRED_USE="savedconfig"
 RESTRICT="strip network-sandbox"
 
 COMMON_DEPEND="
-	>=net-libs/nodejs-20.4.0:=[npm]
+	|| (
+		>=net-libs/nodejs-20.4.0:=[corepack]
+		(
+			>=net-libs/nodejs-20.4.0:=[npm]
+			sys-apps/pnpm-bin
+		)
+	)
 "
 BDEPEND="
 	${COMMON_DEPEND}
@@ -61,7 +67,7 @@ QA_PREBUILT="
 pkg_setup() {
 	# check if pnpm from nodejs is installed
 	if ! type pnpm > /dev/null 2>&1; then
-		eerror "pnpm not found. It can be installed with 'corepack enable'"
+		eerror "pnpm not found. if you have nodejs[npm] installed, you have to symlink pnpm-bin to pnpm yourself"
 	fi
 }
 
