@@ -36,13 +36,7 @@ REQUIRED_USE="savedconfig"
 RESTRICT="strip network-sandbox"
 
 COMMON_DEPEND="
-	|| (
-		>=net-libs/nodejs-20.4.0:=[corepack]
-		(
-			>=net-libs/nodejs-20.4.0:=[npm]
-			sys-apps/pnpm-bin
-		)
-	)
+	>=net-libs/nodejs-20.4.0:=[corepack,npm]
 "
 BDEPEND="
 	${COMMON_DEPEND}
