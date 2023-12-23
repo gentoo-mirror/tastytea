@@ -1,0 +1,16 @@
+# patch by by tux93
+# <https://github.com/matrix-org/mjolnir/issues/501#issuecomment-1819434537>
+
+diff --git a/package.json b/package.json
+index 4b24df8..45bdf50 100644
+--- a/package.json
++++ b/package.json
+@@ -55,7 +55,7 @@
+     "humanize-duration-ts": "^2.1.1",
+     "js-yaml": "^4.1.0",
+     "jsdom": "^16.6.0",
+-    "matrix-appservice-bridge": "8.1.2",
++    "matrix-appservice-bridge": "9.0.1",
+     "parse-duration": "^1.0.2",
+     "pg": "^8.8.0",
+     "prom-client": "^14.1.0",
