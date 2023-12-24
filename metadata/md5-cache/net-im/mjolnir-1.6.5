@@ -1,0 +1,12 @@
+BDEPEND=sys-apps/yarn dev-lang/typescript
+DEFINED_PHASES=compile install postinst prepare
+DESCRIPTION=A moderation tool for Matrix
+EAPI=8
+HOMEPAGE=https://github.com/matrix-org/mjolnir
+IUSE=doc
+KEYWORDS=~amd64
+LICENSE=0BSD Apache-2.0 BSD BSD-2 ISC MIT PYTHON Unlicense
+RDEPEND=>=net-libs/nodejs-18
+SLOT=0
+SRC_URI=https://github.com/matrix-org/mjolnir/archive/refs/tags/v1.6.5.tar.gz -> mjolnir-1.6.5.tar.gz https://tastytea.de/files/gentoo/mjolnir-1.6.5-deps.tar.xz elibc_glibc? ( amd64? ( https://github.com/matrix-org/matrix-rust-sdk/releases/download/matrix-sdk-crypto-nodejs-v0.1.0-beta.1/matrix-sdk-crypto.linux-x64-gnu.node -> matrix-sdk-crypto-0.1.0-beta.1.linux-x64-gnu.node ) ) elibc_musl? ( amd64? ( https://github.com/matrix-org/matrix-rust-sdk/releases/download/matrix-sdk-crypto-nodejs-v0.1.0-beta.1/matrix-sdk-crypto.linux-x64-musl.node -> matrix-sdk-crypto-0.1.0-beta.1.linux-x64-musl.node ) )
+_md5_=f10eccc8c22dbe88c13dbb96e1b5cfac
