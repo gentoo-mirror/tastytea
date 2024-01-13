@@ -1,4 +1,4 @@
-# Copyright 2018-2022 Gentoo Authors
+# Copyright 2018-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,13 +10,8 @@ SRC_URI="https://github.com/PapirusDevelopmentTeam/papirus-folders/archive/refs/
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
-DEPEND=""
-RDEPEND="
-	${DEPEND}
-	x11-themes/papirus-icon-theme
-"
+RDEPEND="x11-themes/papirus-icon-theme"
 
 src_install() {
 	ZSHCOMPDIR="/usr/share/zsh/site-functions" default
