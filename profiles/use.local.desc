@@ -6,6 +6,7 @@ app-i18n/poedit:cld2 - Better language autodetection and non-English source lang
 app-i18n/poedit:crowdin - Enable Crowdin (online translation platform) integration
 dev-cpp/cpprest:brotli - Enable brotli compression/decompression support
 dev-cpp/cpprest:websockets - Support the WebSocket protocol
+dev-python/pygls:ws - websocket support
 sys-apps/hashboot:firmware - Enable firmware support through sys-apps/flashrom.
 www-apps/gitea:acct - User and group management via acct-*/git packages
 www-apps/gotify-server-bin:logrotate - Use app-admin/logrotate for rotating logs
