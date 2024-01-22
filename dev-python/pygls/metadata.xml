@@ -8,4 +8,7 @@
 	<upstream>
 		<remote-id type="pypi">pygls</remote-id>
 	</upstream>
+	<use>
+		<flag name="ws">websocket support</flag>
+	</use>
 </pkgmetadata>
