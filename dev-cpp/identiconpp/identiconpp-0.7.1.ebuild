@@ -30,7 +30,7 @@ RDEPEND="
 	media-gfx/imagemagick[png,cxx]
 "
 DEPEND="
-	dev-util/cmake
+	dev-build/cmake
 	doc? ( app-doc/doxygen )
 	test? ( dev-cpp/catch )
 	${RDEPEND}

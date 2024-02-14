@@ -32,7 +32,7 @@ RDEPEND="
 	dev-libs/libxdg-basedir
 "
 DEPEND="
-	dev-util/cmake
+	dev-build/cmake
 	app-text/asciidoc
 	${RDEPEND}
 "

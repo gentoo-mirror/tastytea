@@ -16,6 +16,6 @@ RDEPEND="
 	>=dev-libs/jsoncpp-1.8.1
 "
 DEPEND="
-	>=dev-util/cmake-3.9.6
+	>=dev-build/cmake-3.9.6
 	${RDEPEND}
 "

@@ -34,7 +34,7 @@ RDEPEND="
 	>=dev-cpp/mastodonpp-0.5.4
 "
 DEPEND="
-	dev-util/cmake
+	dev-build/cmake
 	${RDEPEND}
 "
 
