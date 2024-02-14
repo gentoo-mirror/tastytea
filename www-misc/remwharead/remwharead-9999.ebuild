@@ -32,7 +32,7 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	dev-util/cmake
+	dev-build/cmake
 	app-text/asciidoc
 	dev-cpp/popl
 	test? ( dev-cpp/catch )

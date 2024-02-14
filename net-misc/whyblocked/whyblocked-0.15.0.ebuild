@@ -34,7 +34,7 @@ RDEPEND="
 	>=dev-qt/qtwidgets-5.9.6-r1
 "
 DEPEND="
-	>=dev-util/cmake-3.9.6
+	>=dev-build/cmake-3.9.6
 	nls? ( >=dev-qt/linguist-tools-5.9.6 )
 	app-text/asciidoc
 	${RDEPEND}
