@@ -28,8 +28,11 @@ SRC_URI="
 
 LICENSE="0BSD Apache-2.0 BSD BSD-2 ISC MIT PYTHON Unlicense"
 SLOT="0"
-KEYWORDS="~amd64"
+#KEYWORDS="~amd64"
 IUSE="doc"
+
+# FIXME: re-generate deps with nodejs[corepack], remove next line, uncomment KEYWORDS
+RESTRICT="network-sandbox"
 
 RDEPEND=">=net-libs/nodejs-18"
 BDEPEND="
