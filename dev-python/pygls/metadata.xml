@@ -7,6 +7,7 @@
 	</maintainer>
 	<upstream>
 		<remote-id type="pypi">pygls</remote-id>
+		<remote-id type="github">openlawlibrary/pygls</remote-id>
 	</upstream>
 	<use>
 		<flag name="ws">websocket support</flag>

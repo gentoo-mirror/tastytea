@@ -6,9 +6,10 @@ EAPI=8
 MATRIX_RUST_SDK_V="0.1.0-beta.1"
 DESCRIPTION="A moderation tool for Matrix"
 HOMEPAGE="https://github.com/matrix-org/mjolnir"
+# TODO: replace PF with P in deps tarball on bump
 SRC_URI="
 	https://github.com/matrix-org/mjolnir/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://tastytea.de/files/gentoo/${P}-deps.tar.xz
+	https://tastytea.de/files/gentoo/${PF}-deps.tar.xz
 	elibc_glibc? (
 		amd64? (
 			https://github.com/matrix-org/matrix-rust-sdk/releases/download/matrix-sdk-crypto-nodejs-v${MATRIX_RUST_SDK_V}/matrix-sdk-crypto.linux-x64-gnu.node -> matrix-sdk-crypto-${MATRIX_RUST_SDK_V}.linux-x64-gnu.node
@@ -28,11 +29,8 @@ SRC_URI="
 
 LICENSE="0BSD Apache-2.0 BSD BSD-2 ISC MIT PYTHON Unlicense"
 SLOT="0"
-#KEYWORDS="~amd64"
+KEYWORDS="~amd64"
 IUSE="doc"
-
-# FIXME: re-generate deps with nodejs[corepack], remove next line, uncomment KEYWORDS
-RESTRICT="network-sandbox"
 
 RDEPEND=">=net-libs/nodejs-18"
 BDEPEND="
