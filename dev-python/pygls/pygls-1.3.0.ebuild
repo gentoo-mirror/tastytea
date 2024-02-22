@@ -14,7 +14,7 @@ HOMEPAGE="
 	https://pypi.org/project/pygls/
 "
 # NOTE: pypi tarball is missing tests
-SRC_URI="https://github.com/openlawlibrary/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/openlawlibrary/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
