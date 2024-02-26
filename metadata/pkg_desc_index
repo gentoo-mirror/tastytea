@@ -16,7 +16,7 @@ dev-util/cmakelang 0.6.13: Quality Assurance (QA) tools for cmake (formerly cmak
 dev-util/highlight-diffpatch 9999: Highlight diff-ed patches
 dev-util/lua-language-server 3.6.11 3.6.17: A language server that offers Lua language support
 dev-util/qml-lsp 0.2.0 0.2.0_p20220610: Collection of QML tools, including qml-lsp, qml-dap, and qml-refactor-fairy
-games-server/factorio-server 1.1.80 1.1.87 1.1.91: Factorio is a game in which you build and maintain factories.
+games-server/factorio-server 1.1.80 1.1.87 1.1.91 1.1.104: Factorio is a game in which you build and maintain factories.
 media-fonts/source-sans 2.020-r1: Sans serif font family for user interface environments
 media-fonts/source-serif 3.001-r1: Serif font family for user interface environments
 media-plugins/noise-suppression-for-voice-bin 1.03: Noise suppression plugin based on Xiph's RNNoise (VST2/3, LV2, LADSPA)
