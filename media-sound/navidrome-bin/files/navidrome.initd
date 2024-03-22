@@ -1,0 +1,19 @@
+#!/sbin/openrc-run
+# Copyright 2024 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+: ${navidrome_config:=/var/lib/navidrome/navidrome.toml}
+: ${navidrome_home:=/var/lib/navidrome}
+: ${navidrome_args:=}
+
+name="navidrome daemon"
+description="Navidrome Music Server and Streamer compatible with Subsonic/Airsonic"
+command=/usr/bin/navidrome
+command_args="--configfile ${navidrome_config} ${navidrome_args}"
+command_user="navidrome:navidrome"
+pidfile="/run/navidrome.pid"
+directory="${navidrome_home}"
+
+depend() {
+	need net
+}
