@@ -24,10 +24,9 @@ RDEPEND="
 BDEPEND="acct-user/navidrome"
 
 src_prepare() {
-	cat << EOF > navidrome.toml
+	cat << EOF > navidrome.toml.example
 # see <https://www.navidrome.org/docs/usage/configuration-options/#available-options> for more options
 
-# ScanSchedule = '@every 24h'
 # MusicFolder = '/media/music'
 EOF
 
