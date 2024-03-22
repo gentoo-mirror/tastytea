@@ -15,7 +15,6 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="taglib"
 
-DEPEND=""
 # TODO: ffmpeg USE-flags?
 RDEPEND="
 	media-video/ffmpeg
@@ -37,7 +36,7 @@ src_install() {
 	dobin navidrome
 	dodoc README.md
 	insinto /var/lib/navidrome
-	doins navidrome.toml
+	doins navidrome.toml.example
 	fowners -R navidrome:navidrome /var/lib/navidrome
 	keepdir /var/log/navidrome
 	fowners navidrome:navidrome /var/log/navidrome
