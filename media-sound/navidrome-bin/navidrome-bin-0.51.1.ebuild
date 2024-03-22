@@ -12,10 +12,15 @@ S="${WORKDIR}"
 
 LICENSE="GPL-3"
 SLOT="0"
-# KEYWORDS="~amd64"
+KEYWORDS="~amd64"
+IUSE="taglib"
 
 DEPEND=""
-RDEPEND="media-video/ffmpeg" # TODO: ffmpeg USE-flags?
+# TODO: ffmpeg USE-flags?
+RDEPEND="
+	media-video/ffmpeg
+	taglib? ( media-libs/taglib )
+"
 BDEPEND="acct-user/navidrome"
 
 src_prepare() {
