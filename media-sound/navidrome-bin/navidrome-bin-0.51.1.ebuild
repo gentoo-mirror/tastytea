@@ -37,5 +37,5 @@ src_install() {
 	fowners -R navidrome:navidrome /var/lib/navidrome
 
 	systemd_dounit "${FILESDIR}"/navidrome.service
-	newinit.d "${FILESDIR}"/navidrome.initd
+	newinit.d "${FILESDIR}"/navidrome.initd navidrome
 }
