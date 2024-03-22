@@ -16,7 +16,7 @@ SLOT="0"
 
 DEPEND=""
 RDEPEND="media-video/ffmpeg" # TODO: ffmpeg USE-flags?
-BDEPEND=""
+BDEPEND="acct-user/navidrome"
 
 src_prepare() {
 	cat << EOF > navidrome.toml
