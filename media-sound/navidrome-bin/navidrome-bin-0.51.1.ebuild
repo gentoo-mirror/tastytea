@@ -39,6 +39,8 @@ src_install() {
 	insinto /var/lib/navidrome
 	doins navidrome.toml
 	fowners -R navidrome:navidrome /var/lib/navidrome
+	keepdir /var/log/navidrome
+	fowners navidrome:navidrome /var/log/navidrome
 
 	systemd_dounit "${FILESDIR}"/navidrome.service
 	newinitd "${FILESDIR}"/navidrome.initd navidrome

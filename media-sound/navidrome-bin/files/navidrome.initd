@@ -14,7 +14,7 @@ command_user="navidrome:navidrome"
 command_background=1
 pidfile="/run/navidrome.pid"
 directory="${navidrome_home}"
-output_log="/var/log/navidrome.log"
+output_log="/var/log/navidrome/navidrome.log"
 error_log="${output_log}"
 
 depend() {
