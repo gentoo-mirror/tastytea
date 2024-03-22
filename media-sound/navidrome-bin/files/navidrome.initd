@@ -11,8 +11,11 @@ description="Navidrome Music Server and Streamer compatible with Subsonic/Airson
 command=/usr/bin/navidrome
 command_args="--configfile ${navidrome_config} ${navidrome_args}"
 command_user="navidrome:navidrome"
+command_background=1
 pidfile="/run/navidrome.pid"
 directory="${navidrome_home}"
+output_log="/var/log/navidrome.log"
+error_log="${output_log}"
 
 depend() {
 	need net
