@@ -13,6 +13,8 @@ HOMEPAGE="
 	https://pygls.readthedocs.io/en/latest/
 	https://pypi.org/project/pygls/
 "
+# NOTE: pypi tarball is missing tests
+SRC_URI="https://github.com/openlawlibrary/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -22,8 +24,8 @@ IUSE="test ws"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-python/lsprotocol-2023.0.0[${PYTHON_USEDEP}]
-	ws? ( <dev-python/websockets-12.0.0[${PYTHON_USEDEP}] )
+	>=dev-python/lsprotocol-2023.0.1[${PYTHON_USEDEP}]
+	ws? ( >=dev-python/websockets-11.0.3[${PYTHON_USEDEP}] )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
