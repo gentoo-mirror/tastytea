@@ -22,7 +22,7 @@ games-server/factorio-server 1.1.80 1.1.87 1.1.91 1.1.104: Factorio is a game in
 media-fonts/source-sans 2.020-r1: Sans serif font family for user interface environments
 media-fonts/source-serif 3.001-r1: Serif font family for user interface environments
 media-plugins/noise-suppression-for-voice-bin 1.03: Noise suppression plugin based on Xiph's RNNoise (VST2/3, LV2, LADSPA)
-media-sound/navidrome-bin 0.51.1 0.52.0: Music Server and Streamer compatible with Subsonic/Airsonic
+media-sound/navidrome-bin 0.52.0 0.52.5: Music Server and Streamer compatible with Subsonic/Airsonic
 net-im/mjolnir 1.6.2 1.6.4 1.6.5 1.6.5-r1: A moderation tool for Matrix
 net-misc/feiertagebot 9999: Allows you to execute files from compiled languages as scripts.
 net-misc/soupbot 9999: soupbot is a soup-recommending bot for Mastodon
