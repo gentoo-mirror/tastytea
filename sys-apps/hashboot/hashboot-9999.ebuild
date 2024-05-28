@@ -1,7 +1,7 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2019,2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit git-r3
 
@@ -16,8 +16,6 @@ IUSE="firmware"
 
 RDEPEND="firmware? ( sys-apps/flashrom )"
 DEPEND="app-text/asciidoc"
-
-S="${WORKDIR}/${PN}"
 
 pkg_preinst() {
 	if grep -q '^rc_parallel="YES"' /etc/rc.conf; then
