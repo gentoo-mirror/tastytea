@@ -2,7 +2,7 @@ BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst preinst unpack
 DEPEND=app-text/asciidoc
 DESCRIPTION=Check integrity of files in /boot
-EAPI=7
+EAPI=8
 HOMEPAGE=https://schlomp.space/tastytea/hashboot
 INHERIT=git-r3
 IUSE=firmware
@@ -11,4 +11,4 @@ PROPERTIES=live
 RDEPEND=firmware? ( sys-apps/flashrom )
 SLOT=0
 _eclasses_=git-r3	fbb2889c81f3a05910c1524db69425c1
-_md5_=f882b57bc99374b0f35dff6c45894d40
+_md5_=eeaa6e3e27179f730809bd9df1282b0d

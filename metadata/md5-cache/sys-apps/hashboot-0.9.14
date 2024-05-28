@@ -1,7 +1,7 @@
 DEFINED_PHASES=compile install postinst preinst
 DEPEND=app-text/asciidoc
 DESCRIPTION=Check integrity of files in /boot
-EAPI=7
+EAPI=8
 HOMEPAGE=https://schlomp.space/tastytea/hashboot
 IUSE=firmware
 KEYWORDS=~amd64 ~x86
@@ -9,4 +9,4 @@ LICENSE=hug-ware
 RDEPEND=firmware? ( sys-apps/flashrom )
 SLOT=0
 SRC_URI=https://schlomp.space/tastytea/hashboot/archive/0.9.14.tar.gz -> hashboot-0.9.14.tar.gz
-_md5_=7369fc66649b97577cdfaf777834a07a
+_md5_=0ca2fd4b603e98eaeebd6380b1c27173
