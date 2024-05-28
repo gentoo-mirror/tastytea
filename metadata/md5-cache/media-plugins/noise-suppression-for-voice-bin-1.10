@@ -1,0 +1,11 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=install
+DESCRIPTION=Noise suppression plugin based on Xiph's RNNoise (VST2/3, LV2, LADSPA)
+EAPI=8
+HOMEPAGE=https://github.com/werman/noise-suppression-for-voice
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=dev-libs/glib dev-libs/libpcre2 media-gfx/graphite2 media-libs/freetype media-libs/harfbuzz media-libs/libpng:0/16
+SLOT=0
+SRC_URI=https://github.com/werman/noise-suppression-for-voice/releases/download/v1.10/linux-rnnoise.zip -> noise-suppression-for-voice-bin-1.10.zip
+_md5_=13513bd4e792ae5d221d2467f884f64b
