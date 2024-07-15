@@ -1,0 +1,11 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=configure unpack
+DESCRIPTION=Paper Theme Suite for GTK 3 and GTK 2
+EAPI=8
+HOMEPAGE=https://snwh.org/paper
+INHERIT=git-r3
+LICENSE=GPL-3
+PROPERTIES=live
+SLOT=0
+_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=f5b8c3ef9ce52957ccef92dcbde0efde
