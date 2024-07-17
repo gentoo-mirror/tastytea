@@ -1,0 +1,11 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=configure unpack
+DESCRIPTION=Paper icon theme
+EAPI=8
+HOMEPAGE=https://snwh.org/paper
+INHERIT=git-r3
+LICENSE=CC-BY-SA-4.0
+PROPERTIES=live
+SLOT=0
+_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=a9737265e7bf4ed2ed627936e32c4f55
