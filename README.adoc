@@ -3,7 +3,6 @@
 :uri-gentoo: https://gentoo.org/
 :uri-eselect-repository: https://wiki.gentoo.org/wiki/Eselect/Repository
 :uri-layman: https://wiki.gentoo.org/wiki/Layman
-:uri-pgp-key: https://tastytea.de/tastytea.asc
 :uri-guru: https://wiki.gentoo.org/wiki/Project:GURU
 
 This is an unofficial repository for link:{uri-portage}[Portage],
@@ -37,19 +36,6 @@ I use SSH to sign commits. Before 2022-01-19, I used PGP.
 
 Fingerprint: `SHA256:FBkvrOlhq5use1XEttyUGT4bUTDVA1ar9SgIc9P03cM`
 
-Public key: `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPp7WPSOAZBNPuZ3LVlbE2KiOIxlVW4PGAHIx0b7EJKH`
-
-=== PGP
-
-Fingerprint: `D5B4 C43B 48A8 79F6 3529  36E6 5934 6E0E A35C 67E5`
-
-Public key: link:{uri-pgp-key}[]
-
-[source,shell]
-----
-gpg --locate-keys tastytea@tastytea.de
-----
-
 == Contact
 
-See https://tastytea.de/[].
+See https://tea.cuddleslut.fr/[].
