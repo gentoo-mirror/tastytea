@@ -1,0 +1,118 @@
+From c61b68af30a8bfdf729bfce7488a431798e46311 Mon Sep 17 00:00:00 2001
+From: tastytea <tastytea@tastytea.de>
+Date: Fri, 8 Sep 2023 20:01:03 +0200
+Subject: [PATCH] skip some tests
+
+reasons:
+  - needs to be in a git repo
+  - needs special test dependencies
+  - requires network access
+  - is time sensitive
+---
+ common/para/para_test.go                                      | 1 +
+ hugolib/hugo_modules_test.go                                  | 1 +
+ modules/client_test.go                                        | 4 ++++
+ .../resource_factories/create/create_integration_test.go      | 1 +
+ .../tocss/dartsass/dartsass_integration_test.go               | 1 +
+ .../resource_transformers/tocss/scss/scss_integration_test.go | 1 +
+ 6 files changed, 9 insertions(+)
+
+diff --git a/common/para/para_test.go b/common/para/para_test.go
+index 2d9188e..daf0560 100644
+--- a/common/para/para_test.go
++++ b/common/para/para_test.go
+@@ -69,6 +69,7 @@ func TestPara(t *testing.T) {
+ 	})
+ 
+ 	c.Run("Time", func(c *qt.C) {
++        c.Skip("time sensitive")
+ 		const n = 100
+ 
+ 		p := New(5)
+diff --git a/hugolib/hugo_modules_test.go b/hugolib/hugo_modules_test.go
+index 2434478..cb9294b 100644
+--- a/hugolib/hugo_modules_test.go
++++ b/hugolib/hugo_modules_test.go
+@@ -39,6 +39,7 @@ import (
+ )
+ 
+ func TestHugoModulesVariants(t *testing.T) {
++    t.Skip("Test dependencies not available")
+ 	if !htesting.IsCI() {
+ 		t.Skip("skip (relative) long running modules test when running locally")
+ 	}
+diff --git a/modules/client_test.go b/modules/client_test.go
+index 0ee7e0d..4bb8843 100644
+--- a/modules/client_test.go
++++ b/modules/client_test.go
+@@ -72,6 +72,7 @@ github.com/gohugoio/hugoTestModules1_darwin/modh2_2@v1.4.0 github.com/gohugoio/h
+ 	}
+ 
+ 	c.Run("All", func(c *qt.C) {
++		c.Skip("Test dependencies not available")
+ 		client, clean := newClient(c, func(cfg *ClientConfig) {
+ 			cfg.ModuleConfig = DefaultModuleConfig
+ 		}, defaultImport)
+@@ -111,6 +112,7 @@ project github.com/gohugoio/hugoTestModules1_darwin/modh2_2_2@v1.3.0+vendor
+ 	})
+ 
+ 	c.Run("IgnoreVendor", func(c *qt.C) {
++		c.Skip("Test dependencies not available")
+ 		client, clean := newClient(
+ 			c, func(cfg *ClientConfig) {
+ 				cfg.ModuleConfig = DefaultModuleConfig
+@@ -129,6 +131,7 @@ project github.com/gohugoio/hugoTestModules1_darwin/modh2_2_2@v1.3.0+vendor
+ 	})
+ 
+ 	c.Run("NoVendor", func(c *qt.C) {
++		c.Skip("Test dependencies not available")
+ 		mcfg := DefaultModuleConfig
+ 		mcfg.NoVendor = "**"
+ 		client, clean := newClient(
+@@ -148,6 +151,7 @@ project github.com/gohugoio/hugoTestModules1_darwin/modh2_2_2@v1.3.0+vendor
+ 	})
+ 
+ 	c.Run("VendorClosest", func(c *qt.C) {
++		c.Skip("Test dependencies not available")
+ 		mcfg := DefaultModuleConfig
+ 		mcfg.VendorClosest = true
+ 
+diff --git a/resources/resource_factories/create/create_integration_test.go b/resources/resource_factories/create/create_integration_test.go
+index 1708457..e81f4de 100644
+--- a/resources/resource_factories/create/create_integration_test.go
++++ b/resources/resource_factories/create/create_integration_test.go
+@@ -25,6 +25,7 @@ import (
+ )
+ 
+ func TestGetRemoteHead(t *testing.T) {
++	t.Skip("Requires network access")
+ 	files := `
+ -- config.toml --
+ [security]
+diff --git a/resources/resource_transformers/tocss/dartsass/dartsass_integration_test.go b/resources/resource_transformers/tocss/dartsass/dartsass_integration_test.go
+index 2aac2c5..764d16c 100644
+--- a/resources/resource_transformers/tocss/dartsass/dartsass_integration_test.go
++++ b/resources/resource_transformers/tocss/dartsass/dartsass_integration_test.go
+@@ -565,6 +565,7 @@ Styles: {{ $r.RelPermalink }}
+ 
+ // Issue 12849
+ func TestDirectoryIndexes(t *testing.T) {
++    t.Skip("Test dependencies not available")
+ 	t.Parallel()
+ 	if !dartsass.Supports() {
+ 		t.Skip()
+diff --git a/resources/resource_transformers/tocss/scss/scss_integration_test.go b/resources/resource_transformers/tocss/scss/scss_integration_test.go
+index bd140cc..afab22e 100644
+--- a/resources/resource_transformers/tocss/scss/scss_integration_test.go
++++ b/resources/resource_transformers/tocss/scss/scss_integration_test.go
+@@ -420,6 +420,7 @@ h3 {
+ 
+ // Issue 12851
+ func TestDirectoryIndexes(t *testing.T) {
++    t.Skip("Test dependencies not available")
+ 	t.Parallel()
+ 	if !scss.Supports() {
+ 		t.Skip()
+-- 
+2.44.2
+
