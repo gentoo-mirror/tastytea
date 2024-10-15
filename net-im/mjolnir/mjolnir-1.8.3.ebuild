@@ -1,24 +1,13 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-MATRIX_RUST_SDK_V="0.1.0-beta.1"
 DESCRIPTION="A moderation tool for Matrix"
 HOMEPAGE="https://github.com/matrix-org/mjolnir"
 SRC_URI="
 	https://github.com/matrix-org/mjolnir/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	https://tastytea.de/files/gentoo/${P}-deps.tar.xz
-	elibc_glibc? (
-		amd64? (
-			https://github.com/matrix-org/matrix-rust-sdk/releases/download/matrix-sdk-crypto-nodejs-v${MATRIX_RUST_SDK_V}/matrix-sdk-crypto.linux-x64-gnu.node -> matrix-sdk-crypto-${MATRIX_RUST_SDK_V}.linux-x64-gnu.node
-		)
-	)
-	elibc_musl? (
-		amd64? (
-			https://github.com/matrix-org/matrix-rust-sdk/releases/download/matrix-sdk-crypto-nodejs-v${MATRIX_RUST_SDK_V}/matrix-sdk-crypto.linux-x64-musl.node -> matrix-sdk-crypto-${MATRIX_RUST_SDK_V}.linux-x64-musl.node
-		)
-	)
 "
 
 # NOTE: to generate the deps archive:
@@ -31,28 +20,30 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="doc"
 
-RDEPEND=">=net-libs/nodejs-16"
+RDEPEND=">=net-libs/nodejs-18"
 BDEPEND="
-	sys-apps/yarn
+	|| (
+		net-libs/nodejs[corepack]
+		sys-apps/yarn
+	)
 	dev-lang/typescript
+"
+
+# FIXME if spoons (see 1.6.5-r1 for a starting point)
+RESTRICT="network-sandbox"
+
+QA_PREBUILT="
+	opt/mjolnir/node_modules/@matrix-org/matrix-sdk-crypto-nodejs/*
+	opt/mjolnir/node_modules/@tensorflow/tfjs-node/deps/lib/*
+	opt/mjolnir/node_modules/@tensorflow/tfjs-node/lib/napi-v8/*
 "
 
 MY_YARNOPTS="--offline --non-interactive --no-progress --verbose"
 
 src_prepare() {
-	yarn ${MY_YARNOPTS} --cache-folder ../yarn-cache install || die
-
-	local my_libc="gnu"
-	use elibc_musl && my_libc="musl"
-	local my_arch="x64"
-
-	# this is not cached but downloaded by a script usually
-	mkdir -p node_modules/@matrix-org/matrix-sdk-crypto-nodejs || die
-	cp "${DISTDIR}"/matrix-sdk-crypto-${MATRIX_RUST_SDK_V}.linux-${my_arch}-${my_libc}.node \
-		node_modules/@matrix-org/matrix-sdk-crypto-nodejs/matrix-sdk-crypto.linux-${my_arch}-${my_libc}.node \
-		|| die
-
 	default
+
+	yarn ${MY_YARNOPTS} --cache-folder ../yarn-cache install || die
 }
 
 src_compile() {
