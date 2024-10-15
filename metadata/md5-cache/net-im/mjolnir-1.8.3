@@ -1,0 +1,13 @@
+BDEPEND=|| ( net-libs/nodejs[corepack] sys-apps/yarn ) dev-lang/typescript
+DEFINED_PHASES=compile install postinst prepare
+DESCRIPTION=A moderation tool for Matrix
+EAPI=8
+HOMEPAGE=https://github.com/matrix-org/mjolnir
+IUSE=doc
+KEYWORDS=~amd64
+LICENSE=0BSD Apache-2.0 BSD BSD-2 ISC MIT PYTHON Unlicense
+RDEPEND=>=net-libs/nodejs-18
+RESTRICT=network-sandbox
+SLOT=0
+SRC_URI=https://github.com/matrix-org/mjolnir/archive/refs/tags/v1.8.3.tar.gz -> mjolnir-1.8.3.tar.gz https://tastytea.de/files/gentoo/mjolnir-1.8.3-deps.tar.xz
+_md5_=a9e11c3e7aa7891ae54aeddda777b28c
