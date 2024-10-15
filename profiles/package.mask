@@ -1,0 +1,6 @@
+# tea <tea+gentoo@cuddleslut.fr> (2024-10-15)
+# i don't use these anymore, removal in 30 days
+www-apps/up-common-proxies
+www-apps/gotify-server-bin
+acct-user/gotify
+acct-group/gotify
