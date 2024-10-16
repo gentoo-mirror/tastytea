@@ -4,11 +4,11 @@
 	<repo quality="experimental" status="unofficial">
 		<name>tastytea</name>
 		<description>Some ebuilds, no guarantees.</description>
-		<homepage>https://schlomp.space/tastytea/overlay</homepage>
+		<homepage>https://codeberg.org/tastytea/gentoo-overlay</homepage>
 		<owner>
-			<email>gentoo@tastytea.de</email>
-			<name>tastytea</name>
+			<email>tea+gentoo@cuddleslut.fr</email>
+			<name>tea</name>
 		</owner>
-		<source type="git">https://schlomp.space/tastytea/overlay.git</source>
+		<source type="git">https://codeberg.org/tastytea/gentoo-overlay.git</source>
 	</repo>
 </repositories>
