@@ -27,7 +27,7 @@ sci-libs/cld2 0_pre20150821: Compact Language Detector 2
 sys-apps/hashboot 0.9.14 9999: Check integrity of files in /boot
 www-apps/gitea 1.16.3: A painless self-hosted Git service
 www-apps/gotify-server-bin 2.4.0 2.5.0: Simple server for sending and receiving messages in real-time per WebSocket
-www-apps/hugo 0.135.0: Fast static HTML and CSS website generator
+www-apps/hugo 0.135.0 0.136.5: Fast static HTML and CSS website generator
 www-apps/libravatarserv 0.7.5 0.9.0 9999: Simple libravatar server
 www-apps/up-common-proxies 2.0.1 2.1.0: Rewrite proxy for UnifiedPush
 www-misc/remwharead 0.10.0 9999: Saves URIs of things you want to remember in a database.
