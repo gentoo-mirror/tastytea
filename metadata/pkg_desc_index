@@ -20,7 +20,7 @@ media-fonts/source-serif 3.001-r1: Serif font family for user interface environm
 media-plugins/noise-suppression-for-voice-bin 1.03 1.10: Noise suppression plugin based on Xiph's RNNoise (VST2/3, LV2, LADSPA)
 media-sound/navidrome-bin 0.52.5 0.53.3: Music Server and Streamer compatible with Subsonic/Airsonic
 net-im/mjolnir 1.6.5-r1 1.8.3: A moderation tool for Matrix
-net-misc/aria-misskey-bin 0.15.1: A Misskey client app forked from Miria
+net-misc/aria-misskey-bin 0.15.1-r1: A Misskey client app forked from Miria
 net-misc/feiertagebot 9999: Allows you to execute files from compiled languages as scripts.
 net-misc/soupbot 9999: soupbot is a soup-recommending bot for Mastodon
 net-misc/whyblocked 0.15.0 9999-r8: whyblocked reminds you why you blocked someone.
