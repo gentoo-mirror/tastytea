@@ -36,6 +36,7 @@ QA_PREBUILT="
 src_install() {
 	insinto /opt/aria-misskey
 	doins -r aria data lib
+	fperms +x /opt/aria-misskey/aria
 	dosym -r /opt/aria-misskey/aria usr/bin/aria-misskey-bin
 
 	doicon data/flutter_assets/assets/aria.png

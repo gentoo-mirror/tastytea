@@ -31,7 +31,7 @@ RDEPEND="
 "
 DEPEND="
 	dev-build/cmake
-	doc? ( app-doc/doxygen )
+	doc? ( app-text/doxygen )
 	test? ( dev-cpp/catch )
 	${RDEPEND}
 "

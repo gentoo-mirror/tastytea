@@ -26,7 +26,7 @@ DEPEND="${LUA_DEPS}"
 RDEPEND="${DEPEND}"
 BDEPEND="
 	app-arch/unzip
-	dev-util/ninja
+	dev-build/ninja
 "
 
 QA_PREBUILT="/opt/lua-language-server/bin/lua-language-server"

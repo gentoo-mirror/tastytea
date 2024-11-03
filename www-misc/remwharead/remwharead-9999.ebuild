@@ -36,7 +36,7 @@ DEPEND="
 	app-text/asciidoc
 	dev-cpp/popl
 	test? ( dev-cpp/catch )
-	doc? ( app-doc/doxygen )
+	doc? ( app-text/doxygen )
 "
 
 src_configure() {

@@ -3,7 +3,7 @@
 <pkgmetadata>
 	<maintainer type="project">
 		<email>gnome@gentoo.org</email>
-		<name>Gentoo GNOME Desktop</name>
+		<name>tea</name>
 	</maintainer>
 	<upstream>
 		<remote-id type="sourceforge">gcolor2</remote-id>
