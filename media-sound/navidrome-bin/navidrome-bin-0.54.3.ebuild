@@ -7,7 +7,10 @@ inherit systemd
 
 DESCRIPTION="Music Server and Streamer compatible with Subsonic/Airsonic"
 HOMEPAGE="https://www.navidrome.org/"
-SRC_URI="https://github.com/navidrome/navidrome/releases/download/v${PV}/navidrome_${PV}_linux_amd64.tar.gz"
+SRC_URI="
+	amd64? ( https://github.com/navidrome/navidrome/releases/download/v${PV}/navidrome_${PV}_linux_amd64.tar.gz )
+	arm64? ( https://github.com/navidrome/navidrome/releases/download/v${PV}/navidrome_${PV}_linux_arm64.tar.gz )
+"
 S="${WORKDIR}"
 
 LICENSE="GPL-3"
@@ -20,11 +23,14 @@ RDEPEND="
 "
 BDEPEND="acct-user/navidrome"
 
+QA_PREBUILT="usr/bin/navidrome"
+
 src_prepare() {
 	cat << EOF > navidrome.toml.example
 # see <https://www.navidrome.org/docs/usage/configuration-options/#available-options> for more options
 
 # MusicFolder = '/media/music'
+EnableInsightsCollector = false
 EOF
 
 	default
