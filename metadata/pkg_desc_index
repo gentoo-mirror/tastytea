@@ -18,6 +18,7 @@ media-plugins/noise-suppression-for-voice-bin 1.03 1.10: Noise suppression plugi
 media-sound/navidrome-bin 0.53.3 0.54.3: Music Server and Streamer compatible with Subsonic/Airsonic
 net-im/mjolnir 1.6.5-r1 1.8.3: A moderation tool for Matrix
 net-misc/aria-misskey-bin 0.15.1-r1: A Misskey client app forked from Miria
+net-p2p/litecoin-core-bin 0.21.4: Reference implementation of the Litecoin cryptocurrency
 sci-libs/cld2 0_pre20150821: Compact Language Detector 2
 sys-apps/hashboot 0.9.14 9999: Check integrity of files in /boot
 www-apps/gitea 1.16.3: A painless self-hosted Git service
