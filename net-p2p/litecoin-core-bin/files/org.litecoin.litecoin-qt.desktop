@@ -1,0 +1,15 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Name=Bitcoin Core
+Comment=Connect to the Litecoin P2P Network
+Comment[de]=Verbinde mit dem Litecoin peer-to-peer Netzwerk
+Comment[fr]=Litecoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Litecoin, eşten eşe kriptografik sanal para birimi
+Exec=litecoin-qt %u
+Terminal=false
+Type=Application
+Icon=bitcoin128
+#MimeType=x-scheme-handler/litecoin;
+Categories=Office;Finance;P2P;Network;Qt;
+StartupWMClass=Litecoin-qt
