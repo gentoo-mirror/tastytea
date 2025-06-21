@@ -1,6 +1,5 @@
 acct-group/navidrome 0: Group for Navidrome
 acct-user/navidrome 0: User for Navidrome
-app-i18n/poedit 3.0.1 3.1.1: GUI gettext translations editor
 app-text/epubgrep 9999: Search tool for EPUB e-books
 dev-cpp/cpprest 2.10.18: REST SDK using an asynchronous C++ API design
 dev-cpp/identiconpp 0.7.1 0.7.2 9999: Library to generate identicons for C++.
