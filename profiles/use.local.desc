@@ -2,8 +2,6 @@
 # Please add your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using pmaint *
 
-app-i18n/poedit:cld2 - Better language autodetection and non-English source languages via sci-libs/cld2
-app-i18n/poedit:crowdin - Enable Crowdin (online translation platform) integration
 dev-cpp/cpprest:brotli - Enable brotli compression/decompression support
 dev-cpp/cpprest:websockets - Support the WebSocket protocol
 dev-python/pygls:ws - websocket support
